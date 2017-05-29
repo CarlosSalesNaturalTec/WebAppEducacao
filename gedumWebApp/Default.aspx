@@ -21,7 +21,7 @@
 
     <!-- Corpo -->
     <div class="w3-container">
-        <img src="Images/backgroudlogin1.jpg" class="w3-display-middle" />
+        <img src="Images/backgroudlogin4.jpg" class="w3-display-middle w3-opacity" />
 
         <!-- Login -->
         <div id="divLogin" class="w3-display-middle">
@@ -30,7 +30,6 @@
                 <br /><br /><br />
 
                 <h3><strong>GEDUM - Painel de Controle</strong> </h3>
-                <hr />
 
                 <p>
                     <input id="inputUser" placeholder="Usuário" class="w3-input w3-border w3-round" type="text" />
@@ -54,9 +53,9 @@
             <section class="w3-padding w3-center w3-animate-left" style="max-width: 400px">
                 <h2><strong>Atenção !</strong> </h2>
                 <hr />
-                <h2><strong>
-                    <span id="lblMsgRetorno"></span></strong>
-                </h2>
+                <%--<h4>--%>
+                    <span id="lblMsgRetorno"></span>
+                </h4>
                 <p>
                     <button id="btVoltar" class="w3-btn w3-green w3-round" onclick="LoginVoltar()">Tentar Novamente</button>
                 </p>
@@ -71,7 +70,7 @@
         <div class="w3-bar w3-center w3-bottom">
             <h6 class="w3-small">
                 Powered by &nbsp;
-                <img src="Images/inxellsmall.jpg" />
+                <img src="Images/inxell.jpg" />
             </h6>
         </div>
     </div>

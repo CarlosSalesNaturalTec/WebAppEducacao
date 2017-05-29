@@ -14,8 +14,7 @@
 <body>
 
     <!-- Corpo -->
-    <div class="w3-container">
-        <img src="Images/alianca.jpg" class="w3-display-middle w3-animate-fading" />
+    <div>
 
         <!-- Menu -->
         <div class="w3-bar w3-light-grey">
@@ -70,11 +69,17 @@
 
     </div>
 
+    <!-- page content -->
+    <div>
+        <iframe src="home.aspx" width="100%" height="480" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+    </div>
+    <!-- page content -->
+
     <!-- Footer -->
     <div class="w3-container w3-bottom">
         <div class="w3-bar w3-center w3-bottom w3-animate-left">
             <h6 class="w3-small">Powered by &nbsp;
-                <img src="Images/inxellsmall.jpg" />
+                <img src="Images/inxell.jpg" />
             </h6>
         </div>
     </div>
