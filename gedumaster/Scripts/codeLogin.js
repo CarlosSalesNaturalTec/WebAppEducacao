@@ -9,7 +9,7 @@ function TentarLogin() {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/Identificador",
+        url: "WebService.asmx/TentaLogin",
         data: '{user: "' + v1 + '", pwd: "' + v2 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",

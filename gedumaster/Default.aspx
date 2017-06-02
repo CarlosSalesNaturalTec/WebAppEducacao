@@ -25,8 +25,7 @@
 
             <section class="w3-padding w3-center w3-animate-opacity" style="max-width: 400px">
                 <h3><strong>GEDUM - Módulo Gestão</strong> </h3>
-                <hr />
-
+             
                 <p>
                     <input id="inputUser" placeholder="Usuário" class="w3-input w3-border w3-round" type="text" />
                 </p>
@@ -58,7 +57,7 @@
         </div>
     </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <div class="w3-container w3-bottom">
         <div class="w3-bar w3-center w3-bottom">
             <h6 class="w3-small">
