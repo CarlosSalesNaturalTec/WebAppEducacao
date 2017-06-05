@@ -49,6 +49,73 @@ public class WebService : System.Web.Services.WebService
 
     }
 
+    [WebMethod]
+    public string InstituicaoSalvar(string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8)
+    {
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(@"INSERT INTO Tbl_Instituicao  (Nome, Diretor , email, Tel, uf, cidade ) " +
+            "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "', '" + param5 + "', '" + param6 + "')");
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "CADInstituicoes_Listagem.aspx";   // ATENÇÃO - FALTA SALVAR EM TABELA DE USUARIOS E SENHAS
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string InstituicaoExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Instituicao where ID_inst =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "CADInstituicoes_Listagem.aspx";
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string InstituicaoAlterar(string param1, string param2, string param3, string param4, string param5, string param6, string param7)
+    {
+        string url;
+
+        OperacaoBanco operacao4 = new OperacaoBanco();
+        bool alterar = operacao4.Update(@"update  Tbl_Instituicao set " +
+            "Nome = '" + param1 + "', Diretor = '" + param2 + "', email='" + param3 + "', tel = '" + param4 + 
+            "', uf = '" + param5 + "', cidade = '" + param6 +
+            "' where ID_inst =" + param7);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (alterar == true)
+        {
+            url = "CADInstituicoes_Listagem.aspx";
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
 }
 
 

@@ -10,16 +10,10 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <style>
-        body {
-            background-color: #2f2a2a;
-        }
-    </style>
-
 </head>
 <body>
     <div>
-        <img src="Imagens/alianca.jpg" class="w3-display-middle w3-animate-fading" />
+        <img src="Imagens/logoaliancapng.png" class="w3-display-middle" />
 
     </div>
 </body>

@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Painel : System.Web.UI.Page
+public partial class CADInstituicoes_Novo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblUser.Text = Session["UserName"].ToString();
+
     }
 }

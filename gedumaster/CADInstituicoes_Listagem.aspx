@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <title></title>
+    <title>Listagem de Instituições</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -21,18 +21,18 @@
 </head>
 <body>
     <div>
-        <header class="w3-container w3-green w3-text-yellow w3-center w3-padding-small">
+        <header class="w3-container w3-orange w3-center w3-padding-small">
             <h4><strong>Cadastro de Instituições</strong></h4>
         </header>
     </div>
 
     <br />
 
-    <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left:2%; margin-right:2%">
-        <button class="w3-btn w3-green">Novo Atleta</button>
-        <small>Total de Instituições Cadastradas: <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small>
+    <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left: 2%; margin-right: 2%">
+        <i class="fa fa-university"></i>&nbsp;<small>Total de Instituições Cadastradas:&nbsp;</small>
+            <strong><asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></strong>
+        <button class="w3-btn w3-orange w3-round-large w3-right" onclick="NovaInstituicao()">Nova Instituição</button>
     </div>
-
     <br />
 
     <div class="w3-small">
@@ -40,6 +40,8 @@
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
         <!-- Planilha  -->
     </div>
+
+    <script type="text/javascript" src="Scripts/codeInstituicaoNova.js"></script>
 
 </body>
 </html>
