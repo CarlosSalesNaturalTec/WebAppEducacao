@@ -18,10 +18,16 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        body{
+            background-image: url("Imagens/fundo1.jpg");
+        }
+    </style>
+
 </head>
 <body>
     <div>
-        <header class="w3-container w3-orange w3-center w3-padding-small">
+        <header class="w3-container w3-green w3-center w3-padding-small">
             <h4><strong>Cadastro de Instituições</strong></h4>
         </header>
     </div>
@@ -29,9 +35,9 @@
     <br />
 
     <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left: 2%; margin-right: 2%">
-        <i class="fa fa-university"></i>&nbsp;<small>Total de Instituições Cadastradas:&nbsp;</small>
+        <i class="fa fa-2x fa-university w3-text-green"></i>&nbsp;<small>Total de Instituições Cadastradas:&nbsp;</small>
             <strong><asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></strong>
-        <button class="w3-btn w3-orange w3-round-large w3-right" onclick="NovaInstituicao()">Nova Instituição</button>
+        <button class="w3-btn w3-green w3-round-large w3-right" onclick="NovaInstituicao()">Nova Instituição</button>
     </div>
     <br />
 

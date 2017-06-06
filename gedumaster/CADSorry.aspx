@@ -18,7 +18,7 @@
         <p><i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i></p>
         <h1>Opa, não deu pra atender a sua solicitação!</h1>
         
-        <p><a class="w3-button w3-orange w3-round-large" href="Default.aspx" target="_parent">Login</a></p>
+        <p><a class="w3-button w3-green w3-round-large" href="Default.aspx" target="_parent">Login</a></p>
 
     </div>
 </body>

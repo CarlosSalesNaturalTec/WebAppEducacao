@@ -17,10 +17,10 @@
     <div>
         <div class="w3-bar w3-black">
 
-            <a href="#" class="w3-bar-item w3-btn w3-hover-orange w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
+            <a href="#" class="w3-bar-item w3-btn w3-hover-green w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-orange"><i class="fa fa-line-chart"></i>&nbsp;Estatísticas</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-line-chart"></i>&nbsp;Estatísticas</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#" class="w3-bar-item w3-button">Gráficos</a>
                     <a href="#" class="w3-bar-item w3-button">Relatórios</a>
@@ -28,14 +28,14 @@
             </div>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-orange"><i class="fa fa-university"></i>&nbsp;Instituições</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-university"></i>&nbsp;Instituições</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="CADInstituicoes_Listagem.aspx" target="iframe" class="w3-bar-item w3-button">Cadastro</a>
                     <a href="#" class="w3-bar-item w3-button">Pesquisa</a>
                 </div>
             </div>
 
-            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-orange w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <a href="Home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
 
         </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="w3-bottom">
         <div class="w3-bar w3-black">
             <div class="w3-left">
-                <h6 class="w3-small"><i class="fa fa-user w3-small"></i>&nbsp;Usuário: <asp:Label ID="lblUser" runat="server"></asp:Label></h6>
+                <h6 class="w3-small"><i class="fa fa-user w3-small w3-text-green"></i>&nbsp;Usuário: <asp:Label ID="lblUser" runat="server" CssClass="w3-text-green"></asp:Label></h6>
             </div>
             <div class="w3-right">
                 <h6 class="w3-small">Powered by:&nbsp;<img src="Imagens/inxell.jpg" /></h6>

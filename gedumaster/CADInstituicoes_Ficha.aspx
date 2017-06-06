@@ -20,12 +20,18 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        body{
+            background-image: url("Imagens/fundo1.jpg");
+        }
+    </style>
+
 </head>
 
 <body>
 
     <div>
-        <header class="w3-container w3-orange w3-center w3-padding-small">
+        <header class="w3-container w3-green w3-center w3-padding-small">
             <h4><strong>Ficha de Instituição</strong></h4>
         </header>
     </div>
@@ -78,9 +84,9 @@
 
             <div class="form-group">
                 <div id="btsDefault" class="col-md-6 col-md-offset-1">
-                    <button type="button" class="w3-btn w3-gray w3-round-large" onclick="cancelar()">CANCELAR</button>&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="w3-btn w3-blue w3-round-large" onclick="" id="btSenha">ALTERAR SENHA</button>&nbsp;&nbsp;&nbsp;
-                    <button type="button" class="w3-btn w3-green w3-round-large" onclick="AlterarREgistro()" id="btSalvar">&nbsp;&nbsp;&nbsp;ALTERAR&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="w3-btn w3-red w3-round-large w3-border" onclick="cancelar()">CANCELAR</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="w3-btn w3-blue w3-round-large w3-border" onclick="" id="btSenha">ALTERAR SENHA</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="w3-btn w3-green w3-round-large w3-border" onclick="AlterarREgistro()" id="btSalvar">&nbsp;&nbsp;&nbsp;ALTERAR&nbsp;&nbsp;&nbsp;</button>&nbsp;&nbsp;&nbsp;
                 </div>
 
                 <div id="btsALterar" style="display: none" class="col-md-6 col-md-offset-1">

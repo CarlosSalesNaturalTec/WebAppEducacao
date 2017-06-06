@@ -58,8 +58,8 @@ public partial class CADInstituicoes_Listagem : System.Web.UI.Page
             string Coluna5 = Convert.ToString(dados[5]);
             string Coluna6 = Convert.ToString(dados[6]);
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue' href='CADInstituicoes_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>";
-            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-padding' onclick='ExcluirRegistro(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='CADInstituicoes_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>";
+            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirRegistro(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +

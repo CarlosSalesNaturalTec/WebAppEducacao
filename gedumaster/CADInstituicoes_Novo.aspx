@@ -20,12 +20,18 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <style>
+        body {
+            background-image: url("Imagens/fundo1.jpg");
+        }
+    </style>
+
 </head>
 
 <body>
 
     <div>
-        <header class="w3-container w3-orange w3-center w3-padding-small">
+        <header class="w3-container w3-green w3-center w3-padding-small">
             <h4><strong>Nova Instituição</strong></h4>
         </header>
     </div>
@@ -34,8 +40,6 @@
 
     <form class="form-horizontal">
         <fieldset>
-
-            <legend></legend>
 
             <div class="form-group">
                 <label for="input1" class="col-md-1 control-label">Nome</label>
@@ -66,7 +70,12 @@
             <div class="form-group">
                 <label for="input5" class="col-md-1 control-label">UF</label>
                 <div class="col-md-2">
-                    <input type="text" class="form-control" id="input5">
+                    <select id="input5" class="w3-select w3-border" name="option">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="1">BA</option>
+                        <option value="2">PE</option>
+                        <option value="3">SP</option>
+                    </select>
                 </div>
                 <label for="input6" class="col-md-1 control-label">Cidade</label>
                 <div class="col-md-6">
