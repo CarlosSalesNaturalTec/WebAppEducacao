@@ -21,22 +21,20 @@ public class WebService : System.Web.Services.WebService
         string Identificador_msg = "0";
 
         // localiza usuario
-        string stringSelect = "select senha,nome from tbl_usuarios where usuario = '" + user + "'";
+        string stringSelect = "select senha,nome,ID_user from tbl_usuarios where usuario = '" + user + "'";
         OperacaoBanco Identificador_Operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
+        SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
         while (Identificador_rcrdset.Read())
         {
             if (pwd == Convert.ToString(Identificador_rcrdset[0]))
             {
-
                 string vValida1, vValida2;
                 vValida1 = DateTime.Now.ToString("dd");
                 vValida2 = DateTime.Now.ToString("MM");
                 int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                 string vValida4 = vValida3.ToString();
 
-                Identificador_msg = "Painel.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]);
-
+                Identificador_msg = "Login.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]) + "&p3=" + Convert.ToString(Identificador_rcrdset[2]);
             }
             else
             {

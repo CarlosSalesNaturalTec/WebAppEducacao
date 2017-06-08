@@ -18,8 +18,8 @@ function SalvarRegistro() {
     var v2 = document.getElementById("input2").value        //diretor
     var v3 = document.getElementById("input3").value        //email
     var v4 = document.getElementById("input4").value        //telefone
-    var v5 = document.getElementById("input5").value        //UF
-    var v6 = document.getElementById("input6").value        //cidad
+    var v5 = document.getElementById("estados").value        //UF
+    var v6 = document.getElementById("cidades").value        //cidad
     var v7 = document.getElementById("input7").value        //usuario
     var v8 = document.getElementById("input8").value        //senha
 

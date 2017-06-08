@@ -12,14 +12,14 @@
 
     <style>
         body{
-            background-image: url("Imagens/fundo1.jpg");
+            background-image: url("Imagens/fundo.jpg");
+            background-repeat: repeat;
         }
     </style>
 
 </head>
 <body>
     <div>
-         <img src="Imagens/fundo1.jpg" class="w3-display-middle" />
         <img src="Imagens/logoaliancapng.png" class="w3-display-middle" />
 
     </div>

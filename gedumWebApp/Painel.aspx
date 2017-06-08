@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
     <title>GEDUM - Painel de Controle</title>
     <meta charset="utf-8" />
@@ -10,60 +11,70 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
     <!-- Corpo -->
     <div>
 
         <!-- Menu -->
-        <div class="w3-bar w3-light-grey">
+        <div class="w3-bar w3-black">
 
-            <a href="#" class="w3-bar-item w3-button w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
+            <a href="#" class="w3-bar-item w3-btn w3-hover-green w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-button">Alunos </button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Alunos </button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button">Ficha do Aluno</a>
-                    <a href="#" class="w3-bar-item w3-button">Boletins</a>
-                    <a href="#" class="w3-bar-item w3-button">Frequência</a>
-                    <a href="#" class="w3-bar-item w3-button">Ocorrências</a>
-                    <a href="#" class="w3-bar-item w3-button">Atestados</a>
-                    <a href="#" class="w3-bar-item w3-button">Histórico Escolar</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Ficha do Aluno</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Boletins</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Frequência</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Ocorrências</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Atestados</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Histórico Escolar</a>
                 </div>
             </div>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-button">Matrículas</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Matrículas</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button">Pré-Matrículas</a>
-                    <a href="#" class="w3-bar-item w3-button">Matriculados</a>
-                    <a href="#" class="w3-bar-item w3-button">Formulários</a>
-                </div>
-            </div>
-
-
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-button">Equipe</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button">Professores</a>
-                    <a href="#" class="w3-bar-item w3-button">Funcionários</a>
-                    <a href="#" class="w3-bar-item w3-button">Frequência</a>
-                    <a href="#" class="w3-bar-item w3-button">Atestados</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Pré-Matrículas</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Matriculados</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Formulários</a>
                 </div>
             </div>
 
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-button">Instituição</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Equipe</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button">Cursos</a>
-                    <a href="#" class="w3-bar-item w3-button">Disciplinas</a>
-                    <a href="#" class="w3-bar-item w3-button">Salas</a>
-                    <a href="#" class="w3-bar-item w3-button">Vagas</a>
-                    <a href="#" class="w3-bar-item w3-button">Turmas</a>
+                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Frequência</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Atestados</a>
                 </div>
             </div>
+
+
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Instituição</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Disciplinas</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Salas</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Vagas</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Turmas</a>
+                </div>
+            </div>
+
+            <a href="home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+
 
         </div>
 
@@ -71,28 +82,49 @@
 
     <!-- page content -->
     <div>
-        <iframe src="home.aspx" width="100%" height="480" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="home.aspx" width="100%" height="620px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
     <!-- Footer -->
-    <div class="w3-container w3-bottom">
-        <div class="w3-bar w3-center w3-bottom w3-animate-left">
-            <h6 class="w3-small">Powered by &nbsp;
-                <img src="Images/inxell.jpg" />
-            </h6>
+    <div class="w3-bottom">
+        <div class="w3-bar w3-black">
+            <div class="w3-right">
+                <h6 class="w3-small" style="margin-left: 14px">Usuário:
+                    <asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
+                    &nbsp;&nbsp;&nbsp;<a href="#" target="_blank"><img src="Images/inxell.jpg" class="w3-animate-fading" />&nbsp;&nbsp;&nbsp;</a>
+                </h6>
+            </div>
         </div>
     </div>
 
-    <script type="text/javascript">
+    <!-- Modal LogOff -->
+    <div id="DivLogOut" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 400px">
 
-        function sair() {
-            var r = confirm("SAIR ?");
-            if (r == true) {
-                window.open('Default.aspx', '_parent');
-            }
-        }
-    </script>
+            <form class="w3-container">
+                <div class="w3-section w3-center">
+                    <header class="w3-container w3-blue w3-center">
+                        <h4><strong>Atenção</strong></h4>
+                    </header>
+                    <br />
+                    <i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i>
+                    <br />
+                    <h3><strong>Confirma Saida?</strong> </h3>
+                    <br />
+                    <p>
+                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-blue" onclick="sair_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-red" onclick="sair_exit()">Sim</button>
+                    </p>
+                    <br />
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal LogOff -->
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="Scripts/codePainel.js"></script>
 
 </body>
 </html>

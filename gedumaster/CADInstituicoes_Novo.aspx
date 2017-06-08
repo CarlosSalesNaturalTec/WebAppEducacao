@@ -22,7 +22,8 @@
 
     <style>
         body {
-            background-image: url("Imagens/fundo1.jpg");
+            background-image: url("Imagens/fundo.jpg");
+            background-repeat: repeat;
         }
     </style>
 
@@ -70,16 +71,14 @@
             <div class="form-group">
                 <label for="input5" class="col-md-1 control-label">UF</label>
                 <div class="col-md-2">
-                    <select id="input5" class="w3-select w3-border" name="option">
-                        <option value="" disabled selected>Selecione</option>
-                        <option value="1">BA</option>
-                        <option value="2">PE</option>
-                        <option value="3">SP</option>
+                    <select id="estados" class="w3-select w3-border">
+                        <option value=""></option>
                     </select>
                 </div>
                 <label for="input6" class="col-md-1 control-label">Cidade</label>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="input6">
+                    <select id="cidades" class="form-control">
+                    </select>
                 </div>
             </div>
 
@@ -112,7 +111,7 @@
 
     <!-- Scripts diversos  -->
     <script type="text/javascript" src="Scripts/codeInstituicaoNova.js"></script>
-
+    <script type="text/javascript" src="Scripts/codeUFCidade.js"></script>
 </body>
 
 </html>
