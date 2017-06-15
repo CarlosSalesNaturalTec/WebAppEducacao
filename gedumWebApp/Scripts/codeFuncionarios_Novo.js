@@ -2,12 +2,9 @@
 
 function SalvarRegistro() {
 
-    document.getElementById("divhidden").style.display = "block";
-
     var v1 = document.getElementById("input_nome").value
     
     if (v1 == "") {
-        document.getElementById("divhidden").style.display = "none";
         alert("Informe Nome do Funcionário");   //<!--*******Customização*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
@@ -15,8 +12,7 @@ function SalvarRegistro() {
         return;
     }
 
-    document.getElementById('btConcluir').disabled = true;
-    document.getElementById('btSalvar').disabled = true;
+    AguardarUI();
 
     //<!--*******Customização*******-->
     $.ajax({
@@ -26,7 +22,6 @@ function SalvarRegistro() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            document.getElementById("btSalvar").style.cursor = "default";
             var linkurl = response.d;
             window.location.href = linkurl;
         },
@@ -75,6 +70,19 @@ function cancelar() {
     window.location.href = linkurl;
 }
 
+function AguardarUI() {
+    var i, x;
+
+    x = document.getElementsByClassName("btcontroles");
+    for (i = 0; i < x.length; i++) {
+        x[i].disabled = true;
+    }
+
+    x = document.getElementsByClassName("aguarde");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "block";
+    }
+}
 //Menu
 function openLink(evt, animName) {
     var i, x, tablinks;

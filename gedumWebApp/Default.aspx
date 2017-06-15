@@ -15,7 +15,7 @@
 <body>
 
     <!-- Header -->
-    <header class="w3-light-gray w3-card-4 w3-center">
+    <header class="w3-center">
         <img src="Images/logoaliancasmall1.png" alt="Logomarca Aliança - Assecoria em Gestão Pública" />
     </header>
 
