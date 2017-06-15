@@ -18,6 +18,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     <style>
+        body {
+            background-image: url("Images/fundo.jpg");
+            background-repeat: repeat;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -82,7 +90,7 @@
 
     <!-- page content -->
     <div>
-        <iframe src="home.aspx" width="100%" height="1920px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="home.aspx" width="100%" height="600px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
@@ -90,9 +98,9 @@
     <div class="w3-bottom">
         <div class="w3-bar w3-black">
             <div class="w3-right">
-                <h6 class="w3-small" style="margin-left: 14px">Usuário:
-                    <asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
-                    &nbsp;&nbsp;&nbsp;<a href="#" target="_blank"><img src="Images/logor_inxellsmall.png" class="w3-animate-fading" />&nbsp;&nbsp;&nbsp;</a>
+                <h6 class="w3-small" style="margin-left: 14px"><a href="#" target="_blank"><img src="Images/logor_inxellsmall.png" class="w3-animate-fading" /></a>
+                &nbsp;&nbsp;&nbsp;<asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;
+                    <i class="fa fa-user w3-small"></i>&nbsp;&nbsp;
                 </h6>
             </div>
         </div>
@@ -104,7 +112,7 @@
 
             <form class="w3-container">
                 <div class="w3-section w3-center">
-                    <header class="w3-container w3-blue w3-center">
+                    <header class="w3-container w3-green w3-center">
                         <h4><strong>Atenção</strong></h4>
                     </header>
                     <br />
@@ -113,7 +121,7 @@
                     <h3><strong>Confirma Saida?</strong> </h3>
                     <br />
                     <p>
-                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-blue" onclick="sair_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-green" onclick="sair_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
                         <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-red" onclick="sair_exit()">Sim</button>
                     </p>
                     <br />

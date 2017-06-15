@@ -20,7 +20,7 @@
 </head>
 <body>
     <div>
-        <img src="Images/alianca.jpg" class="w3-display-middle w3-animate-fading" />
+        <img src="Images/logoaliancamedium.png" class="w3-display-middle" />
 
     </div>
 </body>

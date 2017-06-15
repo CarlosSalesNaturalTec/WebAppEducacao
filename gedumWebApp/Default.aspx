@@ -16,7 +16,7 @@
 
     <!-- Header -->
     <header class="w3-light-gray w3-card-4 w3-center">
-        <img src="Images/aliancasmall1.jpg" alt="Logomarca Aliança - Assecoria em Gestão Pública" />
+        <img src="Images/logoaliancasmall1.png" alt="Logomarca Aliança - Assecoria em Gestão Pública" />
     </header>
 
     <!-- Corpo -->
@@ -70,7 +70,7 @@
         <div class="w3-bar w3-center w3-bottom">
             <h6 class="w3-small">
                 Powered by &nbsp;
-                <img src="Images/inxell.jpg" />
+                <img src="Images/logor_inxellsmall.png" />
             </h6>
         </div>
     </div>

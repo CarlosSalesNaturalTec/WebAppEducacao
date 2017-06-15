@@ -40,7 +40,7 @@
 <body>
 
     <!--******* MENU LATERAL - Customização*******-->
-    <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 150px">
+    <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <br />
         <br />
         <br />
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div style="margin-left: 150px">
+    <div style="margin-left: 180px">
 
         <div>
             <header class="w3-container w3-green w3-center w3-padding-small">
@@ -79,7 +79,7 @@
 
         <!-- GRUPO 1 -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
-            <h3><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3>  <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3>  <!--*******Customização*******-->
             <hr />
 
             <div class="w3-twothird">
@@ -107,7 +107,6 @@
             <!-- Camera -->
             <div class="w3-third">
                 <div id="results"></div>
-
                 <div class="row">
                     <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
                     <input type="file" id="filePicker">
@@ -121,7 +120,7 @@
 
         <!-- GRUPO 2 -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-futbol-o" aria-hidden="true"></i>&nbsp;Clube</h3>  <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</h3>  <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
 
@@ -151,11 +150,11 @@
                 <fieldset>
                 </fieldset>
             </form>
+
             <div>
                 <div class="col-md-2"></div>
                 <div class="col-md-1">
                     <button class="w3-btn w3-light-green w3-hover-green" onclick="btvoltar2()">VOLTAR</button>
-
                 </div>
                 <div class="col-md-1">
                     <button class="w3-btn w3-light-green w3-hover-green" onclick="AlterarRegistro()">CONCLUIR</button>
@@ -169,7 +168,6 @@
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts diversos  -->
-
     <script type="text/javascript" src="Scripts/webcam.js"></script>
     <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>  <!--*******Customização*******-->
 
