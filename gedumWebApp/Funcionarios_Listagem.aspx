@@ -29,20 +29,12 @@
 
 </head>
 <body>
-    <div>
-        <header class="w3-container w3-green w3-center w3-padding-small">
-            <h4><strong>Cadastro de Funcionarios</strong></h4>   <!--*******Customização*******-->
-        </header>
-    </div>
-
-    <br />
-
-
-    <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x w3-text-green"></i>&nbsp;&nbsp;Total de Funcionarios Cadastrados:
+    <p></p>
+    <div class="w3-container w3-border w3-round w3-padding-16 w3-light-green" style="margin-left: 2%; margin-right: 2%">
+        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Funcionarios Cadastrados:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Funcionario</button>  <!--*******Customização*******-->
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Funcionario</button>  <!--*******Customização*******-->
     </div>
 
     <br />

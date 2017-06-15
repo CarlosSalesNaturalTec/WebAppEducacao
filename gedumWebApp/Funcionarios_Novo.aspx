@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Cadastro de Funcionário</title>  <!--*******Customização*******-->
+    <!--*******Customização*******-->
+    <title>Cadastro de Funcionário</title>    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -34,26 +35,25 @@
 
 </head>
 <body>
-
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
-        <br /><br /><br />
-
+        <div class="w3-padding w3-center">
+        <img src="Images/brasaobahiacolorsmall.png" />
+        </div>
+        <hr />
+        
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
         <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>
-        <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes</button>        
+        <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes</button>
         <button id="bt5" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo4')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios</button>
         <button id="bt6" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo5')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação</button>
         <button id="bt7" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo6')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária</button>
         <button id="bt8" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo7')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários</button>
         <button id="bt9" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo8')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
-
         <hr />
         <div class="w3-center">
-            <button type="button" class="w3-btn w3-round w3-border w3-light-green w3-hover-red" onclick="cancelar()"><i class="fa fa-undo"></i>&nbsp;CANCELAR</button>
-            <p></p>
-            <button type="button" class="w3-btn w3-round w3-border w3-light-green w3-hover-blue" onclick="SalvarRegistro()" id="btSalvar"><i class="fa fa-save"></i>&nbsp;&nbsp;&nbsp;SALVAR&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <p></p>
+            <button type="button" class="w3-btn w3-round w3-border w3-light-green w3-hover-red" onclick="cancelar()"><i class="fa fa-undo"></i></button>
+            <button type="button" class="w3-btn w3-round w3-border w3-light-green w3-hover-blue" onclick="SalvarRegistro()" id="btSalvar"><i class="fa fa-save"></i></button>
             <div id="divhidden" class="w3-container w3-padding w3-center" style="display: none">
                 <i class="fa fa-cog fa-spin fa-2x fa-fw"></i>
             </div>
@@ -62,16 +62,11 @@
 
     <div style="margin-left: 180px">
 
-        <div>
-            <header class="w3-container w3-green w3-center w3-padding-small">
-                <h4><strong>Novo Funcionário</strong></h4>  <!--*******Customização*******-->
-            </header>
-        </div>
-
-
         <!-- GRUPO 1 -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3> <!--*******Customização*******-->
+
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-twothird">
@@ -118,13 +113,12 @@
 
         <!-- GRUPO 2 -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
 
                 <fieldset>
-
-                
                 </fieldset>
             </form>
 
@@ -142,7 +136,8 @@
 
         <!-- GRUPO 3-->
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
                 <fieldset>
@@ -162,13 +157,13 @@
         </div>
 
 
-         <!-- GRUPO 4-->
+        <!-- GRUPO 4-->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;XXX</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;XXX</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
                 <fieldset>
-
                 </fieldset>
             </form>
 
@@ -186,11 +181,11 @@
 
         <!-- GRUPO 5-->
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
                 <fieldset>
-
                 </fieldset>
             </form>
             <div>
@@ -207,11 +202,11 @@
 
         <!-- GRUPO 6-->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
                 <fieldset>
-
                 </fieldset>
             </form>
             <div>
@@ -228,11 +223,11 @@
 
         <!-- GRUPO 7-->
         <div id="grupo7" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
                 <fieldset>
-
                 </fieldset>
             </form>
             <div>
@@ -249,11 +244,11 @@
 
         <!-- GRUPO 8-->
         <div id="grupo8" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;xxxx</h3>
+            <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
                 <fieldset>
-
                 </fieldset>
             </form>
             <div>

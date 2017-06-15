@@ -29,8 +29,6 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
                 "document.getElementById('IDHidden').value = \"" + ID + "\";" +
                 "document.getElementById('input_nome').value = \"" + Convert.ToString(rcrdset[0]) + "\";" +
                 "</script>";
-
-            lblApelido.Text = Convert.ToString(rcrdset[0]);
         }
         
         ConexaoBancoSQL.fecharConexao();

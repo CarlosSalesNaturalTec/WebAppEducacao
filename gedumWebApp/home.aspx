@@ -19,8 +19,9 @@
 
 </head>
 <body>
-    <div>
-        <img src="Images/logoaliancamedium.png" class="w3-display-middle" />
+    <div class="w3-display-middle">
+        <img src="Images/logoaliancamedium.png" />
+        <img src="Images/brasaobahia.png" />
 
     </div>
 </body>
