@@ -13,7 +13,7 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
         string iduser = Session["UserID"].ToString();
 
         montaCabecalho();
-        //dadosCorpo();
+        dadosCorpo();
         montaRodape();
 
         Literal1.Text = str.ToString();
@@ -40,7 +40,7 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_func, nome, setor, funcao, telefone" +
+        string stringselect = "select ID_func, nome, setor, funcao, telefone " +
                 "from tbl_Funcionarios " +
                 "order by Nome"; 
 

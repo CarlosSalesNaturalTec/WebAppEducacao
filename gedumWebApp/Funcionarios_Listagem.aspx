@@ -39,7 +39,7 @@
 
 
     <div class="w3-container w3-border w3-round w3-padding-16" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-users fa-2x w3-text-green"></i>&nbsp;&nbsp;Total de Funcionarios Cadastrados:
+        <small><i class="fa fa-calendar-check-o fa-2x w3-text-green"></i>&nbsp;&nbsp;Total de Funcionarios Cadastrados:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
         &nbsp;&nbsp;
         <button class="w3-btn w3-round w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Funcionario</button>  <!--*******Customização*******-->

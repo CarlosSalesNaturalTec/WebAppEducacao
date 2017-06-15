@@ -36,11 +36,11 @@
 <body>
 
     <!--*******MENU LATERAL - Customização*******-->
-    <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 150px">
+    <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <br /><br /><br />
 
-        <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
-        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-futbol-o" aria-hidden="true"></i>&nbsp;Documentação</button>
+        <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>
         <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes</button>        
         <button id="bt5" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo4')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios</button>
         <button id="bt6" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo5')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação</button>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div style="margin-left: 150px">
+    <div style="margin-left: 180px">
 
         <div>
             <header class="w3-container w3-green w3-center w3-padding-small">
@@ -71,7 +71,7 @@
 
         <!-- GRUPO 1 -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
-            <h3><i class="fa fa-user-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</h3> <!--*******Customização*******-->
             <hr />
 
             <div class="w3-twothird">
@@ -86,45 +86,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="input_apelido" class="col-md-2 control-label">Apelido</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_apelido">
-                            </div>
-
-                            <label for="input_posicao" class="col-md-2 control-label">Posição</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_posicao">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_local" class="col-md-2 control-label">Local Nascimento</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_local">
-                            </div>
-
-                            <label for="input_nascimento" class="col-md-2 control-label">Nascimento</label>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_nascimento">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_nacionalidade" class="col-md-2 control-label">Nacionalidade</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_nacionalidade" value="BRASILEIRA">
-                            </div>
-
-                            <label for="input_idioma" class="col-md-2 control-label">Idioma</label>
-                            <div class="col-md-3">
-                                <select class="form-control" id="input_idioma">
-                                    <option value="PORTUGUÊS">PORTUGUÊS</option>
-                                    <option value="ESPANHOL">ESPANHOL</option>
-                                    <option value="INGLÊS">INGLÊS</option>
-                                </select>
-                            </div>
-                        </div>
                     </fieldset>
                 </form>
                 <div>
@@ -146,7 +107,9 @@
                     <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
                     <input type="file" id="filePicker">
                 </div>
+
                 <input id="Hidden1" name="fotouri" type="hidden" />
+
             </div>
             <!-- Camera -->
 
@@ -155,53 +118,13 @@
 
         <!-- GRUPO 2 -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
-            <h3><i class="fa  fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</h3> <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</h3> <!--*******Customização*******-->
             <hr />
             <form class="form-horizontal">
 
                 <fieldset>
 
-                    <div class="form-group">
-                        <label for="input6" class="col-md-2 control-label">Clube</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" id="input_clube">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <label for="input7" class="col-md-2 control-label">Inicio Contrato</label>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" id="input_inicio">
-                        </div>
-
-                        <label for="input8" class="col-md-2 control-label">Final Contrato</label>
-                        <div class="col-md-3">
-                            <input type="date" class="form-control" id="input_final">
-                        </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label for="input_cbf" class="col-md-2 control-label">Registro CBF</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="input_cbf">
-                        </div>
-
-                        <label for="input_direito" class="col-md-2 control-label">% Direito Econômico</label>
-                        <div class="col-md-3">
-                            <input type="number" class="form-control" id="input_direito" value="0">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_procura" class="col-md-2 control-label">Procuração</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="input_procura">
-                        </div>
-                    </div>
-
+                
                 </fieldset>
             </form>
 
@@ -223,37 +146,6 @@
             <hr />
             <form class="form-horizontal">
                 <fieldset>
-                    <div class="form-group">
-                        <label for="input_altura" class="col-md-2 control-label">Altura</label>
-                        <div class="col-md-3">
-                            <input type="number" class="form-control" id="input_altura" value="0">
-                        </div>
-
-                        <label for="input_peso" class="col-md-2 control-label">Peso (Kg)</label>
-                        <div class="col-md-3">
-                            <input type="number" class="form-control" id="input_peso" value="0">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_chute" class="col-md-2 control-label">Chute</label>
-                        <div class="col-md-3">
-                            <select class="form-control" id="input_chute">
-                                <option value="DIREITO">DIREITO</option>
-                                <option value="ESQUEDO">ESQUEDO</option>
-                                <option value="AMBIDESTRO">AMBIDESTRO</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="input_chute" class="col-md-2 control-label">Características</label>
-                        <div class="col-md-8">
-                            <textarea class="form-control" rows="5" id="input_carac"></textarea>
-                        </div>
-                    </div>
-
-
                 </fieldset>
             </form>
 
@@ -266,6 +158,7 @@
                     <button class="w3-btn w3-light-green w3-hover-green" onclick="classeBt4()">AVANÇAR</button>
                 </div>
             </div>
+
         </div>
 
 
@@ -369,7 +262,7 @@
                     <button class="w3-btn w3-light-green w3-hover-green" onclick="btvoltar7()">VOLTAR</button>
                 </div>
                 <div class="col-md-1">
-                    <button class="w3-btn w3-light-green w3-hover-green" onclick="SalvarRegistro()">CONCLUIR</button>
+                    <button id="btConcluir" class="w3-btn w3-light-green w3-hover-green" onclick="SalvarRegistro()">CONCLUIR</button>
                 </div>
             </div>
         </div>

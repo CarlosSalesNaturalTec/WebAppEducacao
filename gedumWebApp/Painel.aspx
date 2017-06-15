@@ -82,7 +82,7 @@
 
     <!-- page content -->
     <div>
-        <iframe src="home.aspx" width="100%" height="620px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="home.aspx" width="100%" height="1920px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
 
@@ -92,7 +92,7 @@
             <div class="w3-right">
                 <h6 class="w3-small" style="margin-left: 14px">Usuário:
                     <asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
-                    &nbsp;&nbsp;&nbsp;<a href="#" target="_blank"><img src="Images/inxell.jpg" class="w3-animate-fading" />&nbsp;&nbsp;&nbsp;</a>
+                    &nbsp;&nbsp;&nbsp;<a href="#" target="_blank"><img src="Images/logor_inxellsmall.png" class="w3-animate-fading" />&nbsp;&nbsp;&nbsp;</a>
                 </h6>
             </div>
         </div>

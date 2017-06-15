@@ -5,25 +5,7 @@ function SalvarRegistro() {
     document.getElementById("divhidden").style.display = "block";
 
     var v1 = document.getElementById("input_nome").value
-    var v2 = document.getElementById("input_apelido").value
-    var v3 = document.getElementById("input_posicao").value
-    var v4 = document.getElementById("input_local").value
-    var v5 = document.getElementById("input_nascimento").value
-    var v6 = document.getElementById("input_nacionalidade").value
-    var v7 = document.getElementById("input_idioma").value
-    var v8 = document.getElementById("input_clube").value
-    var v9 = document.getElementById("input_inicio").value
-    var v10 = document.getElementById("input_final").value
-    var v11 = document.getElementById("input_cbf").value
-    var v12 = document.getElementById("input_direito").value
-    var v13 = document.getElementById("input_procura").value
-    var v14 = document.getElementById("input_altura").value
-    var v15 = document.getElementById("input_peso").value
-    var v16 = document.getElementById("input_chute").value
-    var v17 = document.getElementById("input_carac").value
-    var v18 = document.getElementById("Hidden1").value
-
-
+    
     if (v1 == "") {
         document.getElementById("divhidden").style.display = "none";
         alert("Informe Nome do Funcionário");   //<!--*******Customização*******-->
@@ -33,14 +15,14 @@ function SalvarRegistro() {
         return;
     }
 
+    document.getElementById('btConcluir').disabled = true;
+    document.getElementById('btSalvar').disabled = true;
+
     //<!--*******Customização*******-->
     $.ajax({
         type: "POST",
         url: "WebService.asmx/FuncionariosSalvar",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '", param10: "' + v10 +
-            '", param11: "' + v11 + '", param12: "' + v12 + '", param13: "' + v13 + '", param14: "' + v14 + '", param15: "' + v15 +
-            '", param16: "' + v16 + '", param17: "' + v17 + '", param18: "' + v18 + '" }',
+        data: '{param1: "' + v1 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -58,27 +40,9 @@ function AlterarRegistro() {
 
     document.getElementById("divhidden").style.display = "block";
 
-    var v1 = document.getElementById("input_nome").value
-    var v2 = document.getElementById("input_apelido").value
-    var v3 = document.getElementById("input_posicao").value
-    var v4 = document.getElementById("input_local").value
-    var v5 = document.getElementById("input_nascimento").value
-    var v6 = document.getElementById("input_nacionalidade").value
-    var v7 = document.getElementById("input_idioma").value
-    var v8 = document.getElementById("input_clube").value
-    var v9 = document.getElementById("input_inicio").value
-    var v10 = document.getElementById("input_final").value
-    var v11 = document.getElementById("input_cbf").value
-    var v12 = document.getElementById("input_direito").value
-    var v13 = document.getElementById("input_procura").value
-    var v14 = document.getElementById("input_altura").value
-    var v15 = document.getElementById("input_peso").value
-    var v16 = document.getElementById("input_chute").value
-    var v17 = document.getElementById("input_carac").value
-    var v18 = document.getElementById("Hidden1").value
-    var v19 = document.getElementById("IDHidden").value
-
-
+    var v1 = document.getElementById("IDHidden").value
+    var v2 = document.getElementById("input_nome").value
+     
     if (v1 == "") {
         document.getElementById("divhidden").style.display = "none";
         alert("Informe Nome do Funcionário");   //<!--*******Customização*******-->
@@ -92,10 +56,7 @@ function AlterarRegistro() {
     $.ajax({
         type: "POST",
         url: "WebService.asmx/FuncionariosAlterar",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
-            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '", param10: "' + v10 +
-            '", param11: "' + v11 + '", param12: "' + v12 + '", param13: "' + v13 + '", param14: "' + v14 + '", param15: "' + v15 +
-            '", param16: "' + v16 + '", param17: "' + v17 + '", param18: "' + v18 + '", param19: "' + v19 + '" }',
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
