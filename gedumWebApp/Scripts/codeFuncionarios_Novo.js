@@ -33,19 +33,18 @@ function SalvarRegistro() {
 
 function AlterarRegistro() {
 
-    document.getElementById("divhidden").style.display = "block";
-
     var v1 = document.getElementById("IDHidden").value
     var v2 = document.getElementById("input_nome").value
      
     if (v1 == "") {
-        document.getElementById("divhidden").style.display = "none";
         alert("Informe Nome do Funcionário");   //<!--*******Customização*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
         return;
     }
+
+    AguardarUI();
     
     //<!--*******Customização*******-->
     $.ajax({
@@ -55,7 +54,6 @@ function AlterarRegistro() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            document.getElementById("btSalvar").style.cursor = "default";
             var linkurl = response.d;
             window.location.href = linkurl;
         },

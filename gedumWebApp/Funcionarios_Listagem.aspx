@@ -51,16 +51,16 @@
 
             <form class="w3-container">
                 <div class="w3-section w3-center">
-                    <header class="w3-container w3-red w3-center">
+                    <header class="w3-container w3-green w3-center">
                         <h4><strong>Atenção</strong></h4>
                     </header>
                     <br />
-                    <i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i>
+                    <i class="fa fa-3x fa-exclamation-triangle w3-text-red" aria-hidden="true"></i>
                     <br />
                     <h3><strong>Confirma Exclusão?</strong> </h3>
                     <br />
                     <p>
-                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-blue" onclick="Excluir_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-green" onclick="Excluir_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
                         <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-red" onclick="ExcluirRegistro()">Sim</button>
                     </p>
                     <br />
