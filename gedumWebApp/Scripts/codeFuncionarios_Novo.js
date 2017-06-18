@@ -3,7 +3,7 @@
 function SalvarRegistro() {
 
     var v1 = document.getElementById("input_nome").value
-    
+       
     if (v1 == "") {
         alert("Informe Nome do Funcionário");   //<!--*******Customização*******-->
         openLink(event, 'grupo1')
@@ -128,6 +128,10 @@ function classeBt9() {
     openLink(event, 'grupo9')
     $('#bt9').addClass(' w3-blue');
 }
+function classeBt10() {
+    openLink(event, 'grupo10')
+    $('#bt10').addClass(' w3-blue');
+}
 
 
 
@@ -162,6 +166,10 @@ function btvoltar7() {
 function btvoltar8() {
     openLink(event, 'grupo8')
     $('#bt8').addClass(' w3-blue');
+}
+function btvoltar9() {
+    openLink(event, 'grupo9')
+    $('#bt9').addClass(' w3-blue');
 }
 
 

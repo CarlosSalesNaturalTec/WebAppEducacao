@@ -52,6 +52,7 @@
         <button id="bt7" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo7')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária</button>
         <button id="bt8" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo8')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários</button>
         <button id="bt9" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo9')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
+        <button id="bt10" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo10')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
         <hr />
 
     </div>
@@ -115,8 +116,25 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
+                            <label for="input_escolaridade" class="col-md-2 control-label">Escolaridade</label>
                             <div class="col-md-4">
+                                <select class="form-control" id="input_escolaridade">
+                                    <option value="Fundamental incompleto">Fundamental incompleto</option>
+                                    <option value="Fundamental completo">Fundamental completo</option>
+                                    <option value="Médio incompleto">Médio incompleto</option>
+                                    <option value="Médio completo">Médio completo</option>
+                                    <option value="Superior incompleto">Superior incompleto</option>
+                                    <option value="Superior completo">Superior completo</option>
+                                    <option value="Pós-graduação incompleto">Pós-graduação incompleto</option>
+                                    <option value="Pós-graduação completo">Pós-graduação completo</option>
+                                    <option value="Mestrado incompleto">Mestrado incompleto</option>
+                                    <option value="Mestrado completo">Mestrado completo</option>
+                                    <option value="Doutorado incompleto">Doutorado incompleto</option>
+                                    <option value="Doutorado completo">Doutorado completo</option>
+                                </select>
+                            </div>
+                            <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
+                            <div class="col-md-3">
                                 <select class="form-control" id="input_civil">
                                     <option value="Solteiro(a)">Solteiro(a)</option>
                                     <option value="Casado(a)">Casado(a)</option>
@@ -124,22 +142,34 @@
                                     <option value="Viúvo(a)">Viúvo(a)</option>
                                 </select>
                             </div>
-
-                            <label for="input_escolaridade" class="col-md-2 control-label">Escolaridade</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_escolaridade">
-                            </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_Etnia" class="col-md-2 control-label">Etnia</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_Etnia">
+                                <select class="form-control" id="input_Etnia">
+                                    <option value="Branco">Branco</option>
+                                    <option value="Negro">Negro</option>
+                                    <option value="Pardo">Pardo</option>
+                                    <option value="Mulato">Mulato</option>
+                                    <option value="Amarelo">Amarelo</option>
+                                    <option value="Indígena">Indígena</option>
+                                </select>
                             </div>
 
                             <label for="input_tiposangue" class="col-md-2 control-label">Tipo Sanguínio</label>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_tiposangue">
+                                <select class="form-control" id="input_tiposangue">
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
+
                             </div>
                         </div>
 
@@ -248,13 +278,23 @@
                             <div class="col-md-6">
                                 <input type="text" class="form-control" id="input_cidade">
                             </div>
-
                         </div>
 
                         <div class="form-group">
-                            <label for="input_celular" class="col-md-2 control-label">Telefones</label>
+                            <label for="input_celular1" class="col-md-2 control-label">Celular 1</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_celular1">
+                            </div>
+                            <label for="input_celular2" class="col-md-1 control-label">Cel. 2</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_celular2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_fixo" class="col-md-2 control-label">Telefone Fixo</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_telefones">
+                                <input type="text" class="form-control" id="input_fixo">
                             </div>
                         </div>
 
@@ -597,6 +637,7 @@
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <div class="form-group">
                             <label for="input_situac" class="col-md-2 control-label">Situação</label>
                             <div class="col-md-3">
@@ -612,6 +653,18 @@
                                 <input type="text" class="form-control" id="input_qual">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="input_funcao" class="col-md-2 control-label">Função</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_funcao">
+                            </div>
+                            <label for="input_tabelaSal" class="col-md-2 control-label">Tabela Salarial</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_tabelaSal">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="input_fliadoSind" class="col-md-2 control-label">Filiado Sindicato</label>
                             <div class="col-md-2">
@@ -631,7 +684,7 @@
                 <!-- Botões Controle -->
                 <div class="form-group">
                     <div class="col-md-2"></div>
-                    <div class="col-md-9 w3-border w3-padding w3-round w3-light-gray">
+                    <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
@@ -703,7 +756,7 @@
                 <!-- Botões Controle -->
                 <div class="form-group">
                     <div class="col-md-2"></div>
-                    <div class="col-md-9 w3-border w3-padding w3-round">
+                    <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar6()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
@@ -831,7 +884,76 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
+                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt10()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+            <div class="w3-quarter">
+            </div>
+        </div>
+
+
+        <!-- GRUPO 10 - Fardamento -->
+        <div id="grupo10" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Funcionário</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="input_camisa" class="col-md-2 control-label">Camisa N°:</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_camisa">
+                            </div>
+                            <label for="input_camiseta" class="col-md-2 control-label">Camiseta N°:</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_camiseta">
+                            </div>
+                            <label for="input_calca" class="col-md-2 control-label">Calça N°:</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_calca">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_sapato" class="col-md-2 control-label">Sapato N°:</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_sapato">
+                            </div>
+                            <label for="input_obs" class="col-md-2 control-label">Observ.:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="input_obs">
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">

@@ -39,7 +39,8 @@
 
     <br />
 
-    <div class="w3-small">
+
+    <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray w3-small" style="margin-left: 2%; margin-right: 2%">
         <!-- Planilha  -->
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
         <!-- Planilha  -->
@@ -55,7 +56,7 @@
                         <h4><strong>Atenção</strong></h4>
                     </header>
                     <br />
-                    <i class="fa fa-3x fa-exclamation-triangle w3-text-red" aria-hidden="true"></i>
+                    <i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i>
                     <br />
                     <h3><strong>Confirma Exclusão?</strong> </h3>
                     <br />

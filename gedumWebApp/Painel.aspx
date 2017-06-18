@@ -19,7 +19,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-     <style>
+    <style>
         body {
             background-image: url("Images/fundo.jpg");
             background-repeat: repeat;
@@ -59,17 +59,6 @@
                 </div>
             </div>
 
-
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Equipe</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Frequência</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Atestados</a>
-                </div>
-            </div>
-
-
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Instituição</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
@@ -81,8 +70,16 @@
                 </div>
             </div>
 
-            <a href="home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Equipe</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Frequência</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Atestados</a>
+                </div>
+            </div>
 
+            <a href="home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
 
         </div>
 
@@ -98,8 +95,9 @@
     <div class="w3-bottom">
         <div class="w3-bar w3-black">
             <div class="w3-right">
-                <h6 class="w3-small" style="margin-left: 14px"><a href="#" target="_blank"><img src="Images/logor_inxellsmall.png" class="w3-animate-fading" /></a>
-                &nbsp;&nbsp;&nbsp;<asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;
+                <h6 class="w3-small" style="margin-left: 14px"><a href="http://inxell.com.br/" target="_blank">
+                    <img src="Images/logor_inxellsmall.png" class="w3-animate-fading" /></a>
+                    &nbsp;&nbsp;&nbsp;<asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;
                     <i class="fa fa-user w3-small"></i>&nbsp;&nbsp;
                 </h6>
             </div>
