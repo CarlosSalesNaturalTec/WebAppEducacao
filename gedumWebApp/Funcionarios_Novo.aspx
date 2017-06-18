@@ -666,7 +666,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_fliadoSind" class="col-md-2 control-label">Filiado Sindicato</label>
+                            <label for="input_fliadoSind" class="col-md-2 control-label">Sindicalizado</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_fliadoSind">
                                     <option value="Sim">Sim</option>
@@ -802,11 +802,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_conta" class="col-md-2 control-label">Conta</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_conta">
-                            </div>
-                            <label for="input_contaTipo" class="col-md-2 control-label">Tipo</label>
+                            <label for="input_contaTipo" class="col-md-2 control-label">Tipo de Conta</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_contaTipo">
                                     <option value="Corrente">Corrente</option>
@@ -814,7 +810,19 @@
                                     <option value="Salário">Salário</option>
                                 </select>
                             </div>
+                            <label for="input_conta" class="col-md-2 control-label">Número Conta</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_conta">
+                            </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="input_operacao" class="col-md-2 control-label">Operação</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_operacao">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -884,7 +892,7 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
-                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt10()">
@@ -938,12 +946,18 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_sapato">
                             </div>
-                            <label for="input_obs" class="col-md-2 control-label">Observ.:</label>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" id="input_obs">
+                             <label for="input_bota" class="col-md-2 control-label">Bota N°:</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_bota">
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_obs" class="col-md-2 control-label">Observ.:</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="input_obs">
+                            </div>
+                        </div>
 
                     </fieldset>
                 </form>

@@ -2,28 +2,36 @@
 
 function SalvarRegistro() {
 
-    var v1 = document.getElementById("input_nome").value
-       
-    if (v1 == "") {
-        alert("Informe Nome do Funcionário");   //<!--*******Customização*******-->
+    //validações
+    if (document.getElementById('input_nome').value == "") {
+        alert("Informe Nome do Funcionário");   //<!--*******Customize AQUI*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
         return;
     }
 
-    AguardarUI();
+    //pega o valor de cada campo e constroi string com todos
+    var i, x, strLine = "";
+    x = document.getElementsByClassName("form-control");
+    for (i = 0; i < x.length; i++) {
+        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    }
+    // retira ultima virgula da string recem formada
+    strLine = strLine.substring(0, strLine.length - 1);
 
-    //<!--*******Customização*******-->
+    //exibir animações - aguarde...
+    UIAguardar();
+
+    //<!--*******Customize AQUI*******-->
     $.ajax({
         type: "POST",
         url: "WebService.asmx/FuncionariosSalvar",
-        data: '{param1: "' + v1 + '"}',
+        data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            var linkurl = response.d;
-            window.location.href = linkurl;
+            window.location.href = response.d;
         },
         failure: function (response) {
             alert(response.d);
@@ -44,7 +52,7 @@ function AlterarRegistro() {
         return;
     }
 
-    AguardarUI();
+    UIAguardar();
     
     //<!--*******Customização*******-->
     $.ajax({
@@ -68,7 +76,7 @@ function cancelar() {
     window.location.href = linkurl;
 }
 
-function AguardarUI() {
+function UIAguardar() {
     var i, x;
 
     x = document.getElementsByClassName("btcontroles");

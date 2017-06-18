@@ -48,15 +48,78 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string FuncionariosSalvar(string param1)
+    public string FuncionariosSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9, 
+        string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
+        string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
+        string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
+        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
+        string param60, string param61)
     {
         string url;
+        string strInsert = "INSERT INTO Tbl_Funcionarios (" +
+            "Nome," +
+            "Profissao," +
+            "Nascimento," +
+            "Pai," +
+            "Mae," +
+            "Naturalidade," +
+            "Nacionalidade," +
+            "Escolaridade," +
+            "EstadoCivil," +
+            "Etnia," +
+            "TipoSanguinio," +
+            "Deficiente," +
+            "DeficienteTipo," +
+            "Endereco," +
+            "Numero," +
+            "Bairo," +
+            "CEP," +
+            "UF," +
+            "Cidade," +
+            "Celular1," +
+            "Celular2," +
+            "TelFixo," +
+            "email," +
+            "PIS," +
+            "CPF," +
+            "RG," +
+            "RGEmissor," +
+            "RGEmissao," +
+            "CTPS," +
+            "CTPSserie," +
+            "CTPSEmissao," +
+            "Titulo," +
+            "Zona," +
+            "Secao," +
+            "CNH," +
+            "Passaporte," +
+            "Situacao," +
+            "SituacaoOutros," +
+            "Funcao," +
+            "TabelaSal," +
+            "Sindicalizado" +
+            "SindicatoNome," +
+            "Banco," +
+            "Agencia," +
+            "ContaTipo," +
+            "ContaNumero," +
+            "ContaOperacao," +
+            "Alergias," +
+            "AlergiasMed," +
+            "AcidenteAvisar," +
+            "FardaCamisa," +
+            "FardaCamiseta," +
+            "FardaCalca," +
+            "FardaSapato," +
+            "FardaBota," +
+            "FardaObs" +
+            ")" +
+            "VALUES ()";
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Funcionarios (Nome)" +
-            "VALUES ('" + param1 + "')");
+        bool inserir = operacao.Insert(strInsert);
         ConexaoBancoSQL.fecharConexao();
-
         if (inserir == true)
         {
             url = "Funcionarios_Listagem.aspx";
