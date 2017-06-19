@@ -69,7 +69,6 @@
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
-
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-9">
@@ -111,7 +110,7 @@
 
                             <label for="input_nacionalid" class="col-md-2 control-label">Nacionalidade</label>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_nacionalid">
+                                <input type="text" class="form-control" id="input_nacionalid" value="Brasileira">
                             </div>
                         </div>
 
@@ -461,7 +460,7 @@
                         <div class="form-group">
                             <label for="input_DEPNome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_DEPNome">
+                                <input type="text" id="input_DEPNome">
                             </div>
 
                         </div>
@@ -469,11 +468,11 @@
                         <div class="form-group">
                             <label for="input_DEPparent" class="col-md-2 control-label">Parentesco</label>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_DEPparent">
+                                <input type="text" id="input_DEPparent">
                             </div>
                             <label for="input_DEPNasc" class="col-md-2 control-label">Nascimento</label>
                             <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_DEPNasc">
+                                <input type="date" id="input_DEPNasc">
                             </div>
                             <div class="col-md-2">
                                 <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
@@ -552,7 +551,7 @@
                         <div class="form-group">
                             <label for="input_BEnefNome" class="col-md-2 control-label">Benefício</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_BEnefNome">
+                                <input type="text" id="input_BEnefNome">
                             </div>
 
                         </div>
@@ -560,11 +559,11 @@
                         <div class="form-group">
                             <label for="input_BenefSituac" class="col-md-2 control-label">Situação</label>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_BenefSituac">
+                                <input type="text" id="input_BenefSituac">
                             </div>
                             <label for="input_BenefInicio" class="col-md-2 control-label">Inicio</label>
                             <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_BenefInicio">
+                                <input type="date" id="input_BenefInicio">
                             </div>
                             <div class="col-md-2">
                                 <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
@@ -669,8 +668,8 @@
                             <label for="input_fliadoSind" class="col-md-2 control-label">Sindicalizado</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_fliadoSind">
-                                    <option value="Sim">Sim</option>
                                     <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
                                 </select>
                             </div>
                             <label for="input_Sindqual" class="col-md-2 control-label">Qual</label>
@@ -946,7 +945,7 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_sapato">
                             </div>
-                             <label for="input_bota" class="col-md-2 control-label">Bota N°:</label>
+                            <label for="input_bota" class="col-md-2 control-label">Bota N°:</label>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_bota">
                             </div>
@@ -987,6 +986,10 @@
         </div>
 
     </div>
+
+    <!-- auxiliares -->
+    <input id="IDInstHidden" type="hidden" />
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>

@@ -15,25 +15,94 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
     private void PreencheCampos(string ID)
     {
         string ScriptDados = "";
+        str.Clear();
 
-        //<!--*******Customização*******-->
-        string stringSelect = "select Nome " +
-            "from tbl_Funcionarios " +
+        ScriptDados = "<script type=\"text/javascript\">";
+        str.Append(ScriptDados);
+        ScriptDados = "var x = document.getElementsByClassName('form-control');";
+        str.Append(ScriptDados);
+
+        string stringSelect = "select " +
+            "Nome," +
+            "Profissao," +
+            "Nascimento," +
+            "Pai," +
+            "Mae," +
+            "Naturalidade," +
+            "Nacionalidade," +
+            "Escolaridade," +
+            "EstadoCivil," +
+            "Etnia," +
+            "TipoSanguinio," +
+            "Deficiente," +
+            "DeficienteTipo," +
+            "Endereco," +
+            "Numero," +
+            "Bairro," +
+            "CEP," +
+            "UF," +
+            "Cidade," +
+            "Celular1," +
+            "Celular2," +
+            "TelFixo," +
+            "email," +
+            "PIS," +
+            "CPF," +
+            "RG," +
+            "RGEmissor," +
+            "RGEmissao," +
+            "CTPS," +
+            "CTPSserie," +
+            "CTPSEmissao," +
+            "Titulo," +
+            "Zona," +
+            "Secao," +
+            "CNH," +
+            "Passaporte," +
+            "Situacao," +
+            "SituacaoOutros," +
+            "Funcao," +
+            "TabelaSal," +
+            "Sindicalizado," +
+            "SindicatoNome," +
+            "Banco," +
+            "Agencia," +
+            "ContaTipo," +
+            "ContaNumero," +
+            "ContaOperacao," +
+            "Alergias," +
+            "AlergiasMed," +
+            "AcidenteAvisar," +
+            "FardaCamisa," +
+            "FardaCamiseta," +
+            "FardaCalca," +
+            "FardaSapato," +
+            "FardaBota," +
+            "FardaObs," +
+            "FotoDataURI " +
+            "from Tbl_Funcionarios " +
             "where ID_func  = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            ScriptDados = "<script type=\"text/javascript\">" +
-                "document.getElementById('IDHidden').value = \"" + ID + "\";" +
-                "document.getElementById('input_nome').value = \"" + Convert.ToString(rcrdset[0]) + "\";" +
-                "</script>";
+            for (int i = 0; i <= 55; i++)
+            {
+                ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
+                str.Append(ScriptDados);
+            }
+
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[56]) + "\"/>'; ";
+            str.Append(ScriptDados);
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[56]) + "\";";
+            str.Append(ScriptDados);
+            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
+            str.Append(ScriptDados);
         }
-        
         ConexaoBancoSQL.fecharConexao();
 
-        str.Clear();
+        ScriptDados = "</script>";      
         str.Append(ScriptDados);
     }
 }

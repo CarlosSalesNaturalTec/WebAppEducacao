@@ -27,9 +27,9 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>SETOR</th>" +
             "<th>FUNÇÃO</th>" +
-            "<th>TELEFONE</th>" +
+            "<th>CELULAR</th>" +
+            "<th>E-MAIL</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -40,7 +40,7 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_func, nome, setor, funcao, telefone " +
+        string stringselect = "select ID_func, nome, Funcao, celular1, email " +
                 "from tbl_Funcionarios " +
                 "order by Nome"; 
 
