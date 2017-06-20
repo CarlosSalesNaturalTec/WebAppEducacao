@@ -29,6 +29,11 @@ function OnSuccess(response) {
             document.getElementById('divRetornoSenha').style.display = "block";
             document.getElementById('divLogin').style.display = "none";
             break;
+        case "1":
+            document.getElementById('lblMsgRetorno').innerText = "Acesso não permitido a este módulo.";
+            document.getElementById('divRetornoSenha').style.display = "block";
+            document.getElementById('divLogin').style.display = "none";
+            break;
         case "2":
             document.getElementById('lblMsgRetorno').innerText = "Senha Incorreta.";
             document.getElementById('divRetornoSenha').style.display = "block";

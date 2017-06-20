@@ -11,15 +11,17 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
-    <header class="w3-black w3-card-4 w3-center">
-        <img src="Imagens/aliancasmall1.jpg" />
+    <header class="w3-card-4 w3-center">
+        <img src="Images/logoaliancasmall1.png" />
     </header>
 
     <!-- Corpo -->
     <div class="w3-container">
-        <img src="Imagens/background.jpg" class="w3-display-middle w3-opacity" />
+        <img src="Images/background.jpg" class="w3-display-middle w3-opacity" />
 
         <div id="divLogin" class="w3-display-middle">
 
@@ -58,16 +60,15 @@
     </div>
 
     <!-- Footer -->
-    <div class="w3-container w3-bottom">
+    <div class="w3-container w3-bottom w3-black">
         <div class="w3-bar w3-center w3-bottom">
             <h6 class="w3-small">
                 Powered by &nbsp;
-                <img src="Imagens/inxell.jpg" />
+                <img src="Images/logor_inxellsmall.png" />
             </h6>
         </div>
     </div>
 
-    <script src="Scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="Scripts/codeLogin.js"></script>
 
 </body>

@@ -21,22 +21,30 @@ public class WebService : System.Web.Services.WebService
         string Identificador_msg = "0";
 
         // localiza usuario
-        string stringSelect = "select senha,nome,ID_user from tbl_usuarios where usuario = '" + user + "'";
+        string stringSelect = "select senha,nome,ID_user,nivel from tbl_usuarios where usuario = '" + user + "'";
         OperacaoBanco Identificador_Operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
+        SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
         while (Identificador_rcrdset.Read())
         {
             if (pwd == Convert.ToString(Identificador_rcrdset[0]))
             {
 
-                string vValida1, vValida2;
-                vValida1 = DateTime.Now.ToString("dd");
-                vValida2 = DateTime.Now.ToString("MM");
-                int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
-                string vValida4 = vValida3.ToString();
+                if (Convert.ToString(Identificador_rcrdset[3]) != "1")
+                {
+                    Identificador_msg = "1";
+                }
+                else
+                {
 
-                Identificador_msg = "LogIn.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]) + "&p3=" + Convert.ToString(Identificador_rcrdset[2]);
+                    string vValida1, vValida2;
+                    vValida1 = DateTime.Now.ToString("dd");
+                    vValida2 = DateTime.Now.ToString("MM");
+                    int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
+                    string vValida4 = vValida3.ToString();
 
+                    Identificador_msg = "LogIn.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
+                        "&p3=" + Convert.ToString(Identificador_rcrdset[2]);
+                }
             }
             else
             {
@@ -50,18 +58,22 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string InstituicaoSalvar(string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8)
+    public string InstituicaoSalvar(string param1, string param2)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert(@"INSERT INTO Tbl_Instituicao  (Nome, Diretor , email, Tel, uf, cidade ) " +
-            "VALUES ('" + param1 + "', '" + param2 + "', '" + param3 + "', '" + param4 + "', '" + param5 + "', '" + param6 + "')");
+        // <!--*******Customização*******-->
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao ) " +
+            "VALUES (" + 
+            "'" + param1 + "'," +
+            "'" + param2 + "'" +
+            ")");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
         {
-            url = "CADInstituicoes_Listagem.aspx";   // ATENÇÃO - FALTA SALVAR EM TABELA DE USUARIOS E SENHAS
+            url = "CAD_Instituicao_Listagem.aspx";    // <!--*******Customização*******-->
         }
         else
         {
@@ -77,12 +89,12 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from Tbl_Instituicao where ID_inst =" + param1);
+        Boolean deletar = operacao3.Delete("delete from Tbl_Instituicao where ID_inst =" + param1);   // <!--*******Customização*******-->
         ConexaoBancoSQL.fecharConexao();
 
         if (deletar == true)
         {
-            url = "CADInstituicoes_Listagem.aspx";
+            url = "CAD_Instituicao_Listagem.aspx";  // <!--*******Customização*******-->
         }
         else
         {
@@ -93,20 +105,21 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string InstituicaoAlterar(string param1, string param2, string param3, string param4, string param5, string param6, string param7)
+    public string InstituicaoAlterar(string param1, string param2, string param3)
     {
         string url;
 
         OperacaoBanco operacao4 = new OperacaoBanco();
-        bool alterar = operacao4.Update(@"update  Tbl_Instituicao set " +
-            "Nome = '" + param1 + "', Diretor = '" + param2 + "', email='" + param3 + "', tel = '" + param4 + 
-            "', uf = '" + param5 + "', cidade = '" + param6 +
-            "' where ID_inst =" + param7);
+        // <!--*******Customização*******-->
+        bool alterar = operacao4.Update("update Tbl_Instituicao set " +
+            "Nome = '" + param1 + "'," +
+            "Razao = '" + param2 + "'" +
+            " where ID_inst =" + param3);  // <!--*******Customização - ultimo parametro *******-->
         ConexaoBancoSQL.fecharConexao();
 
         if (alterar == true)
         {
-            url = "CADInstituicoes_Listagem.aspx";
+            url = "CAD_Instituicao_Listagem.aspx";   // <!--*******Customização*******-->
         }
         else
         {
@@ -133,7 +146,7 @@ public class ConexaoBancoSQL
 
     public ConexaoBancoSQL()
     {
-        // *** STRING DE CONEXÃO COM BANCO DE DADOS - Atenção! Alterar dados conforme seu servidor
+        // <!--*******Customização*******-->
         stringconnection1 = "Server=tcp:servereducacao.database.windows.net,1433;Initial Catalog=dbeducacao;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         try
         {

@@ -1,7 +1,5 @@
 ﻿function sair() {
-
     document.getElementById('DivLogOut').style.display = "block";
-
 }
 
 function sair_cancel() {

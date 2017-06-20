@@ -9,6 +9,6 @@ public partial class Painel : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblUser.Text = Session["UserName"].ToString();
+        lblWelcome.Text = Session["UserName"].ToString();
     }
 }
