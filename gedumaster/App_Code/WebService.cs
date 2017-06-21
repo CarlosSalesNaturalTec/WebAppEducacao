@@ -58,7 +58,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string InstituicaoSalvar(string param1, string param2)
+    public string InstituicaoSalvar(string param0, string param1)
     {
         string url;
 
@@ -66,8 +66,8 @@ public class WebService : System.Web.Services.WebService
         // <!--*******Customização*******-->
         bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao ) " +
             "VALUES (" + 
-            "'" + param1 + "'," +
-            "'" + param2 + "'" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'" +
             ")");
         ConexaoBancoSQL.fecharConexao();
 
@@ -105,16 +105,16 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string InstituicaoAlterar(string param1, string param2, string param3)
+    public string InstituicaoAlterar(string param0, string param1, string param2)
     {
         string url;
 
         OperacaoBanco operacao4 = new OperacaoBanco();
         // <!--*******Customização*******-->
         bool alterar = operacao4.Update("update Tbl_Instituicao set " +
-            "Nome = '" + param1 + "'," +
+            "Nome = '" + param0 + "'," +
             "Razao = '" + param2 + "'" +
-            " where ID_inst =" + param3);  // <!--*******Customização - ultimo parametro *******-->
+            " where ID_inst =" + param2);  // <!--*******Customização - ultimo parametro *******-->
         ConexaoBancoSQL.fecharConexao();
 
         if (alterar == true)

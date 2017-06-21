@@ -38,7 +38,7 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-university"></i>&nbsp;Instituições</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="CADInstituicoes_Listagem.aspx" target="iframe" class="w3-bar-item w3-button">Cadastro</a>
+                    <a href="CAD_Instituicao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button">Cadastro</a>
                     <a href="#" class="w3-bar-item w3-button">Pesquisa</a>
                 </div>
             </div>

@@ -60,7 +60,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="w3-container w3-bottom w3-black">
+    <div class="w3-container w3-bottom">
         <div class="w3-bar w3-center w3-bottom">
             <h6 class="w3-small">
                 Powered by &nbsp;
