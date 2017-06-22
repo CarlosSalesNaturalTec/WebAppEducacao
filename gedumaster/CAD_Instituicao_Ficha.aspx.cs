@@ -45,9 +45,8 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
             //ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[56]) + "\";";
             //str.Append(ScriptDados);
 
-            // <!--*******Customização somente se for usar ID Auxiliar *******-->
-            //ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
-            //str.Append(ScriptDados);
+            ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
+            str.Append(ScriptDados);
         }
         ConexaoBancoSQL.fecharConexao();
 

@@ -113,7 +113,7 @@ public class WebService : System.Web.Services.WebService
         // <!--*******Customização*******-->
         bool alterar = operacao4.Update("update Tbl_Instituicao set " +
             "Nome = '" + param0 + "'," +
-            "Razao = '" + param2 + "'" +
+            "Razao = '" + param1 + "'" +
             " where ID_inst =" + param2);  // <!--*******Customização - ultimo parametro *******-->
         ConexaoBancoSQL.fecharConexao();
 
