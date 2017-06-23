@@ -200,7 +200,6 @@ function btvoltar9() {
 }
 
 
-/* <!--*******Customização - somente se for utilizar Foto *******-->
 var handleFileSelect = function (evt) {
     var files = evt.target.files;
     var file = files[0];
@@ -221,4 +220,3 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 } else {
     alert('The File APIs are not fully supported in this browser.');
 }
-*/
