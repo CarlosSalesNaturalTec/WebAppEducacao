@@ -23,9 +23,10 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
-        string stringSelect = "select " +
-            "Nome," +
-            "Razao " +
+        string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
+            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
+            "Diretor , Admissao ," +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca " +
             "from Tbl_Instituicao  " +
             "where ID_inst = " + ID;
 
@@ -33,17 +34,16 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 2; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 2 campos 
+            for (int i = 0; i < 26; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            // <!--*******Customização somente se for usar foto *******-->
-            //ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[56]) + "\"/>'; ";
-            //str.Append(ScriptDados);
-            //ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[56]) + "\";";
-            //str.Append(ScriptDados);
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[26]) + "\"/>'; ";
+            str.Append(ScriptDados);
+            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[26]) + "\";";
+            str.Append(ScriptDados);
 
             ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);

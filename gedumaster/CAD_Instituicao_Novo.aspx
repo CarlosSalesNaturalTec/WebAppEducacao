@@ -329,7 +329,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <label for="input_campofut" class="col-md-2 control-label">Campo de futebol</label>
                             <div class="col-md-2">
@@ -341,6 +340,16 @@
                             <label for="input_quadraE" class="col-md-2 control-label">Quadra de Esportes</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_quadraE">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_Biblioteca" class="col-md-2 control-label">Biblioteca</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Biblioteca">
                                     <option value="Não">Não</option>
                                     <option value="Sim">Sim</option>
                                 </select>
@@ -435,18 +444,18 @@
                             <br />
                             <label for="input_user" class="col-md-2 control-label">Usuário</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_user">
+                                <input type="text" id="input_user">
                             </div>
                             <label for="input_DEPparent" class="col-md-2 control-label">Senha</label>
                             <div class="col-md-3">
-                                <input type="password" id="Senha" class="form-control">
+                                <input type="password" id="Senha">
                             </div>
 
                         </div>
                         <div class="form-group">
                             <label for="input_contato" class="col-md-2 control-label">Contato</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_contato">
+                                <input type="text" id="input_contato">
                             </div>
                             <div class="col-md-2">
                                 <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>

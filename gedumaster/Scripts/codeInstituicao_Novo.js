@@ -19,18 +19,16 @@ function SalvarRegistro() {
     }
 
     // Customização - retira ultima virgula da string recem formada
-    strLine = strLine.substring(0, strLine.length - 1);
+    // strLine = strLine.substring(0, strLine.length - 1);
 
     /* <!--******* Customização - somente se for utilizar "ID Auxiliar" para o novo registro*******-->
     var idPai = document.getElementById('IDAuxHidden').value;
     strLine = strLine + "param" + i + ":'" + idPai + "',";
     */
 
-    /* <!--******* Customização - somente se for utilizar Foto *******-->
     var foto = document.getElementById('FotoHidden').value;
-    i++;
     strLine = strLine + "param" + i + ":'" + foto + "'";
-    */
+    
 
     //UI - exibir animações - aguarde...
     UIAguardar();
@@ -68,8 +66,13 @@ function AlterarRegistro() {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
 
+    var foto = document.getElementById('FotoHidden').value;
+    strLine = strLine + "param" + i + ":'" + foto + "',";
+
+    i++;
     var idAux = document.getElementById('IDAuxHidden').value;
     strLine = strLine + "param" + i + ":'" + idAux + "'";
+
 
     //UI - exibir animações - aguarde...
     UIAguardar();

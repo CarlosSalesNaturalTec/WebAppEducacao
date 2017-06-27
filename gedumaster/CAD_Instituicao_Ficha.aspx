@@ -29,7 +29,7 @@
 
 </head>
 <body>
-   <!--*******MENU LATERAL - Customização*******-->
+  <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <hr />
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados P.Jurídica</button>
@@ -48,7 +48,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoa Jurídica - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoa Jurídica - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -138,7 +138,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Endereço - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Endereço - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -240,7 +240,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Diretoria - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Diretoria - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -289,7 +289,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Estrutura - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Estrutura - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -328,7 +328,6 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <label for="input_campofut" class="col-md-2 control-label">Campo de futebol</label>
                             <div class="col-md-2">
@@ -340,6 +339,16 @@
                             <label for="input_quadraE" class="col-md-2 control-label">Quadra de Esportes</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_quadraE">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_Biblioteca" class="col-md-2 control-label">Biblioteca</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Biblioteca">
                                     <option value="Não">Não</option>
                                     <option value="Sim">Sim</option>
                                 </select>
@@ -376,7 +385,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Imagens - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Imagens - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -424,7 +433,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -434,18 +443,18 @@
                             <br />
                             <label for="input_user" class="col-md-2 control-label">Usuário</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_user">
+                                <input type="text" id="input_user">
                             </div>
                             <label for="input_DEPparent" class="col-md-2 control-label">Senha</label>
                             <div class="col-md-3">
-                                <input type="password" id="Senha" class="form-control">
+                                <input type="password" id="Senha">
                             </div>
 
                         </div>
                         <div class="form-group">
                             <label for="input_contato" class="col-md-2 control-label">Contato</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_contato">
+                                <input type="text" id="input_contato">
                             </div>
                             <div class="col-md-2">
                                 <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
@@ -512,7 +521,6 @@
     <script type="text/javascript" src="Scripts/codeInstituicao_Mapa.js"></script> 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
     -->
-
 </body>
 
 </html>

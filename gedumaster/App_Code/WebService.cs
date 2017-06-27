@@ -58,17 +58,49 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string InstituicaoSalvar(string param0, string param1)
+    public string InstituicaoSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9, string param10,
+        string param11, string param12, string param13, string param14, string param15,
+        string param16, string param17, string param18, string param19, string param20,
+        string param21, string param22, string param23, string param24, string param25, 
+        string param26)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         // <!--*******Customização*******-->
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao ) " +
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
+            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
+            "Diretor , Admissao ," +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca ) " +
             "VALUES (" + 
             "'" + param0 + "'," +
-            "'" + param1 + "'" +
-            ")");
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            "'" + param9 + "'," +
+            "'" + param10 + "'," +
+            "'" + param11 + "'," +
+            "'" + param12 + "'," +
+            "'" + param13 + "'," +
+            "'" + param14 + "'," +
+            "'" + param15 + "'," +
+            "'" + param16 + "'," +
+            "'" + param17 + "'," +
+            "'" + param18 + "'," +
+            "'" + param19 + "'," +
+            "'" + param20 + "'," +
+            "'" + param21 + "'," +
+            "'" + param22 + "'," +
+            "'" + param23 + "'," +
+            "'" + param24 + "'," +
+            "'" + param25 + "'," +
+            "'" + param26 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
@@ -105,7 +137,12 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string InstituicaoAlterar(string param0, string param1, string param2)
+    public string InstituicaoAlterar(string param0, string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9, string param10,
+        string param11, string param12, string param13, string param14, string param15,
+        string param16, string param17, string param18, string param19, string param20,
+        string param21, string param22, string param23, string param24, string param25,
+        string param26, string param27)
     {
         string url;
 
@@ -113,8 +150,34 @@ public class WebService : System.Web.Services.WebService
         // <!--*******Customização*******-->
         bool alterar = operacao4.Update("update Tbl_Instituicao set " +
             "Nome = '" + param0 + "'," +
-            "Razao = '" + param1 + "'" +
-            " where ID_inst =" + param2);  // <!--*******Customização - ultimo parametro *******-->
+            "Razao = '" + param1 + "'," +
+            "CNPJ = '" + param2 + "'," +
+            "IE = '" + param3 + "'," +
+            "Cat_Adm = '" + param4 + "'," +
+            "MEC_Cadastro = '" + param5 + "'," +
+            "Endereco = '" + param6 + "'," +
+            "Numero = '" + param7 + "'," +
+            "Complemento = '" + param8 + "'," +
+            "Bairro = '" + param9 + "'," +
+            "CEP = '" + param10 + "'," +
+            "Cidade = '" + param11 + "'," +
+            "UF = '" + param12 + "'," +
+            "Telefone = '" + param13 + "'," +
+            "Celular = '" + param14 + "'," +
+            "Fax = '" + param15 + "'," +
+            "Email = '" + param16 + "'," +
+            "Diretor = '" + param17 + "'," +
+            "Admissao = '" + param18 + "'," +
+            "Salas = '" + param19 + "'," +
+            "AreaJogos = '" + param20 + "'," +
+            "AreaInfo = '" + param21 + "'," +
+            "Teatro = '" + param22 + "'," +
+            "CampoFutebol = '" + param23 + "',"  +
+            "QuadraEsportes = '" + param24 + "'," +
+            "Biblioteca = '" + param25 + "'," +
+            "Logomarca = '" + param26 + "' " +
+            "where ID_inst =" + param27);  // <!--*******Customização - ultimo parametro *******-->
+
         ConexaoBancoSQL.fecharConexao();
 
         if (alterar == true)
