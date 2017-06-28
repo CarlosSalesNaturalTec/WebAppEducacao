@@ -458,7 +458,7 @@
                             
                             <label for="input_DEPparent" class="col-md-1 control-label">Senha</label>
                             <div class="col-md-2">
-                                <input type="password" id="Senha" class="w3-input w3-border w3-round">
+                                <input type="password" id="input_pwd" class="w3-input w3-border w3-round">
                             </div>
                             
                             <div class="col-md-2">
@@ -479,7 +479,6 @@
                                         <tr class="w3-grey">
                                             <th>Nome</th>
                                             <th>Usuário</th>
-                                            <th>Data Cadastro</th>
                                         </tr>
                                     </thead>
                                 </table>

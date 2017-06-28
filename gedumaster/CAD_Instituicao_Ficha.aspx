@@ -457,25 +457,27 @@
                             
                             <label for="input_DEPparent" class="col-md-1 control-label">Senha</label>
                             <div class="col-md-2">
-                                <input type="password" id="Senha" class="w3-input w3-border w3-round">
+                                <input type="password" id="input_pwd" class="w3-input w3-border w3-round">
                             </div>
                             
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="IncluirUsuario()" type="button">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
 
                         </div>
+
 
                         <!-- GRID Usuarios -->
                         <div class="form-group">
                             <div class="col-md-1"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Nome</th>
                                             <th>Usuário</th>
-                                            <th>Data Cadastro</th>
                                         </tr>
                                     </thead>
                                 </table>

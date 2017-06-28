@@ -5,10 +5,13 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
+    string idAux;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        PreencheCampos(Request.QueryString["v1"]);
+        idAux = Request.QueryString["v1"];
+        PreencheCampos(idAux);
+
         Literal1.Text = str.ToString();
     }
 
@@ -40,11 +43,13 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
                 str.Append(ScriptDados);
             }
 
+            //monta foto
             ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[26]) + "\"/>'; ";
             str.Append(ScriptDados);
             ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[26]) + "\";";
             str.Append(ScriptDados);
 
+            //ID do registro
             ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
         }
@@ -52,5 +57,30 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
 
         ScriptDados = "</script>";      
         str.Append(ScriptDados);
+    }
+
+    private void listaUsuarios(string ID)
+    {
+
+        string stringSelect = "select Nome, usuario from tbl_usuarios where ID_inst = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+
+        string ScriptDados;
+
+        str.Clear();
+        ScriptDados = "<script type=\"text/javascript\">";
+        str.Append(ScriptDados);
+        
+        // parei aqui
+        ScriptDados = "var ";
+        str.Append(ScriptDados);
+
+        while (rcrdsetUsers.Read())
+        {
+        }
+
+
     }
 }

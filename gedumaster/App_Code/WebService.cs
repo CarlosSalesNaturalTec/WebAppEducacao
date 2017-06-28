@@ -29,7 +29,9 @@ public class WebService : System.Web.Services.WebService
             if (pwd == Convert.ToString(Identificador_rcrdset[0]))
             {
 
-                if (Convert.ToString(Identificador_rcrdset[3]) != "1")
+                int nivel = Convert.ToInt16(Identificador_rcrdset[3]);
+
+                if (nivel > 1)
                 {
                     Identificador_msg = "1";
                 }
@@ -194,18 +196,21 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string InstituicaoNewUser(string param1, string param2, string param3, string param4, string param5)
+    public string InstituicaoNewUser(string param1, string param2, string param3, string param4)
     {
         string url;
+        string nivel = "2";  // 0 = developer master    1 = Gestor Municipal habilitado a cadastrar instituições    2 = Gestor de Instituição, habilitado a cadastrar funcionarios  3 = Funcionarios,  habilitados a usar o site.
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_usuarios (ID_inst , Nome , usuario , senha , nivel ) " +
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_usuarios (ID_inst , Nome , usuario , senha , nivel, DataCadastro ) " +
            "VALUES (" +
            "'" + param1 + "'," +
            "'" + param2 + "'," +
            "'" + param3 + "'," +
            "'" + param4 + "'," +
-           "'" + param5 + "')" 
+           nivel + ", " +
+           "dateadd(hh,-3,getdate()) " +
+           ")"
            ); 
 
         ConexaoBancoSQL.fecharConexao();
@@ -216,7 +221,7 @@ public class WebService : System.Web.Services.WebService
         }
         else
         {
-            url = "CADSorry.aspx";
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
         }
 
         return url;

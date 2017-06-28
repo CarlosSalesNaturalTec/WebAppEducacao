@@ -102,22 +102,49 @@ function IncluirUsuario() {
         return;
     }
 
+    var v1 = document.getElementById('IDAuxHidden').value;
+    var v2 = document.getElementById("input_userNome").value;
+    var v3 = document.getElementById("input_user").value;
+    var v4 = document.getElementById("input_pwd").value;
+    
+
     //UI - exibir animações - aguarde...
     //UIAguardar();
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/InstituicaoSalvar",  //<!--*******Customização*******-->
-        data: '{' + strLine + '}',
+        url: "WebService.asmx/InstituicaoNewUser",  //<!--*******Customização*******-->
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            window.location.href = response.d;
+            insertLinha();
         },
         failure: function (response) {
             alert(response.d);
         }
     });
+}
+
+function insertLinha() {
+
+    var col1 = document.getElementById("input_userNome").value;
+    var col2 = document.getElementById("input_user").value;
+
+    var table = document.getElementById("MyTable");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+
+    //apaga formulario
+    document.getElementById('input_userNome').value = "";
+    document.getElementById('input_user').value = "";
+    document.getElementById('input_pwd').value = "";
+
 }
 
 function cancelar() {
