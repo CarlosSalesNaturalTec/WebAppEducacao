@@ -192,6 +192,37 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+    [WebMethod]
+    public string InstituicaoNewUser(string param1, string param2, string param3, string param4, string param5)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_usuarios (ID_inst , Nome , usuario , senha , nivel ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "')" 
+           ); 
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
+
 }
 
 

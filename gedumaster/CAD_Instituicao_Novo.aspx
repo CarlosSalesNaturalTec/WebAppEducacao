@@ -440,25 +440,31 @@
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <div class="form-group">
                             <br />
+                            <label for="input_userNome" class="col-md-2 control-label">Responsável</label>
+                            <div class="col-md-9">
+                                <input type="text" id="input_userNome"  class="w3-input w3-border w3-round">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
                             <label for="input_user" class="col-md-2 control-label">Usuário</label>
                             <div class="col-md-4">
-                                <input type="text" id="input_user">
+                                <input type="text" id="input_user" class="w3-input w3-border w3-round">
                             </div>
-                            <label for="input_DEPparent" class="col-md-2 control-label">Senha</label>
-                            <div class="col-md-3">
-                                <input type="password" id="Senha">
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="input_contato" class="col-md-2 control-label">Contato</label>
-                            <div class="col-md-4">
-                                <input type="text" id="input_contato">
-                            </div>
+                            
+                            <label for="input_DEPparent" class="col-md-1 control-label">Senha</label>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                                <input type="password" id="Senha" class="w3-input w3-border w3-round">
+                            </div>
+                            
+                            <div class="col-md-2">
+                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="alert('Necessário Salvar Instituição primeiro!')">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
 
                         </div>
@@ -472,17 +478,10 @@
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Nome</th>
-                                            <th>Contato</th>
+                                            <th>Usuário</th>
+                                            <th>Data Cadastro</th>
                                         </tr>
                                     </thead>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
                                 </table>
                             </div>
                         </div>

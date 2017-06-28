@@ -93,6 +93,33 @@ function AlterarRegistro() {
     });
 }
 
+function IncluirUsuario() {
+
+    //validações
+    if (document.getElementById('input_userNome').value == "") {
+        alert("Informe Nome do Responsável");   //<!--*******Customização*******-->
+        document.getElementById("input_userNome").focus();  //<!--*******Customização*******-->
+        return;
+    }
+
+    //UI - exibir animações - aguarde...
+    //UIAguardar();
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/InstituicaoSalvar",  //<!--*******Customização*******-->
+        data: '{' + strLine + '}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            window.location.href = response.d;
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
 function cancelar() {
     var linkurl = "CAD_Instituicao_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
