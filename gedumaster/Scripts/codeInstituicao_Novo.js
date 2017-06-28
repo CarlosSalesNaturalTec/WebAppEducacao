@@ -107,10 +107,6 @@ function IncluirUsuario() {
     var v3 = document.getElementById("input_user").value;
     var v4 = document.getElementById("input_pwd").value;
     
-
-    //UI - exibir animações - aguarde...
-    //UIAguardar();
-
     $.ajax({
         type: "POST",
         url: "WebService.asmx/InstituicaoNewUser",  //<!--*******Customização*******-->
@@ -126,10 +122,35 @@ function IncluirUsuario() {
     });
 }
 
+function ExcluirUser(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Usuário?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/InstituicaoDELuser",  //<!--*******Customização*******-->
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) { 
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("MyTable").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}
+
 function insertLinha() {
 
-    var col1 = document.getElementById("input_userNome").value;
-    var col2 = document.getElementById("input_user").value;
+    var col1 = document.getElementById('input_userNome').value;
+    var col2 = document.getElementById('input_user').value;
 
     var table = document.getElementById("MyTable");
 
@@ -146,6 +167,7 @@ function insertLinha() {
     document.getElementById('input_pwd').value = "";
 
 }
+
 
 function cancelar() {
     var linkurl = "CAD_Instituicao_Listagem.aspx";   //<!--*******Customização*******-->

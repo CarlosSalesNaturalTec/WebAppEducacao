@@ -480,6 +480,7 @@
                                             <th>Usuário</th>
                                         </tr>
                                     </thead>
+                                    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>

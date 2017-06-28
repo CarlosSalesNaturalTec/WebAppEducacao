@@ -217,7 +217,7 @@ public class WebService : System.Web.Services.WebService
 
         if (inserirUser == true)
         {
-            url = "OK";  // <!--*******Customização*******-->
+            url = "OK";  
         }
         else
         {
@@ -227,7 +227,26 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+    [WebMethod]
+    public string InstituicaoDELuser(string param1)
+    {
+        string url;
 
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_usuarios where ID_user =" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
 }
 
 
