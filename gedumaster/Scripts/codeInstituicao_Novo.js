@@ -135,7 +135,8 @@ function ExcluirUser(r, USerID) {
         data: '{param1: "' + USerID + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        success: function (response) { 
+        success: function (response) {
+            // excluir linha do Table
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("MyTable").deleteRow(i);
         },

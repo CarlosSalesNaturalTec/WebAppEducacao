@@ -313,7 +313,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_areaInfo" class="col-md-2 control-label">Área de Info.</label>
+                            <label for="input_areaInfo" class="col-md-2 control-label">Área Informática</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_areaInfo">
                                     <option value="Não">Não</option>

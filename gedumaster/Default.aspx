@@ -38,7 +38,7 @@
                     <button id="btLogin" class="w3-btn w3-green w3-round" onclick="TentarLogin()">Entrar</button>
                 </p>
                 <hr />
-                <h5><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</h5>
+                <h5><strong><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</strong></h5>
             </section>
         </div>
 
