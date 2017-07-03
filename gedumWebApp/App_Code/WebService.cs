@@ -54,7 +54,7 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57)
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Funcionarios (" +
@@ -72,6 +72,8 @@ public class WebService : System.Web.Services.WebService
             "Deficiente," +
             "DeficienteTipo," +
             "Endereco," +
+            "Latitude," +
+            "Longitude," +
             "Numero," +
             "Bairro," +
             "CEP," +
@@ -174,8 +176,10 @@ public class WebService : System.Web.Services.WebService
             "'" + param53 + "'," +
             "'" + param54 + "'," +
             "'" + param55 + "'," +
-            param56 + "," +
-            "'" + param57 + "'" +
+            "'" + param56 + "'," +
+            "'" + param57 + "'," +
+            param58 + "," +
+            "'" + param59 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -221,12 +225,12 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57)
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59)
     {
 
-        // param0 a param55 = campos
-        // param56 = foto
-        // param57 = id func
+        // param0 a param57 = campos
+        // param58 = foto
+        // param59 = id func
 
         string url;
 
@@ -246,50 +250,52 @@ public class WebService : System.Web.Services.WebService
             "Deficiente= '" + param11 + "', " +
             "DeficienteTipo= '" + param12 + "', " +
             "Endereco= '" + param13 + "', " +
-            "Numero= '" + param14 + "', " +
-            "Bairro= '" + param15 + "', " +
-            "CEP= '" + param16 + "', " +
-            "UF= '" + param17 + "', " +
-            "Cidade= '" + param18 + "', " +
-            "Celular1= '" + param19 + "', " +
-            "Celular2= '" + param20 + "', " +
-            "TelFixo= '" + param21 + "', " +
-            "email= '" + param22 + "', " +
-            "PIS= '" + param23 + "', " +
-            "CPF= '" + param24 + "', " +
-            "RG= '" + param25 + "', " +
-            "RGEmissor= '" + param26 + "', " +
-            "RGEmissao= '" + param27 + "', " +
-            "CTPS= '" + param28 + "', " +
-            "CTPSserie= '" + param29 + "', " +
-            "CTPSEmissao= '" + param30 + "', " +
-            "Titulo= '" + param31 + "', " +
-            "Zona= '" + param32 + "', " +
-            "Secao= '" + param33 + "', " +
-            "CNH= '" + param34 + "', " +
-            "Passaporte= '" + param35 + "', " +
-            "Situacao= '" + param36 + "', " +
-            "SituacaoOutros= '" + param37 + "', " +
-            "Funcao= '" + param38 + "', " +
-            "TabelaSal= '" + param39 + "', " +
-            "Sindicalizado= '" + param40 + "', " +
-            "SindicatoNome= '" + param41 + "', " +
-            "Banco= '" + param42 + "', " +
-            "Agencia= '" + param43 + "', " +
-            "ContaTipo= '" + param44 + "', " +
-            "ContaNumero= '" + param45 + "', " +
-            "ContaOperacao= '" + param46 + "', " +
-            "Alergias= '" + param47 + "', " +
-            "AlergiasMed= '" + param48 + "', " +
-            "AcidenteAvisar= '" + param49 + "', " +
-            "FardaCamisa= '" + param50 + "', " +
-            "FardaCamiseta= '" + param51 + "', " +
-            "FardaCalca= '" + param52 + "', " +
-            "FardaSapato= '" + param53 + "', " +
-            "FardaBota= '" + param54 + "', " +
-            "FardaObs= '" + param55 + "', " +
-            "FotoDataURI= '" + param56 + "' " +
-            "where ID_func = " + param57);
+            "Latitude= '" + param14 + "', " +
+            "Longitude= '" + param15 + "', " +
+            "Numero= '" + param16 + "', " +
+            "Bairro= '" + param17 + "', " +
+            "CEP= '" + param18 + "', " +
+            "UF= '" + param19 + "', " +
+            "Cidade= '" + param20 + "', " +
+            "Celular1= '" + param21 + "', " +
+            "Celular2= '" + param22 + "', " +
+            "TelFixo= '" + param23 + "', " +
+            "email= '" + param24 + "', " +
+            "PIS= '" + param25 + "', " +
+            "CPF= '" + param26 + "', " +
+            "RG= '" + param27 + "', " +
+            "RGEmissor= '" + param28 + "', " +
+            "RGEmissao= '" + param29 + "', " +
+            "CTPS= '" + param30 + "', " +
+            "CTPSserie= '" + param31 + "', " +
+            "CTPSEmissao= '" + param32 + "', " +
+            "Titulo= '" + param33 + "', " +
+            "Zona= '" + param34 + "', " +
+            "Secao= '" + param35 + "', " +
+            "CNH= '" + param36 + "', " +
+            "Passaporte= '" + param37 + "', " +
+            "Situacao= '" + param38 + "', " +
+            "SituacaoOutros= '" + param39 + "', " +
+            "Funcao= '" + param40 + "', " +
+            "TabelaSal= '" + param41 + "', " +
+            "Sindicalizado= '" + param42 + "', " +
+            "SindicatoNome= '" + param43 + "', " +
+            "Banco= '" + param44 + "', " +
+            "Agencia= '" + param45 + "', " +
+            "ContaTipo= '" + param46 + "', " +
+            "ContaNumero= '" + param47 + "', " +
+            "ContaOperacao= '" + param48 + "', " +
+            "Alergias= '" + param49 + "', " +
+            "AlergiasMed= '" + param50 + "', " +
+            "AcidenteAvisar= '" + param51 + "', " +
+            "FardaCamisa= '" + param52 + "', " +
+            "FardaCamiseta= '" + param53 + "', " +
+            "FardaCalca= '" + param54 + "', " +
+            "FardaSapato= '" + param55 + "', " +
+            "FardaBota= '" + param56 + "', " +
+            "FardaObs= '" + param57 + "', " +
+            "FotoDataURI= '" + param58 + "' " +
+            "where ID_func = " + param59);
 
         ConexaoBancoSQL.fecharConexao();
 

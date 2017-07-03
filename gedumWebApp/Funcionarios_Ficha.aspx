@@ -36,7 +36,7 @@
 
 </head>
 <body>
-    
+
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
@@ -251,6 +251,8 @@
                             <label for="input_end" class="col-md-2 control-label">Endereço</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" id="input_end">
+                                <input type="hidden" class="form-control" id="input_lat">
+                                <input type="hidden" class="form-control" id="input_lng">
                             </div>
                             <label for="input_num" class="col-md-1 control-label">Número</label>
                             <div class="col-md-2">
@@ -332,9 +334,8 @@
             </div>
 
             <div class="w3-quarter">
-                <div id="map"></div>
                 <div class="w3-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248922.6766195409!2d-38.55767179513302!3d-12.880897633835406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x716037ca23ca5b3%3A0x1b9fc7912c226698!2sSalvador+-+BA!5e0!3m2!1spt-BR!2sbr!4v1497576846388" width="100%" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
+                    <iframe name="MapFrame" src="MapaAuxiliar.aspx?lat=0&lng=0" width="100%" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -989,7 +990,7 @@
 
     <!-- auxiliares -->
     <input id="IDHidden" name="IDHidden" type="hidden" />
-    <asp:Literal ID="Literal1" runat="server"></asp:Literal>  
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts diversos  -->
     <script type="text/javascript" src="Scripts/webcam.js"></script>
