@@ -5,11 +5,15 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
+    string idAux;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        PreencheCampos(Request.QueryString["v1"]);
-        Literal1.Text = str.ToString();
+        idAux = Request.QueryString["v1"];
+        PreencheCampos(idAux);
+
+        DependentesLista(idAux);
+        
     }
 
     private void PreencheCampos(string ID)
@@ -119,5 +123,50 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 
         ScriptDados = "</script>";      
         str.Append(ScriptDados);
+
+        Literal1.Text = str.ToString();
+
     }
+
+    private void DependentesLista(string ID)
+    {
+
+        string stringSelect = "select ID_Depend , Nome, Parentesco, Nascimento " +
+            " from Tbl_Funcionarios_Dependentes " +
+            " where ID_func = " + ID +
+            " order by Nome";
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DependenteExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal2.Text = str.ToString();
+
+    }
+
 }

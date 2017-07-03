@@ -91,6 +91,86 @@ function AlterarRegistro() {
     });
 }
 
+function DependenteIncluir() {
+
+    //validações
+    //<!--*******Customização*******-->
+    if (document.getElementById('input_DEPNome').value == "") {
+        alert("Informe Nome do Dependente");  
+        document.getElementById("input_DEPNome").focus(); 
+        return;
+    }
+
+    var v1 = document.getElementById('IDHidden').value;
+    var v2 = document.getElementById("input_DEPNome").value;
+    var v3 = document.getElementById("input_DEPparent").value;
+    var v4 = document.getElementById("input_DEPNasc").value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosNewDep",  //<!--*******Customização*******-->
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            DependenteInsertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function DependenteExcluir(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Dependente?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosDelDep",  //<!--*******Customização*******-->
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("MyTable").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}
+
+function DependenteInsertLinha() {
+
+    var col1 = document.getElementById('input_DEPNome').value;
+    var col2 = document.getElementById('input_DEPparent').value;
+    var col3 = document.getElementById('input_DEPNasc').value;
+
+    var table = document.getElementById("MyTable");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+    cell3.innerHTML = col3;
+
+    //apaga formulario
+    document.getElementById('input_DEPNome').value = "";
+    document.getElementById('input_DEPparent').value = "";
+    document.getElementById('input_DEPNasc').value = "";
+
+}
+
 function cancelar() {
     var linkurl = "Funcionarios_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;

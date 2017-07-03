@@ -204,7 +204,7 @@
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
@@ -314,6 +314,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -425,6 +428,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar2()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -461,7 +467,7 @@
                         <div class="form-group">
                             <label for="input_DEPNome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-10">
-                                <input type="text" id="input_DEPNome">
+                                <input type="text" id="input_DEPNome" class="w3-input w3-border w3-round">
                             </div>
 
                         </div>
@@ -469,14 +475,16 @@
                         <div class="form-group">
                             <label for="input_DEPparent" class="col-md-2 control-label">Parentesco</label>
                             <div class="col-md-3">
-                                <input type="text" id="input_DEPparent">
+                                <input type="text" id="input_DEPparent" class="w3-input w3-border w3-round">
                             </div>
                             <label for="input_DEPNasc" class="col-md-2 control-label">Nascimento</label>
                             <div class="col-md-3">
-                                <input type="date" id="input_DEPNasc">
+                                <input type="date" id="input_DEPNasc" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                               <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="alert('Necessário Salvar Funcionário primeiro!')">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
 
@@ -493,16 +501,6 @@
                                             <th>Nascimento</th>
                                         </tr>
                                     </thead>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -516,6 +514,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 

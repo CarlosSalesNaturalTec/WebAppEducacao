@@ -311,6 +311,55 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+    [WebMethod]
+    public string FuncionariosNewDep(string param1, string param2, string param3, string param4)
+    {
+        string url;
+        
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Dependentes (ID_func , Nome , Parentesco  , Nascimento ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelDep(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Dependentes  where ID_Depend=" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
 }
 
 public class ConexaoBancoSQL

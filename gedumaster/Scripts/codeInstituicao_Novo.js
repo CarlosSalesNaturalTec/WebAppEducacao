@@ -169,7 +169,6 @@ function insertLinha() {
 
 }
 
-
 function cancelar() {
     var linkurl = "CAD_Instituicao_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
