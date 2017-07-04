@@ -13,7 +13,9 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         PreencheCampos(idAux);
 
         DependentesLista(idAux);
-        
+        BeneficiosLista(idAux);
+        CargaHLista(idAux);
+
     }
 
     private void PreencheCampos(string ID)
@@ -169,4 +171,90 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 
     }
 
+    private void BeneficiosLista(string ID)
+    {
+
+        string stringSelect = "select ID_Benef, Beneficio , Situacao , Inicio " +
+            " from Tbl_Funcionarios_Beneficios  " +
+            " where ID_func = " + ID +
+            " order by Beneficio";
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='BeneficioExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal3.Text = str.ToString();
+
+    }
+
+    private void CargaHLista(string ID)
+    {
+
+        string stringSelect = "select ID_CargaH, DiaSemana, Turno, Entrada, Saida, Descanso " +
+            " from Tbl_Funcionarios_CargaHor " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='CargaHExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[4]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[5]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal5.Text = str.ToString();
+
+    }
 }

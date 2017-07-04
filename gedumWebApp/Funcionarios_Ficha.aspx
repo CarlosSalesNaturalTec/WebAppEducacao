@@ -555,7 +555,7 @@
                         <div class="form-group">
                             <label for="input_BEnefNome" class="col-md-2 control-label">Benefício</label>
                             <div class="col-md-10">
-                                <input type="text" id="input_BEnefNome">
+                                <input type="text" id="input_BEnefNome" class="w3-input w3-border w3-round">
                             </div>
 
                         </div>
@@ -563,14 +563,16 @@
                         <div class="form-group">
                             <label for="input_BenefSituac" class="col-md-2 control-label">Situação</label>
                             <div class="col-md-3">
-                                <input type="text" id="input_BenefSituac">
+                                <input type="text" id="input_BenefSituac" class="w3-input w3-border w3-round">
                             </div>
                             <label for="input_BenefInicio" class="col-md-2 control-label">Inicio</label>
                             <div class="col-md-3">
-                                <input type="date" id="input_BenefInicio">
+                                <input type="date" id="input_BenefInicio" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-hover-green"><i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="BeneficioIncluir()" type="button">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
 
@@ -578,7 +580,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="TableBenef" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Benefício</th>
@@ -586,16 +588,7 @@
                                             <th>Início</th>
                                         </tr>
                                     </thead>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
+                                    <asp:Literal ID="Literal3" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
@@ -720,18 +713,52 @@
 
         <!-- GRUPO 7 - Carga Horária-->
         <div id="grupo7" class="w3-container grupo w3-animate-left" style="display: none">
-            <!--*******Customização*******-->
+
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária- Ficha Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
-                        <!-- GRID Carga Horária -->
+                        <div class="form-group">
+                            <label for="input_DiaSem" class="col-md-2 control-label">Dia Semana</label>
+                            <div class="col-md-3">
+                                <input type="text" id="input_DiaSem" class="w3-input w3-border w3-round">
+                            </div>
+                            <label for="input_Turno" class="col-md-2 control-label">Turno</label>
+                            <div class="col-md-3">
+                                <input type="text" id="input_Turno" class="w3-input w3-border w3-round">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_Entrada" class="col-md-2 control-label">Entrada</label>
+                            <div class="col-md-3">
+                                <input type="text" id="input_Entrada" class="w3-input w3-border w3-round">
+                            </div>
+                            <label for="input_Saida" class="col-md-2 control-label">Saida</label>
+                            <div class="col-md-3">
+                                <input type="text" id="input_Saida" class="w3-input w3-border w3-round">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_Descanso" class="col-md-2 control-label">Descanso</label>
+                            <div class="col-md-3">
+                                <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
+                            </div>
+                            <div class="col-md-2">
+                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="CargaHIncluir()" type="button">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                            </div>
+                        </div>
+
+                        <!-- GRID Carga Horária- -->
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="TableCargaH" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Dia Semana</th>
@@ -741,24 +768,12 @@
                                             <th>Descanso</th>
                                         </tr>
                                     </thead>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
+                                    <asp:Literal ID="Literal5" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
-                        <!-- GRID Carga Horária -->
+                        <!-- GRID Carga Horária--->
+
                     </fieldset>
                 </form>
 
@@ -770,15 +785,14 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar6()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
-                            </button>
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar</button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -795,7 +809,7 @@
 
         <!-- GRUPO 8 - Dados Bancários -->
         <div id="grupo8" class="w3-container grupo w3-animate-left" style="display: none">
-            <!--*******Customização*******-->
+            
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários- Ficha Funcionário</h3>
             <hr />
 

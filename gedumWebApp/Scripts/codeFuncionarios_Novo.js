@@ -171,6 +171,175 @@ function DependenteInsertLinha() {
 
 }
 
+function BeneficioIncluir() {
+
+    //validações
+    //<!--*******Customização*******-->
+    if (document.getElementById('input_BEnefNome').value == "") {
+        alert("Informe nome do Beneficio");
+        document.getElementById("input_BEnefNome").focus();
+        return;
+    }
+
+    var v1 = document.getElementById('IDHidden').value;
+    var v2 = document.getElementById("input_BEnefNome").value;
+    var v3 = document.getElementById("input_BenefSituac").value;
+    var v4 = document.getElementById("input_BenefInicio").value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosNewBenef",  //<!--*******Customização*******-->
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            BeneficioInsertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function BeneficioExcluir(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Benefício?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosDelBenef",  
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("TableBenef").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}
+
+function BeneficioInsertLinha() {
+
+    var col1 = document.getElementById('input_BEnefNome').value;
+    var col2 = document.getElementById('input_BenefSituac').value;
+    var col3 = document.getElementById('input_BenefInicio').value;
+
+    var table = document.getElementById("TableBenef");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+    cell3.innerHTML = col3;
+
+    //apaga formulario
+    document.getElementById('input_BEnefNome').value = "";
+    document.getElementById('input_BenefSituac').value = "";
+    document.getElementById('input_BenefInicio').value = "";
+
+}
+
+function CargaHIncluir() {
+
+    //validações
+    //<!--*******Customização*******-->
+    if (document.getElementById('input_DiaSem').value == "") {
+        alert("Informe Dia da Semana");
+        document.getElementById("input_DiaSem").focus();
+        return;
+    }
+
+    var v1 = document.getElementById('IDHidden').value;
+    var v2 = document.getElementById("input_DiaSem").value;
+    var v3 = document.getElementById("input_Turno").value;
+    var v4 = document.getElementById("input_Entrada").value;
+    var v5 = document.getElementById("input_Saida").value;
+    var v6 = document.getElementById("input_Descanso").value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosNewCargaH",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 + '", param6: "' + v6 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            CargaHInsertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function CargaHExcluir(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Carga Horária?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosDelCargaH",
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("TableCargaH").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+}
+
+function CargaHInsertLinha() {
+
+    var col1 = document.getElementById('input_DiaSem').value;
+    var col2 = document.getElementById('input_Turno').value;
+    var col3 = document.getElementById('input_Entrada').value;
+    var col4 = document.getElementById('input_Saida').value;
+    var col5 = document.getElementById('input_Descanso').value;
+
+    var table = document.getElementById("TableCargaH");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+    cell3.innerHTML = col3;
+    cell4.innerHTML = col4;
+    cell5.innerHTML = col5;
+
+    //apaga formulario
+    document.getElementById('input_DiaSem').value = "";
+    document.getElementById('input_Turno').value = "";
+    document.getElementById('input_Entrada').value = "";
+    document.getElementById('input_Saida').value = "";
+    document.getElementById('input_Descanso').value = "";
+
+}
+
 function cancelar() {
     var linkurl = "Funcionarios_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;

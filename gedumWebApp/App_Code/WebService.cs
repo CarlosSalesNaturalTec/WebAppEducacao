@@ -355,7 +355,109 @@ public class WebService : System.Web.Services.WebService
         }
         else
         {
-            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+            url = "NÃO FOI POSSIVEL EXCLUIR DEPENDENTE";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosNewBenef(string param1, string param2, string param3, string param4)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Beneficios (ID_func , Beneficio, Situacao , Inicio ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelBenef(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Beneficios where ID_Benef =" + param1);   
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK"; 
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR BENEFICIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosNewCargaH(string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_CargaHor (ID_func , DiaSemana , Turno, Entrada,Saida,Descanso ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "'," +
+           "'" + param6 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelCargaH(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_CargaHor where ID_CargaH =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR CARGA HORÁRIA";
         }
 
         return url;
