@@ -295,7 +295,7 @@
 
                         <div class="form-group">
                             <label for="input_fixo" class="col-md-2 control-label">Telefone Fixo</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_fixo">
                             </div>
                         </div>
@@ -743,7 +743,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_Descanso" class="col-md-2 control-label">Descanso</label>
+                            <label for="input_Descanso" class="col-md-2 control-label">Descanso (hs)</label>
                             <div class="col-md-3">
                                 <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
                             </div>
@@ -765,7 +765,7 @@
                                             <th>Turno</th>
                                             <th>Entrada</th>
                                             <th>Saida</th>
-                                            <th>Descanso</th>
+                                            <th>Descanso (hs)</th>
                                         </tr>
                                     </thead>
                                     <asp:Literal ID="Literal5" runat="server"></asp:Literal>
@@ -785,10 +785,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar6()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">

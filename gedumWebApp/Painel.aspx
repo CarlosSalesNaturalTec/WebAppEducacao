@@ -38,11 +38,12 @@
 
             <a href="#" class="w3-bar-item w3-btn w3-hover-green w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
 
+            <a href="Suporte.aspx"  target="iframe"  class="w3-bar-item w3-btn w3-hover-green w3-right">Suporte <i class="fa fa-cog"></i></a>
+
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;Suporte </button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exportações </button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#" class="w3-bar-item w3-button w3-hover-green">Exportação IDEP</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Contatos</a>
                 </div>
             </div>
 

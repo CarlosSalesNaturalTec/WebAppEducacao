@@ -294,7 +294,7 @@
 
                         <div class="form-group">
                             <label for="input_fixo" class="col-md-2 control-label">Telefone Fixo</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_fixo">
                             </div>
                         </div>
