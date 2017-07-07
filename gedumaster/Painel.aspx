@@ -36,10 +36,10 @@
             </div>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-university"></i>&nbsp;Instituições</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-university"></i>&nbsp;Cadastro</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="CAD_Instituicao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button">Cadastro</a>
-                    <a href="#" class="w3-bar-item w3-button">Pesquisa</a>
+                    <a href="CAD_Municipio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button">Municípios</a>
+                    <a href="CAD_Instituicao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button">Instituições</a>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
         <iframe src="Home.aspx" width="100%" height="600px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <div class="w3-bottom">
         <div class="w3-bar w3-black">
             <div class="w3-right">
@@ -91,7 +91,7 @@
         </div>
     </div>
     <!-- Modal LogOff -->
-     
+
     <!-- Scripts Diversos -->
     <script type="text/javascript" src="Scripts/codePainel.js"></script>
 

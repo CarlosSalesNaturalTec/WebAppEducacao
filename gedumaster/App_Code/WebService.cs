@@ -247,6 +247,151 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    public string MunicipioExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Municipios where ID_Munic =" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "CAD_Municipio_Listagem.aspx";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string MunicipioSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+            string param6, string param7, string param8)
+    {
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        // <!--*******Customização*******-->
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Municipios (Nome, UF, Gestor, TElefone, email, Endereco, " +
+            "Latitude, Longitude, Logomarca ) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'" +
+            ")");
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "CAD_Municipio_Listagem.aspx";    // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string MunicipioAlterar(string param0, string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9)
+    {
+        string url;
+
+        OperacaoBanco operacao4 = new OperacaoBanco();
+        // <!--*******Customização*******-->
+        bool alterar = operacao4.Update("update Tbl_Municipios set " +
+            "Nome = '" + param0 + "'," +
+            "uf = '" + param1 + "'," +
+            "gestor = '" + param2 + "'," +
+            "telefone = '" + param3 + "'," +
+            "email = '" + param4 + "'," +
+            "Endereco = '" + param5 + "'," +
+            "Latitude = '" + param6 + "'," +
+            "Longitude = '" + param7 + "'," +
+            "Logomarca = '" + param8 + "' " +
+            "where ID_Munic =" + param9);  // <!--*******Customização - ultimo parametro *******-->
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (alterar == true)
+        {
+            url = "CAD_Instituicao_Listagem.aspx";   // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "CADSorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string MunicipioNewUser(string param1, string param2, string param3, string param4)
+    {
+        string url;
+        string nivel = "1";  // 0 = developer master    1 = Gestor Municipal habilitado a cadastrar instituições    2 = Gestor de Instituição, habilitado a cadastrar funcionarios  3 = Funcionarios,  habilitados a usar o site.
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_usuarios (ID_Munic, Nome , usuario , senha , nivel, DataCadastro ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           nivel + ", " +
+           "dateadd(hh,-3,getdate()) " +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string MunicipioDELuser(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_usuarios where ID_user =" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+
 }
 
 
