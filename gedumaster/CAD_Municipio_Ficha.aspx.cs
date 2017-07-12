@@ -26,27 +26,24 @@ public partial class CAD_Municipio_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
-        string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
-            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
-            "Diretor , Admissao ," +
-            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca " +
-            "from Tbl_Instituicao  " +
-            "where ID_inst = " + ID;
+        string stringSelect = "select Nome, UF, Gestor, Telefone, Email " +
+            "from Tbl_Municipios  " +
+            "where ID_Munic = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 26; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
+            for (int i = 0; i < 4; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            //monta foto
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[26]) + "\"/>'; ";
+            //monta foto            
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[4]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[26]) + "\";";
+            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[4]) + "\";";
             str.Append(ScriptDados);
 
             //ID do registro
