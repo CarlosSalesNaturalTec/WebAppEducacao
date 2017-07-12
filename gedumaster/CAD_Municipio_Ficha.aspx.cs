@@ -8,6 +8,7 @@ public partial class CAD_Municipio_Ficha : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
         listaUsuarios(idAux);
@@ -26,7 +27,7 @@ public partial class CAD_Municipio_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
-        string stringSelect = "select Nome, UF, Gestor, Telefone, Email " +
+        string stringSelect = "select Nome, UF, Gestor, Telefone, Email, Endereco , Latitude , Longitude , Logomarca " +
             "from Tbl_Municipios  " +
             "where ID_Munic = " + ID;
 
@@ -34,16 +35,16 @@ public partial class CAD_Municipio_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 4; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
+            for (int i = 0; i < 8; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 9 campos 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
             //monta foto            
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[4]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[8]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[4]) + "\";";
+            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[8]) + "\";";
             str.Append(ScriptDados);
 
             //ID do registro
@@ -62,7 +63,7 @@ public partial class CAD_Municipio_Ficha : System.Web.UI.Page
     {
 
         string stringSelect = "select ID_user, Nome, usuario from tbl_usuarios" +
-            " where ID_inst = " + ID +
+            " where ID_Munic = " + ID +
             " order by Nome";
         OperacaoBanco operacaoUsers = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);

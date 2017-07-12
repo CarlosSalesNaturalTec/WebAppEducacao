@@ -117,7 +117,6 @@
             </div>
             <!-- Botões Controle -->
 
-
         </div>
 
         <!-- GRUPO 2 -->
@@ -137,11 +136,18 @@
                             <label for="input_end" class="col-md-2 control-label">Endereço</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_end">
+                                <input type="hidden" class="form-control" id="input_lat">
+                                <input type="hidden" class="form-control" id="input_lng">
                             </div>
                         </div>
-
                     </fieldset>
                 </form>
+            </div>
+
+            <div class="w3-quarter">
+                <div class="w3-container">
+                    <iframe name="MapFrame" src="MapaAuxiliar.aspx?lat=0&lng=0" width="100%" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
+                </div>
             </div>
 
             <!-- Botões Controle -->
@@ -166,6 +172,7 @@
                 </p>
             </div>
             <!-- Botões Controle -->
+
         </div>
 
         <!-- GRUPO 3 -->
@@ -200,10 +207,10 @@
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                         <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar2()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt4()">
                         <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -285,7 +292,7 @@
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                         <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -305,8 +312,8 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeMunicipio_Novo.js"></script>
-    <script type="text/javascript" src="Scripts/codeMunicipio_Mapa.js"></script> 
+    <script type="text/javascript" src="Scripts/codeMunicipio_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
-  
+
 </body>
 </html>

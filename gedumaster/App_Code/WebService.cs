@@ -328,7 +328,7 @@ public class WebService : System.Web.Services.WebService
 
         if (alterar == true)
         {
-            url = "CAD_Instituicao_Listagem.aspx";   // <!--*******Customização*******-->
+            url = "CAD_Municipio_Listagem.aspx";   // <!--*******Customização*******-->
         }
         else
         {
