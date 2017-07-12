@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class Displinas_Novo : System.Web.UI.Page
+public partial class Disciplinas_Novo : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
