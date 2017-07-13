@@ -44,8 +44,11 @@ public class WebService : System.Web.Services.WebService
                     int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                     string vValida4 = vValida3.ToString();
 
-                    Identificador_msg = "LogIn.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
-                        "&p3=" + Convert.ToString(Identificador_rcrdset[2]);
+                    Identificador_msg = "LogIn.aspx" +
+                        "?p1=" + vValida4 + 
+                        "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
+                        "&p3=" + Convert.ToString(Identificador_rcrdset[2]) +
+                        "&p4=" + nivel;
                 }
             }
             else
@@ -199,7 +202,7 @@ public class WebService : System.Web.Services.WebService
     public string InstituicaoNewUser(string param1, string param2, string param3, string param4)
     {
         string url;
-        string nivel = "2";  // 0 = developer master    1 = Gestor Municipal habilitado a cadastrar instituições    2 = Gestor de Instituição, habilitado a cadastrar funcionarios  3 = Funcionarios,  habilitados a usar o site.
+        string nivel = "3";  // 0 = developer master    1 = Gestor Municipal habilitado a cadastrar instituições    2 = Gestor de Instituição, habilitado a cadastrar funcionarios  3 = Funcionarios,  habilitados a usar o site.
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
         Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_usuarios (ID_inst , Nome , usuario , senha , nivel, DataCadastro ) " +

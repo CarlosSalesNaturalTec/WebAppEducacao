@@ -50,6 +50,19 @@ public partial class CAD_Municipio_Ficha : System.Web.UI.Page
             //ID do registro
             ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
+
+            // mapa
+            ScriptDados = "var latitude = document.getElementById('input_lat').value;";
+            str.Append(ScriptDados);
+
+            ScriptDados = "var longitude = document.getElementById('input_lng').value;";
+            str.Append(ScriptDados);
+
+            ScriptDados = "var urlMapa = \"MapaAuxiliar.aspx?lat=\" + latitude + \"&lng=\" + longitude;";
+            str.Append(ScriptDados);
+
+            ScriptDados = "window.open(urlMapa, 'MapFrame');";
+            str.Append(ScriptDados);
         }
         ConexaoBancoSQL.fecharConexao();
 

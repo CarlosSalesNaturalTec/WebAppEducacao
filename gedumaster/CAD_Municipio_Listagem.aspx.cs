@@ -8,6 +8,11 @@ public partial class CAD_Municipio_Listagem : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        int nivel = Convert.ToInt16(Session["UserLevel"].ToString());
+        if (nivel > 0 )
+        {
+            Response.Redirect("NaoAutorizado.aspx");
+        }
 
         string iduser = Session["UserID"].ToString();
 

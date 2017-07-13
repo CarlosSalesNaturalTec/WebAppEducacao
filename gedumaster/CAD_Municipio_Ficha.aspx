@@ -121,27 +121,52 @@
 
         <!-- GRUPO 2 -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
-            <br />
-            <div class="col-md-9 w3-border w3-round w3-light-gray">
-                <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Endereço - Novo Município</h3>
-            </div>
 
-            <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Mapa - Novo Município</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+
                 <form class="form-horizontal">
                     <!--*******Customização*******-->
                     <fieldset>
                         <br />
                         <div class="form-group">
-                            <label for="input_end" class="col-md-2 control-label">Endereço</label>
+                            <label for="input_end" class="col-md-2 control-label">Localização no Mapa</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_end">
-                                <input type="hidden" class="form-control" id="input_lat">
-                                <input type="hidden" class="form-control" id="input_lng">
                             </div>
                         </div>
+                        <input type="hidden" class="form-control" id="input_lat">
+                        <input type="hidden" class="form-control" id="input_lng">
                     </fieldset>
                 </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-9 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
             </div>
 
             <div class="w3-quarter">
@@ -149,29 +174,6 @@
                     <iframe name="MapFrame" src="MapaAuxiliar.aspx?lat=0&lng=0" width="100%" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
                 </div>
             </div>
-
-            <!-- Botões Controle -->
-            <div class="col-md-9 w3-border w3-round w3-light-gray w3-padding" style="margin-top: 10px">
-                <br />
-                <div class="col-md-2"></div>
-                <p>
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
-                        <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
-
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
-                        <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
-
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                        <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
-                    </button>
-
-                    <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                </p>
-            </div>
-            <!-- Botões Controle -->
 
         </div>
 
@@ -225,11 +227,8 @@
 
         <!-- GRUPO 4 -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
-            <br />
-            <div class="col-md-9 w3-border w3-round w3-light-gray">
-                <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Novo Município</h3>
-            </div>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Usuários</h3>
+            <hr />
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
                 <form class="form-horizontal">
@@ -256,7 +255,7 @@
                             </div>
 
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="IncluirUsuario()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
@@ -268,41 +267,46 @@
                         <div class="form-group">
                             <div class="col-md-1"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Nome</th>
                                             <th>Usuário</th>
                                         </tr>
                                     </thead>
+                                    <!-- GRID Usuarios -->
+                                    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
-                        <!-- GRID Usuarios -->
-                        <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+
                     </fieldset>
                 </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
             </div>
 
-            <!-- Botões Controle -->
-            <div class="col-md-9 w3-border w3-round w3-light-gray w3-padding" style="margin-top: 10px">
-                <br />
-                <div class="col-md-2"></div>
-                <p>
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
-                        <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
-
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                        <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
-                    </button>
-
-                    <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                </p>
+            <div class="w3-quarter">
             </div>
-            <!-- Botões Controle -->
         </div>
 
     </div>
