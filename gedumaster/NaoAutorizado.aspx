@@ -14,11 +14,9 @@
 <body>
 
     <div class="w3-container w3-center w3-text-grey">
-        
+
         <p><i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i></p>
-        <h1>Opa, usuário não autorizado a realizar esta operação!</h1>
-        
-        <p><a class="w3-button w3-green w3-round-large" href="Default.aspx" target="_parent">Login</a></p>
+        <h1>Usuário não autorizado a realizar esta operação!</h1>
 
     </div>
 </body>

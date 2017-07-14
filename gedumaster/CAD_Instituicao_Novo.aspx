@@ -511,6 +511,7 @@
     </div>
     <!-- auxiliares -->
     <input id="IDAuxHidden" type="hidden" />
+    <input id="IDMunicipio" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->

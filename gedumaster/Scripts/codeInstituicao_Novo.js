@@ -27,8 +27,10 @@ function SalvarRegistro() {
     */
 
     var foto = document.getElementById('FotoHidden').value;
-    strLine = strLine + "param" + i + ":'" + foto + "'";
-    
+    strLine = strLine + "param" + i + ":'" + foto + "',";
+
+    i++;
+    strLine = strLine + "param" + i + ":'" + document.getElementById('IDMunicipio').value + "'";
 
     //UI - exibir animações - aguarde...
     UIAguardar();

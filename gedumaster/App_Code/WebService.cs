@@ -21,7 +21,7 @@ public class WebService : System.Web.Services.WebService
         string Identificador_msg = "0";
 
         // localiza usuario
-        string stringSelect = "select senha,nome,ID_user,nivel from tbl_usuarios where usuario = '" + user + "'";
+        string stringSelect = "select senha,nome,ID_user,ID_Munic, nivel from tbl_usuarios where usuario = '" + user + "'";
         OperacaoBanco Identificador_Operacao = new OperacaoBanco();
         SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
         while (Identificador_rcrdset.Read())
@@ -29,10 +29,11 @@ public class WebService : System.Web.Services.WebService
             if (pwd == Convert.ToString(Identificador_rcrdset[0]))
             {
 
-                int nivel = Convert.ToInt16(Identificador_rcrdset[3]);
+                int nivel = Convert.ToInt16(Identificador_rcrdset[4]);
 
                 if (nivel > 1)
-                {
+                {   
+                    // nivel 2 em diante não tem acesso a este modulo/master
                     Identificador_msg = "1";
                 }
                 else
@@ -48,7 +49,8 @@ public class WebService : System.Web.Services.WebService
                         "?p1=" + vValida4 + 
                         "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
                         "&p3=" + Convert.ToString(Identificador_rcrdset[2]) +
-                        "&p4=" + nivel;
+                        "&p4=" + nivel +
+                        "&p5=" + Convert.ToString(Identificador_rcrdset[3]) ;
                 }
             }
             else
@@ -68,7 +70,7 @@ public class WebService : System.Web.Services.WebService
         string param11, string param12, string param13, string param14, string param15,
         string param16, string param17, string param18, string param19, string param20,
         string param21, string param22, string param23, string param24, string param25, 
-        string param26)
+        string param26, string param27)
     {
         string url;
 
@@ -77,7 +79,7 @@ public class WebService : System.Web.Services.WebService
         bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
             "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
             "Diretor , Admissao ," +
-            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca ) " +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca, ID_Munic ) " +
             "VALUES (" + 
             "'" + param0 + "'," +
             "'" + param1 + "'," +
@@ -105,7 +107,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param23 + "'," +
             "'" + param24 + "'," +
             "'" + param25 + "'," +
-            "'" + param26 + "')");
+            "'" + param26 + "'," +
+            "'" + param27 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)

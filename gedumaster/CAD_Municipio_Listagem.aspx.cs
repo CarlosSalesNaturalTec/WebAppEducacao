@@ -8,11 +8,10 @@ public partial class CAD_Municipio_Listagem : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        // somente usuarios nivel 0 tem acesso (gestor estadual / developer)
         int nivel = Convert.ToInt16(Session["UserLevel"].ToString());
-        if (nivel > 0 )
-        {
-            Response.Redirect("NaoAutorizado.aspx");
-        }
+        if (nivel > 0 ) { Response.Redirect("NaoAutorizado.aspx");}
 
         string iduser = Session["UserID"].ToString();
 

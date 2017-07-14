@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!--*******Customização*******-->
@@ -433,7 +434,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Ficha de Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
