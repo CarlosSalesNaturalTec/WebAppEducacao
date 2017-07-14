@@ -462,6 +462,37 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+
+    [WebMethod]
+    public string DisciplinasSalvar(string param0, string param1)
+    {
+        string url;
+        string strInsert = "INSERT INTO Tbl_Disciplinas (" +
+            "Nome," +
+            "ID_Inst" +
+            ") " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Disciplinas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
 }
 
 public class ConexaoBancoSQL

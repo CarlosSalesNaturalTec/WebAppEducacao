@@ -50,7 +50,7 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Alunos </button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Ficha do Aluno</a>
+                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green">Ficha do Aluno</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green">Boletins</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green">Frequência</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green">Ocorrências</a>
@@ -72,7 +72,7 @@
                 <button class="w3-btn w3-hover-green"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Instituição</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Disciplinas</a>
+                    <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Disciplinas</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Salas</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Vagas</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Turmas</a>

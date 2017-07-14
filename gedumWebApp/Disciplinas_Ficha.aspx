@@ -103,8 +103,8 @@
 
     <!-- Scripts diversos  -->
     <script type="text/javascript" src="Scripts/webcam.js"></script>
-    <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>
-    <script type="text/javascript" src="Scripts/codeFuncionarios_Mapa.js"></script>
+    <script type="text/javascript" src="Scripts/codeDisciplinas_Novo.js"></script>
+    // <script type="text/javascript" src="Scripts/codeFuncionarios_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>

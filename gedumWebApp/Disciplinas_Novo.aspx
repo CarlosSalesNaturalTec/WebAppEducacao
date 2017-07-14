@@ -42,7 +42,7 @@
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-
+            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Disciplinas</button>
         <hr />
 
     </div>
@@ -51,7 +51,7 @@
 
 
         <!-- GRUPO 9 - Dados de Saúde -->
-        <div id="grupo9" class="w3-container grupo w3-animate-left" style="display: none">
+        <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados da Disciplina - Nova Disciplina</h3>
@@ -62,9 +62,9 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_Disciplina" class="col-md-3 control-label">Disciplinas</label>
+                            <label for="input_nome" class="col-md-3 control-label">Nome</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_Disciplina">
+                                <input type="text" class="form-control" id="input_nome">
                             </div>
                         </div>
 
@@ -77,23 +77,25 @@
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair
+                            </button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
                             </button>
-
+                           
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
                 </div>
                 <!-- Botões Controle -->
 
-            </div>
 
+
+            </div>
             <div class="w3-quarter">
             </div>
+
         </div>
 
     </div>
@@ -103,9 +105,8 @@
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/codeDisciplinas_Novo.js"></script>
     <script type="text/javascript" src="Scripts/webcam.js"></script>
-    <script type="text/javascript" src="Scripts/codeFuncionarios_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>

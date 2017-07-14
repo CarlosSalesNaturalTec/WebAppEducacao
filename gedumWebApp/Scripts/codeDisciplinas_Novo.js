@@ -13,14 +13,20 @@ function SalvarRegistro() {
 
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
-    x = document.getElementsByClassName("form-control");
-    for (i = 0; i < x.length; i++) {
-        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
-    }
+    //x = document.getElementsByClassName("form-control");
+    //for (i = 0; i < x.length; i++) {
+    //    strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    //}
     
     //id disciplina
-    var idInst = document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param" + i + ":'" + idInst + "',";
+    //var idInst = document.getElementById('IDInstHidden').value;
+    //strLine = strLine + "param" + i + ":'" + idInst + "',";
+
+    //id isntituição //
+    var idInst = '1'; //document.getElementById('IDInstHidden').value;
+
+    strLine = strLine + "param0" + ":'" + document.getElementById('input_nome').value + "',";
+    strLine = strLine + "param1" + ":'" + idInst + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -115,26 +121,6 @@ function openLink(evt, animName) {
     }
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
-}
-
-function classeBt2() {
-    openLink(event, 'grupo2')
-    $('#bt2').addClass(' w3-blue');
-}
-function classeBt3() {
-    openLink(event, 'grupo3')
-    $('#bt3').addClass(' w3-blue');
-}
-
-
-
-function btvoltar1() {
-    openLink(event, 'grupo1')
-    $('#bt1').addClass(' w3-blue');
-}
-function btvoltar2() {
-    openLink(event, 'grupo2')
-    $('#bt2').addClass(' w3-blue');
 }
 
 
