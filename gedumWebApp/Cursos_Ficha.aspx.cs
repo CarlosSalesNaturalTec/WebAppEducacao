@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class Disciplinas_Ficha : System.Web.UI.Page
+public partial class Cursos_Ficha : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
@@ -25,31 +25,33 @@ public partial class Disciplinas_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            //" id_disc, Nome, id_inst " +
-            " Nome, id_disc, id_inst " +
-            //"id_disc, Nome " +
-            "from Tbl_Disciplinas " +
-            "where ID_disc  = " + ID;
-        
+            "Nome," +
+            "sigla," +
+            "equivalencia," +
+            "modalidade_educacional," +
+            "faixaetaria_ini," +
+            "faixaetaria_fim," +
+            "curso_anterior " +            
+            "from Tbl_Alunos " +
+            "where ID_curs  = " + ID;
+
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
-
         while (rcrdset.Read())
         {
-            
-            for (int i = 0; i <= 1; i++)  //for (int i = 0; i <= 1; i++)
-            {                
+            for (int i = 0; i <= 6; i++)
+            {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[1]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[7]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[1]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[7]) + "\";";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";"; 
+            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
-            
+
             ScriptDados = "var latitude = document.getElementById('input_lat').value;";
             str.Append(ScriptDados);
 
@@ -62,12 +64,8 @@ public partial class Disciplinas_Ficha : System.Web.UI.Page
             ScriptDados = "window.open(urlMapa, 'MapFrame');";
             str.Append(ScriptDados);
 
-
         }
         ConexaoBancoSQL.fecharConexao();
-
-        ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
-        str.Append(ScriptDados);
 
         ScriptDados = "</script>";      
         str.Append(ScriptDados);

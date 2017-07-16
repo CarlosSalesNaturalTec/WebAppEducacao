@@ -469,8 +469,8 @@ public class WebService : System.Web.Services.WebService
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Disciplinas (" +
-            "Nome," +
-            "ID_Inst" +
+            "ID_Inst, " +
+            "Nome" +
             ") " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -491,6 +491,353 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    public string DisciplinasExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Disciplinas where ID_disc =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Disciplinas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string DisciplinasAlterar(string param0, string param1, string param2)
+    {
+
+        // param0 a param57 = campos
+        // param59 = id func
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("update Tbl_Disciplinas set " +
+            "Nome= '" + param0 + "'," +
+            "ID_Inst= '" + param1 + "' " +
+            "where ID_disc = " + param2);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Disciplinas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string SalasSalvar(string param0, string param1, string param2, string param3, string param4, string param5)
+    {
+        string url;
+        string strInsert = "INSERT INTO Tbl_Salas (" +
+            "ID_Inst," +
+            "Nome," +
+            "sala_adm," +
+            "dimensao," +
+            "capacidade_max " +
+            ") " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Salas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string SalasAlterar(string param0, string param1, string param2, string param3, string param4, string param5)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("update Tbl_Salas set " +
+            "Nome= '" + param0 + "'," +
+            "Sala_amd= '" + param1 + "'," +
+            "dimensao= '" + param2 + "'," +
+            "capacidade_max= '" + param3 + "'," +
+            "ID_Inst= '" + param4 + "' " +
+            "where ID_disc = " + param5);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Salas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
+    [WebMethod]
+    public string SalasExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Salas where ID_sala =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Salas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
+    [WebMethod]
+    public string CursosSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+        string strInsert = "INSERT INTO Tbl_Cursos (" +
+            "Nome," +
+            "sigla," +
+            "equivalencia," +
+            "modalidade_educacional," +
+            "faixaetaria_ini," +
+            "faixaetaria_fim," +
+            "curso_anterior " +
+            ") " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Cursos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string CursosAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("update Tbl_Cursos set " +
+            "Nome= '" + param0 + "'," +
+            "sigla= '" + param1 + "'," +
+            "equivalencia= '" + param2 + "'," +
+            "modalidade_educacional= '" + param3 + "'," +
+            "faixaetaria_ini= '" + param4 + "'," +
+            "faixaetaria_fim= '" + param5 + "'," +
+            "curso_anterior= '" + param6 + "' " +
+            "where ID_disc = " + param7);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Cursos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+    
+
+    [WebMethod]
+    public string CursosExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Cursos where ID_curs =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Cursos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string TurmasSalvar(string param0, string param1, string param2, string param3, string param4, 
+        string param5, string param6, string param7, string param8, string param9, string param10)
+    {
+        string url;
+        string strInsert = "INSERT INTO Tbl_Turmas (" +
+            "Nome," +
+            "turno," +
+            "tipo_atendimento," +
+            "id_inst," +
+            "localizacao_sala," +
+            "id_sala," +
+            "turma_multiplicada," +
+            "id_curso," +
+            "obs," +
+            "vagas " +
+            ") " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            "'" + param9 + "'," +
+            "'" + param10 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Turmas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string TurmasAlterar(string param0, string param1, string param2, string param3, string param4, 
+        string param5, string param6, string param7, string param8, string param9, string param10)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("update Tbl_Turmas set " +
+            "Nome= '" + param0 + "'," +
+            "turno= '" + param1 + "'," +
+            "tipo_atendimento= '" + param2 + "'," +
+            "id_inst= '" + param3 + "'," +
+            "localizacao_sala= '" + param4 + "'," +
+            "id_sala= '" + param5 + "'," +
+            "turma_multiplicada= '" + param6 + "'," +
+            "id_curso= '" + param7 + "'," +
+            "obs= '" + param8 + "'," +
+            "vagas= '" + param9 + "' " +
+            "where ID_turm = " + param10);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Turmas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
+    [WebMethod]
+    public string TurmasExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Turmas where ID_turm =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Turmas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 
 
 }

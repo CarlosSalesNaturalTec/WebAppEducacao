@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Disciplina");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome da Turma");   //<!--*******Customize AQUI*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
@@ -13,22 +13,26 @@ function SalvarRegistro() {
 
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
+    x = document.getElementsByClassName("form-control");
+    for (i = 0; i < x.length; i++) {
+        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    }
     
-    //id disciplina
-    //var idInst = document.getElementById('IDInstHidden').value;
-    //strLine = strLine + "param0" + i + ":'" + idInst + "',";
+    //id isntituição
+    var idInst = document.getElementById('IDInstHidden').value;
+    strLine = strLine + "param" + i + ":'" + idInst + "',";
 
-    //id isntituição //
-    var idInst = '1'; //document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param0" + ":'" + idInst + "',";
-    strLine = strLine + "param1" + ":'" + document.getElementById('input_nome').value + "'";
-    
+    // foto
+    var foto = document.getElementById('Hidden1').value;
+    i++;
+    strLine = strLine + "param" + i + ":'" + foto + "'";
+
     //exibir animações - aguarde...
     UIAguardar();
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/DisciplinasSalvar",
+        url: "WebService.asmx/TurmasSalvar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -45,14 +49,13 @@ function AlterarRegistro() {
     
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Disciplina");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome da Turma");   //<!--*******Customize AQUI*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
         return;
     }
 
-    
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
     x = document.getElementsByClassName("form-control");
@@ -60,18 +63,21 @@ function AlterarRegistro() {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
     
-    // id disciplina
-    //strLine = strLine + "param" + i + ":'" + '2' + "',";
-    var vID = document.getElementById("IDHidden").value;     
+    // foto
+    var foto = document.getElementById('Hidden1').value;
+    strLine = strLine + "param" + i + ":'" + foto + "',";
+
+    // id aluno
+    var vID = document.getElementById("IDHidden").value;
+    i++;
     strLine = strLine + "param" + i + ":'" + vID + "'";
-
-
+    
     //exibir animações - aguarde...
     UIAguardar();
     
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/DisciplinasAlterar",
+        url: "WebService.asmx/TurmasAlterar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -86,9 +92,8 @@ function AlterarRegistro() {
 }
 
 
-
 function cancelar() {
-    var linkurl = "Disciplinas_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Salas_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
 }
 
@@ -124,4 +129,25 @@ function openLink(evt, animName) {
 
 //Menu
 
+//imagens - foto
+var handleFileSelect = function (evt) {
+    var files = evt.target.files;
+    var file = files[0];
+    if (files && file) {
+        var reader = new FileReader();
+        reader.onload = function (readerEvt) {
+            var binaryString = readerEvt.target.result;
+            var data_uri = "data:image/png;base64," + btoa(binaryString);
+            document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+            document.getElementById("Hidden1").value = data_uri
+        };
+        reader.readAsBinaryString(file);
+    }
+};
+
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+    document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
+} else {
+    alert('The File APIs are not fully supported in this browser.');
+}
 //imagens - foto

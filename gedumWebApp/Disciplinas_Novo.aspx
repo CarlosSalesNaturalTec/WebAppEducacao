@@ -43,6 +43,23 @@
         </div>
         <hr />
             <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Disciplinas</button>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
         <hr />
 
     </div>
@@ -101,7 +118,9 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDInstHidden" type="hidden" />
+   <!--// <input id="IDInstHidden" type="hidden" /> -->
+    <input id="IDHidden" type="hidden" />
+
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
