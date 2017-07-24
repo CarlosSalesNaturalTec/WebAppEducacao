@@ -70,16 +70,30 @@ public class WebService : System.Web.Services.WebService
         string param11, string param12, string param13, string param14, string param15,
         string param16, string param17, string param18, string param19, string param20,
         string param21, string param22, string param23, string param24, string param25, 
-        string param26, string param27)
+        string param26, string param27, string param28, string param29, string param30,
+        string param31, string param32, string param33, string param34, string param35,
+        string param36, string param37, string param38, string param39, string param40,
+        string param41, string param42, string param43, string param44, string param45,
+        string param46, string param47, string param48, string param49, string param50,
+        string param51, string param52)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         // <!--*******Customização*******-->
         bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
-            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
+            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
-            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca, ID_Munic ) " +
+            "InepCodigo , UECodigo , Porte , Modalidade , DecretoCriacao , DataCriacao, " +
+            "FuncionaMatutino , FuncionaVespertino , FuncionaNoturno,  " +
+            "Anexo,Transporte, ColetaLixo, " +
+            "Biblioteca,Ginasio,Assentamento, " +
+            "TipoCercado , TipoEsgoto , " +
+            "EnergiaEletrica,PredioImovel ,UsoPredio ," +
+            "QuantPredios, QuantSalasAdm, QuantSalasApoio, " +
+            "QuantBanheirosMasc,QuantBanheirosFem , " +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ," +
+            "Logomarca, ID_Munic ) " +
             "VALUES (" + 
             "'" + param0 + "'," +
             "'" + param1 + "'," +
@@ -108,7 +122,32 @@ public class WebService : System.Web.Services.WebService
             "'" + param24 + "'," +
             "'" + param25 + "'," +
             "'" + param26 + "'," +
-            "'" + param27 + "')");
+            "'" + param27 + "'," +
+            "'" + param28 + "'," +
+            "'" + param29 + "'," +
+            "'" + param30 + "'," +
+            "'" + param31 + "'," +
+            "'" + param32 + "'," +
+            "'" + param33 + "'," +
+            "'" + param34 + "'," +
+            "'" + param35 + "'," +
+            "'" + param36 + "'," +
+            "'" + param37 + "'," +
+            "'" + param38 + "'," +
+            "'" + param39 + "'," +
+            "'" + param40 + "'," +
+            "'" + param41 + "'," +
+            "'" + param42 + "'," +
+            "'" + param43 + "'," +
+            "'" + param44 + "'," +
+            "'" + param45 + "'," +
+            "'" + param46 + "'," +
+            "'" + param47 + "'," +
+            "'" + param48 + "'," +
+            "'" + param49 + "'," +
+            "'" + param50 + "'," +
+            "'" + param51 + "'," +
+            "'" + param52 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)

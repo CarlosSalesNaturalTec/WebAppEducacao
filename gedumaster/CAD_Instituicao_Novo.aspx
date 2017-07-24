@@ -202,6 +202,13 @@
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_Fax">
                             </div>
+                            <label for="input_zona" class="col-md-2 control-label">Zona</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_zona">
+                                    <option value="Urbana">Urbana</option>
+                                    <option value="Rural">Rural</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -298,10 +305,203 @@
                     <!--*******Customização*******-->
                     <fieldset>
                         <br />
+
+                        <div class="form-group">
+                            <label for="input_inep" class="col-md-2 control-label">Código INEP</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_inep">
+                            </div>
+                            <label for="input_UE" class="col-md-2 control-label">Código UE</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_UE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_porte" class="col-md-2 control-label">Porte</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_porte">
+                                    <option value="Pequeno">Pequeno</option>
+                                    <option value="Médio">Médio</option>
+                                    <option value="Grande">Grande</option>
+                                </select>
+                            </div>
+                            <label for="input_modalid" class="col-md-2 control-label">Modalidade</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_modalid">
+                                    <option value="Creche">Creche</option>
+                                    <option value="Pré-Escola">Pré-Escola</option>
+                                    <option value="Educação Especial">Educação Especial</option>
+                                    <option value="Educação Infantil">Educação Infantil</option>
+                                    <option value="Educação de Jovens e Adultos">Educação de Jovens e Adultos</option>
+                                    <option value="Ensino Regular">Ensino Regular</option>
+                                    <option value="Ensino Fundamental I">Ensino Fundamental I</option>
+                                    <option value="Ensino Fundamental II">Ensino Fundamental II</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_decreto" class="col-md-2 control-label">Decreto Criação</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_decreto">
+                            </div>
+                            <label for="input_criacao" class="col-md-2 control-label">Data Criação</label>
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" id="input_criacao">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matutino" class="col-md-2 control-label">Funcionamento Maturino</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_matutino">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Verpertino" class="col-md-2 control-label">Verpertino</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Verpertino">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Noturno" class="col-md-1 control-label">Noturno</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Noturno">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_anexo" class="col-md-2 control-label">Com Anexo</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_anexo">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Transporte" class="col-md-2 control-label">Com Transporte</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Transporte">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_lixo" class="col-md-1 control-label">Coleta de Lixo</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_lixo">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_Biblioteca" class="col-md-2 control-label">Com Biblioteca</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Biblioteca">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Ginasio" class="col-md-2 control-label">Com Ginásio</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Ginasio">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Assentamento" class="col-md-1 control-label">Assentamento</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Assentamento">
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_cercado" class="col-md-2 control-label">Tipo Cercado</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_cercado">
+                                    <option value="Muro">Muro</option>
+                                    <option value="Cerca">Cerca</option>
+                                    <option value="Nenhum">Nenhum</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <label for="input_esgoto" class="col-md-2 control-label">Tipo Esgoto</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_esgoto">
+                                    <option value="Rede Pública">Rede Pública</option>
+                                    <option value="Rede Privada">Rede Privada</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_energia" class="col-md-2 control-label">Energia Elétrica</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_energia">
+                                    <option value="Monofásica">Monofásica</option>
+                                    <option value="Bifásica">Bifásica</option>
+                                    <option value="Trifásica">Trifásica</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <label for="input_imovel" class="col-md-2 control-label">Prédio/Imóvel</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_imovel">
+                                    <option value="Alugado">Alugado</option>
+                                    <option value="Próprio">Próprio</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <label for="input_uso" class="col-md-1 control-label">Uso Prédio</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_uso">
+                                    <option value="Compartilhado">Compartilhado</option>
+                                    <option value="Exclusivo">Exclusivo</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_quant" class="col-md-2 control-label">Quant.Prédios</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_quant">
+                            </div>
+                            <label for="input_salasadm" class="col-md-2 control-label">Qtd.Salas Adm.</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_salasadm">
+                            </div>
+                            <label for="input_salasapoio" class="col-md-1 control-label">Salas Apoio</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_salasapoio">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_bmasc" class="col-md-2 control-label">Quant. Banheiros Masc.</label>
+                            <div class="col-md-2">
+                               <input type="number" class="form-control" id="input_bmasc">
+                            </div>
+                            <label for="input_bfem" class="col-md-2 control-label">Quant. Banheiros Fem.</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_bfem">
+                            </div>
+                        </div>
+                      
                         <div class="form-group">
                             <label for="input_Diretor" class="col-md-2 control-label">Quant.Salas</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_salas">
+                                <input type="number" class="form-control" id="input_salas">
                             </div>
                             <label for="input_areaJogos" class="col-md-2 control-label">Área de jogos</label>
                             <div class="col-md-2">
@@ -340,16 +540,6 @@
                             <label for="input_quadraE" class="col-md-2 control-label">Quadra de Esportes</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_quadraE">
-                                    <option value="Não">Não</option>
-                                    <option value="Sim">Sim</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_Biblioteca" class="col-md-2 control-label">Biblioteca</label>
-                            <div class="col-md-2">
-                                <select class="form-control" id="input_Biblioteca">
                                     <option value="Não">Não</option>
                                     <option value="Sim">Sim</option>
                                 </select>
@@ -445,7 +635,7 @@
                             <br />
                             <label for="input_userNome" class="col-md-2 control-label">Responsável</label>
                             <div class="col-md-9">
-                                <input type="text" id="input_userNome"  class="w3-input w3-border w3-round">
+                                <input type="text" id="input_userNome" class="w3-input w3-border w3-round">
                             </div>
                         </div>
 
@@ -455,12 +645,12 @@
                             <div class="col-md-4">
                                 <input type="text" id="input_user" class="w3-input w3-border w3-round">
                             </div>
-                            
+
                             <label for="input_DEPparent" class="col-md-1 control-label">Senha</label>
                             <div class="col-md-2">
                                 <input type="password" id="input_pwd" class="w3-input w3-border w3-round">
                             </div>
-                            
+
                             <div class="col-md-2">
                                 <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="alert('Necessário Salvar Instituição primeiro!')">
