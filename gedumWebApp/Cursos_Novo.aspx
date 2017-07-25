@@ -68,39 +68,82 @@
                         </div>
 
                         <div class="form-group">
+
                             <label for="input_sigla" class="col-md-2 control-label">Sigla</label>
-                            <div class="col-md-9">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" id="input_sigla">
                             </div>
-                        </div>
 
-                        <div class="form-group">
                             <label for="input_equivalencia" class="col-md-2 control-label">Equivalência</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_equivalencia">
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_equivalencia">
+                                    <option value="1">1ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="2">2ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="3">3ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="4">4ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="5">5ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="6">6ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="7">7ª SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="8">8ª SÉRIE ORGANIZAÇÃO SERIADA</option>                                    
+                                </select>
                             </div>
+
                         </div>
 
                         <div class="form-group">
-                            <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacional</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_modalidade">
+
+                            <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacionala</label>
+                            <div class="col-md-5">
+                                <select class="form-control" id="input_modalidade">
+                                    <option value="1">ENSINO FUNDAMENTAL II</option>
+                                    <option value="2">ENSINO FUNDAMENTAL I</option>
+                                    <option value="3">EDUCAÇÃO INFANFIL</option>
+                                    <option value="4">EDUCAÇÃO DE JOVENS E ADULTOS</option>
+                                    <option value="5">CRECHE</option>
+                                    <option value="6">PRÉ ESCOLA</option>
+                                    <option value="7">EDUCAÇÃO ESPECIAL</option>
+                                    <option value="8">ENSINO REGULAR</option>                                    
+                                </select>
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <label for="input_faixaetaria_ini" class="col-md-2 control-label">Faixa Etária de</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_faixaetaria_ini">
                             </div>
+
+                            <label for="input_faixaetaria_fim" class="col-md-2 control-label">Até</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_faixaetaria_fim">
+                            </div>
+
                         </div>
 
                         <div class="form-group">
-                            <label for="input_faixaetaria_fim" class="col-md-2 control-label">Até</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_faixaetaria_fim">
+                            <label for="input_adm" class="col-md-2 control-label">Curso Anterior</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_salaadm">
+                                    <option value="1">1 SÉRIE</option>
+                                    <option value="2">1° ANO</option>
+                                    <option value="3">2 SÉRIE</option>
+                                    <option value="4">2° ANO</option>
+                                    <option value="5">3 SÉRIE</option>
+                                    <option value="6">3° ANO</option>
+                                    <option value="7">4 SÉRIE</option>
+                                    <option value="8">4° ANO</option>
+                                    <option value="9">5 SÉRIE</option>
+                                    <option value="10">5° ANO</option>
+                                    <option value="11">6 SÉRIE</option>
+                                    <option value="12">6° ANO</option>
+                                    <option value="13">7 SÉRIE</option>
+                                    <option value="14">8 SÉRIE</option>
+
+                                </select>
                             </div>
                         </div>
+
 
                     </fieldset>
                 </form>
@@ -124,18 +167,6 @@
                 <!-- Botões Controle -->
 
             </div>
-
-            <!-- Camera -->
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-            <!-- Camera -->
 
         </div>
 

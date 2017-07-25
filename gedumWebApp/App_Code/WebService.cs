@@ -546,7 +546,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string SalasSalvar(string param0, string param1, string param2, string param3, string param4, string param5)
+    public string SalasSalvar(string param0, string param1, string param2, string param3, string param4)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Salas (" +
@@ -561,8 +561,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param1 + "'," +
             "'" + param2 + "'," +
             "'" + param3 + "'," +
-            "'" + param4 + "'," +
-            "'" + param5 + "'" +
+            "'" + param4 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -645,8 +644,8 @@ public class WebService : System.Web.Services.WebService
             "sigla," +
             "equivalencia," +
             "modalidade_educacional," +
-            "faixaetaria_ini," +
-            "faixaetaria_fim," +
+            "faixa_ini," +
+            "faixa_fim," +
             "curso_anterior " +
             ") " +
             "VALUES (" +

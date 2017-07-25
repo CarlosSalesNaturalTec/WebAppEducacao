@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Sala");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome da teste");   //<!--*******Customize AQUI*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();

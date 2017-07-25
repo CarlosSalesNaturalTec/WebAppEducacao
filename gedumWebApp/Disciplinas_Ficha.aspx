@@ -81,12 +81,13 @@
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <div class="form-group">
-                            <label for="input_nome" class="col-md-3 control-label">Disciplina</label>
+                            <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_nome">
                             </div>
-                        </div>
+                        </div>                        
 
                     </fieldset>
                 </form>

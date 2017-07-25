@@ -29,10 +29,10 @@ public partial class Cursos_Ficha : System.Web.UI.Page
             "sigla," +
             "equivalencia," +
             "modalidade_educacional," +
-            "faixaetaria_ini," +
-            "faixaetaria_fim," +
+            "faixa_ini," +
+            "faixa_fim," +
             "curso_anterior " +            
-            "from Tbl_Alunos " +
+            "from Tbl_Cursos " +
             "where ID_curs  = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();

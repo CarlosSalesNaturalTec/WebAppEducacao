@@ -41,7 +41,7 @@ public partial class Cursos_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_curs, nome, equivalencia, modalidade_educional, faixa_ini, faixa_fim, curso_anterior " +
+        string stringselect = "select ID_curs, nome, equivalencia, modalidade_educacional, faixa_ini, faixa_fim, curso_anterior " +
                 "from tbl_Cursos " +
                 "order by Nome"; 
 

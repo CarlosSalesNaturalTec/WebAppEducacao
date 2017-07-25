@@ -39,12 +39,36 @@
 
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
+
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
+
         <hr />
+
             <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Cursos</button>
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+
         <hr />
+
+
 
     </div>
 
@@ -123,20 +147,7 @@
 
             </div>
 
-            <!-- Camera -->
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-            <!-- Camera -->
-
         </div>
-
 
     </div>
 
@@ -145,7 +156,8 @@
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts diversos  -->
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <!-- <script type="text/javascript" src="Scripts/webcam.js"></script> --> 
+
     <script type="text/javascript" src="Scripts/codeCursos_Novo.js"></script>
     <!-- <script type="text/javascript" src="Scripts/codeCursos_Mapa.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>

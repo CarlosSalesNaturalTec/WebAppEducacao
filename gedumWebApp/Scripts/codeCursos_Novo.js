@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Curso");   //<!--*******Customize AQUI*******-->
+        // alert("Informe Nome do Curso");   //<!--*******Customize AQUI*******-->
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
@@ -12,20 +12,19 @@ function SalvarRegistro() {
     }
 
     //pega o valor de cada campo e constroi string com todos
+    alert('cheguei aki');
     var i, x, strLine = "";
     x = document.getElementsByClassName("form-control");
     for (i = 0; i < x.length; i++) {
-        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
-    }
-    
-    //id isntituição
-    var idInst = document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param" + i + ":'" + idInst + "',";
+        
+        if (i == x.length) {
+            strLine = strLine + "param" + i + ":'" + x[i].value + "'";
+        } else {
+            strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+        }
+        
+    }   
 
-    // foto
-    var foto = document.getElementById('Hidden1').value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + foto + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
