@@ -26,9 +26,18 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
 
         // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
         string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
-            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
+            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
-            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca " +
+            "InepCodigo , UECodigo , Porte , Modalidade , DecretoCriacao , DataCriacao, " +
+            "FuncionaMatutino , FuncionaVespertino , FuncionaNoturno,  " +
+            "Anexo,Transporte, ColetaLixo, " +
+            "Biblioteca,Ginasio,Assentamento, " +
+            "TipoCercado , TipoEsgoto , " +
+            "EnergiaEletrica,PredioImovel ,UsoPredio ," +
+            "QuantPredios, QuantSalasAdm, QuantSalasApoio, " +
+            "QuantBanheirosMasc,QuantBanheirosFem , " +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ," +
+            "Logomarca " +
             "from Tbl_Instituicao  " +
             "where ID_inst = " + ID;
 
@@ -36,16 +45,16 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 26; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
+            for (int i = 0; i < 51; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
             //monta foto
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[26]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[51]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[26]) + "\";";
+            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[51]) + "\";";
             str.Append(ScriptDados);
 
             //ID do registro

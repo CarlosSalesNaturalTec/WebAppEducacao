@@ -117,7 +117,7 @@
                 <div class="col-md-2"></div>
                 <p>
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
                         <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
@@ -227,6 +227,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -276,6 +279,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar2()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -555,6 +561,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -603,6 +612,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -685,6 +697,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 

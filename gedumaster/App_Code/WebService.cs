@@ -189,7 +189,12 @@ public class WebService : System.Web.Services.WebService
         string param11, string param12, string param13, string param14, string param15,
         string param16, string param17, string param18, string param19, string param20,
         string param21, string param22, string param23, string param24, string param25,
-        string param26, string param27)
+        string param26, string param27, string param28, string param29, string param30,
+        string param31, string param32, string param33, string param34, string param35,
+        string param36, string param37, string param38, string param39, string param40,
+        string param41, string param42, string param43, string param44, string param45,
+        string param46, string param47, string param48, string param49, string param50,
+        string param51, string param52)
     {
         string url;
 
@@ -212,18 +217,45 @@ public class WebService : System.Web.Services.WebService
             "Telefone = '" + param13 + "'," +
             "Celular = '" + param14 + "'," +
             "Fax = '" + param15 + "'," +
-            "Email = '" + param16 + "'," +
-            "Diretor = '" + param17 + "'," +
-            "Admissao = '" + param18 + "'," +
-            "Salas = '" + param19 + "'," +
-            "AreaJogos = '" + param20 + "'," +
-            "AreaInfo = '" + param21 + "'," +
-            "Teatro = '" + param22 + "'," +
-            "CampoFutebol = '" + param23 + "',"  +
-            "QuadraEsportes = '" + param24 + "'," +
-            "Biblioteca = '" + param25 + "'," +
-            "Logomarca = '" + param26 + "' " +
-            "where ID_inst =" + param27);  // <!--*******Customização - ultimo parametro *******-->
+            "Zona = '" + param16 + "'," +
+            "Email = '" + param17 + "'," +
+            "Diretor = '" + param18 + "'," +
+            "Admissao = '" + param19 + "'," +
+
+            "InepCodigo = '" + param20 + "'," +
+            "UECodigo = '" + param21 + "'," +
+            "Porte = '" + param22 + "'," +
+            "Modalidade = '" + param23 + "'," +
+            "DecretoCriacao = '" + param24 + "'," +
+            "DataCriacao = '" + param25 + "'," +
+            "FuncionaMatutino = '" + param26 + "'," +
+            "FuncionaVespertino = '" + param27 + "'," +
+            "FuncionaNoturno = '" + param28 + "'," +
+            "Anexo = '" + param29 + "'," +
+            "Transporte = '" + param30 + "'," +
+            "ColetaLixo = '" + param31 + "'," +
+            "Biblioteca = '" + param32 + "'," +
+            "Ginasio = '" + param33 + "'," +
+            "Assentamento = '" + param34 + "'," +
+            "TipoCercado = '" + param35 + "'," +
+            "TipoEsgoto = '" + param36 + "'," +
+            "EnergiaEletrica = '" + param37 + "'," +
+            "PredioImovel = '" + param38 + "'," +
+            "UsoPredio = '" + param39 + "'," +
+            "QuantPredios = '" + param40 + "'," +
+            "QuantSalasAdm = '" + param41 + "'," +
+            "QuantSalasApoio = '" + param42 + "'," +
+            "QuantBanheirosMasc = '" + param43 + "'," +
+            "QuantBanheirosFem = '" + param44 + "'," +
+
+            "Salas = '" + param45 + "'," +
+            "AreaJogos = '" + param46 + "'," +
+            "AreaInfo = '" + param47 + "'," +
+            "Teatro = '" + param48 + "'," +
+            "CampoFutebol = '" + param49 + "',"  +
+            "QuadraEsportes = '" + param50 + "'," +
+            "Logomarca = '" + param51 + "' " +
+            "where ID_inst =" + param52);  // <!--*******Customização - ultimo parametro *******-->
 
         ConexaoBancoSQL.fecharConexao();
 

@@ -2,11 +2,11 @@
 
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <!--*******Customização*******-->
-    <title>Ficha de Instituição</title>
+    <title>Cadastro de Instituição</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,7 +16,7 @@
 
     <style>
         body {
-            background-image: url("Images/fundo.jpg");
+            background-image: url("images/fundo.jpg");
         }
 
         #results {
@@ -30,7 +30,7 @@
 
 </head>
 <body>
-  <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <hr />
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados P.Jurídica</button>
@@ -49,7 +49,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoa Jurídica - Ficha de Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoa Jurídica - Nova Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -117,7 +117,7 @@
                 <div class="col-md-2"></div>
                 <p>
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
                         <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
@@ -139,7 +139,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Endereço - Ficha de Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Endereço - Nova Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -202,6 +202,13 @@
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_Fax">
                             </div>
+                            <label for="input_zona" class="col-md-2 control-label">Zona</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_zona">
+                                    <option value="Urbana">Urbana</option>
+                                    <option value="Rural">Rural</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -220,6 +227,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -241,7 +251,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Diretoria - Ficha de Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Diretoria - Nova Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -269,6 +279,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar2()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -290,7 +303,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Estrutura - Ficha de Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Estrutura - Nova Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -298,10 +311,203 @@
                     <!--*******Customização*******-->
                     <fieldset>
                         <br />
+
+                        <div class="form-group">
+                            <label for="input_inep" class="col-md-2 control-label">Código INEP</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_inep">
+                            </div>
+                            <label for="input_UE" class="col-md-2 control-label">Código UE</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_UE">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_porte" class="col-md-2 control-label">Porte</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_porte">
+                                    <option value="Pequeno">Pequeno</option>
+                                    <option value="Médio">Médio</option>
+                                    <option value="Grande">Grande</option>
+                                </select>
+                            </div>
+                            <label for="input_modalid" class="col-md-2 control-label">Modalidade</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_modalid">
+                                    <option value="Creche">Creche</option>
+                                    <option value="Pré-Escola">Pré-Escola</option>
+                                    <option value="Educação Especial">Educação Especial</option>
+                                    <option value="Educação Infantil">Educação Infantil</option>
+                                    <option value="Educação de Jovens e Adultos">Educação de Jovens e Adultos</option>
+                                    <option value="Ensino Regular">Ensino Regular</option>
+                                    <option value="Ensino Fundamental I">Ensino Fundamental I</option>
+                                    <option value="Ensino Fundamental II">Ensino Fundamental II</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_decreto" class="col-md-2 control-label">Decreto Criação</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_decreto">
+                            </div>
+                            <label for="input_criacao" class="col-md-2 control-label">Data Criação</label>
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" id="input_criacao">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matutino" class="col-md-2 control-label">Funcionamento Maturino</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_matutino">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Verpertino" class="col-md-2 control-label">Verpertino</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Verpertino">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Noturno" class="col-md-1 control-label">Noturno</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Noturno">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_anexo" class="col-md-2 control-label">Com Anexo</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_anexo">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Transporte" class="col-md-2 control-label">Com Transporte</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Transporte">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_lixo" class="col-md-1 control-label">Coleta de Lixo</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_lixo">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_Biblioteca" class="col-md-2 control-label">Com Biblioteca</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Biblioteca">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Ginasio" class="col-md-2 control-label">Com Ginásio</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Ginasio">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                            <label for="input_Assentamento" class="col-md-1 control-label">Assentamento</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_Assentamento">
+                                    <option value="Sim">Sim</option>
+                                    <option value="Não">Não</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_cercado" class="col-md-2 control-label">Tipo Cercado</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_cercado">
+                                    <option value="Muro">Muro</option>
+                                    <option value="Cerca">Cerca</option>
+                                    <option value="Nenhum">Nenhum</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <label for="input_esgoto" class="col-md-2 control-label">Tipo Esgoto</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_esgoto">
+                                    <option value="Rede Pública">Rede Pública</option>
+                                    <option value="Rede Privada">Rede Privada</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_energia" class="col-md-2 control-label">Energia Elétrica</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_energia">
+                                    <option value="Monofásica">Monofásica</option>
+                                    <option value="Bifásica">Bifásica</option>
+                                    <option value="Trifásica">Trifásica</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <label for="input_imovel" class="col-md-2 control-label">Prédio/Imóvel</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_imovel">
+                                    <option value="Alugado">Alugado</option>
+                                    <option value="Próprio">Próprio</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                            <label for="input_uso" class="col-md-1 control-label">Uso Prédio</label>
+                            <div class="col-md-2">
+                                <select class="form-control" id="input_uso">
+                                    <option value="Compartilhado">Compartilhado</option>
+                                    <option value="Exclusivo">Exclusivo</option>
+                                    <option value="Outros">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_quant" class="col-md-2 control-label">Quant.Prédios</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_quant">
+                            </div>
+                            <label for="input_salasadm" class="col-md-2 control-label">Qtd.Salas Adm.</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_salasadm">
+                            </div>
+                            <label for="input_salasapoio" class="col-md-1 control-label">Salas Apoio</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_salasapoio">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_bmasc" class="col-md-2 control-label">Quant. Banheiros Masc.</label>
+                            <div class="col-md-2">
+                               <input type="number" class="form-control" id="input_bmasc">
+                            </div>
+                            <label for="input_bfem" class="col-md-2 control-label">Quant. Banheiros Fem.</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_bfem">
+                            </div>
+                        </div>
+                      
                         <div class="form-group">
                             <label for="input_Diretor" class="col-md-2 control-label">Quant.Salas</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_salas">
+                                <input type="number" class="form-control" id="input_salas">
                             </div>
                             <label for="input_areaJogos" class="col-md-2 control-label">Área de jogos</label>
                             <div class="col-md-2">
@@ -313,7 +519,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_areaInfo" class="col-md-2 control-label">Área de Info.</label>
+                            <label for="input_areaInfo" class="col-md-2 control-label">Área Informática</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_areaInfo">
                                     <option value="Não">Não</option>
@@ -346,16 +552,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="input_Biblioteca" class="col-md-2 control-label">Biblioteca</label>
-                            <div class="col-md-2">
-                                <select class="form-control" id="input_Biblioteca">
-                                    <option value="Não">Não</option>
-                                    <option value="Sim">Sim</option>
-                                </select>
-                            </div>
-                        </div>
-
                     </fieldset>
                 </form>
             </div>
@@ -365,6 +561,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -386,7 +585,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Imagens - Ficha de Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Imagens - Nova Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -413,6 +612,9 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -434,7 +636,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Ficha de Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Usuários - Nova Instituição</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -445,7 +647,7 @@
                             <br />
                             <label for="input_userNome" class="col-md-2 control-label">Responsável</label>
                             <div class="col-md-9">
-                                <input type="text" id="input_userNome"  class="w3-input w3-border w3-round">
+                                <input type="text" id="input_userNome" class="w3-input w3-border w3-round">
                             </div>
                         </div>
 
@@ -455,15 +657,15 @@
                             <div class="col-md-4">
                                 <input type="text" id="input_user" class="w3-input w3-border w3-round">
                             </div>
-                            
+
                             <label for="input_DEPparent" class="col-md-1 control-label">Senha</label>
                             <div class="col-md-2">
                                 <input type="password" id="input_pwd" class="w3-input w3-border w3-round">
                             </div>
-                            
+
                             <div class="col-md-2">
                                 <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="IncluirUsuario()" type="button">
+                                    onclick="IncluirUsuario()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
 
@@ -496,10 +698,13 @@
                 <br />
                 <div class="col-md-2"></div>
                 <p>
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
                         <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                         <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
                     </button>
 
@@ -512,6 +717,7 @@
     </div>
     <!-- auxiliares -->
     <input id="IDAuxHidden" type="hidden" />
+    <input id="IDMunicipio" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
@@ -521,6 +727,6 @@
     <script type="text/javascript" src="Scripts/codeInstituicao_Mapa.js"></script> 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
     -->
-</body>
 
+</body>
 </html>
