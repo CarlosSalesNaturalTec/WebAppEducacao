@@ -18,24 +18,18 @@ function SalvarRegistro() {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
 
-    // Customização - retira ultima virgula da string recem formada
-    // strLine = strLine.substring(0, strLine.length - 1);
-
-    /* <!--******* Customização - somente se for utilizar "ID Auxiliar" para o novo registro*******-->
-    var idPai = document.getElementById('IDAuxHidden').value;
-    strLine = strLine + "param" + i + ":'" + idPai + "',";
-    */
-
     var foto = document.getElementById('FotoHidden').value;
-    strLine = strLine + "param" + i + ":'" + foto + "'";
-    
+    strLine = strLine + "param" + i + ":'" + foto + "',";
+
+    i++;
+    strLine = strLine + "param" + i + ":'" + document.getElementById('IDMunicipio').value + "'";
 
     //UI - exibir animações - aguarde...
     UIAguardar();
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/InstituicaoSalvar",  //<!--*******Customização*******-->
+        url: "WebService.asmx/InstituicaoSalvar",  
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",

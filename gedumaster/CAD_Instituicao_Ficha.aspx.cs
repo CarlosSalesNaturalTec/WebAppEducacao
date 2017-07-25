@@ -25,25 +25,36 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
-        string stringSelect = "select Nome, uf, gestor, telefone, email , endereco, " +
-            "Latitude, Longitude, Logomarca " +
-            "from Tbl_Municipios " +
-            "where ID_Munic = " + ID;
+        string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
+            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
+            "Diretor , Admissao ," +
+            "InepCodigo , UECodigo , Porte , Modalidade , DecretoCriacao , DataCriacao, " +
+            "FuncionaMatutino , FuncionaVespertino , FuncionaNoturno,  " +
+            "Anexo,Transporte, ColetaLixo, " +
+            "Biblioteca,Ginasio,Assentamento, " +
+            "TipoCercado , TipoEsgoto , " +
+            "EnergiaEletrica,PredioImovel ,UsoPredio ," +
+            "QuantPredios, QuantSalasAdm, QuantSalasApoio, " +
+            "QuantBanheirosMasc,QuantBanheirosFem , " +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ," +
+            "Logomarca " +
+            "from Tbl_Instituicao  " +
+            "where ID_inst = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 8; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
+            for (int i = 0; i < 51; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
             //monta foto
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[8]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[51]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[8]) + "\";";
+            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[51]) + "\";";
             str.Append(ScriptDados);
 
             //ID do registro
@@ -52,7 +63,7 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         }
         ConexaoBancoSQL.fecharConexao();
 
-        ScriptDados = "</script>";      
+        ScriptDados = "</script>";
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();
@@ -62,7 +73,7 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
     {
 
         string stringSelect = "select ID_user, Nome, usuario from tbl_usuarios" +
-            " where ID_Munic = " + ID +
+            " where ID_inst = " + ID +
             " order by Nome";
         OperacaoBanco operacaoUsers = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
@@ -74,7 +85,7 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         {
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirUser(this," +
-                Convert.ToString(rcrdsetUsers[0]) + 
+                Convert.ToString(rcrdsetUsers[0]) +
                 ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             ScriptDados = "<tr>";

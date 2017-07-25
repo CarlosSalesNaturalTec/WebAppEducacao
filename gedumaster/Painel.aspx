@@ -51,7 +51,7 @@
 
     <!-- page content -->
     <div>
-        <iframe src="Home.aspx" width="100%" height="600px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="Home.aspx" width="100%" height="800px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
 
     <!-- Footer -->

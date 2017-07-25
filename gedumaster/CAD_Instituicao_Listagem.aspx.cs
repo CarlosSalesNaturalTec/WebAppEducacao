@@ -5,11 +5,17 @@ public partial class CAD_Instituicao_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+    string IDMun;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        // somente usuarios nivel 1 tem acesso (gestor de município)
+        int nivel = Convert.ToInt16(Session["UserLevel"].ToString());
+        if (nivel != 1) { Response.Redirect("NaoAutorizado.aspx"); }
+
         string iduser = Session["UserID"].ToString();
+        IDMun = Session["ID_Munic"].ToString();
 
         montaCabecalho();
         dadosCorpo();
@@ -42,6 +48,7 @@ public partial class CAD_Instituicao_Listagem : System.Web.UI.Page
         // <!--*******Customização*******-->
         string stringselect = "select ID_inst, nome, cidade, uf, diretor, telefone " +
                 "from Tbl_Instituicao " +
+                "where ID_Munic = " + IDMun + 
                 "order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();

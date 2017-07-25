@@ -21,7 +21,7 @@ public class WebService : System.Web.Services.WebService
         string Identificador_msg = "0";
 
         // localiza usuario
-        string stringSelect = "select senha,nome,ID_user,nivel from tbl_usuarios where usuario = '" + user + "'";
+        string stringSelect = "select senha,nome,ID_user,ID_Munic, nivel from tbl_usuarios where usuario = '" + user + "'";
         OperacaoBanco Identificador_Operacao = new OperacaoBanco();
         SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
         while (Identificador_rcrdset.Read())
@@ -29,10 +29,11 @@ public class WebService : System.Web.Services.WebService
             if (pwd == Convert.ToString(Identificador_rcrdset[0]))
             {
 
-                int nivel = Convert.ToInt16(Identificador_rcrdset[3]);
+                int nivel = Convert.ToInt16(Identificador_rcrdset[4]);
 
                 if (nivel > 1)
-                {
+                {   
+                    // nivel 2 em diante não tem acesso a este modulo/master
                     Identificador_msg = "1";
                 }
                 else
@@ -44,8 +45,12 @@ public class WebService : System.Web.Services.WebService
                     int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                     string vValida4 = vValida3.ToString();
 
-                    Identificador_msg = "LogIn.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
-                        "&p3=" + Convert.ToString(Identificador_rcrdset[2]);
+                    Identificador_msg = "LogIn.aspx" +
+                        "?p1=" + vValida4 + 
+                        "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
+                        "&p3=" + Convert.ToString(Identificador_rcrdset[2]) +
+                        "&p4=" + nivel +
+                        "&p5=" + Convert.ToString(Identificador_rcrdset[3]) ;
                 }
             }
             else
@@ -65,16 +70,30 @@ public class WebService : System.Web.Services.WebService
         string param11, string param12, string param13, string param14, string param15,
         string param16, string param17, string param18, string param19, string param20,
         string param21, string param22, string param23, string param24, string param25, 
-        string param26)
+        string param26, string param27, string param28, string param29, string param30,
+        string param31, string param32, string param33, string param34, string param35,
+        string param36, string param37, string param38, string param39, string param40,
+        string param41, string param42, string param43, string param44, string param45,
+        string param46, string param47, string param48, string param49, string param50,
+        string param51, string param52)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         // <!--*******Customização*******-->
         bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
-            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Email," +
+            "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
-            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ,Biblioteca, Logomarca ) " +
+            "InepCodigo , UECodigo , Porte , Modalidade , DecretoCriacao , DataCriacao, " +
+            "FuncionaMatutino , FuncionaVespertino , FuncionaNoturno,  " +
+            "Anexo,Transporte, ColetaLixo, " +
+            "Biblioteca,Ginasio,Assentamento, " +
+            "TipoCercado , TipoEsgoto , " +
+            "EnergiaEletrica,PredioImovel ,UsoPredio ," +
+            "QuantPredios, QuantSalasAdm, QuantSalasApoio, " +
+            "QuantBanheirosMasc,QuantBanheirosFem , " +
+            "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ," +
+            "Logomarca, ID_Munic ) " +
             "VALUES (" + 
             "'" + param0 + "'," +
             "'" + param1 + "'," +
@@ -102,7 +121,33 @@ public class WebService : System.Web.Services.WebService
             "'" + param23 + "'," +
             "'" + param24 + "'," +
             "'" + param25 + "'," +
-            "'" + param26 + "')");
+            "'" + param26 + "'," +
+            "'" + param27 + "'," +
+            "'" + param28 + "'," +
+            "'" + param29 + "'," +
+            "'" + param30 + "'," +
+            "'" + param31 + "'," +
+            "'" + param32 + "'," +
+            "'" + param33 + "'," +
+            "'" + param34 + "'," +
+            "'" + param35 + "'," +
+            "'" + param36 + "'," +
+            "'" + param37 + "'," +
+            "'" + param38 + "'," +
+            "'" + param39 + "'," +
+            "'" + param40 + "'," +
+            "'" + param41 + "'," +
+            "'" + param42 + "'," +
+            "'" + param43 + "'," +
+            "'" + param44 + "'," +
+            "'" + param45 + "'," +
+            "'" + param46 + "'," +
+            "'" + param47 + "'," +
+            "'" + param48 + "'," +
+            "'" + param49 + "'," +
+            "'" + param50 + "'," +
+            "'" + param51 + "'," +
+            "'" + param52 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
@@ -144,7 +189,12 @@ public class WebService : System.Web.Services.WebService
         string param11, string param12, string param13, string param14, string param15,
         string param16, string param17, string param18, string param19, string param20,
         string param21, string param22, string param23, string param24, string param25,
-        string param26, string param27)
+        string param26, string param27, string param28, string param29, string param30,
+        string param31, string param32, string param33, string param34, string param35,
+        string param36, string param37, string param38, string param39, string param40,
+        string param41, string param42, string param43, string param44, string param45,
+        string param46, string param47, string param48, string param49, string param50,
+        string param51, string param52)
     {
         string url;
 
@@ -167,18 +217,45 @@ public class WebService : System.Web.Services.WebService
             "Telefone = '" + param13 + "'," +
             "Celular = '" + param14 + "'," +
             "Fax = '" + param15 + "'," +
-            "Email = '" + param16 + "'," +
-            "Diretor = '" + param17 + "'," +
-            "Admissao = '" + param18 + "'," +
-            "Salas = '" + param19 + "'," +
-            "AreaJogos = '" + param20 + "'," +
-            "AreaInfo = '" + param21 + "'," +
-            "Teatro = '" + param22 + "'," +
-            "CampoFutebol = '" + param23 + "',"  +
-            "QuadraEsportes = '" + param24 + "'," +
-            "Biblioteca = '" + param25 + "'," +
-            "Logomarca = '" + param26 + "' " +
-            "where ID_inst =" + param27);  // <!--*******Customização - ultimo parametro *******-->
+            "Zona = '" + param16 + "'," +
+            "Email = '" + param17 + "'," +
+            "Diretor = '" + param18 + "'," +
+            "Admissao = '" + param19 + "'," +
+
+            "InepCodigo = '" + param20 + "'," +
+            "UECodigo = '" + param21 + "'," +
+            "Porte = '" + param22 + "'," +
+            "Modalidade = '" + param23 + "'," +
+            "DecretoCriacao = '" + param24 + "'," +
+            "DataCriacao = '" + param25 + "'," +
+            "FuncionaMatutino = '" + param26 + "'," +
+            "FuncionaVespertino = '" + param27 + "'," +
+            "FuncionaNoturno = '" + param28 + "'," +
+            "Anexo = '" + param29 + "'," +
+            "Transporte = '" + param30 + "'," +
+            "ColetaLixo = '" + param31 + "'," +
+            "Biblioteca = '" + param32 + "'," +
+            "Ginasio = '" + param33 + "'," +
+            "Assentamento = '" + param34 + "'," +
+            "TipoCercado = '" + param35 + "'," +
+            "TipoEsgoto = '" + param36 + "'," +
+            "EnergiaEletrica = '" + param37 + "'," +
+            "PredioImovel = '" + param38 + "'," +
+            "UsoPredio = '" + param39 + "'," +
+            "QuantPredios = '" + param40 + "'," +
+            "QuantSalasAdm = '" + param41 + "'," +
+            "QuantSalasApoio = '" + param42 + "'," +
+            "QuantBanheirosMasc = '" + param43 + "'," +
+            "QuantBanheirosFem = '" + param44 + "'," +
+
+            "Salas = '" + param45 + "'," +
+            "AreaJogos = '" + param46 + "'," +
+            "AreaInfo = '" + param47 + "'," +
+            "Teatro = '" + param48 + "'," +
+            "CampoFutebol = '" + param49 + "',"  +
+            "QuadraEsportes = '" + param50 + "'," +
+            "Logomarca = '" + param51 + "' " +
+            "where ID_inst =" + param52);  // <!--*******Customização - ultimo parametro *******-->
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -199,7 +276,7 @@ public class WebService : System.Web.Services.WebService
     public string InstituicaoNewUser(string param1, string param2, string param3, string param4)
     {
         string url;
-        string nivel = "2";  // 0 = developer master    1 = Gestor Municipal habilitado a cadastrar instituições    2 = Gestor de Instituição, habilitado a cadastrar funcionarios  3 = Funcionarios,  habilitados a usar o site.
+        string nivel = "3";  // 0 = developer master    1 = Gestor Municipal habilitado a cadastrar instituições    2 = Gestor de Instituição, habilitado a cadastrar funcionarios  3 = Funcionarios,  habilitados a usar o site.
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
         Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_usuarios (ID_inst , Nome , usuario , senha , nivel, DataCadastro ) " +
