@@ -664,7 +664,7 @@
                             </div>
 
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="IncluirUsuario()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>

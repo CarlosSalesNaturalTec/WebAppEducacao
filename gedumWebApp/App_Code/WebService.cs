@@ -609,8 +609,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
-
     [WebMethod]
     public string SalasExcluir(string param1)
     {
@@ -632,8 +630,6 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
-
-
 
     [WebMethod]
     public string CursosSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
@@ -673,7 +669,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
     [WebMethod]
     public string CursosAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7)
     {
@@ -705,7 +700,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
     
-
     [WebMethod]
     public string CursosExcluir(string param1)
     {
@@ -775,7 +769,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
     [WebMethod]
     public string TurmasAlterar(string param0, string param1, string param2, string param3, string param4, 
         string param5, string param6, string param7, string param8, string param9, string param10)
@@ -811,8 +804,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
-
     [WebMethod]
     public string TurmasExcluir(string param1)
     {
@@ -837,6 +828,95 @@ public class WebService : System.Web.Services.WebService
 
 
 
+    [WebMethod]
+    public string VisitasExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Visitas where ID_Visita =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Visitas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string VisitasSalvar(string param0, string param1, string param2, string param3, string param4,string param5, string param6)
+    {
+        string url;
+        string strInsert = "INSERT INTO Tbl_Visitas  (" +
+            "Nome," +
+            "DataVisita ," +
+            "Horario, " +
+            "Funcionario," +
+            "Objetivo ," +
+            "Observacoes, " +
+            "ID_Inst " +
+            ") " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            param6 + 
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Visitas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string VisitasAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("update Tbl_Visitas set " +
+            "Nome= '" + param0 + "'," +
+            "DataVisita = '" + param1 + "'," +
+            "Horario  = '" + param2 + "'," +
+            "Funcionario = '" + param3 + "'," +
+            "Objetivo = '" + param4 + "'," +
+            "Observacoes = '" + param5 + "' " +
+            "where ID_Visita = " + param6);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Visitas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
 
 
 }

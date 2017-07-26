@@ -71,11 +71,12 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Instituição</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Cursos_Listagem.aspx" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
+                    <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
                     <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Disciplinas</a>
                     <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Salas</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Vagas</a>
                     <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Turmas</a>
+                    <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Visitas</a>
                 </div>
             </div>
 
