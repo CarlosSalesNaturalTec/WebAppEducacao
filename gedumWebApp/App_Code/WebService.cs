@@ -21,21 +21,25 @@ public class WebService : System.Web.Services.WebService
         string Identificador_msg = "0";
 
         // localiza usuario
-        string stringSelect = "select senha,nome,ID_user,ID_inst  from tbl_usuarios where usuario = '" + user + "'";
+        string stringSelect = "select senha,nome,ID_user,ID_inst,nivel  from tbl_usuarios where usuario = '" + user + "'";
         OperacaoBanco Identificador_Operacao = new OperacaoBanco();
         SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
         while (Identificador_rcrdset.Read())
         {
             if (pwd == Convert.ToString(Identificador_rcrdset[0]))
             {
+
                 string vValida1, vValida2;
                 vValida1 = DateTime.Now.ToString("dd");
                 vValida2 = DateTime.Now.ToString("MM");
                 int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                 string vValida4 = vValida3.ToString();
 
-                Identificador_msg = "Login.aspx?p1=" + vValida4 + "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
-                    "&p3=" + Convert.ToString(Identificador_rcrdset[2]) + "&p4=" + Convert.ToString(Identificador_rcrdset[3]);
+                Identificador_msg = "Login.aspx?p1=" + vValida4 + 
+                    "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
+                    "&p3=" + Convert.ToString(Identificador_rcrdset[2]) + 
+                    "&p4=" + Convert.ToString(Identificador_rcrdset[3]) +
+                    "&p5=" + Convert.ToString(Identificador_rcrdset[4]);
             }
             else
             {
@@ -54,7 +58,8 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59)
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
+        string param60, string param61)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Funcionarios (" +
@@ -100,6 +105,8 @@ public class WebService : System.Web.Services.WebService
             "SituacaoOutros," +
             "Funcao," +
             "TabelaSal," +
+            "SalarioBruto, " +
+            "SalarioInvest, " +
             "Sindicalizado," +
             "SindicatoNome," +
             "Banco," +
@@ -162,7 +169,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param39 + "'," +
             "'" + param40 + "'," +
             "'" + param41 + "'," +
-            "'" + param42 + "'," +
+            param42 + " ," +
             "'" + param43 + "'," +
             "'" + param44 + "'," +
             "'" + param45 + "'," +
@@ -178,8 +185,10 @@ public class WebService : System.Web.Services.WebService
             "'" + param55 + "'," +
             "'" + param56 + "'," +
             "'" + param57 + "'," +
-            param58 + "," +
-            "'" + param59 + "'" +
+            "'" + param58 + "'," +
+            "'" + param59 + "'," +
+            param60 + "," +
+            "'" + param61 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -225,12 +234,13 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59)
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
+        string param60, string param61)
     {
 
-        // param0 a param57 = campos
-        // param58 = foto
-        // param59 = id func
+        // param0 a param59 = campos
+        // param60 = foto
+        // param61 = id func
 
         string url;
 
@@ -278,24 +288,28 @@ public class WebService : System.Web.Services.WebService
             "SituacaoOutros= '" + param39 + "', " +
             "Funcao= '" + param40 + "', " +
             "TabelaSal= '" + param41 + "', " +
-            "Sindicalizado= '" + param42 + "', " +
-            "SindicatoNome= '" + param43 + "', " +
-            "Banco= '" + param44 + "', " +
-            "Agencia= '" + param45 + "', " +
-            "ContaTipo= '" + param46 + "', " +
-            "ContaNumero= '" + param47 + "', " +
-            "ContaOperacao= '" + param48 + "', " +
-            "Alergias= '" + param49 + "', " +
-            "AlergiasMed= '" + param50 + "', " +
-            "AcidenteAvisar= '" + param51 + "', " +
-            "FardaCamisa= '" + param52 + "', " +
-            "FardaCamiseta= '" + param53 + "', " +
-            "FardaCalca= '" + param54 + "', " +
-            "FardaSapato= '" + param55 + "', " +
-            "FardaBota= '" + param56 + "', " +
-            "FardaObs= '" + param57 + "', " +
-            "FotoDataURI= '" + param58 + "' " +
-            "where ID_func = " + param59);
+
+            "SalarioBruto = " + param42 + " , " +
+            "SalarioInvest = '" + param43 + "', " +
+
+            "Sindicalizado= '" + param44 + "', " +
+            "SindicatoNome= '" + param45 + "', " +
+            "Banco= '" + param46 + "', " +
+            "Agencia= '" + param47 + "', " +
+            "ContaTipo= '" + param48 + "', " +
+            "ContaNumero= '" + param49 + "', " +
+            "ContaOperacao= '" + param50 + "', " +
+            "Alergias= '" + param51 + "', " +
+            "AlergiasMed= '" + param52 + "', " +
+            "AcidenteAvisar= '" + param53 + "', " +
+            "FardaCamisa= '" + param54 + "', " +
+            "FardaCamiseta= '" + param55 + "', " +
+            "FardaCalca= '" + param56 + "', " +
+            "FardaSapato= '" + param57 + "', " +
+            "FardaBota= '" + param58 + "', " +
+            "FardaObs= '" + param59 + "', " +
+            "FotoDataURI= '" + param60 + "' " +
+            "where ID_func = " + param61);
 
         ConexaoBancoSQL.fecharConexao();
 

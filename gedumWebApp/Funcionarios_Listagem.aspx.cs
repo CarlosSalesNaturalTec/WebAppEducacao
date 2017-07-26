@@ -9,8 +9,9 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        string iduser = Session["UserID"].ToString();
+        // somente usuarios nivel 0 tem acesso (gestor estadual / developer)
+        int nivel = Convert.ToInt16(Session["UserLevel"].ToString());
+        if (nivel != 3) { Response.Redirect("NaoAutorizado.aspx"); }
 
         montaCabecalho();
         dadosCorpo();

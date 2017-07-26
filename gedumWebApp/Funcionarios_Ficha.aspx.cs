@@ -71,6 +71,8 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "SituacaoOutros," +
             "Funcao," +
             "TabelaSal," +
+            "SalarioBruto, " +
+            "SalarioInvest, " +
             "Sindicalizado," +
             "SindicatoNome," +
             "Banco," +
@@ -95,15 +97,15 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 57; i++)
+            for (int i = 0; i <= 59; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[58]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[60]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[58]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[60]) + "\";";
             str.Append(ScriptDados);
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);

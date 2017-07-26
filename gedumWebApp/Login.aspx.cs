@@ -20,6 +20,8 @@ public partial class Login : System.Web.UI.Page
             Session["UserName"] = Request.QueryString["p2"];
             Session["UserID"] = Request.QueryString["p3"];
             Session["InstID"] = Request.QueryString["p4"];
+            Session["UserLevel"] = Request.QueryString["p5"];
+
             Response.Redirect("Painel.aspx");
         }
     }

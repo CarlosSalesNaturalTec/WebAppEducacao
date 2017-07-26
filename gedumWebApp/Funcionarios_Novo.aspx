@@ -659,6 +659,22 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="input_bruto" class="col-md-2 control-label">Salário Bruto</label>
+                            <div class="col-md-3">
+                                <input type="number" class="form-control" id="input_bruto" value="0">
+                            </div>
+                            <label for="input_SalInvest" class="col-md-2 control-label">Salário Investimento</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_SalInvest">
+                                    <option value="Federal">Federal</option>
+                                    <option value="Estadual">Estadual</option>
+                                    <option value="Municipal">Municipal</option>
+                                    <option value="Convênio">Convênio</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="input_fliadoSind" class="col-md-2 control-label">Sindicalizado</label>
                             <div class="col-md-2">
                                 <select class="form-control" id="input_fliadoSind">
