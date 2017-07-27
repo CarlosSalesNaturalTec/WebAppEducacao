@@ -104,6 +104,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_invest" class="col-md-2 control-label">Investimento</label>
+                            <div class="col-md-9">
+                                <select class="form-control" id="input_invest">
+                                    <option value="Federal">Federal</option>
+                                    <option value="Estadual">Estadual</option>
+                                    <option value="Municipal">Municipal</option>
+                                    <option value="Convênio">Convênio</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
             </div>

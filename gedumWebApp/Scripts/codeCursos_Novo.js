@@ -12,19 +12,15 @@ function SalvarRegistro() {
     }
 
     //pega o valor de cada campo e constroi string com todos
-    alert('cheguei aki');
     var i, x, strLine = "";
     x = document.getElementsByClassName("form-control");
     for (i = 0; i < x.length; i++) {
-        
-        if (i == x.length) {
-            strLine = strLine + "param" + i + ":'" + x[i].value + "'";
-        } else {
-            strLine = strLine + "param" + i + ":'" + x[i].value + "',";
-        }
-        
-    }   
+        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    }
 
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -61,14 +57,9 @@ function AlterarRegistro() {
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
-    // foto
-    var foto = document.getElementById('Hidden1').value;
-    strLine = strLine + "param" + i + ":'" + foto + "',";
 
-    // id aluno
-    var vID = document.getElementById("IDHidden").value;
-    i++;
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
     
     //exibir animações - aguarde...
@@ -92,7 +83,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Salas_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Cursos_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
 }
 
@@ -123,30 +114,3 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
-
-
-
-//Menu
-
-//imagens - foto
-var handleFileSelect = function (evt) {
-    var files = evt.target.files;
-    var file = files[0];
-    if (files && file) {
-        var reader = new FileReader();
-        reader.onload = function (readerEvt) {
-            var binaryString = readerEvt.target.result;
-            var data_uri = "data:image/png;base64," + btoa(binaryString);
-            document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-            document.getElementById("Hidden1").value = data_uri
-        };
-        reader.readAsBinaryString(file);
-    }
-};
-
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-    document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
-} else {
-    alert('The File APIs are not fully supported in this browser.');
-}
-//imagens - foto

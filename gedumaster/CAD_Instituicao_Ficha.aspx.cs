@@ -25,7 +25,7 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
-        string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
+        string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, Investimento , " +
             "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
             "InepCodigo , UECodigo , Porte , Modalidade , DecretoCriacao , DataCriacao, " +
@@ -45,16 +45,16 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 51; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 27 campos 
+            for (int i = 0; i < 52; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
             //monta foto
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[51]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[52]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[51]) + "\";";
+            ScriptDados = "document.getElementById('FotoHidden').value = \"" + Convert.ToString(rcrdset[52]) + "\";";
             str.Append(ScriptDados);
 
             //ID do registro

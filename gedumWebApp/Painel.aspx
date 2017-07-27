@@ -38,7 +38,7 @@
 
             <a href="#" class="w3-bar-item w3-btn w3-hover-green w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
 
-            <a href="Suporte.aspx"  target="iframe"  class="w3-bar-item w3-btn w3-hover-green w3-right">Suporte <i class="fa fa-cog"></i></a>
+            <a href="Suporte.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right">Suporte <i class="fa fa-cog"></i></a>
 
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exportações </button>
@@ -69,6 +69,44 @@
             </div>
 
             <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Equipe</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Frequência</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Atestados</a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;Transportes</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Modelo</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Veículos</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Viagem</a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Alimentos</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Produtos</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Fornecedores</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Estoque Alimentos</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Receitas</a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Patrimônio</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Tipo de Patrimônio</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Fornecedor</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Bem</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Produto</a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Instituição</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
@@ -77,15 +115,6 @@
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Vagas</a>
                     <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Turmas</a>
                     <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Visitas</a>
-                </div>
-            </div>
-
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;Equipe</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Frequência</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Atestados</a>
                 </div>
             </div>
 

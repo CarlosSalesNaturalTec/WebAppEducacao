@@ -53,7 +53,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Cursos - Novo Curso</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Curso</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -70,12 +70,12 @@
                         <div class="form-group">
 
                             <label for="input_sigla" class="col-md-2 control-label">Sigla</label>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_sigla">
                             </div>
 
                             <label for="input_equivalencia" class="col-md-2 control-label">Equivalência</label>
-                            <div class="col-md-3">
+                            <div class="col-md-5">
                                 <select class="form-control" id="input_equivalencia">
                                     <option value="1">1ª SÉRIE ORGANIZAÇÃO SERIADA</option>
                                     <option value="2">2ª SÉRIE ORGANIZAÇÃO SERIADA</option>
@@ -93,7 +93,7 @@
                         <div class="form-group">
 
                             <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacionala</label>
-                            <div class="col-md-5">
+                            <div class="col-md-4">
                                 <select class="form-control" id="input_modalidade">
                                     <option value="1">ENSINO FUNDAMENTAL II</option>
                                     <option value="2">ENSINO FUNDAMENTAL I</option>
@@ -110,7 +110,7 @@
 
                         <div class="form-group">
                             <label for="input_faixaetaria_ini" class="col-md-2 control-label">Faixa Etária de</label>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" id="input_faixaetaria_ini">
                             </div>
 
@@ -122,9 +122,9 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_adm" class="col-md-2 control-label">Curso Anterior</label>
+                            <label for="input_anterior" class="col-md-2 control-label">Curso Anterior</label>
                             <div class="col-md-4">
-                                <select class="form-control" id="input_salaadm">
+                                <select class="form-control" id="input_anterior">
                                     <option value="1">1 SÉRIE</option>
                                     <option value="2">1° ANO</option>
                                     <option value="3">2 SÉRIE</option>
@@ -139,7 +139,6 @@
                                     <option value="12">6° ANO</option>
                                     <option value="13">7 SÉRIE</option>
                                     <option value="14">8 SÉRIE</option>
-
                                 </select>
                             </div>
                         </div>
@@ -178,9 +177,6 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeCursos_Novo.js"></script>
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
-    <!-- <script type="text/javascript" src="Scripts/codeAlunos_Mapa.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
 </html>

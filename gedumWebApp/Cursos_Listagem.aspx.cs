@@ -10,7 +10,7 @@ public partial class Cursos_Listagem : System.Web.UI.Page
     {
 
         //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        string iduser = Session["UserID"].ToString();
+        string InstID = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
@@ -26,7 +26,7 @@ public partial class Cursos_Listagem : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CURSO</th>" +
             "<th>SIGLA</th>" +
             "<th>EQUIVALÊNCIA</th>" +
             "<th>MODALIDADE EDUCACIONAL</th>" +
@@ -60,7 +60,7 @@ public partial class Cursos_Listagem : System.Web.UI.Page
             string Coluna6 = Convert.ToString(dados[6]);
 
             // <!--*******Customização*******-->
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Funcionarios_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Cursos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +

@@ -75,13 +75,13 @@ public class WebService : System.Web.Services.WebService
         string param36, string param37, string param38, string param39, string param40,
         string param41, string param42, string param43, string param44, string param45,
         string param46, string param47, string param48, string param49, string param50,
-        string param51, string param52)
+        string param51, string param52, string param53)
     {
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         // <!--*******Customização*******-->
-        bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, " +
+        bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, Investimento , " +
             "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
             "InepCodigo , UECodigo , Porte , Modalidade , DecretoCriacao , DataCriacao, " +
@@ -147,7 +147,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param49 + "'," +
             "'" + param50 + "'," +
             "'" + param51 + "'," +
-            "'" + param52 + "')");
+            "'" + param52 + "'," +
+            "'" + param53 + "')");
         ConexaoBancoSQL.fecharConexao();
 
         if (inserir == true)
@@ -194,7 +195,7 @@ public class WebService : System.Web.Services.WebService
         string param36, string param37, string param38, string param39, string param40,
         string param41, string param42, string param43, string param44, string param45,
         string param46, string param47, string param48, string param49, string param50,
-        string param51, string param52)
+        string param51, string param52, string param53)
     {
         string url;
 
@@ -207,55 +208,57 @@ public class WebService : System.Web.Services.WebService
             "IE = '" + param3 + "'," +
             "Cat_Adm = '" + param4 + "'," +
             "MEC_Cadastro = '" + param5 + "'," +
-            "Endereco = '" + param6 + "'," +
-            "Numero = '" + param7 + "'," +
-            "Complemento = '" + param8 + "'," +
-            "Bairro = '" + param9 + "'," +
-            "CEP = '" + param10 + "'," +
-            "Cidade = '" + param11 + "'," +
-            "UF = '" + param12 + "'," +
-            "Telefone = '" + param13 + "'," +
-            "Celular = '" + param14 + "'," +
-            "Fax = '" + param15 + "'," +
-            "Zona = '" + param16 + "'," +
-            "Email = '" + param17 + "'," +
-            "Diretor = '" + param18 + "'," +
-            "Admissao = '" + param19 + "'," +
+            "Investimento = '" + param6 + "'," +
 
-            "InepCodigo = '" + param20 + "'," +
-            "UECodigo = '" + param21 + "'," +
-            "Porte = '" + param22 + "'," +
-            "Modalidade = '" + param23 + "'," +
-            "DecretoCriacao = '" + param24 + "'," +
-            "DataCriacao = '" + param25 + "'," +
-            "FuncionaMatutino = '" + param26 + "'," +
-            "FuncionaVespertino = '" + param27 + "'," +
-            "FuncionaNoturno = '" + param28 + "'," +
-            "Anexo = '" + param29 + "'," +
-            "Transporte = '" + param30 + "'," +
-            "ColetaLixo = '" + param31 + "'," +
-            "Biblioteca = '" + param32 + "'," +
-            "Ginasio = '" + param33 + "'," +
-            "Assentamento = '" + param34 + "'," +
-            "TipoCercado = '" + param35 + "'," +
-            "TipoEsgoto = '" + param36 + "'," +
-            "EnergiaEletrica = '" + param37 + "'," +
-            "PredioImovel = '" + param38 + "'," +
-            "UsoPredio = '" + param39 + "'," +
-            "QuantPredios = '" + param40 + "'," +
-            "QuantSalasAdm = '" + param41 + "'," +
-            "QuantSalasApoio = '" + param42 + "'," +
-            "QuantBanheirosMasc = '" + param43 + "'," +
-            "QuantBanheirosFem = '" + param44 + "'," +
+            "Endereco = '" + param7 + "'," +
+            "Numero = '" + param8 + "'," +
+            "Complemento = '" + param9 + "'," +
+            "Bairro = '" + param10 + "'," +
+            "CEP = '" + param11 + "'," +
+            "Cidade = '" + param12 + "'," +
+            "UF = '" + param13 + "'," +
+            "Telefone = '" + param14 + "'," +
+            "Celular = '" + param15 + "'," +
+            "Fax = '" + param16 + "'," +
+            "Zona = '" + param17 + "'," +
+            "Email = '" + param18 + "'," +
+            "Diretor = '" + param19 + "'," +
+            "Admissao = '" + param20 + "'," +
 
-            "Salas = '" + param45 + "'," +
-            "AreaJogos = '" + param46 + "'," +
-            "AreaInfo = '" + param47 + "'," +
-            "Teatro = '" + param48 + "'," +
-            "CampoFutebol = '" + param49 + "',"  +
-            "QuadraEsportes = '" + param50 + "'," +
-            "Logomarca = '" + param51 + "' " +
-            "where ID_inst =" + param52);  // <!--*******Customização - ultimo parametro *******-->
+            "InepCodigo = '" + param21 + "'," +
+            "UECodigo = '" + param22 + "'," +
+            "Porte = '" + param23 + "'," +
+            "Modalidade = '" + param24 + "'," +
+            "DecretoCriacao = '" + param25 + "'," +
+            "DataCriacao = '" + param26 + "'," +
+            "FuncionaMatutino = '" + param27 + "'," +
+            "FuncionaVespertino = '" + param28 + "'," +
+            "FuncionaNoturno = '" + param29 + "'," +
+            "Anexo = '" + param30 + "'," +
+            "Transporte = '" + param31 + "'," +
+            "ColetaLixo = '" + param32 + "'," +
+            "Biblioteca = '" + param33 + "'," +
+            "Ginasio = '" + param34 + "'," +
+            "Assentamento = '" + param35 + "'," +
+            "TipoCercado = '" + param36 + "'," +
+            "TipoEsgoto = '" + param37 + "'," +
+            "EnergiaEletrica = '" + param38 + "'," +
+            "PredioImovel = '" + param39 + "'," +
+            "UsoPredio = '" + param40 + "'," +
+            "QuantPredios = '" + param41 + "'," +
+            "QuantSalasAdm = '" + param42 + "'," +
+            "QuantSalasApoio = '" + param43 + "'," +
+            "QuantBanheirosMasc = '" + param44 + "'," +
+            "QuantBanheirosFem = '" + param45 + "'," +
+
+            "Salas = '" + param46 + "'," +
+            "AreaJogos = '" + param47 + "'," +
+            "AreaInfo = '" + param48 + "'," +
+            "Teatro = '" + param49 + "'," +
+            "CampoFutebol = '" + param50 + "',"  +
+            "QuadraEsportes = '" + param51 + "'," +
+            "Logomarca = '" + param52 + "' " +
+            "where ID_inst =" + param53);  // <!--*******Customização - ultimo parametro *******-->
 
         ConexaoBancoSQL.fecharConexao();
 
