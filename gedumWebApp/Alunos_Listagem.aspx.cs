@@ -5,12 +5,13 @@ public partial class Alunos_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+    string IDInst;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        string iduser = Session["UserID"].ToString();
+        //ID da Instituição
+        IDInst = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
@@ -42,7 +43,8 @@ public partial class Alunos_Listagem : System.Web.UI.Page
         // <!--*******Customização*******-->
         string stringselect = "select ID_alun, nome, Funcao, celular1, email " +
                 "from tbl_Alunos " +
-                "order by Nome"; 
+                "where ID_Inst = " +IDInst +
+                " order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

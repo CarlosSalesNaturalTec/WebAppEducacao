@@ -19,7 +19,7 @@
 
 </head>
 <body>
-    <div class="w3-display-middle">
+    <div class="w3-display-topmiddle">
         <img src="Images/logoaliancamedium.png" />
     </div>
 </body>

@@ -43,7 +43,15 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exportações </button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Exportação IDEP</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Exportação INEP</a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Livros </button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Cadastro</a>
+                     <a href="#" class="w3-bar-item w3-button w3-hover-green">Controle de Entregas</a>
                 </div>
             </div>
 

@@ -30,7 +30,7 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exportações </button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Exportação SICOP</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Exportação SIOPE</a>
                 </div>
             </div>
 
@@ -68,7 +68,7 @@
 
     <!-- page content -->
     <div>
-        <iframe src="Home.aspx" width="100%" height="800px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="Home.aspx" width="100%" height="1024px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
 
     <!-- Footer -->

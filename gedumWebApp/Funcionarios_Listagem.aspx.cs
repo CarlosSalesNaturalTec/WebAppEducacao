@@ -5,6 +5,7 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+    string IDInst;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -12,6 +13,9 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
         // somente usuarios nivel 0 tem acesso (gestor estadual / developer)
         int nivel = Convert.ToInt16(Session["UserLevel"].ToString());
         if (nivel != 3) { Response.Redirect("NaoAutorizado.aspx"); }
+
+        // ID da Instituição
+        IDInst = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
@@ -43,7 +47,8 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
         // <!--*******Customização*******-->
         string stringselect = "select ID_func, nome, Funcao, celular1, email " +
                 "from tbl_Funcionarios " +
-                "order by Nome"; 
+                "where ID_Inst = " + IDInst +
+                " order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
