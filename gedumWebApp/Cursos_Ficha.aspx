@@ -24,66 +24,34 @@
             background-repeat: repeat;
             height: 100%;
         }
-
-        #results {
-            float: right;
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid;
-            background: #ccc;
-        }
     </style>
 
 </head>
 <body>
-
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
-
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
-
         <hr />
-
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Cursos</button>
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-
+            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
         <hr />
-
-
 
     </div>
 
     <div style="margin-left: 180px">
 
-        <!-- GRUPO 1 - Dados Pessoais -->
+        <!-- GRUPO 1 - Dados Cursos -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais- Ficha Cursos</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Curso</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-9">
@@ -92,36 +60,85 @@
                         </div>
 
                         <div class="form-group">
+
                             <label for="input_sigla" class="col-md-2 control-label">Sigla</label>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_sigla">
                             </div>
 
                             <label for="input_equivalencia" class="col-md-2 control-label">Equivalência</label>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_equivalencia">
+                            <div class="col-md-5">
+                                <select class="form-control" id="input_equivalencia">
+                                    <option value="1a. SÉRIE ORGANIZAÇÃO SERIADA">1a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="2a. SÉRIE ORGANIZAÇÃO SERIADA">2a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="3a. SÉRIE ORGANIZAÇÃO SERIADA">3a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="4a. SÉRIE ORGANIZAÇÃO SERIADA">4a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="5a. SÉRIE ORGANIZAÇÃO SERIADA">5a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="6a. SÉRIE ORGANIZAÇÃO SERIADA">6a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="7a. SÉRIE ORGANIZAÇÃO SERIADA">7a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="8a. SÉRIE ORGANIZAÇÃO SERIADA">8a. SÉRIE ORGANIZAÇÃO SERIADA</option>                                    
+                                </select>
                             </div>
 
-                            <label for="input_modalidade_educacional" class="col-md-2 control-label">Modalidade Educional</label>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_modalidade_educacional">
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacional</label>
+                            <div class="col-md-5">
+                                <select class="form-control" id="input_modalidade">
+                                    <option value="ENSINO FUNDAMENTAL II">ENSINO FUNDAMENTAL II</option>
+                                    <option value="ENSINO FUNDAMENTAL I">ENSINO FUNDAMENTAL I</option>
+                                    <option value="EDUCAÇÃO INFANFIL">EDUCAÇÃO INFANFIL</option>
+                                    <option value="EDUCAÇÃO DE JOVENS E ADULTOS">EDUCAÇÃO DE JOVENS E ADULTOS</option>
+                                    <option value="CRECHE">CRECHE</option>
+                                    <option value="PRÉ ESCOLA">PRÉ ESCOLA</option>
+                                    <option value="EDUCAÇÃO ESPECIAL">EDUCAÇÃO ESPECIAL</option>
+                                    <option value="ENSINO REGULAR">ENSINO REGULAR</option>                                    
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="input_faixaetaria_ini" class="col-md-2 control-label">Faixa Etária de</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_faixaetaria_ini">
                             </div>
 
-                            <label for="input_faixaetaria_ini" class="col-md-2 control-label">Faixa Etária</label>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_faixaetaria_ini">
+                            <label for="input_faixaetaria_fim" class="col-md-1 control-label">Até</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_faixaetaria_fim">
                             </div>
+                        </div>
 
-                            <label for="input_faixaetaria_fim" class="col-md-2 control-label">Faixa Até</label>
+                        <div class="form-group">
+                            <label for="input_anterior" class="col-md-2 control-label">Curso Anterior</label>
                             <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_faixaetaria_fim">
+                                <select class="form-control" id="input_anterior">
+                                    <option value="1a. SÉRIE">1a. SÉRIE</option>
+                                    <option value="1° ANO">1° ANO</option>
+                                    <option value="2a. SÉRIE">2a. SÉRIE</option>
+                                    <option value="2° ANO">2° ANO</option>
+                                    <option value="3a. SÉRIE">3a. SÉRIE</option>
+                                    <option value="3° ANO">3° ANO</option>
+                                    <option value="4a. SÉRIE">4a. SÉRIE</option>
+                                    <option value="4° ANO">4° ANO</option>
+                                    <option value="5a. SÉRIE">5a. SÉRIE</option>
+                                    <option value="5° ANO">5° ANO</option>
+                                    <option value="6a. SÉRIE">6a. SÉRIE</option>
+                                    <option value="6° ANO">6° ANO</option>
+                                    <option value="7a. SÉRIE">7a. SÉRIE</option>
+                                    <option value="8a. SÉRIE">8a. SÉRIE</option>
+                                </select>
                             </div>
+                        </div>
 
-                            <label for="input_curso_anterior" class="col-md-2 control-label">Curso Anterior</label>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_curso_anterior">
+                        <div class="form-group">
+                            <label for="input_obs" class="col-md-2 control-label">Observ.:</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_obs">
                             </div>
-
                         </div>
 
                     </fieldset>
@@ -152,16 +169,11 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" name="IDHidden" type="hidden" />
+    <input id="IDInstHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
-    <!-- Scripts diversos  -->
-    <!-- <script type="text/javascript" src="Scripts/webcam.js"></script> --> 
-
+    <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeCursos_Novo.js"></script>
-    <!-- <script type="text/javascript" src="Scripts/codeCursos_Mapa.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
-
 </html>

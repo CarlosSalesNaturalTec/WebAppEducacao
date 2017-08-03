@@ -24,14 +24,6 @@
             background-repeat: repeat;
             height: 100%;
         }
-
-        #results {
-            float: right;
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid;
-            background: #ccc;
-        }
     </style>
 
 </head>
@@ -42,7 +34,7 @@
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Cursos</button>
+            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
         <hr />
 
     </div>
@@ -77,14 +69,14 @@
                             <label for="input_equivalencia" class="col-md-2 control-label">Equivalência</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input_equivalencia">
-                                    <option value="1">1ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="2">2ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="3">3ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="4">4ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="5">5ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="6">6ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="7">7ª SÉRIE ORGANIZAÇÃO SERIADA</option>
-                                    <option value="8">8ª SÉRIE ORGANIZAÇÃO SERIADA</option>                                    
+                                    <option value="1a. SÉRIE ORGANIZAÇÃO SERIADA">1a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="2a. SÉRIE ORGANIZAÇÃO SERIADA">2a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="3a. SÉRIE ORGANIZAÇÃO SERIADA">3a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="4a. SÉRIE ORGANIZAÇÃO SERIADA">4a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="5a. SÉRIE ORGANIZAÇÃO SERIADA">5a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="6a. SÉRIE ORGANIZAÇÃO SERIADA">6a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="7a. SÉRIE ORGANIZAÇÃO SERIADA">7a. SÉRIE ORGANIZAÇÃO SERIADA</option>
+                                    <option value="8a. SÉRIE ORGANIZAÇÃO SERIADA">8a. SÉRIE ORGANIZAÇÃO SERIADA</option>                                    
                                 </select>
                             </div>
 
@@ -92,17 +84,17 @@
 
                         <div class="form-group">
 
-                            <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacionala</label>
-                            <div class="col-md-4">
+                            <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacional</label>
+                            <div class="col-md-5">
                                 <select class="form-control" id="input_modalidade">
-                                    <option value="1">ENSINO FUNDAMENTAL II</option>
-                                    <option value="2">ENSINO FUNDAMENTAL I</option>
-                                    <option value="3">EDUCAÇÃO INFANFIL</option>
-                                    <option value="4">EDUCAÇÃO DE JOVENS E ADULTOS</option>
-                                    <option value="5">CRECHE</option>
-                                    <option value="6">PRÉ ESCOLA</option>
-                                    <option value="7">EDUCAÇÃO ESPECIAL</option>
-                                    <option value="8">ENSINO REGULAR</option>                                    
+                                    <option value="ENSINO FUNDAMENTAL II">ENSINO FUNDAMENTAL II</option>
+                                    <option value="ENSINO FUNDAMENTAL I">ENSINO FUNDAMENTAL I</option>
+                                    <option value="EDUCAÇÃO INFANFIL">EDUCAÇÃO INFANFIL</option>
+                                    <option value="EDUCAÇÃO DE JOVENS E ADULTOS">EDUCAÇÃO DE JOVENS E ADULTOS</option>
+                                    <option value="CRECHE">CRECHE</option>
+                                    <option value="PRÉ ESCOLA">PRÉ ESCOLA</option>
+                                    <option value="EDUCAÇÃO ESPECIAL">EDUCAÇÃO ESPECIAL</option>
+                                    <option value="ENSINO REGULAR">ENSINO REGULAR</option>                                    
                                 </select>
                             </div>
                         </div>
@@ -110,39 +102,44 @@
 
                         <div class="form-group">
                             <label for="input_faixaetaria_ini" class="col-md-2 control-label">Faixa Etária de</label>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_faixaetaria_ini">
                             </div>
 
-                            <label for="input_faixaetaria_fim" class="col-md-2 control-label">Até</label>
-                            <div class="col-md-3">
+                            <label for="input_faixaetaria_fim" class="col-md-1 control-label">Até</label>
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_faixaetaria_fim">
                             </div>
-
                         </div>
 
                         <div class="form-group">
                             <label for="input_anterior" class="col-md-2 control-label">Curso Anterior</label>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <select class="form-control" id="input_anterior">
-                                    <option value="1">1 SÉRIE</option>
-                                    <option value="2">1° ANO</option>
-                                    <option value="3">2 SÉRIE</option>
-                                    <option value="4">2° ANO</option>
-                                    <option value="5">3 SÉRIE</option>
-                                    <option value="6">3° ANO</option>
-                                    <option value="7">4 SÉRIE</option>
-                                    <option value="8">4° ANO</option>
-                                    <option value="9">5 SÉRIE</option>
-                                    <option value="10">5° ANO</option>
-                                    <option value="11">6 SÉRIE</option>
-                                    <option value="12">6° ANO</option>
-                                    <option value="13">7 SÉRIE</option>
-                                    <option value="14">8 SÉRIE</option>
+                                    <option value="1a. SÉRIE">1a. SÉRIE</option>
+                                    <option value="1° ANO">1° ANO</option>
+                                    <option value="2a. SÉRIE">2a. SÉRIE</option>
+                                    <option value="2° ANO">2° ANO</option>
+                                    <option value="3a. SÉRIE">3a. SÉRIE</option>
+                                    <option value="3° ANO">3° ANO</option>
+                                    <option value="4a. SÉRIE">4a. SÉRIE</option>
+                                    <option value="4° ANO">4° ANO</option>
+                                    <option value="5a. SÉRIE">5a. SÉRIE</option>
+                                    <option value="5° ANO">5° ANO</option>
+                                    <option value="6a. SÉRIE">6a. SÉRIE</option>
+                                    <option value="6° ANO">6° ANO</option>
+                                    <option value="7a. SÉRIE">7a. SÉRIE</option>
+                                    <option value="8a. SÉRIE">8a. SÉRIE</option>
                                 </select>
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_obs" class="col-md-2 control-label">Observ.:</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_obs">
+                            </div>
+                        </div>
 
                     </fieldset>
                 </form>

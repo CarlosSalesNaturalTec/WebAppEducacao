@@ -40,6 +40,19 @@ public class WebService : System.Web.Services.WebService
                     "&p3=" + Convert.ToString(Identificador_rcrdset[2]) + 
                     "&p4=" + Convert.ToString(Identificador_rcrdset[3]) +
                     "&p5=" + Convert.ToString(Identificador_rcrdset[4]);
+
+                // Nome da Instituição
+                stringSelect = "select nome from Tbl_Instituicao where ID_inst = " + Identificador_rcrdset[3];
+                OperacaoBanco Operacao = new OperacaoBanco();
+                SqlDataReader rcrdset = Operacao.Select(stringSelect);
+                string nomeInst = "ID DE INSTITUIÇÃO NAO LOCALIZADO";
+                while (rcrdset.Read())
+                {
+                    nomeInst = Convert.ToString(rcrdset[0]);
+                }
+
+                Identificador_msg = Identificador_msg + "&p6=" + nomeInst;
+
             }
             else
             {
@@ -51,7 +64,6 @@ public class WebService : System.Web.Services.WebService
         return Identificador_msg;
 
     }
-
 
 
     [WebMethod]
@@ -651,7 +663,8 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string CursosSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
+    public string CursosSalvar(string param0, string param1, string param2, string param3, string param4, 
+        string param5, string param6, string param7, string param8)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Cursos (" +
@@ -661,7 +674,9 @@ public class WebService : System.Web.Services.WebService
             "modalidade_educacional," +
             "faixa_ini," +
             "faixa_fim," +
-            "curso_anterior " +
+            "curso_anterior, " +
+            "obs , " +
+            "ID_Inst " +
             ") " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -670,7 +685,9 @@ public class WebService : System.Web.Services.WebService
             "'" + param3 + "'," +
             "'" + param4 + "'," +
             "'" + param5 + "'," +
-            "'" + param6 + "'" +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            param8 + 
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -689,25 +706,25 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string CursosAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7)
+    public string CursosAlterar(string param0, string param1, string param2, string param3, 
+        string param4, string param5, string param6, string param7, string param8)
     {
-
         string url;
-
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("update Tbl_Cursos set " +
+        bool alterar = operacao.Update("update Tbl_Cursos set " +
             "Nome= '" + param0 + "'," +
             "sigla= '" + param1 + "'," +
             "equivalencia= '" + param2 + "'," +
             "modalidade_educacional= '" + param3 + "'," +
-            "faixaetaria_ini= '" + param4 + "'," +
-            "faixaetaria_fim= '" + param5 + "'," +
-            "curso_anterior= '" + param6 + "' " +
-            "where ID_disc = " + param7);
+            "faixa_ini = '" + param4 + "'," +
+            "faixa_fim = '" + param5 + "'," +
+            "curso_anterior= '" + param6 + "', " +
+            "obs= '" + param7 + "' " +
+            "where ID_curs = " + param8);
 
         ConexaoBancoSQL.fecharConexao();
 
-        if (inserir == true)
+        if (alterar == true)
         {
             url = "Cursos_Listagem.aspx";
         }

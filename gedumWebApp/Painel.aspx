@@ -144,8 +144,11 @@
             <div class="w3-right">
                 <h6 class="w3-small" style="margin-left: 14px"><a href="http://inxell.com.br/" target="_blank">
                     <img src="Images/logor_inxellsmall.png" class="w3-animate-fading" /></a>
-                    &nbsp;&nbsp;&nbsp;<asp:Label ID="lblWelcome" CssClass="w3-text-green" runat="server"></asp:Label>&nbsp;&nbsp;
-                    <i class="fa fa-user w3-small"></i>&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
+                    &nbsp;<asp:Label ID="lblUSer" CssClass="w3-text-green" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;<i class="fa fa-university w3-small"></i>
+                    &nbsp;<asp:Label ID="lblInst" CssClass="w3-text-green" runat="server"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
                 </h6>
             </div>
         </div>

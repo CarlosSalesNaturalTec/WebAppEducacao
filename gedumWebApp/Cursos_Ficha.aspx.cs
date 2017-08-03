@@ -11,7 +11,6 @@ public partial class Cursos_Ficha : System.Web.UI.Page
     {
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
-
     }
 
     private void PreencheCampos(string ID)
@@ -31,7 +30,8 @@ public partial class Cursos_Ficha : System.Web.UI.Page
             "modalidade_educacional," +
             "faixa_ini," +
             "faixa_fim," +
-            "curso_anterior " +            
+            "curso_anterior, " +
+            "obs " +
             "from Tbl_Cursos " +
             "where ID_curs  = " + ID;
 
@@ -39,29 +39,14 @@ public partial class Cursos_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i <= 7; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[7]) + "\"/>'; ";
-            str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[7]) + "\";";
-            str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
-            str.Append(ScriptDados);
-
-            ScriptDados = "var latitude = document.getElementById('input_lat').value;";
-            str.Append(ScriptDados);
-
-            ScriptDados = "var longitude = document.getElementById('input_lng').value;";
-            str.Append(ScriptDados);
-
-            ScriptDados = "var urlMapa = \"MapaAuxiliar.aspx?lat=\" + latitude + \"&lng=\" + longitude;";
-            str.Append(ScriptDados);
-
-            ScriptDados = "window.open(urlMapa, 'MapFrame');";
+            //ID do registro
+            ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
         }

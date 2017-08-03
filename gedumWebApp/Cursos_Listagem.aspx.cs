@@ -5,12 +5,13 @@ public partial class Cursos_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+    string InstID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
         //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        string InstID = Session["InstID"].ToString();
+        InstID = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
@@ -23,7 +24,7 @@ public partial class Cursos_Listagem : System.Web.UI.Page
     private void montaCabecalho()
     {
         // <!--*******Customização*******-->
-        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
+        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CURSO</th>" +
@@ -41,8 +42,9 @@ public partial class Cursos_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_curs, nome, equivalencia, modalidade_educacional, faixa_ini, faixa_fim, curso_anterior " +
+        string stringselect = "select ID_curs, nome, sigla,equivalencia, modalidade_educacional, curso_anterior " +
                 "from tbl_Cursos " +
+                "where ID_Inst =" + InstID +
                 "order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -57,7 +59,6 @@ public partial class Cursos_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
             string Coluna5 = Convert.ToString(dados[5]);
-            string Coluna6 = Convert.ToString(dados[6]);
 
             // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Cursos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
@@ -69,7 +70,6 @@ public partial class Cursos_Listagem : System.Web.UI.Page
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
                 "<td>" + Coluna5 + "</td>" +
-                "<td>" + Coluna6 + "</td>" +     
                 "</tr>";
 
             str.Append(stringcomaspas);
