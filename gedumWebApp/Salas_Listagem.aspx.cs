@@ -5,12 +5,11 @@ public partial class Salas_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+    string InstID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        string iduser = Session["UserID"].ToString();
+        InstID = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
@@ -23,7 +22,7 @@ public partial class Salas_Listagem : System.Web.UI.Page
     private void montaCabecalho()
     {
         // <!--*******Customização*******-->
-        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
+        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
@@ -40,9 +39,10 @@ public partial class Salas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_sala, nome, sala_adm, dimensao, capacidade_max " +
-                "from tbl_Salas " +
-                "order by Nome"; 
+        string stringselect = "select ID_Sala, nome, sala_adm ,dimensao , capacidade_max  " +
+                "from Tbl_Salas " +
+                "where ID_Inst =" + InstID +
+                "order by Nome";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -50,14 +50,14 @@ public partial class Salas_Listagem : System.Web.UI.Page
         while (dados.Read())
         {
             string Coluna0 = Convert.ToString(dados[0]); //id 
-        
+
             string Coluna1 = Convert.ToString(dados[1]);
             string Coluna2 = Convert.ToString(dados[2]);
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
-
+            
             // <!--*******Customização*******-->
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Funcionarios_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Salas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
@@ -81,4 +81,4 @@ public partial class Salas_Listagem : System.Web.UI.Page
         string footer = "</tbody></table>";
         str.Append(footer);
     }
-}
+}       

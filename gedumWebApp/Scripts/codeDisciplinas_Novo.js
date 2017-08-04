@@ -5,24 +5,21 @@ function SalvarRegistro() {
     //validações
     if (document.getElementById('input_nome').value == "") {
         alert("Informe Nome da Disciplina");   //<!--*******Customize AQUI*******-->
-        openLink(event, 'grupo1')
-        $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
         return;
     }
 
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
-    
-    //id disciplina
-    //var idInst = document.getElementById('IDInstHidden').value;
-    //strLine = strLine + "param0" + i + ":'" + idInst + "',";
+    x = document.getElementsByClassName("form-control");
+    for (i = 0; i < x.length; i++) {
+        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    }
 
-    //id isntituição //
-    var idInst = '1'; //document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param0" + ":'" + idInst + "',";
-    strLine = strLine + "param1" + ":'" + document.getElementById('input_nome').value + "'";
-    
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "'";
+
     //exibir animações - aguarde...
     UIAguardar();
 
@@ -42,33 +39,28 @@ function SalvarRegistro() {
 }
 
 function AlterarRegistro() {
-    
+
     //validações
     if (document.getElementById('input_nome').value == "") {
         alert("Informe Nome da Disciplina");   //<!--*******Customize AQUI*******-->
-        openLink(event, 'grupo1')
-        $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
         return;
     }
 
-    
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
     x = document.getElementsByClassName("form-control");
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
-    // id disciplina
-    //strLine = strLine + "param" + i + ":'" + '2' + "',";
-    var vID = document.getElementById("IDHidden").value;     
-    strLine = strLine + "param" + i + ":'" + vID + "'";
 
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
-    
+
     $.ajax({
         type: "POST",
         url: "WebService.asmx/DisciplinasAlterar",
@@ -84,7 +76,6 @@ function AlterarRegistro() {
         }
     });
 }
-
 
 
 function cancelar() {
@@ -119,9 +110,3 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
-
-
-
-//Menu
-
-//imagens - foto

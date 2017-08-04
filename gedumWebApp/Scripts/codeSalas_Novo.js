@@ -4,9 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da teste");   //<!--*******Customize AQUI*******-->
-        openLink(event, 'grupo1')
-        $('#bt1').addClass(' w3-blue');
+        alert("Informe Nome da Sala");   //<!--*******Customize AQUI*******-->
         document.getElementById("input_nome").focus();
         return;
     }
@@ -17,15 +15,10 @@ function SalvarRegistro() {
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
-    //id isntituição
-    var idInst = document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param" + i + ":'" + idInst + "',";
 
-    // foto
-    var foto = document.getElementById('Hidden1').value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + foto + "'";
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -46,12 +39,10 @@ function SalvarRegistro() {
 }
 
 function AlterarRegistro() {
-    
+
     //validações
     if (document.getElementById('input_nome').value == "") {
         alert("Informe Nome da Sala");   //<!--*******Customize AQUI*******-->
-        openLink(event, 'grupo1')
-        $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
         return;
     }
@@ -62,19 +53,14 @@ function AlterarRegistro() {
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
-    // foto
-    var foto = document.getElementById('Hidden1').value;
-    strLine = strLine + "param" + i + ":'" + foto + "',";
 
-    // id aluno
-    var vID = document.getElementById("IDHidden").value;
-    i++;
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
-    
+
     //exibir animações - aguarde...
     UIAguardar();
-    
+
     $.ajax({
         type: "POST",
         url: "WebService.asmx/SalasAlterar",
@@ -124,106 +110,3 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
-
-function classeBt2() {
-    openLink(event, 'grupo2')
-    $('#bt2').addClass(' w3-blue');
-}
-function classeBt3() {
-    openLink(event, 'grupo3')
-    $('#bt3').addClass(' w3-blue');
-}
-function classeBt4() {
-    openLink(event, 'grupo4')
-    $('#bt4').addClass(' w3-blue');
-}
-function classeBt5() {
-    openLink(event, 'grupo5')
-    $('#bt5').addClass(' w3-blue');
-}
-function classeBt6() {
-    openLink(event, 'grupo6')
-    $('#bt6').addClass(' w3-blue');
-}
-function classeBt7() {
-    openLink(event, 'grupo7')
-    $('#bt7').addClass(' w3-blue');
-}
-function classeBt8() {
-    openLink(event, 'grupo8')
-    $('#bt8').addClass(' w3-blue');
-}
-function classeBt9() {
-    openLink(event, 'grupo9')
-    $('#bt9').addClass(' w3-blue');
-}
-function classeBt10() {
-    openLink(event, 'grupo10')
-    $('#bt10').addClass(' w3-blue');
-}
-
-
-
-function btvoltar1() {
-    openLink(event, 'grupo1')
-    $('#bt1').addClass(' w3-blue');
-}
-function btvoltar2() {
-    openLink(event, 'grupo2')
-    $('#bt2').addClass(' w3-blue');
-}
-function btvoltar3() {
-    openLink(event, 'grupo3')
-    $('#bt3').addClass(' w3-blue');
-}
-function btvoltar4() {
-    openLink(event, 'grupo4')
-    $('#bt4').addClass(' w3-blue');
-}
-function btvoltar5() {
-    openLink(event, 'grupo5')
-    $('#bt5').addClass(' w3-blue');
-}
-function btvoltar6() {
-    openLink(event, 'grupo6')
-    $('#bt6').addClass(' w3-blue');
-}
-function btvoltar7() {
-    openLink(event, 'grupo7')
-    $('#bt7').addClass(' w3-blue');
-}
-function btvoltar8() {
-    openLink(event, 'grupo8')
-    $('#bt8').addClass(' w3-blue');
-}
-function btvoltar9() {
-    openLink(event, 'grupo9')
-    $('#bt9').addClass(' w3-blue');
-}
-
-
-
-//Menu
-
-//imagens - foto
-var handleFileSelect = function (evt) {
-    var files = evt.target.files;
-    var file = files[0];
-    if (files && file) {
-        var reader = new FileReader();
-        reader.onload = function (readerEvt) {
-            var binaryString = readerEvt.target.result;
-            var data_uri = "data:image/png;base64," + btoa(binaryString);
-            document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-            document.getElementById("Hidden1").value = data_uri
-        };
-        reader.readAsBinaryString(file);
-    }
-};
-
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-    document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
-} else {
-    alert('The File APIs are not fully supported in this browser.');
-}
-//imagens - foto

@@ -153,6 +153,7 @@
                                     <option value="Mulato">Mulato</option>
                                     <option value="Amarelo">Amarelo</option>
                                     <option value="Indígena">Indígena</option>
+                                    <option value="Quilombola">Quilombola</option>
                                 </select>
                             </div>
 

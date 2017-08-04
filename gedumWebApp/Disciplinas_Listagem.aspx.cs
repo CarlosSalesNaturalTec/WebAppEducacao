@@ -5,30 +5,27 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+    string idAux;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        string iduser = Session["UserID"].ToString();
+        idAux = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
         montaRodape();
 
         Literal1.Text = str.ToString();
-
-
     }
 
     private void montaCabecalho()
     {
         // <!--*******Customização*******-->
-        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
+        string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered\">" +
             "<thead>" +
             "<tr>" +
             "<th>DISCIPLINA</th>" +
-            //"<th>ID</th>" +
+            "<th>OBS</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -39,9 +36,10 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_Disc,nome " +
+        string stringselect = "select ID_Disc,nome, obs " +
                 "from Tbl_Disciplinas " +
-                "order by Nome"; 
+                "where ID_Inst = " + idAux + 
+                " order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -49,7 +47,8 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
         while (dados.Read())
         {
             string Coluna0 = Convert.ToString(dados[0]); //id       
-            string Coluna1 = Convert.ToString(dados[1]);  //NOME            
+            string Coluna1 = Convert.ToString(dados[1]);  
+            string Coluna2 = Convert.ToString(dados[2]);             
 
             // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Disciplinas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
@@ -57,7 +56,7 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
-                //"<td>" + Coluna0 + "</td>" + // estava desabilitado
+                "<td>" + Coluna2 + "</td>" + 
                 "</tr>";
 
             str.Append(stringcomaspas);

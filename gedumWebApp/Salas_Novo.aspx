@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!--*******Customização*******-->
-    <title>Cadastro de Alunos</title>
+    <title>Cadastro de Salas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,14 +24,6 @@
             background-repeat: repeat;
             height: 100%;
         }
-
-        #results {
-            float: right;
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid;
-            background: #ccc;
-        }
     </style>
 
 </head>
@@ -42,7 +34,7 @@
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Salas</button>
+            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
         <hr />
 
     </div>
@@ -53,7 +45,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Salas - Nova Sala</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Nova Sala</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -68,26 +60,31 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_adm" class="col-md-2 control-label">Sala ADM ?</label>
+                            <label for="input_adm" class="col-md-2 control-label">Sala Adm.</label>
                             <div class="col-md-4">
-                                <select class="form-control" id="input_salaadm">
-                                    <option value="Não">Não</option>
-                                    <option value="Sim">Sim</option>
+                                <select class="form-control" id="input_adm">
+                                    <option value="NÃO">NÃO</option> 
+                                    <option value="SIM">SIM</option>                              
                                 </select>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label for="input_dimensao" class="col-md-2 control-label">Dimensão</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_dimensao">
+                            <label for="input_dimens" class="col-md-2 control-label">Dimensão</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_dimens">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_capacidademax" class="col-md-2 control-label">Capacidade Máx</label>
+                            <label for="input_max" class="col-md-2 control-label">Capacidade Máx.:</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_max">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_obs" class="col-md-2 control-label">Observações</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_capacidademax">
+                                <input type="text" class="form-control" id="input_obs">
                             </div>
                         </div>
 
@@ -114,18 +111,6 @@
 
             </div>
 
-            <!-- Camera -->
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-            <!-- Camera -->
-
         </div>
 
     </div>
@@ -136,9 +121,7 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeSalas_Novo.js"></script>
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
-    <!-- <script type="text/javascript" src="Scripts/codeAlunos_Mapa.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
 </html>
+

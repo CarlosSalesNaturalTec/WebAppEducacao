@@ -494,16 +494,14 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string DisciplinasSalvar(string param0, string param1)
+    public string DisciplinasSalvar(string param0, string param1, string param2)
     {
         string url;
-        string strInsert = "INSERT INTO Tbl_Disciplinas (" +
-            "ID_Inst, " +
-            "Nome" +
-            ") " +
+        string strInsert = "INSERT INTO Tbl_Disciplinas (Nome, obs, ID_Inst) " +
             "VALUES (" +
             "'" + param0 + "'," +
-            "'" + param1 + "'" +
+            "'" + param1 + "'," +
+            param2 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -546,16 +544,12 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string DisciplinasAlterar(string param0, string param1, string param2)
     {
-
-        // param0 a param57 = campos
-        // param59 = id func
-
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert("update Tbl_Disciplinas set " +
             "Nome= '" + param0 + "'," +
-            "ID_Inst= '" + param1 + "' " +
+            "obs= '" + param1 + "' " +
             "where ID_disc = " + param2);
 
         ConexaoBancoSQL.fecharConexao();
@@ -575,22 +569,17 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string SalasSalvar(string param0, string param1, string param2, string param3, string param4)
+    public string SalasSalvar(string param0, string param1, string param2, string param3, string param4, string param5)
     {
         string url;
-        string strInsert = "INSERT INTO Tbl_Salas (" +
-            "ID_Inst," +
-            "Nome," +
-            "sala_adm," +
-            "dimensao," +
-            "capacidade_max " +
-            ") " +
+        string strInsert = "insert INTO Tbl_Salas (Nome, sala_adm,  dimensao , capacidade_max, obs, ID_Inst ) " +
             "VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
             "'" + param3 + "'," +
-            "'" + param4 + "'" +
+            "'" + param4 + "'," +
+            param5 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -615,13 +604,13 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert("update Tbl_Salas set " +
+        bool inserir = operacao.Update("update Tbl_Salas set " +
             "Nome= '" + param0 + "'," +
-            "Sala_amd= '" + param1 + "'," +
+            "sala_adm= '" + param1 + "'," +
             "dimensao= '" + param2 + "'," +
-            "capacidade_max= '" + param3 + "'," +
-            "ID_Inst= '" + param4 + "' " +
-            "where ID_disc = " + param5);
+            "capacidade_max = '" + param3 + "'," +
+            "obs = '" + param4 + "' " +
+            "where ID_Sala = " + param5);
 
         ConexaoBancoSQL.fecharConexao();
 

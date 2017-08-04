@@ -11,7 +11,6 @@ public partial class Disciplinas_Ficha : System.Web.UI.Page
     {
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
-
     }
 
     private void PreencheCampos(string ID)
@@ -24,52 +23,28 @@ public partial class Disciplinas_Ficha : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        string stringSelect = "select " +
-            //" id_disc, Nome, id_inst " +
-            " Nome, id_disc, id_inst " +
-            //"id_disc, Nome " +
+        string stringSelect = "select Nome, obs " +
             "from Tbl_Disciplinas " +
-            "where ID_disc  = " + ID;
-        
+            "where ID_Disc = " + ID;
+
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
-
         while (rcrdset.Read())
         {
-            
-            for (int i = 0; i <= 1; i++)  //for (int i = 0; i <= 1; i++)
-            {                
+            for (int i = 0; i <= 1; i++)
+            {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[1]) + "\"/>'; ";
+            //ID do registro
+            ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[1]) + "\";";
-            str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";"; 
-            str.Append(ScriptDados);
-            
-            ScriptDados = "var latitude = document.getElementById('input_lat').value;";
-            str.Append(ScriptDados);
-
-            ScriptDados = "var longitude = document.getElementById('input_lng').value;";
-            str.Append(ScriptDados);
-
-            ScriptDados = "var urlMapa = \"MapaAuxiliar.aspx?lat=\" + latitude + \"&lng=\" + longitude;";
-            str.Append(ScriptDados);
-
-            ScriptDados = "window.open(urlMapa, 'MapFrame');";
-            str.Append(ScriptDados);
-
 
         }
         ConexaoBancoSQL.fecharConexao();
 
-        ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
-        str.Append(ScriptDados);
-
-        ScriptDados = "</script>";      
+        ScriptDados = "</script>";
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();
