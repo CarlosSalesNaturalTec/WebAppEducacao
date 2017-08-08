@@ -28,9 +28,9 @@ public partial class Alunos_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>FUNÇÃO</th>" +
             "<th>CELULAR</th>" +
-            "<th>E-MAIL</th>" +
+            "<th>RESPONSÁVEL</th>" +
+            "<th>TEL. RESPONSÁVEL</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -41,7 +41,7 @@ public partial class Alunos_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_alun, nome, Funcao, celular1, email " +
+        string stringselect = "select ID_aluno, nome, celular1, Responsavel, ResponsavelTel  " +
                 "from tbl_Alunos " +
                 "where ID_Inst = " +IDInst +
                 " order by Nome"; 
@@ -59,7 +59,7 @@ public partial class Alunos_Listagem : System.Web.UI.Page
             string Coluna4 = Convert.ToString(dados[4]);
 
             // <!--*******Customização*******-->
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Funcionarios_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Alunos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +

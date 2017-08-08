@@ -110,6 +110,8 @@ function UIAguardar() {
         x[i].style.display = "block";
     }
 }
+
+
 //Menu
 function openLink(evt, animName) {
     var i, x, tablinks;
@@ -226,4 +228,21 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 } else {
     alert('The File APIs are not fully supported in this browser.');
 }
-//imagens - foto
+
+function AtivarWebCam() {
+    Webcam.set({
+        width: 160,
+        height: 120,
+        image_format: 'png'
+    });
+    Webcam.attach('#my_camera');
+}
+function take_snapshot() {
+    // take snapshot and get image data
+    Webcam.snap(function (data_uri) {
+        // display results in page
+        document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
+        document.getElementById("Hidden1").value = data_uri
+    });
+    Webcam.reset()
+}

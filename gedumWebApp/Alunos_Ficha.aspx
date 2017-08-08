@@ -36,7 +36,6 @@
 
 </head>
 <body>
-
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
@@ -46,9 +45,9 @@
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
         <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço</button>
-        <button id="bt3" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>         
-        <button id="bt9" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo9')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
-        <button id="bt10" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo10')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
+        <button id="bt3" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>        
+        <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo4')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
+        <button id="bt5" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo5')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
         <hr />
 
     </div>
@@ -59,7 +58,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais- Ficha Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Aluno</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -73,14 +72,18 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_prof" class="col-md-2 control-label">Profissão</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_prof">
-                            </div>
-
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
                             <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_nasc">
+                            </div>
+                            <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
+                            <div class="col-md-3">
+                                <select class="form-control" id="input_civil">
+                                    <option value="Solteiro(a)">Solteiro(a)</option>
+                                    <option value="Casado(a)">Casado(a)</option>
+                                    <option value="Divorciado(a)">Divorciado(a)</option>
+                                    <option value="Viúvo(a)">Viúvo(a)</option>
+                                </select>
                             </div>
                         </div>
 
@@ -99,6 +102,25 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="input_resp" class="col-md-2 control-label">Responsável</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_resp">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_cpfresp" class="col-md-2 control-label">CPF Respons.</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_cpfresp">
+                            </div>
+                            <label for="input_telresp" class="col-md-2 control-label">TEL. Respons.</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_telresp">
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group">
                             <label for="input_prof" class="col-md-2 control-label">Naturalidade</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_natural">
@@ -107,35 +129,6 @@
                             <label for="input_nacionalid" class="col-md-2 control-label">Nacionalidade</label>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" id="input_nacionalid" value="Brasileira">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_escolaridade" class="col-md-2 control-label">Escolaridade</label>
-                            <div class="col-md-4">
-                                <select class="form-control" id="input_escolaridade">
-                                    <option value="Fundamental incompleto">Fundamental incompleto</option>
-                                    <option value="Fundamental completo">Fundamental completo</option>
-                                    <option value="Médio incompleto">Médio incompleto</option>
-                                    <option value="Médio completo">Médio completo</option>
-                                    <option value="Superior incompleto">Superior incompleto</option>
-                                    <option value="Superior completo">Superior completo</option>
-                                    <option value="Pós-graduação incompleto">Pós-graduação incompleto</option>
-                                    <option value="Pós-graduação completo">Pós-graduação completo</option>
-                                    <option value="Mestrado incompleto">Mestrado incompleto</option>
-                                    <option value="Mestrado completo">Mestrado completo</option>
-                                    <option value="Doutorado incompleto">Doutorado incompleto</option>
-                                    <option value="Doutorado completo">Doutorado completo</option>
-                                </select>
-                            </div>
-                            <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
-                            <div class="col-md-3">
-                                <select class="form-control" id="input_civil">
-                                    <option value="Solteiro(a)">Solteiro(a)</option>
-                                    <option value="Casado(a)">Casado(a)</option>
-                                    <option value="Divorciado(a)">Divorciado(a)</option>
-                                    <option value="Viúvo(a)">Viúvo(a)</option>
-                                </select>
                             </div>
                         </div>
 
@@ -149,6 +142,7 @@
                                     <option value="Mulato">Mulato</option>
                                     <option value="Amarelo">Amarelo</option>
                                     <option value="Indígena">Indígena</option>
+                                    <option value="Indígena">Quilombola</option>
                                 </select>
                             </div>
 
@@ -225,6 +219,11 @@
                     <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
                     <input type="file" id="filePicker">
                 </div>
+                <div class="row">
+                    <label for="btwebcam">WebCam:</label><br>
+                    <input id="btwebcam" type="button" value="Ativar WebCam" onclick="AtivarWebCam()">
+                    <input type="button" value="Capturar imagem WebCam" onclick="take_snapshot()">
+                </div>
                 <input id="Hidden1" name="fotouri" type="hidden" />
             </div>
             <!-- Camera -->
@@ -236,7 +235,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço- Ficha Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Aluno</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -267,14 +266,16 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_uf" class="col-md-2 control-label">UF</label>
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_uf">
-                            </div>
-                            <label for="input_cidade" class="col-md-1 control-label">Cidade</label>
+                            <label for="input_cidade" class="col-md-2 control-label">Cidade</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" id="input_cidade">
                             </div>
+
+                            <label for="input_uf" class="col-md-1 control-label">UF</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_uf" value="BA">
+                            </div>
+                            
                         </div>
 
                         <div class="form-group">
@@ -343,7 +344,7 @@
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação- Ficha Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Aluno</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -416,6 +417,13 @@
                             </div>
                         </div>
 
+                         <div class="form-group">
+                            <label for="input_CERT" class="col-md-2 control-label">Certidão Nasc.</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_CERT">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -451,11 +459,11 @@
         </div>
 
 
-        <!-- GRUPO 9 - Dados de Saúde -->
-        <div id="grupo9" class="w3-container grupo w3-animate-left" style="display: none">
+        <!-- GRUPO 4 - Dados de Saúde -->
+        <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde- Ficha Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Aluno</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -481,6 +489,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_SUS" class="col-md-3 control-label">Cartão SUS</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_SUS">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -489,13 +504,10 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt10()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt5()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -515,11 +527,11 @@
         </div>
 
 
-        <!-- GRUPO 10 - Fardamento -->
-        <div id="grupo10" class="w3-container grupo w3-animate-left" style="display: none">
+        <!-- GRUPO 5 - Fardamento -->
+        <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento- Ficha Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Aluno</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -567,10 +579,7 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -588,18 +597,18 @@
             <div class="w3-quarter">
             </div>
         </div>
+
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" name="IDHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
-    <!-- Scripts diversos  -->
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeAlunos_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/webcam.js"></script>
     <script type="text/javascript" src="Scripts/codeAlunos_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
-
 </html>

@@ -12,10 +12,6 @@ public partial class Alunos_Ficha : System.Web.UI.Page
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
 
-        //DependentesLista(idAux);
-        //BeneficiosLista(idAux);
-        //CargaHLista(idAux);
-
     }
 
     private void PreencheCampos(string ID)
@@ -29,25 +25,28 @@ public partial class Alunos_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "Nome," +
-            "Profissao," +
-            "Nascimento," +
+             "Nome," +
+            "format(Nascimento,'yyyy-MM-dd') as d1, " +
+            "EstadoCivil," +
             "Pai," +
             "Mae," +
+            "Responsavel," +
+            "ResponsavelCPF," +
+            "ResponsavelTel," +
             "Naturalidade," +
             "Nacionalidade," +
-            "Escolaridade," +
-            "EstadoCivil," +
             "Etnia," +
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
             "Endereco," +
+            "Latitude," +
+            "Longitude," +
             "Numero," +
             "Bairro," +
             "CEP," +
-            "UF," +
             "Cidade," +
+            "UF," +
             "Celular1," +
             "Celular2," +
             "TelFixo," +
@@ -65,44 +64,34 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "Secao," +
             "CNH," +
             "Passaporte," +
-            "SituacaoOutros," +
-            "Funcao," +
-            "TabelaSal," +
-            "Sindicalizado," +
-            "SindicatoNome," +
+            "CertNasc ," +
             "Alergias," +
             "AlergiasMed," +
             "AcidenteAvisar," +
+            "CartaoSUS," +
             "FardaCamisa," +
             "FardaCamiseta," +
             "FardaCalca," +
             "FardaSapato," +
             "FardaBota," +
             "FardaObs," +
-            "FotoDataURI," +
-            // "TEXT NULL,
-            "Latitude," +
-            "Longitude," +
-            "ResponsavelLegal," +
-            "Serie," +
-            "Nivel," +
-            "UsaTransp " +
+            "FotoDataURI " +
             "from Tbl_Alunos " +
-            "where ID_alun  = " + ID;
+            "where ID_aluno  = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 57; i++)
+            for (int i = 0; i < 50; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[58]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[50]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[58]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[50]) + "\";";
             str.Append(ScriptDados);
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
