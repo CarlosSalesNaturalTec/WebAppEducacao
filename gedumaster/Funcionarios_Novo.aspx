@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Funcionarios_Ficha.aspx.cs" Inherits="Funcionarios_Ficha" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Funcionarios_Novo.aspx.cs" Inherits="Funcionarios_Novo" %>
 
 <!DOCTYPE html>
 
@@ -36,7 +36,6 @@
 
 </head>
 <body>
-
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
@@ -64,7 +63,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -211,6 +210,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -227,6 +230,11 @@
                     <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
                     <input type="file" id="filePicker">
                 </div>
+                <div class="row">
+                    <label for="btwebcam">WebCam:</label><br>
+                    <input id="btwebcam" type="button" value="Ativar WebCam" onclick="AtivarWebCam()">
+                    <input type="button" value="Capturar imagem WebCam" onclick="take_snapshot()">
+                </div>
                 <input id="Hidden1" name="fotouri" type="hidden" />
             </div>
             <!-- Camera -->
@@ -238,7 +246,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -321,6 +329,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -341,7 +353,7 @@
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -431,6 +443,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt4()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -448,7 +464,7 @@
         <!-- GRUPO 4 - Dependentes -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -472,8 +488,8 @@
                                 <input type="date" id="input_DEPNasc" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="DependenteIncluir()" type="button">
+                               <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -483,7 +499,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table id="MyTable" class="w3-table-all w3-hoverable">
+                                <table class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Nome</th>
@@ -491,7 +507,6 @@
                                             <th>Nascimento</th>
                                         </tr>
                                     </thead>
-                                    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
@@ -514,6 +529,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt5()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -531,7 +550,7 @@
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -555,8 +574,8 @@
                                 <input type="date" id="input_BenefInicio" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="BeneficioIncluir()" type="button">
+                               <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -565,7 +584,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table id="TableBenef" class="w3-table-all w3-hoverable">
+                                <table class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Benefício</th>
@@ -573,7 +592,6 @@
                                             <th>Início</th>
                                         </tr>
                                     </thead>
-                                    <asp:Literal ID="Literal3" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
@@ -587,14 +605,14 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar</button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -612,7 +630,7 @@
         <!-- GRUPO 6 - Situação -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -649,7 +667,7 @@
                         <div class="form-group">
                             <label for="input_bruto" class="col-md-2 control-label">Salário Bruto</label>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" id="input_bruto">
+                                <input type="number" class="form-control" id="input_bruto" value="0">
                             </div>
                             <label for="input_SalInvest" class="col-md-2 control-label">Salário Investimento</label>
                             <div class="col-md-4">
@@ -683,14 +701,15 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt7()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -707,8 +726,8 @@
 
         <!-- GRUPO 7 - Carga Horária-->
         <div id="grupo7" class="w3-container grupo w3-animate-left" style="display: none">
-
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária- Ficha Funcionário</h3>
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -737,13 +756,13 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_Descanso" class="col-md-2 control-label">Descanso (hs)</label>
+                            <label for="input_Descanso" class="col-md-2 control-label">Descanso</label>
                             <div class="col-md-3">
                                 <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="CargaHIncluir()" type="button">
+                               <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -759,10 +778,9 @@
                                             <th>Turno</th>
                                             <th>Entrada</th>
                                             <th>Saida</th>
-                                            <th>Descanso (hs)</th>
+                                            <th>Descanso</th>
                                         </tr>
                                     </thead>
-                                    <asp:Literal ID="Literal5" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
@@ -779,11 +797,14 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar6()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar</button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -800,8 +821,8 @@
 
         <!-- GRUPO 8 - Dados Bancários -->
         <div id="grupo8" class="w3-container grupo w3-animate-left" style="display: none">
-            
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários- Ficha Funcionário</h3>
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -848,14 +869,15 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round ">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar7()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt9()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -874,7 +896,7 @@
         <div id="grupo9" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -908,14 +930,15 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt10()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -934,7 +957,7 @@
         <div id="grupo10" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -982,11 +1005,12 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
-
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -999,18 +1023,18 @@
             <div class="w3-quarter">
             </div>
         </div>
+
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" name="IDHidden" type="hidden" />
+    <input id="IDInstHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
-    <!-- Scripts diversos  -->
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/webcam.js"></script>
     <script type="text/javascript" src="Scripts/codeFuncionarios_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
-
 </html>

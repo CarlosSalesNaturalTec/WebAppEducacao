@@ -34,6 +34,7 @@
         <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Funcionarios Cadastrados:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
         &nbsp;&nbsp;
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Funcionario</button>  <!--*******Customização*******-->
     </div>
 
     <br />

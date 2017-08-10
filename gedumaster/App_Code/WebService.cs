@@ -472,6 +472,433 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+
+    [WebMethod]
+    public string FuncionariosSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
+        string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
+        string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
+        string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
+        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
+        string param60, string param61)
+    {
+        string url;
+        string strInsert = "INSERT INTO Tbl_Funcionarios (" +
+            "Nome," +
+            "Profissao," +
+            "Nascimento," +
+            "Pai," +
+            "Mae," +
+            "Naturalidade," +
+            "Nacionalidade," +
+            "Escolaridade," +
+            "EstadoCivil," +
+            "Etnia," +
+            "TipoSanguinio," +
+            "Deficiente," +
+            "DeficienteTipo," +
+            "Endereco," +
+            "Latitude," +
+            "Longitude," +
+            "Numero," +
+            "Bairro," +
+            "CEP," +
+            "UF," +
+            "Cidade," +
+            "Celular1," +
+            "Celular2," +
+            "TelFixo," +
+            "email," +
+            "PIS," +
+            "CPF," +
+            "RG," +
+            "RGEmissor," +
+            "RGEmissao," +
+            "CTPS," +
+            "CTPSserie," +
+            "CTPSEmissao," +
+            "Titulo," +
+            "Zona," +
+            "Secao," +
+            "CNH," +
+            "Passaporte," +
+            "Situacao," +
+            "SituacaoOutros," +
+            "Funcao," +
+            "TabelaSal," +
+            "SalarioBruto, " +
+            "SalarioInvest, " +
+            "Sindicalizado," +
+            "SindicatoNome," +
+            "Banco," +
+            "Agencia," +
+            "ContaTipo," +
+            "ContaNumero," +
+            "ContaOperacao," +
+            "Alergias," +
+            "AlergiasMed," +
+            "AcidenteAvisar," +
+            "FardaCamisa," +
+            "FardaCamiseta," +
+            "FardaCalca," +
+            "FardaSapato," +
+            "FardaBota," +
+            "FardaObs," +
+            "ID_Munic," +
+            "FotoDataURI" +
+            ") " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            "'" + param9 + "'," +
+            "'" + param10 + "'," +
+            "'" + param11 + "'," +
+            "'" + param12 + "'," +
+            "'" + param13 + "'," +
+            "'" + param14 + "'," +
+            "'" + param15 + "'," +
+            "'" + param16 + "'," +
+            "'" + param17 + "'," +
+            "'" + param18 + "'," +
+            "'" + param19 + "'," +
+            "'" + param20 + "'," +
+            "'" + param21 + "'," +
+            "'" + param22 + "'," +
+            "'" + param23 + "'," +
+            "'" + param24 + "'," +
+            "'" + param25 + "'," +
+            "'" + param26 + "'," +
+            "'" + param27 + "'," +
+            "'" + param28 + "'," +
+            "'" + param29 + "'," +
+            "'" + param30 + "'," +
+            "'" + param31 + "'," +
+            "'" + param32 + "'," +
+            "'" + param33 + "'," +
+            "'" + param34 + "'," +
+            "'" + param35 + "'," +
+            "'" + param36 + "'," +
+            "'" + param37 + "'," +
+            "'" + param38 + "'," +
+            "'" + param39 + "'," +
+            "'" + param40 + "'," +
+            "'" + param41 + "'," +
+            param42 + " ," +
+            "'" + param43 + "'," +
+            "'" + param44 + "'," +
+            "'" + param45 + "'," +
+            "'" + param46 + "'," +
+            "'" + param47 + "'," +
+            "'" + param48 + "'," +
+            "'" + param49 + "'," +
+            "'" + param50 + "'," +
+            "'" + param51 + "'," +
+            "'" + param52 + "'," +
+            "'" + param53 + "'," +
+            "'" + param54 + "'," +
+            "'" + param55 + "'," +
+            "'" + param56 + "'," +
+            "'" + param57 + "'," +
+            "'" + param58 + "'," +
+            "'" + param59 + "'," +
+            param60 + "," +
+            "'" + param61 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Funcionarios_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Funcionarios where ID_func =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Funcionarios_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
+        string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
+        string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
+        string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
+        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
+        string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
+        string param60, string param61)
+    {
+
+        // param0 a param59 = campos
+        // param60 = foto
+        // param61 = id func
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert("update Tbl_Funcionarios set " +
+            "Nome= '" + param0 + "', " +
+            "Profissao= '" + param1 + "', " +
+            "Nascimento= '" + param2 + "', " +
+            "Pai= '" + param3 + "', " +
+            "Mae= '" + param4 + "', " +
+            "Naturalidade= '" + param5 + "', " +
+            "Nacionalidade= '" + param6 + "', " +
+            "Escolaridade= '" + param7 + "', " +
+            "EstadoCivil= '" + param8 + "', " +
+            "Etnia= '" + param9 + "', " +
+            "TipoSanguinio= '" + param10 + "', " +
+            "Deficiente= '" + param11 + "', " +
+            "DeficienteTipo= '" + param12 + "', " +
+            "Endereco= '" + param13 + "', " +
+            "Latitude= '" + param14 + "', " +
+            "Longitude= '" + param15 + "', " +
+            "Numero= '" + param16 + "', " +
+            "Bairro= '" + param17 + "', " +
+            "CEP= '" + param18 + "', " +
+            "UF= '" + param19 + "', " +
+            "Cidade= '" + param20 + "', " +
+            "Celular1= '" + param21 + "', " +
+            "Celular2= '" + param22 + "', " +
+            "TelFixo= '" + param23 + "', " +
+            "email= '" + param24 + "', " +
+            "PIS= '" + param25 + "', " +
+            "CPF= '" + param26 + "', " +
+            "RG= '" + param27 + "', " +
+            "RGEmissor= '" + param28 + "', " +
+            "RGEmissao= '" + param29 + "', " +
+            "CTPS= '" + param30 + "', " +
+            "CTPSserie= '" + param31 + "', " +
+            "CTPSEmissao= '" + param32 + "', " +
+            "Titulo= '" + param33 + "', " +
+            "Zona= '" + param34 + "', " +
+            "Secao= '" + param35 + "', " +
+            "CNH= '" + param36 + "', " +
+            "Passaporte= '" + param37 + "', " +
+            "Situacao= '" + param38 + "', " +
+            "SituacaoOutros= '" + param39 + "', " +
+            "Funcao= '" + param40 + "', " +
+            "TabelaSal= '" + param41 + "', " +
+
+            "SalarioBruto = " + param42 + " , " +
+            "SalarioInvest = '" + param43 + "', " +
+
+            "Sindicalizado= '" + param44 + "', " +
+            "SindicatoNome= '" + param45 + "', " +
+            "Banco= '" + param46 + "', " +
+            "Agencia= '" + param47 + "', " +
+            "ContaTipo= '" + param48 + "', " +
+            "ContaNumero= '" + param49 + "', " +
+            "ContaOperacao= '" + param50 + "', " +
+            "Alergias= '" + param51 + "', " +
+            "AlergiasMed= '" + param52 + "', " +
+            "AcidenteAvisar= '" + param53 + "', " +
+            "FardaCamisa= '" + param54 + "', " +
+            "FardaCamiseta= '" + param55 + "', " +
+            "FardaCalca= '" + param56 + "', " +
+            "FardaSapato= '" + param57 + "', " +
+            "FardaBota= '" + param58 + "', " +
+            "FardaObs= '" + param59 + "', " +
+            "FotoDataURI= '" + param60 + "' " +
+            "where ID_func = " + param61);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Funcionarios_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosNewDep(string param1, string param2, string param3, string param4)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Dependentes (ID_func , Nome , Parentesco  , Nascimento ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelDep(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Dependentes  where ID_Depend=" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR DEPENDENTE";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosNewBenef(string param1, string param2, string param3, string param4)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Beneficios (ID_func , Beneficio, Situacao , Inicio ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelBenef(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Beneficios where ID_Benef =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR BENEFICIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosNewCargaH(string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_CargaHor (ID_func , DiaSemana , Turno, Entrada,Saida,Descanso ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "'," +
+           "'" + param6 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelCargaH(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_CargaHor where ID_CargaH =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR CARGA HORÁRIA";
+        }
+
+        return url;
+    }
+
+
 }
 
 

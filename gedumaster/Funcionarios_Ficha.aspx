@@ -211,6 +211,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -320,6 +324,10 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -431,6 +439,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt4()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -514,6 +526,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt5()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -595,6 +611,9 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar</button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -692,6 +711,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt7()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -785,6 +808,9 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar</button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -857,6 +883,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt9()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
@@ -916,6 +946,10 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt10()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
@@ -987,6 +1021,10 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
