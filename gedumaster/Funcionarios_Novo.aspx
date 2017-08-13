@@ -77,9 +77,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_prof" class="col-md-2 control-label">Profissão</label>
+                            <label for="input_sexo" class="col-md-2 control-label">Sexo</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_prof">
+                                <select class="form-control" id="input_sexo">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                </select>
                             </div>
 
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
@@ -115,21 +118,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_escolaridade" class="col-md-2 control-label">Escolaridade</label>
+                            <label for="input_escolaridade" class="col-md-2 control-label">Formação</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_escolaridade">
-                                    <option value="Fundamental incompleto">Fundamental incompleto</option>
-                                    <option value="Fundamental completo">Fundamental completo</option>
-                                    <option value="Médio incompleto">Médio incompleto</option>
-                                    <option value="Médio completo">Médio completo</option>
-                                    <option value="Superior incompleto">Superior incompleto</option>
-                                    <option value="Superior completo">Superior completo</option>
-                                    <option value="Pós-graduação incompleto">Pós-graduação incompleto</option>
-                                    <option value="Pós-graduação completo">Pós-graduação completo</option>
-                                    <option value="Mestrado incompleto">Mestrado incompleto</option>
-                                    <option value="Mestrado completo">Mestrado completo</option>
-                                    <option value="Doutorado incompleto">Doutorado incompleto</option>
-                                    <option value="Doutorado completo">Doutorado completo</option>
+                                    <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
+                                    <option value="Ensino Fundamental completo">Ensino Fundamental completo</option>
+                                    <option value="Magistério">Magistério</option>
+                                    <option value="Magistério Indígena">Magistério Indígena</option>
+                                    <option value="Ensino Médio">Ensino Médio</option>
+                                    <option value="Curso Técnico">Curso Técnico</option>
+                                    <option value="Graduação">Graduação</option>
+                                    <option value="Curso de Aperfeiçoamento">Curso de Aperfeiçoamento</option>
+                                    <option value="Curso de Qualificação">Curso de Qualificação</option>
+                                    <option value="Curso de Extensão">Curso de Extensão</option>
+                                    <option value="Especialização">Especialização</option>
+                                    <option value="Mestrado">Mestrado</option>
+                                    <option value="Doutorado">Doutorado</option>
                                 </select>
                             </div>
                             <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
@@ -638,18 +642,26 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_situac" class="col-md-2 control-label">Situação</label>
+                            <label for="input_vinculo" class="col-md-2 control-label">Vínculo</label>
                             <div class="col-md-3">
-                                <select class="form-control" id="input_situac">
-                                    <option value="Funcionário Público">Funcionário Público</option>
-                                    <option value="REDA">REDA</option>
-                                    <option value="Cargo de Comissionado">Cargo de Comissionado</option>
+                                <select class="form-control" id="input_vinculo">
+                                    <option value="Cargo Comissionado">Cargo Comissionado</option>
+                                    <option value="Contratado">Contratado</option>
+                                    <option value="Estatutário">Estatutário</option>
+                                    <option value="Estagiário">Estagiário</option>
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>
-                            <label for="input_qual" class="col-md-2 control-label">Outros, qual</label>
+                            <label for="input_qual" class="col-md-2 control-label">Situacao</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="input_qual">
+                               <select class="form-control" id="input_situac">
+                                    <option value="Em atividade">Em atividade</option>
+                                    <option value="Aposentado">Aposentado</option>
+                                    <option value="Exonerado">Exonerado</option>
+                                    <option value="Transferido a outra Secretaria">Transferido a outra Secretaria</option>
+                                    <option value="Afastado">Afastado</option>
+                                    <option value="INSS">INSS</option>
+                                </select>
                             </div>
                         </div>
 
@@ -693,6 +705,32 @@
                                 <input type="text" class="form-control" id="input_Sindqual">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="input_lotado" class="col-md-2 control-label">Lotado Em</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_lotado">
+                                    <option value="Secretaria Municipal de Turismo">Secretaria Municipal de Turismo</option>
+                                    <option value="Secretaria Municipal de Saúde">Secretaria Municipal de Saúde</option>
+                                    <option value="Secretaria Municipal de Obras">Secretaria Municipal de Obras</option>
+                                    <option value="Secretaria Municipal de Meio Ambiente">Secretaria Municipal de Meio Ambiente</option>
+                                    <option value="Secretaria Municipal de Educação">Secretaria Municipal de Educação</option>
+                                    <option value="Secretaria Municipal de Finanças">Secretaria Municipal de Finanças</option>
+                                    <option value="Secretaria Municipal de Assistência Social">Secretaria Municipal de Assistência Social</option>
+                                    <option value="Secretaria Municipal de Agricultura">Secretaria Municipal de Agricultura</option>
+                                    <option value="Secretaria Municipal de Administração">Secretaria Municipal de Administração</option>
+                                    <option value="Gabinete do Prefeito">Gabinete do Prefeito</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matricula" class="col-md-2 control-label">Matrícula</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_matricula">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
