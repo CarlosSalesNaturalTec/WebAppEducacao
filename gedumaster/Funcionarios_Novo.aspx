@@ -492,7 +492,7 @@
                                 <input type="date" id="input_DEPNasc" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                               <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
@@ -578,7 +578,7 @@
                                 <input type="date" id="input_BenefInicio" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                               <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
@@ -654,7 +654,7 @@
                             </div>
                             <label for="input_qual" class="col-md-2 control-label">Situacao</label>
                             <div class="col-md-5">
-                               <select class="form-control" id="input_situac">
+                                <select class="form-control" id="input_situac">
                                     <option value="Em atividade">Em atividade</option>
                                     <option value="Aposentado">Aposentado</option>
                                     <option value="Exonerado">Exonerado</option>
@@ -799,7 +799,7 @@
                                 <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                               <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
@@ -960,6 +960,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_SUS" class="col-md-3 control-label">Cartão SUS</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_SUS">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -1032,6 +1039,16 @@
                             <label for="input_obs" class="col-md-2 control-label">Observ.:</label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="input_obs">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_cracha" class="col-md-2 control-label">Emitir Crachá</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_cracha">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
                             </div>
                         </div>
 

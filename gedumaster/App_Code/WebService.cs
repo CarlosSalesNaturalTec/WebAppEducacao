@@ -485,7 +485,7 @@ public class WebService : System.Web.Services.WebService
         string url;
         string strInsert = "INSERT INTO Tbl_Funcionarios (" +
             "Nome," +
-            "Profissao," +
+            "Sexo," +
             "Nascimento," +
             "Pai," +
             "Mae," +
@@ -497,6 +497,7 @@ public class WebService : System.Web.Services.WebService
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
+
             "Endereco," +
             "Latitude," +
             "Longitude," +
@@ -509,6 +510,7 @@ public class WebService : System.Web.Services.WebService
             "Celular2," +
             "TelFixo," +
             "email," +
+
             "PIS," +
             "CPF," +
             "RG," +
@@ -522,32 +524,43 @@ public class WebService : System.Web.Services.WebService
             "Secao," +
             "CNH," +
             "Passaporte," +
+
+            "Vinculo," +
             "Situacao," +
-            "SituacaoOutros," +
             "Funcao," +
             "TabelaSal," +
-            "SalarioBruto, " +
-            "SalarioInvest, " +
+            "SalarioBruto," +
+            "SalarioInvest," +
             "Sindicalizado," +
             "SindicatoNome," +
+            "lotado," +
+            "Matricula," +
+
             "Banco," +
             "Agencia," +
             "ContaTipo," +
             "ContaNumero," +
             "ContaOperacao," +
+
             "Alergias," +
             "AlergiasMed," +
             "AcidenteAvisar," +
+            "CartaoSUS," +
+
             "FardaCamisa," +
             "FardaCamiseta," +
             "FardaCalca," +
             "FardaSapato," +
             "FardaBota," +
             "FardaObs," +
+            "Cracha," +
+
             "ID_Munic," +
             "FotoDataURI" +
+
             ") " +
             "VALUES (" +
+
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -668,7 +681,7 @@ public class WebService : System.Web.Services.WebService
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert("update Tbl_Funcionarios set " +
             "Nome= '" + param0 + "', " +
-            "Profissao= '" + param1 + "', " +
+            "Sexo = '" + param1 + "', " +
             "Nascimento= '" + param2 + "', " +
             "Pai= '" + param3 + "', " +
             "Mae= '" + param4 + "', " +
@@ -680,6 +693,7 @@ public class WebService : System.Web.Services.WebService
             "TipoSanguinio= '" + param10 + "', " +
             "Deficiente= '" + param11 + "', " +
             "DeficienteTipo= '" + param12 + "', " +
+
             "Endereco= '" + param13 + "', " +
             "Latitude= '" + param14 + "', " +
             "Longitude= '" + param15 + "', " +
@@ -692,6 +706,7 @@ public class WebService : System.Web.Services.WebService
             "Celular2= '" + param22 + "', " +
             "TelFixo= '" + param23 + "', " +
             "email= '" + param24 + "', " +
+
             "PIS= '" + param25 + "', " +
             "CPF= '" + param26 + "', " +
             "RG= '" + param27 + "', " +
@@ -705,30 +720,37 @@ public class WebService : System.Web.Services.WebService
             "Secao= '" + param35 + "', " +
             "CNH= '" + param36 + "', " +
             "Passaporte= '" + param37 + "', " +
-            "Situacao= '" + param38 + "', " +
-            "SituacaoOutros= '" + param39 + "', " +
+
+            "Vinculo = '" + param38 + "', " +
+            "Situacao= '" + param39 + "', " +
             "Funcao= '" + param40 + "', " +
             "TabelaSal= '" + param41 + "', " +
-
             "SalarioBruto = " + param42 + " , " +
             "SalarioInvest = '" + param43 + "', " +
-
             "Sindicalizado= '" + param44 + "', " +
             "SindicatoNome= '" + param45 + "', " +
+            "lotado = '" + param46 + "', " +
+            "Matricula = '" + param47 + "', " +
+
             "Banco= '" + param46 + "', " +
             "Agencia= '" + param47 + "', " +
             "ContaTipo= '" + param48 + "', " +
             "ContaNumero= '" + param49 + "', " +
             "ContaOperacao= '" + param50 + "', " +
+
             "Alergias= '" + param51 + "', " +
             "AlergiasMed= '" + param52 + "', " +
             "AcidenteAvisar= '" + param53 + "', " +
+            "CartaoSUS = '" + param53 + "', " +
+
             "FardaCamisa= '" + param54 + "', " +
             "FardaCamiseta= '" + param55 + "', " +
             "FardaCalca= '" + param56 + "', " +
             "FardaSapato= '" + param57 + "', " +
             "FardaBota= '" + param58 + "', " +
             "FardaObs= '" + param59 + "', " +
+            "Cracha	= '" + param59 + "', " +
+
             "FotoDataURI= '" + param60 + "' " +
             "where ID_func = " + param61);
 
