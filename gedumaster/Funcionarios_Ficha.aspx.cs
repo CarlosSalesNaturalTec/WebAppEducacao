@@ -30,7 +30,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 
         string stringSelect = "select " +
             "Nome," +
-            "Profissao," +
+            "Sexo," +
             "Nascimento," +
             "Pai," +
             "Mae," +
@@ -42,6 +42,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
+
             "Endereco," +
             "Latitude," +
             "Longitude," +
@@ -54,6 +55,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "Celular2," +
             "TelFixo," +
             "email," +
+
             "PIS," +
             "CPF," +
             "RG," +
@@ -67,29 +69,39 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "Secao," +
             "CNH," +
             "Passaporte," +
+
+            "Vinculo," +
             "Situacao," +
-            "SituacaoOutros," +
             "Funcao," +
             "TabelaSal," +
-            "SalarioBruto, " +
-            "SalarioInvest, " +
+            "SalarioBruto," +
+            "SalarioInvest," +
             "Sindicalizado," +
             "SindicatoNome," +
+            "lotado," +
+            "Matricula," +
+
             "Banco," +
             "Agencia," +
             "ContaTipo," +
             "ContaNumero," +
             "ContaOperacao," +
+
             "Alergias," +
             "AlergiasMed," +
             "AcidenteAvisar," +
+            "CartaoSUS," +
+
             "FardaCamisa," +
             "FardaCamiseta," +
             "FardaCalca," +
             "FardaSapato," +
             "FardaBota," +
             "FardaObs," +
+            "Cracha," +
+
             "FotoDataURI " +
+
             "from Tbl_Funcionarios " +
             "where ID_func  = " + ID;
 
@@ -97,15 +109,15 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 59; i++)
+            for (int i = 0; i < 64; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[60]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[64]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[60]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[64]) + "\";";
             str.Append(ScriptDados);
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
@@ -217,7 +229,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
     private void CargaHLista(string ID)
     {
 
-        string stringSelect = "select ID_CargaH, DiaSemana, Turno, Entrada, Saida, Descanso " +
+        string stringSelect = "select ID_CargaH, Instituicao , Carga  " +
             " from Tbl_Funcionarios_CargaHor " +
             " where ID_func = " + ID;
         OperacaoBanco operacaoUsers = new OperacaoBanco();
@@ -240,15 +252,6 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[4]) + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[5]) + "</td>";
             str.Append(ScriptDados);
 
             ScriptDados = "</tr>";

@@ -20,7 +20,7 @@
 
     <style>
         body {
-            background-image: url("images/fundo.jpg");
+            background-image: url("Images/fundo.jpg");
             background-repeat: repeat;
             height: 100%;
         }
@@ -38,9 +38,6 @@
 <body>
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
-        <div class="w3-padding w3-center">
-            <img src="Images/brasaobahiacolorsmall.png" />
-        </div>
         <hr />
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
@@ -609,6 +606,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -652,7 +652,7 @@
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>
-                            <label for="input_qual" class="col-md-2 control-label">Situacao</label>
+                            <label for="input_qual" class="col-md-2 control-label">Situação</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input_situac">
                                     <option value="Em atividade">Em atividade</option>
@@ -681,7 +681,7 @@
                             <div class="col-md-3">
                                 <input type="number" class="form-control" id="input_bruto" value="0">
                             </div>
-                            <label for="input_SalInvest" class="col-md-2 control-label">Salário Investimento</label>
+                            <label for="input_SalInvest" class="col-md-3 control-label">Salário Investimento</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_SalInvest">
                                     <option value="Federal">Federal</option>
@@ -739,6 +739,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -772,37 +775,31 @@
                 <form class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
-                            <label for="input_DiaSem" class="col-md-2 control-label">Dia Semana</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_DiaSem" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_Turno" class="col-md-2 control-label">Turno</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Turno" class="w3-input w3-border w3-round">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_Entrada" class="col-md-2 control-label">Entrada</label>
-                            <div class="col-md-3">
+                            <label for="input_Entrada" class="col-md-2 control-label">Instituição</label>
+                            <div class="col-md-8">
                                 <input type="text" id="input_Entrada" class="w3-input w3-border w3-round">
                             </div>
-                            <label for="input_Saida" class="col-md-2 control-label">Saida</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Saida" class="w3-input w3-border w3-round">
-                            </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_Descanso" class="col-md-2 control-label">Descanso</label>
+                            <label for="input_CargaHor" class="col-md-2 control-label">Carga Horária</label>
                             <div class="col-md-3">
-                                <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
+                                <select class="w3-select w3-border w3-round" id="input_CargaHor">
+                                    <option value="20Hs">20Hs</option>
+                                    <option value="30Hs - Turnão">30Hs - Turnão</option>
+                                    <option value="40Hs">40Hs</option>
+                                </select>
                             </div>
+
                             <div class="col-md-2">
                                 <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="alert('Necessário Salvar Funcionário primeiro!')">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
+                        </div>
+
+                        <div class="form-group">
+                            
                         </div>
 
                         <!-- GRID Carga Horária- -->
@@ -812,11 +809,8 @@
                                 <table id="TableCargaH" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
-                                            <th>Dia Semana</th>
-                                            <th>Turno</th>
-                                            <th>Entrada</th>
-                                            <th>Saida</th>
-                                            <th>Descanso</th>
+                                            <th>Instituição</th>
+                                            <th>Carga Horária</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -907,6 +901,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round ">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar7()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -975,6 +972,9 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar8()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
@@ -1060,6 +1060,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 

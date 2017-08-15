@@ -480,10 +480,11 @@ public class WebService : System.Web.Services.WebService
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
         string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
-        string param60, string param61)
+        string param60, string param61, string param62, string param63, string param64, string param65)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Funcionarios (" +
+
             "Nome," +
             "Sexo," +
             "Nascimento," +
@@ -603,7 +604,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param39 + "'," +
             "'" + param40 + "'," +
             "'" + param41 + "'," +
-            param42 + " ," +
+            param42 + "," +
             "'" + param43 + "'," +
             "'" + param44 + "'," +
             "'" + param45 + "'," +
@@ -621,8 +622,12 @@ public class WebService : System.Web.Services.WebService
             "'" + param57 + "'," +
             "'" + param58 + "'," +
             "'" + param59 + "'," +
-            param60 + "," +
-            "'" + param61 + "'" +
+            "'" + param60 + "'," +
+            "'" + param61 + "'," +
+            "'" + param62 + "'," +
+            "'" + param63 + "'," +
+            param64 + "," +
+            "'" + param65 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -669,17 +674,18 @@ public class WebService : System.Web.Services.WebService
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
         string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
-        string param60, string param61)
+        string param60, string param61, string param62, string param63, string param64, string param65)
     {
 
-        // param0 a param59 = campos
-        // param60 = foto
-        // param61 = id func
+        // param0 a param63 = campos
+        // param64 = foto
+        // param65 = id func
 
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert("update Tbl_Funcionarios set " +
+
             "Nome= '" + param0 + "', " +
             "Sexo = '" + param1 + "', " +
             "Nascimento= '" + param2 + "', " +
@@ -732,27 +738,27 @@ public class WebService : System.Web.Services.WebService
             "lotado = '" + param46 + "', " +
             "Matricula = '" + param47 + "', " +
 
-            "Banco= '" + param46 + "', " +
-            "Agencia= '" + param47 + "', " +
-            "ContaTipo= '" + param48 + "', " +
-            "ContaNumero= '" + param49 + "', " +
-            "ContaOperacao= '" + param50 + "', " +
+            "Banco= '" + param48 + "', " +
+            "Agencia= '" + param49 + "', " +
+            "ContaTipo= '" + param50 + "', " +
+            "ContaNumero= '" + param51 + "', " +
+            "ContaOperacao= '" + param52 + "', " +
 
-            "Alergias= '" + param51 + "', " +
-            "AlergiasMed= '" + param52 + "', " +
-            "AcidenteAvisar= '" + param53 + "', " +
-            "CartaoSUS = '" + param53 + "', " +
+            "Alergias= '" + param53 + "', " +
+            "AlergiasMed= '" + param54 + "', " +
+            "AcidenteAvisar= '" + param55 + "', " +
+            "CartaoSUS = '" + param56 + "', " +
 
-            "FardaCamisa= '" + param54 + "', " +
-            "FardaCamiseta= '" + param55 + "', " +
-            "FardaCalca= '" + param56 + "', " +
-            "FardaSapato= '" + param57 + "', " +
-            "FardaBota= '" + param58 + "', " +
-            "FardaObs= '" + param59 + "', " +
-            "Cracha	= '" + param59 + "', " +
+            "FardaCamisa= '" + param57 + "', " +
+            "FardaCamiseta= '" + param58 + "', " +
+            "FardaCalca= '" + param59 + "', " +
+            "FardaSapato= '" + param60 + "', " +
+            "FardaBota= '" + param61 + "', " +
+            "FardaObs= '" + param62 + "', " +
+            "Cracha	= '" + param63 + "', " +
 
-            "FotoDataURI= '" + param60 + "' " +
-            "where ID_func = " + param61);
+            "FotoDataURI= '" + param64 + "' " +
+            "where ID_func = " + param65);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -869,19 +875,16 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string FuncionariosNewCargaH(string param1, string param2, string param3, string param4, string param5, string param6)
+    public string FuncionariosNewCargaH(string param1, string param2, string param3)
     {
         string url;
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_CargaHor (ID_func , DiaSemana , Turno, Entrada,Saida,Descanso ) " +
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_CargaHor (ID_func  , Instituicao , Carga ) " +
            "VALUES (" +
            param1 + "," +
            "'" + param2 + "'," +
-           "'" + param3 + "'," +
-           "'" + param4 + "'," +
-           "'" + param5 + "'," +
-           "'" + param6 + "'" +
+           "'" + param3 + "'" +
            ")"
            );
 

@@ -20,7 +20,7 @@
 
     <style>
         body {
-            background-image: url("images/fundo.jpg");
+            background-image: url("Images/fundo.jpg");
             background-repeat: repeat;
             height: 100%;
         }
@@ -36,12 +36,8 @@
 
 </head>
 <body>
-
     <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
-        <div class="w3-padding w3-center">
-            <img src="Images/brasaobahiacolorsmall.png" />
-        </div>
         <hr />
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
@@ -64,7 +60,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -78,9 +74,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_prof" class="col-md-2 control-label">Profissão</label>
+                            <label for="input_sexo" class="col-md-2 control-label">Sexo</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_prof">
+                                <select class="form-control" id="input_sexo">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                </select>
                             </div>
 
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
@@ -116,21 +115,22 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_escolaridade" class="col-md-2 control-label">Escolaridade</label>
+                            <label for="input_escolaridade" class="col-md-2 control-label">Formação</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_escolaridade">
-                                    <option value="Fundamental incompleto">Fundamental incompleto</option>
-                                    <option value="Fundamental completo">Fundamental completo</option>
-                                    <option value="Médio incompleto">Médio incompleto</option>
-                                    <option value="Médio completo">Médio completo</option>
-                                    <option value="Superior incompleto">Superior incompleto</option>
-                                    <option value="Superior completo">Superior completo</option>
-                                    <option value="Pós-graduação incompleto">Pós-graduação incompleto</option>
-                                    <option value="Pós-graduação completo">Pós-graduação completo</option>
-                                    <option value="Mestrado incompleto">Mestrado incompleto</option>
-                                    <option value="Mestrado completo">Mestrado completo</option>
-                                    <option value="Doutorado incompleto">Doutorado incompleto</option>
-                                    <option value="Doutorado completo">Doutorado completo</option>
+                                    <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
+                                    <option value="Ensino Fundamental completo">Ensino Fundamental completo</option>
+                                    <option value="Magistério">Magistério</option>
+                                    <option value="Magistério Indígena">Magistério Indígena</option>
+                                    <option value="Ensino Médio">Ensino Médio</option>
+                                    <option value="Curso Técnico">Curso Técnico</option>
+                                    <option value="Graduação">Graduação</option>
+                                    <option value="Curso de Aperfeiçoamento">Curso de Aperfeiçoamento</option>
+                                    <option value="Curso de Qualificação">Curso de Qualificação</option>
+                                    <option value="Curso de Extensão">Curso de Extensão</option>
+                                    <option value="Especialização">Especialização</option>
+                                    <option value="Mestrado">Mestrado</option>
+                                    <option value="Doutorado">Doutorado</option>
                                 </select>
                             </div>
                             <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
@@ -231,6 +231,11 @@
                     <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
                     <input type="file" id="filePicker">
                 </div>
+                <div class="row">
+                    <label for="btwebcam">WebCam:</label><br>
+                    <input id="btwebcam" type="button" value="Ativar WebCam" onclick="AtivarWebCam()">
+                    <input type="button" value="Capturar imagem WebCam" onclick="take_snapshot()">
+                </div>
                 <input id="Hidden1" name="fotouri" type="hidden" />
             </div>
             <!-- Camera -->
@@ -242,7 +247,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -349,7 +354,7 @@
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -460,7 +465,7 @@
         <!-- GRUPO 4 - Dependentes -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -484,8 +489,8 @@
                                 <input type="date" id="input_DEPNasc" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="DependenteIncluir()" type="button">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="DependenteIncluir()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -495,7 +500,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table id="MyTable" class="w3-table-all w3-hoverable">
+                                <table class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Nome</th>
@@ -547,7 +552,7 @@
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -571,8 +576,8 @@
                                 <input type="date" id="input_BenefInicio" class="w3-input w3-border w3-round">
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="BeneficioIncluir()" type="button">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="BeneficioIncluir()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -581,7 +586,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table id="TableBenef" class="w3-table-all w3-hoverable">
+                                <table class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Benefício</th>
@@ -631,7 +636,7 @@
         <!-- GRUPO 6 - Situação -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -639,18 +644,26 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_situac" class="col-md-2 control-label">Situação</label>
+                            <label for="input_vinculo" class="col-md-2 control-label">Vínculo</label>
                             <div class="col-md-3">
-                                <select class="form-control" id="input_situac">
-                                    <option value="Funcionário Público">Funcionário Público</option>
-                                    <option value="REDA">REDA</option>
-                                    <option value="Cargo de Comissionado">Cargo de Comissionado</option>
+                                <select class="form-control" id="input_vinculo">
+                                    <option value="Cargo Comissionado">Cargo Comissionado</option>
+                                    <option value="Contratado">Contratado</option>
+                                    <option value="Estatutário">Estatutário</option>
+                                    <option value="Estagiário">Estagiário</option>
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>
-                            <label for="input_qual" class="col-md-2 control-label">Outros, qual</label>
+                            <label for="input_qual" class="col-md-2 control-label">Situação</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="input_qual">
+                                <select class="form-control" id="input_situac">
+                                    <option value="Em atividade">Em atividade</option>
+                                    <option value="Aposentado">Aposentado</option>
+                                    <option value="Exonerado">Exonerado</option>
+                                    <option value="Transferido a outra Secretaria">Transferido a outra Secretaria</option>
+                                    <option value="Afastado">Afastado</option>
+                                    <option value="INSS">INSS</option>
+                                </select>
                             </div>
                         </div>
 
@@ -668,9 +681,9 @@
                         <div class="form-group">
                             <label for="input_bruto" class="col-md-2 control-label">Salário Bruto</label>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" id="input_bruto">
+                                <input type="number" class="form-control" id="input_bruto" value="0">
                             </div>
-                            <label for="input_SalInvest" class="col-md-2 control-label">Salário Investimento</label>
+                            <label for="input_SalInvest" class="col-md-3 control-label">Salário Investimento</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_SalInvest">
                                     <option value="Federal">Federal</option>
@@ -694,6 +707,32 @@
                                 <input type="text" class="form-control" id="input_Sindqual">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="input_lotado" class="col-md-2 control-label">Lotado Em</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_lotado">
+                                    <option value="Secretaria Municipal de Turismo">Secretaria Municipal de Turismo</option>
+                                    <option value="Secretaria Municipal de Saúde">Secretaria Municipal de Saúde</option>
+                                    <option value="Secretaria Municipal de Obras">Secretaria Municipal de Obras</option>
+                                    <option value="Secretaria Municipal de Meio Ambiente">Secretaria Municipal de Meio Ambiente</option>
+                                    <option value="Secretaria Municipal de Educação">Secretaria Municipal de Educação</option>
+                                    <option value="Secretaria Municipal de Finanças">Secretaria Municipal de Finanças</option>
+                                    <option value="Secretaria Municipal de Assistência Social">Secretaria Municipal de Assistência Social</option>
+                                    <option value="Secretaria Municipal de Agricultura">Secretaria Municipal de Agricultura</option>
+                                    <option value="Secretaria Municipal de Administração">Secretaria Municipal de Administração</option>
+                                    <option value="Gabinete do Prefeito">Gabinete do Prefeito</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matricula" class="col-md-2 control-label">Matrícula</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_matricula">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -730,43 +769,32 @@
 
         <!-- GRUPO 7 - Carga Horária-->
         <div id="grupo7" class="w3-container grupo w3-animate-left" style="display: none">
-
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária- Ficha Funcionário</h3>
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
-                            <label for="input_DiaSem" class="col-md-2 control-label">Dia Semana</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_DiaSem" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_Turno" class="col-md-2 control-label">Turno</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Turno" class="w3-input w3-border w3-round">
+                            <label for="input_Inst" class="col-md-2 control-label">Instituição</label>
+                            <div class="col-md-8">
+                                <input type="text" id="input_Inst" class="w3-input w3-border w3-round">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_Entrada" class="col-md-2 control-label">Entrada</label>
+                            <label for="input_CargaHor" class="col-md-2 control-label">Carga Horária</label>
                             <div class="col-md-3">
-                                <input type="text" id="input_Entrada" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_Saida" class="col-md-2 control-label">Saida</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Saida" class="w3-input w3-border w3-round">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_Descanso" class="col-md-2 control-label">Descanso (hs)</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
+                                <select class="w3-select w3-border w3-round" id="input_CargaHor">
+                                    <option value="20Hs">20Hs</option>
+                                    <option value="30Hs - Turnão">30Hs - Turnão</option>
+                                    <option value="40Hs">40Hs</option>
+                                </select>
                             </div>
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="CargaHIncluir()" type="button">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="CargaHIncluir()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -778,11 +806,8 @@
                                 <table id="TableCargaH" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
-                                            <th>Dia Semana</th>
-                                            <th>Turno</th>
-                                            <th>Entrada</th>
-                                            <th>Saida</th>
-                                            <th>Descanso (hs)</th>
+                                            <th>Instituição</th>
+                                            <th>Carga Horária</th>
                                         </tr>
                                     </thead>
                                     <asp:Literal ID="Literal5" runat="server"></asp:Literal>
@@ -799,13 +824,14 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar6()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -826,8 +852,8 @@
 
         <!-- GRUPO 8 - Dados Bancários -->
         <div id="grupo8" class="w3-container grupo w3-animate-left" style="display: none">
-            
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários- Ficha Funcionário</h3>
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -904,7 +930,7 @@
         <div id="grupo9" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -927,6 +953,13 @@
                             <label for="input_conta" class="col-md-3 control-label">Em caso de acidente avisar:</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_avisar">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_SUS" class="col-md-3 control-label">Cartão SUS</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_SUS">
                             </div>
                         </div>
 
@@ -968,7 +1001,7 @@
         <div id="grupo10" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -1008,6 +1041,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_cracha" class="col-md-2 control-label">Emitir Crachá</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_cracha">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -1037,18 +1080,18 @@
             <div class="w3-quarter">
             </div>
         </div>
+
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" name="IDHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
-    <!-- Scripts diversos  -->
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/webcam.js"></script>
     <script type="text/javascript" src="Scripts/codeFuncionarios_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
 
 </body>
-
 </html>
