@@ -15,6 +15,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         DependentesLista(idAux);
         BeneficiosLista(idAux);
         CargaHLista(idAux);
+        Digitalizacoes(idAux);
 
     }
 
@@ -262,4 +263,37 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         Literal5.Text = str.ToString();
 
     }
+
+    private void Digitalizacoes(string ID)
+    {
+        string stringSelect = "select ID_Digitaliza, TipoDoc " +
+            " from Tbl_Funcionarios_Digitalizacoes " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizaExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_Digita.Text = str.ToString();
+
+    }
+
 }

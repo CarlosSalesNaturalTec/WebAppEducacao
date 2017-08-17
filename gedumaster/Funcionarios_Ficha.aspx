@@ -32,6 +32,13 @@
             border: 1px solid;
             background: #ccc;
         }
+
+        #result_Digitaliza {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid;
+            background: #ccc;
+        }
     </style>
 
 </head>
@@ -50,6 +57,7 @@
         <button id="bt8" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo8')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários</button>
         <button id="bt9" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo9')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
         <button id="bt10" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo10')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
+        <button id="bt11" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo11')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Digitalizações</button>
         <hr />
 
     </div>
@@ -828,10 +836,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar6()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -1065,6 +1073,9 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt11()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
                             </button>
@@ -1078,6 +1089,105 @@
             </div>
 
             <div class="w3-quarter">
+            </div>
+        </div>
+
+        <!-- GRUPO 11 - Digitalizações -->
+        <div id="grupo11" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Digitalizações - Novo Funcionário</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="input_tipoDoc" class="col-md-2 control-label">Tipo Doc.</label>
+                            <div class="col-md-5">
+                                <select class="w3-select w3-border" id="input_tipoDoc">
+                                    <option value=""></option>
+                                    <option value="RG">RG</option>
+                                    <option value="CPF">CPF</option>
+                                    <option value="Titulo de Eleitor">Titulo de Eleitor</option>
+                                    <option value="Comprovante de Residência">Comprovante de Residência</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="file" id="fileDigitaliza">
+                                <input type="hidden" id="input_digitaliza" disabled>
+                            </div>
+                        </div>
+
+                        <!-- GRID Digitalizações -->
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>Documento</th>
+                                        </tr>
+                                    </thead>
+                                    <asp:Literal ID="Literal_Digita" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar10()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+
+        <!-- Modal Digitalização -->
+        <div id="div_Digitaliza" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-left">
+
+                <header class="w3-container w3-blue w3-center">
+                    <span onclick="document.getElementById('div_Digitaliza').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <h4>Digitalização</h4>
+                </header>
+
+                <form class="w3-container">
+                    <div class="w3-section">
+                        <div id="result_Digitaliza"></div>
+                    </div>
+                </form>
+
+                <div class="w3-container w3-center">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="">
+                       <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar</button>&nbsp;&nbsp;
+
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" 
+                           onclick="document.getElementById('div_Digitaliza').style.display='none'">
+                       <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                    <br />
+                </div>
+
             </div>
         </div>
 

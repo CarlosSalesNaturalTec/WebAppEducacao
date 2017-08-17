@@ -388,6 +388,10 @@ function classeBt10() {
     openLink(event, 'grupo10')
     $('#bt10').addClass(' w3-blue');
 }
+function classeBt11() {
+    openLink(event, 'grupo11')
+    $('#bt11').addClass(' w3-blue');
+}
 
 
 
@@ -427,7 +431,14 @@ function btvoltar9() {
     openLink(event, 'grupo9')
     $('#bt9').addClass(' w3-blue');
 }
-
+function btvoltar10() {
+    openLink(event, 'grupo10')
+    $('#bt10').addClass(' w3-blue');
+}
+function btvoltar11() {
+    openLink(event, 'grupo11')
+    $('#bt11').addClass(' w3-blue');
+}
 
 
 //Menu
@@ -448,8 +459,26 @@ var handleFileSelect = function (evt) {
     }
 };
 
+//imagens - DIgitalizaçoes
+var digitalizacoes = function (evt) {
+    var files = evt.target.files;
+    var file = files[0];
+    if (files && file) {
+        var reader = new FileReader();
+        reader.onload = function (readerEvt) {
+            var binaryString = readerEvt.target.result;
+            var data_uri = "data:image/png;base64," + btoa(binaryString);
+            document.getElementById('result_Digitaliza').innerHTML = '<img src="' + data_uri + '"/>';
+            document.getElementById("input_digitaliza").value = data_uri
+            document.getElementById('div_Digitaliza').style.display = 'block';
+        };
+        reader.readAsBinaryString(file);
+    }
+};
+
 if (window.File && window.FileReader && window.FileList && window.Blob) {
     document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
+    document.getElementById('fileDigitaliza').addEventListener('change', digitalizacoes, false);
 } else {
     alert('The File APIs are not fully supported in this browser.');
 }
