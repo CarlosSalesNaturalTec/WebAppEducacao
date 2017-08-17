@@ -319,6 +319,82 @@ function CargaHInsertLinha() {
 
 }
 
+function DigitalizacaoIncluir() {
+
+    //exibir animações - aguarde...
+    document.getElementById("btCog").style.display = "block";
+
+    var v1 = document.getElementById('IDHidden').value;
+    var v2 = document.getElementById('input_tipoDoc').value;
+    var v3 = document.getElementById('input_obsDigit').value;
+    var v4 = document.getElementById('input_digitaliza').value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosNewDigitaliza",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            DigitalizacaoInsertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function DigitalizacaoInsertLinha() {
+
+    var col1 = document.getElementById('input_tipoDoc').value;
+    var col2 = document.getElementById('input_obsDigit').value;
+
+    var table = document.getElementById("tableDigitaliz");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+
+    //apaga formulario
+    document.getElementById('input_tipoDoc').value = "";
+    document.getElementById('input_obsDigit').value = "";
+
+    //fecha modal
+    document.getElementById('div_Digitaliza').style.display = 'none'
+
+}
+
+function DigitalizacaoExcluir(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Digitalização?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosDelDigitaliz",
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("tableDigitaliz").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}
+
+
+
 function cancelar() {
     var linkurl = "Funcionarios_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
@@ -337,6 +413,9 @@ function UIAguardar() {
         x[i].style.display = "block";
     }
 }
+
+
+
 //Menu
 function openLink(evt, animName) {
     var i, x, tablinks;

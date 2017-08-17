@@ -1104,15 +1104,24 @@
                     <fieldset>
                         <div class="form-group">
                             <label for="input_tipoDoc" class="col-md-2 control-label">Tipo Doc.</label>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <select class="w3-select w3-border" id="input_tipoDoc">
-                                    <option value=""></option>
+                                    <option value="Comprovante de Residência">Comprovante de Residência</option>
                                     <option value="RG">RG</option>
                                     <option value="CPF">CPF</option>
                                     <option value="Titulo de Eleitor">Titulo de Eleitor</option>
-                                    <option value="Comprovante de Residência">Comprovante de Residência</option>
+                                    <option value="Outros">Outros</option>
                                 </select>
                             </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="input_obsDigit" class="col-md-2 control-label">Observ.:</label>
+                            <div class="col-md-6">
+                                <input type="text" class="w3-input w3-border" id="input_obsDigit">
+                            </div>
+
                             <div class="col-md-4">
                                 <input type="file" id="fileDigitaliza">
                                 <input type="hidden" id="input_digitaliza" disabled>
@@ -1123,17 +1132,18 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="tableDigitaliz" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Documento</th>
+                                            <th>Observações</th>
                                         </tr>
                                     </thead>
                                     <asp:Literal ID="Literal_Digita" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
-                        
+
                     </fieldset>
                 </form>
 
@@ -1179,13 +1189,16 @@
                 </form>
 
                 <div class="w3-container w3-center">
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="">
-                       <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar</button>&nbsp;&nbsp;
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="DigitalizacaoIncluir()">
+                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
+                      <i id="btCog" style="display: none" class="fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                    </button>
+                    &nbsp;&nbsp;
 
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" 
-                           onclick="document.getElementById('div_Digitaliza').style.display='none'">
-                       <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
-                    <br />
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                        onclick="document.getElementById('div_Digitaliza').style.display='none'">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                    <p>&nbsp;</p>
                 </div>
 
             </div>

@@ -924,6 +924,54 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+    [WebMethod]
+    public string FuncionariosNewDigitaliza(string param1, string param2, string param3, string param4)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Digitalizacoes (ID_func  , TipoDoc  , Obs , Digitaliza ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'" +
+           ")");
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelDigitaliz(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Digitalizacoes where ID_Digitaliza =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR BENEFICIO";
+        }
+
+        return url;
+    }
 }
 
 
