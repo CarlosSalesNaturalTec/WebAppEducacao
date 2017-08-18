@@ -278,11 +278,11 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         while (rcrdsetUsers.Read())
         {
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizaExcluir(this," +
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizacaoVizualizar(" +
                 Convert.ToString(rcrdsetUsers[0]) +
                 ")'><i class='fa fa-info' aria-hidden='true'></i></a>&nbsp;";
 
-            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizaExcluir(this," +
+            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizacaoImprimir(" +
                 Convert.ToString(rcrdsetUsers[0]) +
                 ")'><i class='fa fa-print' aria-hidden='true'></i></a>&nbsp;";
 
@@ -293,7 +293,10 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             ScriptDados = "<tr>";
             str.Append(ScriptDados);
 
-            ScriptDados = "<td>" + bt1 + bt2 + bt3 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            ScriptDados = "<td>" + bt1 + bt2 + bt3 + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[1]) + "</td>";
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";

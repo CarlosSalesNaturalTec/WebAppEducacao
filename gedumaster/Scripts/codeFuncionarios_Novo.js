@@ -393,6 +393,31 @@ function DigitalizacaoExcluir(r, USerID) {
 
 }
 
+function DigitalizacaoVizualizar(idDig) {
+
+    $("body").css("cursor", "progress");
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosVERDigitaliz",
+        data: '{param1: "' + idDig + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            document.getElementById('result_Digitaliza1').innerHTML = '<img src="' + response.d + '"/>';
+            document.getElementById('div_Digitaliza1').style.display = 'block';
+            $("body").css("cursor", "initial");
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function DigitalizacaoImprimir(idDig) {
+    var urlURI = "Imprimir.aspx?p1=" + idDig;
+    window.open(urlURI, '_blank');
+}
 
 
 function cancelar() {

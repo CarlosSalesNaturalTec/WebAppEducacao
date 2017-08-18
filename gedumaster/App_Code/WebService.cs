@@ -958,7 +958,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Digitalizacoes where ID_Digitaliza =" + param1);
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_Digitalizacoes where ID_Digitaliza = " + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletarUser == true)
@@ -971,6 +971,23 @@ public class WebService : System.Web.Services.WebService
         }
 
         return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosVERDigitaliz(string param1)
+    {
+        string uriDigitaliz="";
+
+        string stringSelect = "select Digitaliza from Tbl_Funcionarios_Digitalizacoes where ID_Digitaliza = " + param1;
+        OperacaoBanco Operacao = new OperacaoBanco();
+        SqlDataReader rcrdset = Operacao.Select(stringSelect);
+        while (rcrdset.Read())
+        {
+            uriDigitaliz = Convert.ToString(rcrdset[0]);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        return uriDigitaliz;
     }
 }
 

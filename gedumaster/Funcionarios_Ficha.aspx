@@ -36,8 +36,6 @@
         #result_Digitaliza {
             margin: 5px;
             padding: 5px;
-            border: 1px solid;
-            background: #ccc;
         }
     </style>
 
@@ -1092,6 +1090,7 @@
             </div>
         </div>
 
+
         <!-- GRUPO 11 - Digitalizações -->
         <div id="grupo11" class="w3-container grupo w3-animate-left" style="display: none">
 
@@ -1132,9 +1131,10 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table id="tableDigitaliz" class="w3-table-all w3-hoverable">
+                                <table id="tableDigitaliz" class="w3-table-all">
                                     <thead>
                                         <tr class="w3-grey">
+                                            <th>-</th>
                                             <th>Documento</th>
                                             <th>Observações</th>
                                         </tr>
@@ -1172,9 +1172,10 @@
 
         </div>
 
+
         <!-- Modal Digitalização -->
         <div id="div_Digitaliza" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-left">
+            <div class="w3-modal-content w3-card-4 w3-animate-top">
 
                 <header class="w3-container w3-blue w3-center">
                     <span onclick="document.getElementById('div_Digitaliza').style.display='none'"
@@ -1191,13 +1192,33 @@
                 <div class="w3-container w3-center">
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="DigitalizacaoIncluir()">
                       <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
-                      <i id="btCog" style="display: none" class="fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                      <i id="btCog" style="display: none" class="fa fa-cog fa-2x fa-spin fa-fw w3-right"></i>
                     </button>
                     &nbsp;&nbsp;
 
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles"
                         onclick="document.getElementById('div_Digitaliza').style.display='none'">
                         <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                    <p>&nbsp;</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal Vizualizar Digitalização -->
+        <div id="div_Digitaliza1" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-top">
+
+                <form class="w3-container">
+                    <div class="w3-section">
+                        <div id="result_Digitaliza1"></div>
+                    </div>
+                </form>
+
+                <div class="w3-container w3-center">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                        onclick="document.getElementById('div_Digitaliza1').style.display='none'">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Fechar</button>
                     <p>&nbsp;</p>
                 </div>
 

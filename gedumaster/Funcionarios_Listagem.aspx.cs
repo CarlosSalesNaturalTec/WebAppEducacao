@@ -31,11 +31,11 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
+             "<th>COMANDOS</th>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>FUNÇÃO</th>" +
             "<th>CELULAR</th>" +
             "<th>E-MAIL</th>" +
-            "<th>COMANDOS</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -68,11 +68,11 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
+                "<td>" + bt1 + bt2 + "</td>" +
                 "<td>" + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
-                "<td>" + bt1 + bt2 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);
