@@ -91,6 +91,8 @@ function AlterarRegistro() {
     });
 }
 
+
+
 function DependenteIncluir() {
 
     //validações
@@ -170,6 +172,8 @@ function DependenteInsertLinha() {
     document.getElementById('input_DEPNasc').value = "";
 
 }
+
+
 
 function BeneficioIncluir() {
 
@@ -251,6 +255,8 @@ function BeneficioInsertLinha() {
 
 }
 
+
+
 function CargaHIncluir() {
 
     //validações
@@ -318,6 +324,8 @@ function CargaHInsertLinha() {
     document.getElementById('input_CargaHor').value = "";
 
 }
+
+
 
 function DigitalizacaoIncluir() {
 
@@ -420,6 +428,156 @@ function DigitalizacaoImprimir(idDig) {
 }
 
 
+
+function GratificacaoIncluir() {
+
+    //exibir animações - aguarde...
+    document.getElementById("btCog1").style.display = "block";
+
+    var v1 = document.getElementById('IDHidden').value;
+    var v2 = document.getElementById('input_GRATIF').value;
+    var v3 = document.getElementById('input_gratif_obs').value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosNewGratifica",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            GratificacaoInsertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function GratificacaoInsertLinha() {
+
+    var col1 = document.getElementById('input_GRATIF').value;
+    var col2 = document.getElementById('input_gratif_obs').value;
+
+    var table = document.getElementById("tableGratifica");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+
+    //apaga formulario
+    document.getElementById('input_GRATIF').value = "";
+    document.getElementById('input_gratif_obs').value = "";
+
+}
+
+function GratificacaoExcluir(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Gratificação?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosDelGratificacao",
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("tableGratifica").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}
+
+
+
+function FormacaoIncluir() {
+
+    //exibir animações - aguarde...
+    document.getElementById("btCog2").style.display = "block";
+
+    var v1 = document.getElementById('IDHidden').value;
+    var v2 = document.getElementById('input_formac').value;
+    var v3 = document.getElementById('input_formac_DESC').value;
+    var v4 = document.getElementById('input_formac_ATUAC').value;
+    var v5 = document.getElementById('input_formac_INST').value;
+    var v6 = document.getElementById('input_formac_ANO').value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosNewFormacao",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 + '", param6: "' + v6 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            FormacaoInsertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function FormacaoInsertLinha() {
+
+    var col1 = document.getElementById('input_formac').value;
+    var col2 = document.getElementById('input_formac_ANO').value;
+
+    var table = document.getElementById("tableFormacao");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+
+    cell1.innerHTML = col1;
+    cell2.innerHTML = col2;
+
+    //apaga formulario
+    document.getElementById('input_formac').value = "";
+    document.getElementById('input_formac_DESC').value = "";
+    document.getElementById('input_formac_ATUAC').value = "";
+    document.getElementById('input_formac_INST').value = "";
+    document.getElementById('input_formac_ANO').value = "";
+
+}
+
+function FormacaoExcluir(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão de Formação?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/FuncionariosDelFormacao",
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("tableFormacao").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}
+
+
 function cancelar() {
     var linkurl = "Funcionarios_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
@@ -496,7 +654,14 @@ function classeBt11() {
     openLink(event, 'grupo11')
     $('#bt11').addClass(' w3-blue');
 }
-
+function classeBt12() {
+    openLink(event, 'grupo12')
+    $('#bt12').addClass(' w3-blue');
+}
+function classeBt13() {
+    openLink(event, 'grupo13')
+    $('#bt13').addClass(' w3-blue');
+}
 
 
 function btvoltar1() {
@@ -542,6 +707,14 @@ function btvoltar10() {
 function btvoltar11() {
     openLink(event, 'grupo11')
     $('#bt11').addClass(' w3-blue');
+}
+function btvoltar12() {
+    openLink(event, 'grupo12')
+    $('#bt12').addClass(' w3-blue');
+}
+function btvoltar13() {
+    openLink(event, 'grupo13')
+    $('#bt13').addClass(' w3-blue');
 }
 
 

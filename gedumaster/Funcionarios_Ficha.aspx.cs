@@ -3,7 +3,6 @@ using System.Text;
 
 public partial class Funcionarios_Ficha : System.Web.UI.Page
 {
-
     StringBuilder str = new StringBuilder();
     string idAux;
 
@@ -16,6 +15,8 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         BeneficiosLista(idAux);
         CargaHLista(idAux);
         Digitalizacoes(idAux);
+        Gratificacoes(idAux);
+        Formacoes(idAux);
 
     }
 
@@ -278,11 +279,11 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         while (rcrdsetUsers.Read())
         {
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizacaoVizualizar(" +
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' onclick='DigitalizacaoVizualizar(" +
                 Convert.ToString(rcrdsetUsers[0]) +
                 ")'><i class='fa fa-info' aria-hidden='true'></i></a>&nbsp;";
 
-            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizacaoImprimir(" +
+            string bt2 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' onclick='DigitalizacaoImprimir(" +
                 Convert.ToString(rcrdsetUsers[0]) +
                 ")'><i class='fa fa-print' aria-hidden='true'></i></a>&nbsp;";
 
@@ -308,6 +309,84 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         ConexaoBancoSQL.fecharConexao();
 
         Literal_Digita.Text = str.ToString();
+
+    }
+
+    private void Gratificacoes(string ID)
+    {
+        string stringSelect = "select ID_Gratifica , Gratificacao , Obs " +
+            " from Tbl_Funcionarios_gratificacoes  " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='GratificacaoExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_Gratifica.Text = str.ToString();
+
+    }
+
+    private void Formacoes(string ID)
+    {
+        string stringSelect = "select ID_formacao  , Tipo  , Conclusao  " +
+            " from Tbl_Funcionarios_formacoes " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='FormacaoExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_formacoes.Text = str.ToString();
 
     }
 

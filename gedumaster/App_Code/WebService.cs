@@ -989,6 +989,110 @@ public class WebService : System.Web.Services.WebService
 
         return uriDigitaliz;
     }
+
+
+
+    [WebMethod]
+    public string FuncionariosNewGratifica(string param1, string param2, string param3)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_gratificacoes  (ID_func, Gratificacao , obs ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR GRATIFICAÇÃO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelGratificacao(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_gratificacoes where ID_Gratifica = " + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR GRATIFICAÇÃO";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string FuncionariosNewFormacao(string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_formacoes (ID_func, Tipo , descricao , atuacao , instituicao , Conclusao ) " +
+           "VALUES (" +
+           param1 + "," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "'," +
+           "'" + param6 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR FORMAÇÃO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FuncionariosDelFormacao(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Funcionarios_formacoes  where ID_formacao  = " + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR FORMAÇÃO";
+        }
+
+        return url;
+    }
 }
 
 

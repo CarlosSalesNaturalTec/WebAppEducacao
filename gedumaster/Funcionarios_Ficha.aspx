@@ -56,6 +56,8 @@
         <button id="bt9" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo9')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
         <button id="bt10" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo10')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
         <button id="bt11" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo11')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Digitalizações</button>
+        <button id="bt12" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo12')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Gratificações</button>
+        <button id="bt13" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo13')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Formação</button>
         <hr />
 
     </div>
@@ -66,7 +68,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -253,7 +255,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -360,7 +362,7 @@
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -471,7 +473,7 @@
         <!-- GRUPO 4 - Dependentes -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -558,7 +560,7 @@
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -642,7 +644,7 @@
         <!-- GRUPO 6 - Situação -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -776,7 +778,7 @@
         <!-- GRUPO 7 - Carga Horária-->
         <div id="grupo7" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -859,7 +861,7 @@
         <!-- GRUPO 8 - Dados Bancários -->
         <div id="grupo8" class="w3-container grupo w3-animate-left" style="display: none">
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -936,7 +938,7 @@
         <div id="grupo9" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -1007,7 +1009,7 @@
         <div id="grupo10" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -1095,7 +1097,7 @@
         <div id="grupo11" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Digitalizações - Novo Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Digitalizações - Ficha de Funcionário</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -1156,6 +1158,218 @@
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar10()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt12()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+
+
+        <!-- GRUPO 12 - Gratificações -->
+        <div id="grupo12" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Gratificações - Ficha de Funcionário</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="input_GRATIF" class="col-md-2 control-label">Gratificação</label>
+                            <div class="col-md-6">
+                                <select class="w3-select w3-border" id="input_GRATIF">
+                                    <option value=""></option>
+                                    <option value="ATIVIDADE DE CLASSE">ATIVIDADE DE CLASSE</option>
+                                    <option value="AUXILIO EDUCAÇÃO">AUXILIO EDUCAÇÃO</option>
+                                    <option value="DEDICAÇÃO EXCLUSIVA">DEDICAÇÃO EXCLUSIVA</option>
+                                    <option value="DESLOCAMENTO">DESLOCAMENTO</option>
+                                    <option value="DIFICIL ACESSO">DIFICIL ACESSO</option>
+                                    <option value="ESTABILIDADE ECONOMICA">ESTABILIDADE ECONOMICA</option>
+                                    <option value="FUNÇÃO DE CONFIANÇA">FUNÇÃO DE CONFIANÇA</option>
+                                    <option value="GRATIFICAÇÃO DE SECRETARIA ESCOLAR">GRATIFICAÇÃO DE SECRETARIA ESCOLAR</option>
+                                    <option value="OUTRAS">OUTRAS</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="input_gratif_obs" class="col-md-2 control-label">Observações</label>
+                            <div class="col-md-8">
+                                <input type="text" class="w3-input w3-border" id="input_gratif_obs">
+                            </div>
+
+                            <div class="col-md-2">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="GratificacaoIncluir()">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar&nbsp; 
+                                    <i id="btCog1" style="display: none" class="fa fa-cog fa-2x fa-spin fa-fw w3-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- GRID Gratificações -->
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="tableGratifica" class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>Gratificação</th>
+                                            <th>Observações</th>
+                                        </tr>
+                                    </thead>
+                                    <asp:Literal ID="Literal_Gratifica" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- GRID Beneficios-->
+
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar11()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt13()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+
+
+         <!-- GRUPO 13 - Formações-->
+        <div id="grupo13" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Formações - Ficha de Funcionário</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="input_formac" class="col-md-2 control-label">Tipo</label>
+                            <div class="col-md-6">
+                                <select class="w3-select w3-border" id="input_formac">
+                                    <option value=""></option>
+                                    <option value="ENSINO FUNDAMENTAL INCOMPLETO">ENSINO FUNDAMENTAL INCOMPLETO</option>
+                                    <option value="ENSINO FUNDAMENTAL COMPLETO">ENSINO FUNDAMENTAL COMPLETO</option>
+                                    <option value="MAGISTÉRIO">MAGISTÉRIO</option>
+                                    <option value="MAGISTÉRIO INDÍGENA">MAGISTÉRIO INDÍGENA</option>
+                                    <option value="ENSINO MÉDIO">ENSINO MÉDIO</option>
+                                    <option value="CURSO TÉCNICO">CURSO TÉCNICO</option>
+                                    <option value="GRADUAÇÃO">GRADUAÇÃO</option>
+                                    <option value="CURSO DE APERFEIÇOAMENTO">CURSO DE APERFEIÇOAMENTO</option>
+                                    <option value="CURSO DE QUALIFICAÇÃO">CURSO DE QUALIFICAÇÃO</option>
+                                    <option value="CURSO DE EXTENSÃO">CURSO DE EXTENSÃO</option>
+                                    <option value="ESPECIALIZAÇÃO">ESPECIALIZAÇÃO</option>
+                                    <option value="MESTRADO">MESTRADO</option>
+                                    <option value="DOUTORADO">DOUTORADO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="input_formac_DESC" class="col-md-2 control-label">Descrição</label>
+                            <div class="col-md-4">
+                                <input type="text" class="w3-input w3-border" id="input_formac_DESC">
+                            </div>
+
+                            <label for="input_formac_ATUAC" class="col-md-2 control-label">Atuação</label>
+                            <div class="col-md-4">
+                                <input type="text" class="w3-input w3-border" id="input_formac_ATUAC">
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="input_formac_INST" class="col-md-2 control-label">Instituição</label>
+                            <div class="col-md-4">
+                                <input type="text" class="w3-input w3-border" id="input_formac_INST">
+                            </div>
+
+                            <label for="input_formac_ANO" class="col-md-2 control-label">Ano de Conclusão</label>
+                            <div class="col-md-2">
+                                <input type="number" class="w3-input w3-border" id="input_formac_ANO">
+                            </div>
+
+                            <div class="col-md-2">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="FormacaoIncluir()">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar&nbsp;
+                                    <i id="btCog2" style="display: none" class="fa fa-cog fa-2x fa-spin fa-fw w3-right"></i>
+                                </button>
+                            </div>
+
+                        </div>
+
+                        <!-- GRID Formações -->
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="tableFormacao" class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>Tipo</th>
+                                            <th>Ano Conclusão</th>
+                                        </tr>
+                                    </thead>
+                                    <asp:Literal ID="Literal_formacoes" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- GRID Beneficios-->
+
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar12()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
