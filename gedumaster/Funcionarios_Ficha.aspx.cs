@@ -4,7 +4,7 @@ using System.Text;
 public partial class Funcionarios_Ficha : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
-    string idAux;
+    string idAux,idMunic;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -102,7 +102,8 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "FardaObs," +
             "Cracha," +
 
-            "FotoDataURI " +
+            "FotoDataURI, " +
+            "ID_Munic  " +
 
             "from Tbl_Funcionarios " +
             "where ID_func  = " + ID;
@@ -121,6 +122,9 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             str.Append(ScriptDados);
             ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[64]) + "\";";
             str.Append(ScriptDados);
+
+            Literal_IDInst.Text = Convert.ToString(rcrdset[65]);
+
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 

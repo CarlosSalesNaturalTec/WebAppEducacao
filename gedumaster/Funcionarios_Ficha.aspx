@@ -769,9 +769,9 @@
                     <fieldset>
                         <div class="form-group">
                             <label for="input_Inst" class="col-md-2 control-label">Instituição</label>
-                            <div class="col-md-8">
-                                <input type="text" id="input_Inst" class="w3-input w3-border w3-round">
-                            </div>
+                            <select class="col-md-8" id="input_Inst">
+                                <asp:Literal ID="Literal_Instituicoes" runat="server"></asp:Literal>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -1234,7 +1234,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar11()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar11()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt13()">
@@ -1255,7 +1255,7 @@
         </div>
 
 
-         <!-- GRUPO 13 - Formações-->
+        <!-- GRUPO 13 - Formações-->
         <div id="grupo13" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
@@ -1352,7 +1352,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar12()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar12()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -1388,7 +1388,7 @@
 
                 <div class="w3-container w3-center">
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="DigitalizacaoIncluir()">
-                      <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                       <i id="btCog" style="display: none" class="fa fa-cog fa-2x fa-spin fa-fw w3-right"></i>
                     </button>
                     &nbsp;&nbsp;
@@ -1426,6 +1426,7 @@
 
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />
+    <asp:Literal ID="Literal_IDInst" runat="server"></asp:Literal>
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->

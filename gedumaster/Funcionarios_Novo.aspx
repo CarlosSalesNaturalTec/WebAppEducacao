@@ -1076,6 +1076,7 @@
             </div>
         </div>
 
+
         <!-- GRUPO 11 - Digitalizações -->
         <div id="grupo11" class="w3-container grupo w3-animate-left" style="display: none">
 
@@ -1132,6 +1133,7 @@
             </div>
 
         </div>
+
 
         <!-- GRUPO 12 - Gratificações -->
         <div id="grupo12" class="w3-container grupo w3-animate-left" style="display: none">
@@ -1220,6 +1222,7 @@
 
         </div>
 
+
          <!-- GRUPO 13 - Formações-->
         <div id="grupo13" class="w3-container grupo w3-animate-left" style="display: none">
 
@@ -1307,6 +1310,7 @@
             </div>
 
         </div>
+
 
         <!-- Modal Digitalização -->
         <div id="div_Digitaliza" class="w3-modal">
