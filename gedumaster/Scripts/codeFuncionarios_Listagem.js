@@ -32,3 +32,8 @@ function Excluir(IDExc) {
 function Excluir_cancel() {
     document.getElementById('DivModal').style.display = 'none';
 }
+
+function Imprimir(idDig) {
+    var urlURI = "Funcionarios_Imprimir.aspx?p1=" + idDig;
+    window.open(urlURI, '_blank');
+}

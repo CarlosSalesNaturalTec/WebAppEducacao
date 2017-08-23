@@ -470,6 +470,7 @@ function GratificacaoInsertLinha() {
     //apaga formulario
     document.getElementById('input_GRATIF').value = "";
     document.getElementById('input_gratif_obs').value = "";
+    document.getElementById("btCog1").style.display = "none";
 
 }
 
@@ -548,6 +549,8 @@ function FormacaoInsertLinha() {
     document.getElementById('input_formac_ATUAC').value = "";
     document.getElementById('input_formac_INST').value = "";
     document.getElementById('input_formac_ANO').value = "";
+
+    document.getElementById("btCog2").style.display = "none";
 
 }
 

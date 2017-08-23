@@ -333,10 +333,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             ScriptDados = "<tr>";
             str.Append(ScriptDados);
 
-            ScriptDados = "<td>" + bt1 + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
@@ -372,10 +369,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             ScriptDados = "<tr>";
             str.Append(ScriptDados);
 
-            ScriptDados = "<td>" + bt1 + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";

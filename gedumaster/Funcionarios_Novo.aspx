@@ -125,24 +125,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_escolaridade" class="col-md-2 control-label">Formação</label>
-                            <div class="col-md-4">
-                                <select class="form-control" id="input_escolaridade">
-                                    <option value="Ensino Fundamental incompleto">Ensino Fundamental incompleto</option>
-                                    <option value="Ensino Fundamental completo">Ensino Fundamental completo</option>
-                                    <option value="Magistério">Magistério</option>
-                                    <option value="Magistério Indígena">Magistério Indígena</option>
-                                    <option value="Ensino Médio">Ensino Médio</option>
-                                    <option value="Curso Técnico">Curso Técnico</option>
-                                    <option value="Graduação">Graduação</option>
-                                    <option value="Curso de Aperfeiçoamento">Curso de Aperfeiçoamento</option>
-                                    <option value="Curso de Qualificação">Curso de Qualificação</option>
-                                    <option value="Curso de Extensão">Curso de Extensão</option>
-                                    <option value="Especialização">Especialização</option>
-                                    <option value="Mestrado">Mestrado</option>
-                                    <option value="Doutorado">Doutorado</option>
-                                </select>
-                            </div>
+                            <input type="hidden" class="form-control" id="input_escolaridade" value="XXX">
                             <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
                             <div class="col-md-3">
                                 <select class="form-control" id="input_civil">
