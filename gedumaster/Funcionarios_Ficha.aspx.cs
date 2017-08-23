@@ -5,6 +5,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     string idAux,idMunic;
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -17,6 +18,10 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         Digitalizacoes(idAux);
         Gratificacoes(idAux);
         Formacoes(idAux);
+
+        //lista de instituições
+        //string idauxmunic = Literal_Instituicoes.Text;
+        //Instituicoes(idauxmunic);
 
     }
 
@@ -123,6 +128,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[64]) + "\";";
             str.Append(ScriptDados);
 
+            //id do municipio
             Literal_IDInst.Text = Convert.ToString(rcrdset[65]);
 
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
@@ -386,6 +392,27 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 
         Literal_formacoes.Text = str.ToString();
 
+    }
+
+    private void Instituicoes(string idaux)
+    {
+        str.Clear();
+        string Coluna0, Coluna1;
+        string stringselect = "select ID_inst , nome " +
+                "from Tbl_Instituicao  " +
+                " order by Nome";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
+        while (dados.Read())
+        {
+            Coluna0 = Convert.ToString(dados[0]); //id
+            Coluna1 = Convert.ToString(dados[1]);
+            str.Append("<option value=\"" + Coluna0 + "\">" + Coluna1 + "</option>");
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        //Literal_Instituicoes.Text = str.ToString();
     }
 
 }

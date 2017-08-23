@@ -491,7 +491,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Nome</th>
@@ -577,7 +577,7 @@
                         <div class="form-group">
                             <div class="col-md-2"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="TableBenef" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Benefício</th>
@@ -769,9 +769,9 @@
                     <fieldset>
                         <div class="form-group">
                             <label for="input_Inst" class="col-md-2 control-label">Instituição</label>
-                            <select class="col-md-8" id="input_Inst">
-                                <asp:Literal ID="Literal_Instituicoes" runat="server"></asp:Literal>
-                            </select>
+                            <div class="col-md-8">
+                                <input type="text" class="w3-input w3-border w3-round" id="input_Inst">
+                            </div>
                         </div>
 
                         <div class="form-group">

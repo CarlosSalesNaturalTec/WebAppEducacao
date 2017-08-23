@@ -42,7 +42,7 @@ public partial class Funcionarios_Imprimir : System.Web.UI.Page
         }
         ConexaoBancoSQL.fecharConexao();
 
-        string DataAtual = DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss");
+        string DataAtual = DateTime.Now.ToString("dd/MM/yyyy");
         strTexto = "document.getElementById('txtData').innerHTML=' " + DataAtual + " ';";
         str.Append(strTexto);
         strTexto = "document.getElementById('txtData1a').innerHTML=' " + DataAtual + " ';";
