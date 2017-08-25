@@ -557,7 +557,9 @@ public class WebService : System.Web.Services.WebService
             "Cracha," +
 
             "ID_Munic," +
-            "FotoDataURI" +
+            "FotoDataURI, " +
+
+            "CadastroData " +
 
             ") " +
             "VALUES (" +
@@ -627,7 +629,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param62 + "'," +
             "'" + param63 + "'," +
             param64 + "," +
-            "'" + param65 + "'" +
+            "'" + param65 + "'," +
+            "dateadd(hh,-3,getdate())" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();

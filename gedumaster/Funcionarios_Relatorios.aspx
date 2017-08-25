@@ -17,13 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Paginação -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
-
     <!-- Gráfico Morris.JS -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -34,32 +27,76 @@
 <body style="margin-left: 2%; margin-right: 2%">
     <br />
 
+    <!-- Linha 1-->
     <div class="w3-row w3-container w3-border w3-round w3-padding-16 w3-light-gray">
 
-        <div id="Bloco1" class="w3-col s12 m6 l4 w3-padding">
+        <!-- Bloco 1 -->
+        <div id="Bloco1" class="w3-col s12 m6 l8 w3-padding">
             <div class="panel panel-success">
                 <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Total por Instituição</h4>
+                    <h4 class="panel-title w3-small">Total por Secretaria</h4>
                 </div>
 
                 <div class="panel-body">
                     <div id="Bloco1_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
                 </div>
-
+                <p>&nbsp;</p>
             </div>
         </div>
 
-        <div id="Bloco2" class="w3-col s12 m6 l8 w3-padding">
+        <!-- Bloco 2 -->
+        <div id="Bloco2" class="w3-col s12 m6 l4 w3-padding">
             <div class="panel panel-success">
                 <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Resumo</h4>
+                    <h4 class="panel-title w3-small">Relatórios</h4>
                 </div>
+                <div class="panel-body" style="min-width: 280px; height: 200px; margin: 0 auto">
+                    <p></p>
+                    <a href="#" onclick="Relatorios()" class="btn btn-block btn-primary">Gerar Relatório</a>
+                </div>
+                <p>&nbsp;</p>
+            </div>
+        </div>
 
-                <div class="panel-body text-center" style="min-width: 280px; height: 200px; margin: 0 auto">
-                    <label for="input_inst">Instituição</label>
-                    <select class=" form-control" id="input_inst">
-                        <asp:Literal ID="Literal_Instituicoes" runat="server"></asp:Literal>
-                    </select>
+    </div>
+
+    <!-- Linha 2-->
+    <div class="w3-row w3-container w3-border w3-round w3-padding-16 w3-light-gray">
+
+        <!-- Bloco 3 -->
+        <div id="Bloco3" class="w3-col s12 m4 l4 w3-padding">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h4 class="panel-title w3-small">Total por Função</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="Bloco3_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
+                </div>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+
+        <!-- Bloco 5 -->
+        <div id="Bloco5" class="w3-col s12 m4 l4 w3-padding">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h4 class="panel-title w3-small">Evolução Recadastramento</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="Bloco5_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
+                </div>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+
+        <!-- Bloco 4 -->
+        <div id="Bloco4" class="w3-col s12 m4 l4 w3-padding">
+            <div class="panel panel-success">
+                <div class="panel-heading text-center">
+                    <h4 class="panel-title w3-small">Total por Vinculo</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="Bloco4_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
                 </div>
                 <p>&nbsp;</p>
             </div>
@@ -73,7 +110,16 @@
 
     <!-- Gráfico Morris.JS - Script de Montagem -->
     <asp:Literal ID="Literal_Bloco1" runat="server"></asp:Literal>
+    <asp:Literal ID="Literal_Bloco3" runat="server"></asp:Literal>
+    <asp:Literal ID="Literal_Bloco4" runat="server"></asp:Literal>
+    <asp:Literal ID="Literal_Bloco5" runat="server"></asp:Literal>
 
+    <script type="text/javascript">
+        function Relatorios() {
+            var linkurl = "../Funcionarios_Relatorios_PDF.aspx";
+            window.open(linkurl, '_blank');
+        }
+    </script>
 
 </body>
 

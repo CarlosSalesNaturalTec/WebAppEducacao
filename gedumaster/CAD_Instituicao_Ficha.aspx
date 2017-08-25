@@ -737,7 +737,7 @@
 
     <!--*******Customização somente se for usar mapa*******
     <script type="text/javascript" src="Scripts/codeInstituicao_Mapa.js"></script> 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiB9wl9opTaUAh60CpLbHnT3he_-1brJE&libraries=places&callback=initMap" async defer></script>
     -->
 
 </body>
