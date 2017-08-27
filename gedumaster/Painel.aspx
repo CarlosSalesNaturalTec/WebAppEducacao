@@ -35,10 +35,10 @@
             </div>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-line-chart"></i>&nbsp;Estatísticas</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-line-chart"></i>&nbsp;Gráficos</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Gráficos</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Relatórios</a>
+                    <a href="Graficos_Funcionarios.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Instituições</a>
                 </div>
             </div>
 
@@ -58,7 +58,7 @@
             </div>
 
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-university"></i>&nbsp;Cadastro</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-university"></i>&nbsp;Cadastros</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="CAD_Municipio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Municípios</a>
                     <a href="CAD_Instituicao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Instituições</a>

@@ -16,12 +16,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- Gráfico Morris.JS -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
 </head>
 
 <body style="margin-left: 2%; margin-right: 2%">
@@ -31,95 +25,77 @@
     <div class="w3-row w3-container w3-border w3-round w3-padding-16 w3-light-gray">
 
         <!-- Bloco 1 -->
-        <div id="Bloco1" class="w3-col s12 m6 l8 w3-padding">
+        <div id="Bloco1" class="w3-col s12 m12 l12 w3-padding">
             <div class="panel panel-success">
                 <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Total por Secretaria</h4>
+                    <h4 class="panel-title w3-small">RELATÓRIO DE FUNCIONÁRIOS</h4>
                 </div>
 
                 <div class="panel-body">
-                    <div id="Bloco1_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
+
+                    <div class="form-group">
+                        <label for="input_lotado" class="col-md-1 control-label">Secretaria</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="input_lotado">
+                                <option value="Todas">Todas</option>
+                                <option value="Secretaria Municipal de Turismo">Secretaria Municipal de Turismo</option>
+                                <option value="Secretaria Municipal de Saúde">Secretaria Municipal de Saúde</option>
+                                <option value="Secretaria Municipal de Obras">Secretaria Municipal de Obras</option>
+                                <option value="Secretaria Municipal de Meio Ambiente">Secretaria Municipal de Meio Ambiente</option>
+                                <option value="Secretaria Municipal de Educação">Secretaria Municipal de Educação</option>
+                                <option value="Secretaria Municipal de Finanças">Secretaria Municipal de Finanças</option>
+                                <option value="Secretaria Municipal de Assistência Social">Secretaria Municipal de Assistência Social</option>
+                                <option value="Secretaria Municipal de Agricultura">Secretaria Municipal de Agricultura</option>
+                                <option value="Secretaria Municipal de Administração">Secretaria Municipal de Administração</option>
+                                <option value="Gabinete do Prefeito">Gabinete do Prefeito</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#" onclick="window.location.href = 'Funcionarios_Relatorios_PDF.aspx'" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+
+                     <br />
+
+                    <div class="form-group">
+                        <label for="input_Inst" class="col-md-1 control-label">Instituição</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="input_Inst">
+                                <option value="Todas">Todas</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#" onclick="" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="input_etnia" class="col-md-1 control-label">Etnia</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="input_etnia">
+                                <option value="Todas">Todas</option>
+                                <option value="Branco">Branco</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Pardo">Pardo</option>
+                                <option value="Mulato">Mulato</option>
+                                <option value="Amarelo">Amarelo</option>
+                                <option value="Indígena">Indígena</option>
+                                <option value="Quilombola">Quilombola</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#" onclick="" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+
+                    <br />
+
                 </div>
-                <p>&nbsp;</p>
             </div>
         </div>
-
-        <!-- Bloco 2 -->
-        <div id="Bloco2" class="w3-col s12 m6 l4 w3-padding">
-            <div class="panel panel-success">
-                <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Relatórios</h4>
-                </div>
-                <div class="panel-body" style="min-width: 280px; height: 200px; margin: 0 auto">
-                    <p></p>
-                    <a href="#" onclick="Relatorios()" class="btn btn-block btn-primary">Gerar Relatório</a>
-                </div>
-                <p>&nbsp;</p>
-            </div>
-        </div>
-
     </div>
-
-    <!-- Linha 2-->
-    <div class="w3-row w3-container w3-border w3-round w3-padding-16 w3-light-gray">
-
-        <!-- Bloco 3 -->
-        <div id="Bloco3" class="w3-col s12 m4 l4 w3-padding">
-            <div class="panel panel-success">
-                <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Total por Função</h4>
-                </div>
-                <div class="panel-body">
-                    <div id="Bloco3_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
-                </div>
-                <p>&nbsp;</p>
-            </div>
-        </div>
-
-        <!-- Bloco 5 -->
-        <div id="Bloco5" class="w3-col s12 m4 l4 w3-padding">
-            <div class="panel panel-success">
-                <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Evolução Recadastramento</h4>
-                </div>
-                <div class="panel-body">
-                    <div id="Bloco5_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
-                </div>
-                <p>&nbsp;</p>
-            </div>
-        </div>
-
-        <!-- Bloco 4 -->
-        <div id="Bloco4" class="w3-col s12 m4 l4 w3-padding">
-            <div class="panel panel-success">
-                <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">Total por Vinculo</h4>
-                </div>
-                <div class="panel-body">
-                    <div id="Bloco4_Chart" style="min-width: 280px; height: 200px; margin: 0 auto"></div>
-                </div>
-                <p>&nbsp;</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="w3-row-padding ">
-        <p>&nbsp;</p>
-    </div>
-
-    <!-- Gráfico Morris.JS - Script de Montagem -->
-    <asp:Literal ID="Literal_Bloco1" runat="server"></asp:Literal>
-    <asp:Literal ID="Literal_Bloco3" runat="server"></asp:Literal>
-    <asp:Literal ID="Literal_Bloco4" runat="server"></asp:Literal>
-    <asp:Literal ID="Literal_Bloco5" runat="server"></asp:Literal>
-
-    <script type="text/javascript">
-        function Relatorios() {
-            var linkurl = "../Funcionarios_Relatorios_PDF.aspx";
-            window.open(linkurl, '_blank');
-        }
-    </script>
 
 </body>
 

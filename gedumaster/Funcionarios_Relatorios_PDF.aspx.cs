@@ -53,7 +53,7 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         stringselect = "select nome, funcao, vinculo, matricula, lotado " +
             "from Tbl_Funcionarios " +
             "where ID_Munic = " + Session["ID_Munic"].ToString() +
-            " order by funcao,nome";
+            " order by lotado,nome";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
