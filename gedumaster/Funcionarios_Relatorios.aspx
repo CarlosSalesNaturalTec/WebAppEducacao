@@ -51,7 +51,7 @@
                             </select>
                         </div>
                         <div class="col-md-1">
-                            <a href="#" onclick="window.location.href = 'Funcionarios_Relatorios_PDF.aspx'" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                            <a href="#" onclick="window.open('Funcionarios_Relatorios_PDF','_blank');" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
                         </div>
                     </div>
 
