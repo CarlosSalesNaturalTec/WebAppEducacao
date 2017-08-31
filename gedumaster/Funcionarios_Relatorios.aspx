@@ -51,7 +51,7 @@
                             </select>
                         </div>
                         <div class="col-md-1">
-                            <a href="#" onclick="window.open('Funcionarios_Relatorios_PDF.aspx','_blank');" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                            <a href="#" onclick="Rel_Secretaria();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
                         </div>
                     </div>
 
@@ -61,11 +61,11 @@
                         <label for="input_Inst" class="col-md-1 control-label">Instituição</label>
                         <div class="col-md-6">
                             <select class="form-control" id="input_Inst">
-                                <option value="Todas">Todas</option>
+                                <asp:Literal ID="literal_instituicao" runat="server"></asp:Literal>
                             </select>
                         </div>
                         <div class="col-md-1">
-                            <a href="#" onclick="" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                            <a href="#" onclick="Rel_instituicao();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
                         </div>
                     </div>
 
@@ -86,7 +86,7 @@
                             </select>
                         </div>
                         <div class="col-md-1">
-                            <a href="#" onclick="" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                            <a href="#" onclick="Rel_Etnia();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
                         </div>
                     </div>
 
@@ -96,6 +96,29 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        function Rel_Secretaria() {
+            var v1 = document.getElementById('input_lotado').value;
+            var v_url = "Funcionarios_Relatorios_PDF.aspx?p1=" + v1 ;
+            window.open(v_url, '_blank');
+        }
+
+        function Rel_instituicao() {
+            var v1 = document.getElementById('input_Inst').value;
+            var v_url = "Funcionarios_Relatorios_PDF_2.aspx?p1=" + v1;
+            window.open(v_url, '_blank');
+        }
+
+        function Rel_Etnia() {
+            var v1 = document.getElementById('input_etnia').value;
+            var v_url = "Funcionarios_Relatorios_PDF_3.aspx?p1=" + v1;
+            window.open(v_url, '_blank');
+        }
+
+    </script>
+
 
 </body>
 

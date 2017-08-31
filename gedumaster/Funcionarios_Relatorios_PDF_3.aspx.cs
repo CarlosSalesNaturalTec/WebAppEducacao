@@ -7,7 +7,7 @@ using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 
-public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
+public partial class Funcionarios_Relatorios_PDF_3 : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
@@ -38,11 +38,8 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
     {
         string stringcomaspas = "<table border='1'>" +
                 "<tr>" +
-                "<th><b>LOTADO EM</b></th>" +
                 "<th><b>NOME</b></th>" +
-                "<th><b>VINCULO</b></th>" +
-                "<th><b>SITUAÇÃO</b></th>" +
-                "<th><b>FUNÇÃO</b></th>" +
+                "<th><b>ETNIA</b></th>" +
                 "</tr>";
 
         str.Clear();
@@ -57,42 +54,34 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         switch (RelFiltro)
         {
             case "Todas":
-                stringselect = "select lotado , nome, vinculo, Situacao , funcao " +
+                stringselect = "select nome, etnia " +
                     "from Tbl_Funcionarios " +
                     "where ID_Munic = " + idMunicAux +
-                    " order by lotado,nome";
+                    " order by etnia, nome";
                 break;
             
             default:
-                stringselect = "select lotado , nome, vinculo, Situacao , funcao " +
+                stringselect = "select nome, etnia " +
                     "from Tbl_Funcionarios " +
                     "where ID_Munic = " + idMunicAux +
-                    " and lotado = '" + RelFiltro + "'" +
-                    " order by lotado,nome";
+                    " and etnia = '" + RelFiltro + "'" +
+                    " order by nome";
                 break;
         }
 
-
-
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
-        string Coluna1, Coluna2, Coluna3, Coluna4, Coluna5;
+        string Coluna1, Coluna2;
 
         while (dados.Read())
         {
 
             Coluna1 = Convert.ToString(dados[0]);
             Coluna2 = Convert.ToString(dados[1]);
-            Coluna3 = Convert.ToString(dados[2]);
-            Coluna4 = Convert.ToString(dados[3]);
-            Coluna5 = Convert.ToString(dados[4]);
 
             stringcomaspas = "<tr>" +
                 "<td>" + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
-                "<td>" + Coluna3 + "</td>" +
-                "<td>" + Coluna4 + "</td>" +
-                "<td>" + Coluna5 + "</td>" +
                 "</tr>";
             str.Append(stringcomaspas);
         }
@@ -115,7 +104,7 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         strTexto = "<h3><b>" + NomeMunicipio(idMunicAux) + "</b></h3>";
         str.Append(strTexto);
 
-        strTexto = "<h3>Relatório de Funcionários - Por Secretaria: " + RelFiltro + "</h3>";
+        strTexto = "<h3>Relatório de Funcionários - Por Etnia: " + RelFiltro + "</h3>";
         str.Append(strTexto);
 
         strTexto = "<br><br>";

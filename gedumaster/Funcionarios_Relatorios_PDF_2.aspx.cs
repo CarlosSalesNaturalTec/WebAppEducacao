@@ -7,9 +7,8 @@ using iTextSharp.text;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 
-public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
+public partial class Funcionarios_Relatorios_PDF_2 : System.Web.UI.Page
 {
-
     StringBuilder str = new StringBuilder();
     string strTabela;
     string strCabecalho;
@@ -38,11 +37,9 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
     {
         string stringcomaspas = "<table border='1'>" +
                 "<tr>" +
-                "<th><b>LOTADO EM</b></th>" +
+                "<th><b>INSTITUIÇÃO</b></th>" +
                 "<th><b>NOME</b></th>" +
-                "<th><b>VINCULO</b></th>" +
-                "<th><b>SITUAÇÃO</b></th>" +
-                "<th><b>FUNÇÃO</b></th>" +
+                "<th><b>CARGA HORÁRIA</b></th>" +
                 "</tr>";
 
         str.Clear();
@@ -57,18 +54,20 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         switch (RelFiltro)
         {
             case "Todas":
-                stringselect = "select lotado , nome, vinculo, Situacao , funcao " +
+                stringselect = "select Tbl_Funcionarios_CargaHor.Instituicao, Tbl_Funcionarios.nome, Tbl_Funcionarios_CargaHor.Carga " +
                     "from Tbl_Funcionarios " +
-                    "where ID_Munic = " + idMunicAux +
-                    " order by lotado,nome";
+                    "INNER JOIN Tbl_Funcionarios_CargaHor ON Tbl_Funcionarios.ID_func  = Tbl_Funcionarios_CargaHor.ID_func " +
+                    "where Tbl_Funcionarios.ID_Munic = " + idMunicAux +
+                    " order by Instituicao,nome";
                 break;
-            
+
             default:
-                stringselect = "select lotado , nome, vinculo, Situacao , funcao " +
-                    "from Tbl_Funcionarios " +
-                    "where ID_Munic = " + idMunicAux +
-                    " and lotado = '" + RelFiltro + "'" +
-                    " order by lotado,nome";
+                stringselect = "select Tbl_Funcionarios_CargaHor.Instituicao, Tbl_Funcionarios.nome, Tbl_Funcionarios_CargaHor.Carga " +
+                   "from Tbl_Funcionarios " +
+                   "INNER JOIN Tbl_Funcionarios_CargaHor ON Tbl_Funcionarios.ID_func  = Tbl_Funcionarios_CargaHor.ID_func " +
+                   "where Tbl_Funcionarios.ID_Munic = " + idMunicAux +
+                   " and Tbl_Funcionarios_CargaHor.Instituicao = '" + RelFiltro + "'" +
+                   " order by Instituicao,nome";
                 break;
         }
 
@@ -76,7 +75,7 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
-        string Coluna1, Coluna2, Coluna3, Coluna4, Coluna5;
+        string Coluna1, Coluna2, Coluna3;
 
         while (dados.Read())
         {
@@ -84,16 +83,13 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
             Coluna1 = Convert.ToString(dados[0]);
             Coluna2 = Convert.ToString(dados[1]);
             Coluna3 = Convert.ToString(dados[2]);
-            Coluna4 = Convert.ToString(dados[3]);
-            Coluna5 = Convert.ToString(dados[4]);
 
             stringcomaspas = "<tr>" +
                 "<td>" + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
-                "<td>" + Coluna4 + "</td>" +
-                "<td>" + Coluna5 + "</td>" +
                 "</tr>";
+
             str.Append(stringcomaspas);
         }
         ConexaoBancoSQL.fecharConexao();
@@ -115,7 +111,7 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         strTexto = "<h3><b>" + NomeMunicipio(idMunicAux) + "</b></h3>";
         str.Append(strTexto);
 
-        strTexto = "<h3>Relatório de Funcionários - Por Secretaria: " + RelFiltro + "</h3>";
+        strTexto = "<h3>Relatório de Funcionários - Por Instituição: " + RelFiltro + "</h3>";
         str.Append(strTexto);
 
         strTexto = "<br><br>";
