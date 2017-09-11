@@ -49,6 +49,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "gedumaster", "..\gedumaster
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PDF_Module", "..\PDF_Module\", "{7B21FC66-1D1C-4146-8F75-5A34705E0FC9}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51819"
+		Debug.AspNetCompiler.PhysicalPath = "..\PDF_Module\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51819\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51819"
+		Release.AspNetCompiler.PhysicalPath = "..\PDF_Module\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51819\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51819"
+		SlnRelativePath = "..\PDF_Module\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +89,10 @@ Global
 		{CF0AC8FE-06DC-41CE-9593-42A4478C5F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF0AC8FE-06DC-41CE-9593-42A4478C5F89}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF0AC8FE-06DC-41CE-9593-42A4478C5F89}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{7B21FC66-1D1C-4146-8F75-5A34705E0FC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B21FC66-1D1C-4146-8F75-5A34705E0FC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B21FC66-1D1C-4146-8F75-5A34705E0FC9}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B21FC66-1D1C-4146-8F75-5A34705E0FC9}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

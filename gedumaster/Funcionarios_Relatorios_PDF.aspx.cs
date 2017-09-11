@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Text;
-
-using System.IO;
-using System.Web.UI.HtmlControls;
 using iTextSharp.text;
-using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 
 public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
@@ -124,31 +120,6 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         strCabecalho = str.ToString();
     }
 
-    private void MontaPDF(string HtmlTxt)
-    {
-
-        HtmlForm form = new HtmlForm();
-        Document document = new Document(PageSize.A4.Rotate(), 20, 20, 20, 20);
-        MemoryStream ms = new MemoryStream();
-        PdfWriter writer = PdfWriter.GetInstance(document, ms);
-        HTMLWorker obj = new HTMLWorker(document);
-
-        StringReader se = new StringReader(HtmlTxt);
-        document.Open();
-        obj.Parse(se);
-        document.Close();
-        Response.Clear();
-
-        Response.AddHeader("content-disposition", "filename=RelatorioFuncionarios.pdf");  //vizualiza em tela
-
-        Response.ContentType = "application/pdf";
-        Response.Buffer = true;
-        Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
-        Response.OutputStream.Flush();
-        Response.End();
-
-    }
-
     public string NomeMunicipio(string IDAux)
     {
 
@@ -167,4 +138,99 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
     }
 
 
+    private void MontaPDF(string HtmlTxt)
+    {
+
+        Document doc = new Document(PageSize.A4.Rotate(), 20, 20, 20, 20);
+        System.IO.MemoryStream str = new System.IO.MemoryStream();
+        PdfWriter writer = PdfWriter.GetInstance(doc, str);
+        writer.PageEvent = new PDFHeaderFooter();
+
+        doc.Open();
+
+        PdfPTable tab = new PdfPTable(3);
+
+        PdfPCell cell = new PdfPCell(new Phrase("Header", new Font(Font.FontFamily.HELVETICA, 24F)));
+
+        cell.Colspan = 3;
+        cell.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
+        cell.BorderColor = new BaseColor(System.Drawing.Color.Red);
+        cell.Border = Rectangle.BOTTOM_BORDER; // | Rectangle.TOP_BORDER;
+        cell.BorderWidthBottom = 3f;
+        tab.AddCell(cell);
+
+        //row 1
+        tab.AddCell("R1C1");
+        tab.AddCell("R1C2");
+        tab.AddCell("R1C3");
+        //row 2
+        tab.AddCell("R2C1");
+        tab.AddCell("R2C2");
+        tab.AddCell("R2C3");
+        cell = new PdfPCell();
+        cell.Colspan = 3;
+
+        iTextSharp.text.List pdfList = new List(List.UNORDERED);
+        pdfList.Add(new iTextSharp.text.ListItem(new Phrase("Unorder List 1")));
+        pdfList.Add("Unorder List 2");
+        pdfList.Add("Unorder List 3");
+        pdfList.Add("Unorder List 4");
+        cell.AddElement(pdfList);
+        tab.AddCell(cell);
+        doc.Add(tab);
+
+        doc.Close();
+
+        Response.Clear();
+        Response.AddHeader("content-disposition", "filename=RelatorioFuncionarios.pdf");  //vizualiza em tela
+        Response.ContentType = "application/pdf";
+        Response.Buffer = true;
+        Response.OutputStream.Write(str.GetBuffer(), 0, str.GetBuffer().Length);
+        Response.OutputStream.Flush();
+        Response.End();
+
+
+       
+
+    }
+
+    public class PDFHeaderFooter : PdfPageEventHelper
+    {
+        #region Fields
+        private string _header;
+        #endregion
+
+        #region Properties
+        public string Header
+        {
+            get { return _header; }
+            set { _header = value; }
+        }
+        #endregion
+
+        //http://nilthakkar.blogspot.com.br/2015/08/itextsharp-add-dynamic-header.html
+
+
+        // write on end of each page
+        public override void OnEndPage(PdfWriter writer, Document document)
+        {
+            base.OnEndPage(writer, document);
+
+            Font baseFontNormal = new Font(Font.FontFamily.HELVETICA, 12f, Font.NORMAL, .BaseColor.BLACK);
+            Phrase p1Header = new Phrase(Header, baseFontNormal);
+
+
+
+            PdfPTable tabFot = new PdfPTable(new float[] { 1F });
+            PdfPCell cell;
+            tabFot.TotalWidth = 300F;
+            cell = new PdfPCell(new Phrase("Footer"));
+            tabFot.AddCell(cell);
+            tabFot.WriteSelectedRows(0, -1, 150, document.Bottom, writer.DirectContent);
+        }
+
+
+
+
+    }
 }
