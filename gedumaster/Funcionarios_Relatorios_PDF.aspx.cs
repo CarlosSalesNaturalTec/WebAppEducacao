@@ -17,16 +17,16 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         if (!IsPostBack)
         {
 
-            idMunicAux = Session["ID_Munic"].ToString();
-            RelFiltro = Request.QueryString["p1"];
+            //idMunicAux = Session["ID_Munic"].ToString();
+            //RelFiltro = Request.QueryString["p1"];
 
-            TabelaHeader();
-            TabelaCorpo();
-            TabelaRodape();
+            //TabelaHeader();
+            //TabelaCorpo();
+            //TabelaRodape();
+            //Cabecalho();
 
-            Cabecalho();
+            MontaPDF();
 
-            MontaPDF("<html><body>" + strCabecalho + strTabela + "</body></html>");
         }
     }
 
@@ -58,7 +58,7 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
                     "where ID_Munic = " + idMunicAux +
                     " order by lotado,nome";
                 break;
-            
+
             default:
                 stringselect = "select lotado , nome, vinculo, Situacao , funcao " +
                     "from Tbl_Funcionarios " +
@@ -120,6 +120,8 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         strCabecalho = str.ToString();
     }
 
+
+
     public string NomeMunicipio(string IDAux)
     {
 
@@ -137,19 +139,26 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         return Munic;
     }
 
-
-    private void MontaPDF(string HtmlTxt)
+    private void MontaPDF()
     {
 
         Document doc = new Document(PageSize.A4.Rotate(), 20, 20, 20, 20);
         System.IO.MemoryStream str = new System.IO.MemoryStream();
         PdfWriter writer = PdfWriter.GetInstance(doc, str);
-        writer.PageEvent = new PDFHeaderFooter();
 
+        PDFHeaderFooter obj = new PDFHeaderFooter();
+        obj.Header_a = "Prefeitura Municipal de Salinas das Margarida - Gestão Educacional Municipal";
+        obj.Header_b = "GEDUM";
+        obj.Footer_a = DateTime.Now.ToString("dd/MM/yyyy");
+        obj.Footer_b = "Usuario: Fulano";
+
+        writer.PageEvent = obj;
+
+        ////// corpo do PDF
+        #region
         doc.Open();
 
         PdfPTable tab = new PdfPTable(3);
-
         PdfPCell cell = new PdfPCell(new Phrase("Header", new Font(Font.FontFamily.HELVETICA, 24F)));
 
         cell.Colspan = 3;
@@ -188,49 +197,59 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         Response.OutputStream.Write(str.GetBuffer(), 0, str.GetBuffer().Length);
         Response.OutputStream.Flush();
         Response.End();
-
-
-       
-
+        #endregion 
     }
 
     public class PDFHeaderFooter : PdfPageEventHelper
     {
         #region Fields
-        private string _header;
-        #endregion
+        private string _header_a;
+        private string _header_b;
+        private string _footer_a;
+        private string _footer_b;
 
-        #region Properties
-        public string Header
+        public string Header_a
         {
-            get { return _header; }
-            set { _header = value; }
+            get { return _header_a; }
+            set { _header_a = value; }
+        }
+        public string Header_b
+        {
+            get { return _header_b; }
+            set { _header_b = value; }
+        }
+
+        public string Footer_a
+        {
+            get { return _footer_a; }
+            set { _footer_a = value; }
+        }
+        public string Footer_b
+        {
+            get { return _footer_b; }
+            set { _footer_b = value; }
         }
         #endregion
 
-        //http://nilthakkar.blogspot.com.br/2015/08/itextsharp-add-dynamic-header.html
+        Font ffont = new Font(Font.FontFamily.UNDEFINED, 12, Font.NORMAL);
 
-
-        // write on end of each page
         public override void OnEndPage(PdfWriter writer, Document document)
         {
+         
             base.OnEndPage(writer, document);
 
-            Font baseFontNormal = new Font(Font.FontFamily.HELVETICA, 12f, Font.NORMAL, .BaseColor.BLACK);
-            Phrase p1Header = new Phrase(Header, baseFontNormal);
+            PdfPTable HeaderPag = new PdfPTable(1);
+            HeaderPag.TotalWidth = 300F;
 
+            PdfPCell cell = new PdfPCell(new Phrase(Header_a, ffont));
+            cell.HorizontalAlignment = 1;  //0=Left, 1=Centre, 2=Right
+            HeaderPag.AddCell(cell);
 
+            HeaderPag.WriteSelectedRows(0, -1, 150, document.Top, writer.DirectContent);
+            
 
-            PdfPTable tabFot = new PdfPTable(new float[] { 1F });
-            PdfPCell cell;
-            tabFot.TotalWidth = 300F;
-            cell = new PdfPCell(new Phrase("Footer"));
-            tabFot.AddCell(cell);
-            tabFot.WriteSelectedRows(0, -1, 150, document.Bottom, writer.DirectContent);
         }
 
-
-
-
     }
+
 }
