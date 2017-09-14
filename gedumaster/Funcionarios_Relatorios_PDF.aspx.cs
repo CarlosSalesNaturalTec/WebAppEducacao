@@ -9,16 +9,19 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
     StringBuilder str = new StringBuilder();
     string strTabela;
     string strCabecalho;
-    string idMunicAux;
     string RelFiltro;
+
+    string idMunicAux;
+    string nomeUser;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
 
-            //idMunicAux = Session["ID_Munic"].ToString();
-            //RelFiltro = Request.QueryString["p1"];
+            idMunicAux = "1";           //Session["ID_Munic"].ToString();
+            nomeUser = "Carlos Sales";  // Session["UserName"].ToString();
+            RelFiltro = "";             //Request.QueryString["p1"];
 
             //TabelaHeader();
             //TabelaCorpo();
@@ -147,19 +150,18 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         PdfWriter writer = PdfWriter.GetInstance(doc, str);
 
         PDFHeaderFooter obj = new PDFHeaderFooter();
-        obj.Header_a = "Prefeitura Municipal de Salinas das Margarida - Gestão Educacional Municipal";
+        obj.Header_a = "Prefeitura Municipal de Conde - Gestão Educacional Municipal"; //NomeMunicipio(idMunicAux) + " - Gestão Educacional Municipal";
         obj.Header_b = "GEDUM";
-        obj.Footer_a = DateTime.Now.ToString("dd/MM/yyyy");
-        obj.Footer_b = "Usuario: Fulano";
+        obj.Footer_a = DateTime.Now.ToString("dd/MM/yyyy - hh:mm:ss");
+        obj.Footer_b = "Usuario: " + nomeUser;
 
         writer.PageEvent = obj;
 
-        ////// corpo do PDF
-        #region
+        #region Corpo do PDF
         doc.Open();
         for (int i = 0; i < 3; i++)
         {
-            doc.Add(new Paragraph("Jesus é Bom" ));
+            doc.Add(new Paragraph("Corpo da Página: " + i));
             doc.NewPage();
         }
         doc.Close();
@@ -171,13 +173,14 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         Response.OutputStream.Write(str.GetBuffer(), 0, str.GetBuffer().Length);
         Response.OutputStream.Flush();
         Response.End();
-
+       
         #endregion 
 
     }
 
     public class PDFHeaderFooter : PdfPageEventHelper
     {
+
         #region Fields
         private string _header_a;
         private string _header_b;
@@ -208,23 +211,21 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         #endregion
 
         Font ffont = new Font(Font.FontFamily.UNDEFINED, 12, Font.NORMAL);
+        Font ffontBold = new Font(Font.FontFamily.UNDEFINED, 12, Font.BOLD);
 
         public override void OnEndPage(PdfWriter writer, Document document)
         {
-
             PdfContentByte cb = writer.DirectContent;
-            Phrase header = new Phrase(Header_a, ffont);
+
+            Phrase header = new Phrase(Header_a, ffontBold);
+            ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, header, document.LeftMargin, document.Top + 30, 0);
+            Phrase headerB = new Phrase(Header_b, ffont);
+            ColumnText.ShowTextAligned(cb, Element.ALIGN_RIGHT, headerB, document.Right, document.Top + 30, 0);
+
             Phrase footer = new Phrase(Footer_a, ffont);
-
-            ColumnText.ShowTextAligned(cb, Element.ALIGN_CENTER,
-                    header,
-                    (document.Right - document.Left) / 2 + document.LeftMargin,
-                    document.Top + 30, 0);
-
-            ColumnText.ShowTextAligned(cb, Element.ALIGN_CENTER,
-                    footer,
-                    (document.Right - document.Left) / 2 + document.LeftMargin,
-                    document.Bottom - 30, 0);
+            ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, footer, document.LeftMargin, document.Bottom - 30, 0);
+            Phrase pagina = new Phrase("Pag.:" + writer.PageNumber + " - " + Footer_b, ffont);
+            ColumnText.ShowTextAligned(cb, Element.ALIGN_RIGHT, pagina, document.Right, document.Bottom - 30, 0);
         }
 
     }
