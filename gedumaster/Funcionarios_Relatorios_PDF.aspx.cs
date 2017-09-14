@@ -152,17 +152,17 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         PDFHeaderFooter obj = new PDFHeaderFooter();
         obj.Header_a = "Prefeitura Municipal de Conde - Gestão Educacional Municipal"; //NomeMunicipio(idMunicAux) + " - Gestão Educacional Municipal";
         obj.Header_b = "GEDUM";
-        obj.Footer_a = DateTime.Now.ToString("dd/MM/yyyy - hh:mm:ss");
+        obj.Footer_a = "Emissão: " + DateTime.Now.ToString("dd/MM/yyyy - hh:mm:ss");
         obj.Footer_b = "Usuario: " + nomeUser;
 
         writer.PageEvent = obj;
 
         #region Corpo do PDF
         doc.Open();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 120; i++)
         {
-            doc.Add(new Paragraph("Corpo da Página: " + i));
-            doc.NewPage();
+            doc.Add(new Paragraph("Corpo - Linha : " + i));
+            //doc.NewPage();
         }
         doc.Close();
 
@@ -210,22 +210,37 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         }
         #endregion
 
-        Font ffont = new Font(Font.FontFamily.UNDEFINED, 12, Font.NORMAL);
-        Font ffontBold = new Font(Font.FontFamily.UNDEFINED, 12, Font.BOLD);
+        Font ffont = new Font(Font.FontFamily.UNDEFINED, 9, Font.NORMAL);
+        Font ffont1 = new Font(Font.FontFamily.UNDEFINED, 9, Font.ITALIC);
 
         public override void OnEndPage(PdfWriter writer, Document document)
         {
             PdfContentByte cb = writer.DirectContent;
+            PdfPTable table = new PdfPTable(1);
+            table.TotalWidth = document.Right - document.Left;
+            PdfPCell cell = new PdfPCell(new Phrase());
+            table.AddCell(cell);
 
-            Phrase header = new Phrase(Header_a, ffontBold);
+
+            #region HEADER
+            Phrase header = new Phrase(Header_a, ffont1);
             ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, header, document.LeftMargin, document.Top + 30, 0);
-            Phrase headerB = new Phrase(Header_b, ffont);
-            ColumnText.ShowTextAligned(cb, Element.ALIGN_RIGHT, headerB, document.Right, document.Top + 30, 0);
+            Phrase headerB = new Phrase(Header_b, ffont1);
+            ColumnText.ShowTextAligned(cb, Element.ALIGN_RIGHT, headerB, document.Right, document.Top + 30, 0);   
+            table.WriteSelectedRows(0, 1, document.Left, document.Top + 20, writer.DirectContent);
+            #endregion
 
-            Phrase footer = new Phrase(Footer_a, ffont);
+
+            #region FOOTER
+            Phrase footer = new Phrase(Footer_a, ffont1);
             ColumnText.ShowTextAligned(cb, Element.ALIGN_LEFT, footer, document.LeftMargin, document.Bottom - 30, 0);
-            Phrase pagina = new Phrase("Pag.:" + writer.PageNumber + " - " + Footer_b, ffont);
+            Phrase pagina = new Phrase(Footer_b + " - " + "Pag.: " + writer.PageNumber, ffont1);
             ColumnText.ShowTextAligned(cb, Element.ALIGN_RIGHT, pagina, document.Right, document.Bottom - 30, 0);
+            table.WriteSelectedRows(0, 1, document.Left, document.Bottom - 10, writer.DirectContent);
+            #endregion
+
+
+
         }
 
     }
