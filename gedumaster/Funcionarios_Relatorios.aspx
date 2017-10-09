@@ -55,7 +55,7 @@
                         </div>
                     </div>
 
-                     <br />
+                    <br />
 
                     <div class="form-group">
                         <label for="input_Inst" class="col-md-1 control-label">Instituição</label>
@@ -92,6 +92,10 @@
 
                     <br />
 
+                    <a href="#" onclick="PDF_Teste();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+
+                    <asp:Button ID="btnReport" runat="server" Text="Generate Report" OnClick="GeneratePDF" />
+
                 </div>
             </div>
         </div>
@@ -101,7 +105,7 @@
 
         function Rel_Secretaria() {
             var v1 = document.getElementById('input_lotado').value;
-            var v_url = "Funcionarios_Relatorios_PDF.aspx?p1=" + v1 ;
+            var v_url = "Funcionarios_Relatorios_PDF.aspx?p1=" + v1;
             window.open(v_url, '_blank');
         }
 
@@ -116,6 +120,12 @@
             var v_url = "Funcionarios_Relatorios_PDF_3.aspx?p1=" + v1;
             window.open(v_url, '_blank');
         }
+
+        function PDF_Teste() {
+            var v_url = "PDF_Teste.aspx";
+            window.open(v_url, '_blank');
+        }
+
 
     </script>
 

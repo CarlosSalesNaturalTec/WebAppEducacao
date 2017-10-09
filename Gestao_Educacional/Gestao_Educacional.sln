@@ -49,6 +49,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "gedumaster", "..\gedumaster
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GedumNew", "..\GedumNew\", "{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_65212"
+		Debug.AspNetCompiler.PhysicalPath = "..\GedumNew\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65212\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_65212"
+		Release.AspNetCompiler.PhysicalPath = "..\GedumNew\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65212\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "65212"
+		SlnRelativePath = "..\GedumNew\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +89,10 @@ Global
 		{CF0AC8FE-06DC-41CE-9593-42A4478C5F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF0AC8FE-06DC-41CE-9593-42A4478C5F89}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CF0AC8FE-06DC-41CE-9593-42A4478C5F89}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
