@@ -20,7 +20,8 @@
     <link href="css/creative.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
-    <!-- Navigation -->
+
+    <!-- Menu -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top" onclick="header();">GEDUM</a>
@@ -33,10 +34,10 @@
                         <a class="nav-link js-scroll-trigger" href="#" onclick="login_master();">Master</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#services">Operacional</a>
+                        <a class="nav-link js-scroll-trigger" href="#" onclick="login_Oper();">Operacional</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#portfolio">Portal do Aluno</a>
+                        <a class="nav-link js-scroll-trigger" href="#" onclick="login_Alunos();">Portal do Aluno</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#contact">Suporte</a>
@@ -46,6 +47,7 @@
         </div>
     </nav>
 
+    <!-- Seção Inicial-->
     <header class="masthead">
         <div class="header-content">
             <div class="header-content-inner" id="divHeader">
@@ -56,9 +58,11 @@
         </div>
     </header>
 
+    <!-- Login Master-->
     <div id="divLogin" class="w3-display-middle" style="display: none">
-        <section class="w3-padding w3-center w3-animate-opacity" style="max-width: 400px">
-            <h3><strong>Acesso ao Sistema</strong> </h3>
+        <section class="w3-padding w3-center w3-animate-left" style="max-width: 400px">
+            <h3><strong>Master</strong> </h3>
+            <br />
             <p>
                 <input id="inputUser" placeholder="Usuário" class="w3-input w3-border w3-round" type="text" />
             </p>
@@ -73,6 +77,45 @@
         </section>
     </div>
 
+    <!-- Login Operacional -->
+    <div id="divOper" class="w3-display-middle" style="display: none">
+        <section class="w3-padding w3-center w3-animate-top" style="max-width: 400px">
+            <h3><strong>Operacional</strong> </h3>
+            <br />
+            <p>
+                <input id="inputUserOper" placeholder="Usuário" class="w3-input w3-border w3-round" type="text" />
+            </p>
+            <p>
+                <input id="inputPwdOper" placeholder="Senha" class="w3-input w3-border w3-round" type="password" />
+            </p>
+            <p>
+                <button id="btLoginOper" class="w3-btn w3-green w3-round">Entrar</button>
+            </p>
+            <br />
+            <h5><strong><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</strong></h5>
+        </section>
+    </div>
+
+    <!-- Login Portal Alunos -->
+    <div id="divAlunos" class="w3-display-middle" style="display: none">
+        <section class="w3-padding w3-center w3-animate-right" style="max-width: 400px">
+            <h3><strong>Portal do Aluno</strong> </h3>
+            <br />
+            <p>
+                <input id="inputUserAluno" placeholder="Usuário" class="w3-input w3-border w3-round" type="text" />
+            </p>
+            <p>
+                <input id="inputPwdAluno" placeholder="Senha" class="w3-input w3-border w3-round" type="password" />
+            </p>
+            <p>
+                <button id="btLoginAluno" class="w3-btn w3-green w3-round" >Entrar</button>
+            </p>
+            <br />
+            <h5><strong><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</strong></h5>
+        </section>
+    </div>
+
+    <!-- Módulos da Plataforma -->
     <section id="services">
         <div class="container">
             <div class="row">
@@ -100,7 +143,7 @@
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
-                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <i class="fa fa-4x fa-user text-primary sr-icons"></i>
                         <h3>Portal do Aluno</h3>
                         <p class="text-muted">Matrícula e Evolução Escolar</p>
                     </div>
@@ -115,12 +158,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Download -->
     <div class="call-to-action bg-dark">
         <div class="container text-center">
             <h2>Baixe nosso Aplicativo!</h2>
             <a class="btn btn-default btn-xl sr-button" href="#">Download!</a>
         </div>
     </div>
+
+    <!-- Contato -->
     <section id="contact">
         <div class="container">
             <div class="row">
@@ -145,17 +192,92 @@
         </div>
     </section>
 
+    <!-- Script-->
     <script type="text/javascript">
 
         function login_master() {
-            document.getElementById('divLogin').style.display = "block";
             document.getElementById('divHeader').style.display = "none";
+            document.getElementById('divLogin').style.display = "block";
+            document.getElementById('divOper').style.display = "none";
+            document.getElementById('divAlunos').style.display = "none";
+
+            document.getElementById('inputUser').focus();
+        }
+
+        function login_Oper() {
+            document.getElementById('divHeader').style.display = "none";
+            document.getElementById('divLogin').style.display = "none";
+            document.getElementById('divOper').style.display = "block";
+            document.getElementById('divAlunos').style.display = "none";
+
+            document.getElementById('inputUserOper').focus();
+
+        }
+
+        function login_Alunos() {
+            document.getElementById('divHeader').style.display = "none";
+            document.getElementById('divLogin').style.display = "none";
+            document.getElementById('divOper').style.display = "none";
+            document.getElementById('divAlunos').style.display = "block";
+
+            document.getElementById('inputUserAluno').focus();
+
         }
 
         function header() {
-            document.getElementById('divLogin').style.display = "none";
             document.getElementById('divHeader').style.display = "block";
+            document.getElementById('divLogin').style.display = "none";
+            document.getElementById('divOper').style.display = "none";
+            document.getElementById('divAlunos').style.display = "none";
         }
+
+        function TentarLogin() {
+
+            document.getElementById("btLogin").style.cursor = "progress";
+
+            var v1 = document.getElementById("inputUser").value;
+            var v2 = document.getElementById("inputPwd").value;
+
+            $.ajax({
+                type: "POST",
+                url: "WebService.asmx/TentaLogin",
+                data: '{user: "' + v1 + '", pwd: "' + v2 + '"}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function () {
+                }
+            });
+        }
+
+
+        function OnSuccess(response) {
+
+            document.getElementById("btLogin").style.cursor = "default";
+
+            switch (response.d) {
+                case "0":
+                    document.getElementById('lblMsgRetorno').innerText = "Usuário Não Cadastrado.";
+                    document.getElementById('divRetornoSenha').style.display = "block";
+                    document.getElementById('divLogin').style.display = "none";
+                    break;
+                case "1":
+                    document.getElementById('lblMsgRetorno').innerText = "Acesso não permitido a este módulo.";
+                    document.getElementById('divRetornoSenha').style.display = "block";
+                    document.getElementById('divLogin').style.display = "none";
+                    break;
+                case "2":
+                    document.getElementById('lblMsgRetorno').innerText = "Senha Incorreta.";
+                    document.getElementById('divRetornoSenha').style.display = "block";
+                    document.getElementById('divLogin').style.display = "none";
+                    break;
+                default:
+                    window.location.href = response.d;
+                    break;
+            }
+
+        }
+
 
     </script>
 
