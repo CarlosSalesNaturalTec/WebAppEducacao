@@ -5,6 +5,6 @@ public partial class LogOut : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Session.Clear();
-        Response.Redirect("Default.aspx");
+        Response.Redirect("http://gedum.azurewebsites.net/");
     }
 }

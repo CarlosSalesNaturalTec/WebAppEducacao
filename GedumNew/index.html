@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Natural Tecnologia">
     <title>GEDUM - Gestão Educacional</title>
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -14,6 +15,7 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -72,7 +74,6 @@
             <p>
                 <button id="btLogin" class="w3-btn w3-green w3-round" onclick="TentarLogin()">Entrar</button>
             </p>
-            <hr />
             <h5><strong><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</strong></h5>
         </section>
     </div>
@@ -89,7 +90,7 @@
                 <input id="inputPwdOper" placeholder="Senha" class="w3-input w3-border w3-round" type="password" />
             </p>
             <p>
-                <button id="btLoginOper" class="w3-btn w3-green w3-round">Entrar</button>
+                <button id="btLoginOper" class="w3-btn w3-green w3-round" onclick="TentarLoginOper()">Entrar</button>
             </p>
             <br />
             <h5><strong><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</strong></h5>
@@ -108,10 +109,24 @@
                 <input id="inputPwdAluno" placeholder="Senha" class="w3-input w3-border w3-round" type="password" />
             </p>
             <p>
-                <button id="btLoginAluno" class="w3-btn w3-green w3-round" >Entrar</button>
+                <button id="btLoginAluno" class="w3-btn w3-green w3-round">Entrar</button>
             </p>
             <br />
             <h5><strong><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</strong></h5>
+        </section>
+    </div>
+
+    <!-- Login não autorizado -retorno -->
+    <div id="divRetornoSenha" class="w3-display-middle" style="display: none">
+        <section class="w3-padding w3-center w3-animate-left" style="max-width: 400px">
+            <h2><strong>Atenção !</strong> </h2>
+            <p>
+                <span id="lblMsgRetorno"></span>
+            </p>
+            <p>
+                <button id="btVoltar" class="w3-btn w3-green w3-round" onclick="LoginVoltar()">Tentar Novamente</button>
+            </p>
+            <h5><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Gestão Educacional Municipal</h5>
         </section>
     </div>
 
@@ -121,7 +136,6 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Módulos Integrados</h2>
-                    <hr class="primary">
                 </div>
             </div>
         </div>
@@ -193,93 +207,7 @@
     </section>
 
     <!-- Script-->
-    <script type="text/javascript">
-
-        function login_master() {
-            document.getElementById('divHeader').style.display = "none";
-            document.getElementById('divLogin').style.display = "block";
-            document.getElementById('divOper').style.display = "none";
-            document.getElementById('divAlunos').style.display = "none";
-
-            document.getElementById('inputUser').focus();
-        }
-
-        function login_Oper() {
-            document.getElementById('divHeader').style.display = "none";
-            document.getElementById('divLogin').style.display = "none";
-            document.getElementById('divOper').style.display = "block";
-            document.getElementById('divAlunos').style.display = "none";
-
-            document.getElementById('inputUserOper').focus();
-
-        }
-
-        function login_Alunos() {
-            document.getElementById('divHeader').style.display = "none";
-            document.getElementById('divLogin').style.display = "none";
-            document.getElementById('divOper').style.display = "none";
-            document.getElementById('divAlunos').style.display = "block";
-
-            document.getElementById('inputUserAluno').focus();
-
-        }
-
-        function header() {
-            document.getElementById('divHeader').style.display = "block";
-            document.getElementById('divLogin').style.display = "none";
-            document.getElementById('divOper').style.display = "none";
-            document.getElementById('divAlunos').style.display = "none";
-        }
-
-        function TentarLogin() {
-
-            document.getElementById("btLogin").style.cursor = "progress";
-
-            var v1 = document.getElementById("inputUser").value;
-            var v2 = document.getElementById("inputPwd").value;
-
-            $.ajax({
-                type: "POST",
-                url: "WebService.asmx/TentaLogin",
-                data: '{user: "' + v1 + '", pwd: "' + v2 + '"}',
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                success: OnSuccess,
-                failure: function () {
-                }
-            });
-        }
-
-
-        function OnSuccess(response) {
-
-            document.getElementById("btLogin").style.cursor = "default";
-
-            switch (response.d) {
-                case "0":
-                    document.getElementById('lblMsgRetorno').innerText = "Usuário Não Cadastrado.";
-                    document.getElementById('divRetornoSenha').style.display = "block";
-                    document.getElementById('divLogin').style.display = "none";
-                    break;
-                case "1":
-                    document.getElementById('lblMsgRetorno').innerText = "Acesso não permitido a este módulo.";
-                    document.getElementById('divRetornoSenha').style.display = "block";
-                    document.getElementById('divLogin').style.display = "none";
-                    break;
-                case "2":
-                    document.getElementById('lblMsgRetorno').innerText = "Senha Incorreta.";
-                    document.getElementById('divRetornoSenha').style.display = "block";
-                    document.getElementById('divLogin').style.display = "none";
-                    break;
-                default:
-                    window.location.href = response.d;
-                    break;
-            }
-
-        }
-
-
-    </script>
+    <script type="text/javascript" src="scripts/codeIndex.js"></script>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

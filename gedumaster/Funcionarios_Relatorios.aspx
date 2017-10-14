@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-    <title>Relatório de Funcionários</title>
+    <title>Relatório de Funcionários por Secretaria</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Jquery-->
@@ -28,7 +28,7 @@
         <div id="Bloco1" class="w3-col s12 m12 l12 w3-padding">
             <div class="panel panel-success">
                 <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">RELATÓRIO DE FUNCIONÁRIOS</h4>
+                    <h4 class="panel-title w3-small">RELATÓRIO DE FUNCIONÁRIOS POR SECRETARIA</h4>
                 </div>
 
                 <div class="panel-body">

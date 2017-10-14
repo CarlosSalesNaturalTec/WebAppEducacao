@@ -63,6 +63,57 @@ public class WebService : System.Web.Services.WebService
 
     }
 
+    [WebMethod]
+    public string Identificador(string user, string pwd)
+    {
+        string Identificador_msg = "0";
+
+        // localiza usuario
+        string stringSelect = "select senha,nome,ID_user,ID_inst,nivel  from tbl_usuarios where usuario = '" + user + "'";
+        OperacaoBanco Identificador_Operacao = new OperacaoBanco();
+        SqlDataReader Identificador_rcrdset = Identificador_Operacao.Select(stringSelect);
+        while (Identificador_rcrdset.Read())
+        {
+            if (pwd == Convert.ToString(Identificador_rcrdset[0]))
+            {
+
+                string vValida1, vValida2;
+                vValida1 = DateTime.Now.ToString("dd");
+                vValida2 = DateTime.Now.ToString("MM");
+                int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
+                string vValida4 = vValida3.ToString();
+
+                Identificador_msg = "http://gedumopera.azurewebsites.net/LogIn.aspx" +
+                    "?p1=" + vValida4 +
+                    "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
+                    "&p3=" + Convert.ToString(Identificador_rcrdset[2]) +
+                    "&p4=" + Convert.ToString(Identificador_rcrdset[3]) +
+                    "&p5=" + Convert.ToString(Identificador_rcrdset[4]);
+
+                // Nome da Instituição
+                stringSelect = "select nome from Tbl_Instituicao where ID_inst = " + Identificador_rcrdset[3];
+                OperacaoBanco Operacao = new OperacaoBanco();
+                SqlDataReader rcrdset = Operacao.Select(stringSelect);
+                string nomeInst = "ID DE INSTITUIÇÃO NAO LOCALIZADO";
+                while (rcrdset.Read())
+                {
+                    nomeInst = Convert.ToString(rcrdset[0]);
+                }
+
+                Identificador_msg = Identificador_msg + "&p6=" + nomeInst;
+
+            }
+            else
+            {
+                Identificador_msg = "2";
+            }
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        return Identificador_msg;
+
+    }
+
     public class ConexaoBancoSQL
     {
         private static SqlConnection objConexao = null;
