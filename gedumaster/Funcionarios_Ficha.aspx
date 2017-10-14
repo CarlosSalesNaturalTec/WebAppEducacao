@@ -1184,7 +1184,21 @@
                                     <option value="ESTABILIDADE ECONOMICA">ESTABILIDADE ECONOMICA</option>
                                     <option value="FUNÇÃO DE CONFIANÇA">FUNÇÃO DE CONFIANÇA</option>
                                     <option value="GRATIFICAÇÃO DE SECRETARIA ESCOLAR">GRATIFICAÇÃO DE SECRETARIA ESCOLAR</option>
+                                    <option value="REGÊNCIA DE CLASSE">REGÊNCIA DE CLASSE</option>
+                                    <option value="ESTÍMULO AO APERFEIÇOAMENTO ">ESTÍMULO AO APERFEIÇOAMENTO </option>
+                                    <option value="QUINQUÊNIO">QUINQUÊNIO</option>
+                                    <option value="QUINQUÊNIO PÓS GRADUADO">QUINQUÊNIO PÓS GRADUADO</option>
+                                    <option value="BIÊNIO">BIÊNIO</option>
+                                    <option value="JORNADA SUPLEMENTAR DA FUNÇÃO">JORNADA SUPLEMENTAR DA FUNÇÃO</option>
+                                    <option value="CET">CET</option>
+                                    <option value="PERICULOSIDADE">PERICULOSIDADE</option>
+                                    <option value="INSALUBRIDADE">INSALUBRIDADE</option>
+                                    <option value="DESLOCAMENTO">DESLOCAMENTO</option>
+                                    <option value="GRATIFICAÇÃO RURAL">GRATIFICAÇÃO RURAL</option>
+                                    <option value="AUXÍLIO TRANSPORTE">AUXÍLIO TRANSPORTE</option>
+                                    <option value="SALÁRIO FAMÍLIA">SALÁRIO FAMÍLIA</option>
                                     <option value="OUTRAS">OUTRAS</option>
+
                                 </select>
                             </div>
                         </div>
