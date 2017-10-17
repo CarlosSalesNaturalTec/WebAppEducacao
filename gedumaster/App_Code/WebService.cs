@@ -32,7 +32,7 @@ public class WebService : System.Web.Services.WebService
                 int nivel = Convert.ToInt16(Identificador_rcrdset[4]);
 
                 if (nivel > 1)
-                {   
+                {
                     // nivel 2 em diante não tem acesso a este modulo/master
                     Identificador_msg = "1";
                 }
@@ -46,11 +46,11 @@ public class WebService : System.Web.Services.WebService
                     string vValida4 = vValida3.ToString();
 
                     Identificador_msg = "LogIn.aspx" +
-                        "?p1=" + vValida4 + 
+                        "?p1=" + vValida4 +
                         "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
                         "&p3=" + Convert.ToString(Identificador_rcrdset[2]) +
                         "&p4=" + nivel +
-                        "&p5=" + Convert.ToString(Identificador_rcrdset[3]) ;
+                        "&p5=" + Convert.ToString(Identificador_rcrdset[3]);
                 }
             }
             else
@@ -69,7 +69,7 @@ public class WebService : System.Web.Services.WebService
         string param6, string param7, string param8, string param9, string param10,
         string param11, string param12, string param13, string param14, string param15,
         string param16, string param17, string param18, string param19, string param20,
-        string param21, string param22, string param23, string param24, string param25, 
+        string param21, string param22, string param23, string param24, string param25,
         string param26, string param27, string param28, string param29, string param30,
         string param31, string param32, string param33, string param34, string param35,
         string param36, string param37, string param38, string param39, string param40,
@@ -94,7 +94,7 @@ public class WebService : System.Web.Services.WebService
             "QuantBanheirosMasc,QuantBanheirosFem , " +
             "Salas , AreaJogos ,AreaInfo ,Teatro ,CampoFutebol ,QuadraEsportes ," +
             "Logomarca, ID_Munic ) " +
-            "VALUES (" + 
+            "VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -255,7 +255,7 @@ public class WebService : System.Web.Services.WebService
             "AreaJogos = '" + param47 + "'," +
             "AreaInfo = '" + param48 + "'," +
             "Teatro = '" + param49 + "'," +
-            "CampoFutebol = '" + param50 + "',"  +
+            "CampoFutebol = '" + param50 + "'," +
             "QuadraEsportes = '" + param51 + "'," +
             "Logomarca = '" + param52 + "' " +
             "where ID_inst =" + param53);  // <!--*******Customização - ultimo parametro *******-->
@@ -291,13 +291,13 @@ public class WebService : System.Web.Services.WebService
            nivel + ", " +
            "dateadd(hh,-3,getdate()) " +
            ")"
-           ); 
+           );
 
         ConexaoBancoSQL.fecharConexao();
 
         if (inserirUser == true)
         {
-            url = "OK";  
+            url = "OK";
         }
         else
         {
@@ -928,17 +928,18 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string FuncionariosNewDigitaliza(string param1, string param2, string param3, string param4)
+    public string FuncionariosNewDigitaliza(string param1, string param2, string param3, string param4, string param5)
     {
         string url;
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Digitalizacoes (ID_func  , TipoDoc  , Obs , Digitaliza ) " +
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Digitalizacoes (ID_func  , TipoDoc  , Obs , Digitaliza, Percentual ) " +
            "VALUES (" +
            param1 + "," +
            "'" + param2 + "'," +
            "'" + param3 + "'," +
-           "'" + param4 + "'" +
+           "'" + param4 + "'," +
+           param5 + 
            ")");
 
         ConexaoBancoSQL.fecharConexao();
@@ -979,7 +980,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string FuncionariosVERDigitaliz(string param1)
     {
-        string uriDigitaliz="";
+        string uriDigitaliz = "";
 
         string stringSelect = "select Digitaliza from Tbl_Funcionarios_Digitalizacoes where ID_Digitaliza = " + param1;
         OperacaoBanco Operacao = new OperacaoBanco();

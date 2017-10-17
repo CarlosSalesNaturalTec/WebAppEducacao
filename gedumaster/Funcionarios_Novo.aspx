@@ -1114,7 +1114,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar10()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar10()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt12()">
@@ -1158,9 +1158,28 @@
                                     <option value="ESTABILIDADE ECONOMICA">ESTABILIDADE ECONOMICA</option>
                                     <option value="FUNÇÃO DE CONFIANÇA">FUNÇÃO DE CONFIANÇA</option>
                                     <option value="GRATIFICAÇÃO DE SECRETARIA ESCOLAR">GRATIFICAÇÃO DE SECRETARIA ESCOLAR</option>
+                                    <option value="REGÊNCIA DE CLASSE">REGÊNCIA DE CLASSE</option>
+                                    <option value="ESTÍMULO AO APERFEIÇOAMENTO ">ESTÍMULO AO APERFEIÇOAMENTO </option>
+                                    <option value="QUINQUÊNIO">QUINQUÊNIO</option>
+                                    <option value="QUINQUÊNIO PÓS GRADUADO">QUINQUÊNIO PÓS GRADUADO</option>
+                                    <option value="BIÊNIO">BIÊNIO</option>
+                                    <option value="JORNADA SUPLEMENTAR DA FUNÇÃO">JORNADA SUPLEMENTAR DA FUNÇÃO</option>
+                                    <option value="CET">CET</option>
+                                    <option value="PERICULOSIDADE">PERICULOSIDADE</option>
+                                    <option value="INSALUBRIDADE">INSALUBRIDADE</option>
+                                    <option value="DESLOCAMENTO">DESLOCAMENTO</option>
+                                    <option value="GRATIFICAÇÃO RURAL">GRATIFICAÇÃO RURAL</option>
+                                    <option value="AUXÍLIO TRANSPORTE">AUXÍLIO TRANSPORTE</option>
+                                    <option value="SALÁRIO FAMÍLIA">SALÁRIO FAMÍLIA</option>
                                     <option value="OUTRAS">OUTRAS</option>
                                 </select>
                             </div>
+
+                            <label for="input_gratif_percent" class="col-md-1 control-label">Percentual</label>
+                            <div class="col-md-1">
+                                <input type="number" class="w3-input w3-border" id="input_gratif_percent">
+                            </div>
+
                         </div>
 
                         <div class="form-group">
@@ -1183,6 +1202,7 @@
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Gratificação</th>
+                                            <th>Percentual</th>
                                             <th>Observações</th>
                                         </tr>
                                     </thead>
@@ -1202,7 +1222,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar11()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar11()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt13()">
@@ -1223,7 +1243,7 @@
         </div>
 
 
-         <!-- GRUPO 13 - Formações-->
+        <!-- GRUPO 13 - Formações-->
         <div id="grupo13" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
@@ -1294,7 +1314,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar12()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar12()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
@@ -1330,9 +1350,9 @@
 
                 <div class="w3-container w3-center">
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="alert('Necessário Salvar Funcionário primeiro!')">
-                       <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar</button>&nbsp;&nbsp;
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar</button>&nbsp;&nbsp;
                        <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="document.getElementById('div_Digitaliza').style.display='none'">
-                       <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                           <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
                     <br />
                 </div>
 

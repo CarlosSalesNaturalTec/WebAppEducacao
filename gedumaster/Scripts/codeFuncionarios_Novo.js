@@ -336,11 +336,12 @@ function DigitalizacaoIncluir() {
     var v2 = document.getElementById('input_tipoDoc').value;
     var v3 = document.getElementById('input_obsDigit').value;
     var v4 = document.getElementById('input_digitaliza').value;
+    var v5 = document.getElementById('input_gratif_percent').value;
 
     $.ajax({
         type: "POST",
         url: "WebService.asmx/FuncionariosNewDigitaliza",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -457,6 +458,8 @@ function GratificacaoInsertLinha() {
 
     var col1 = document.getElementById('input_GRATIF').value;
     var col2 = document.getElementById('input_gratif_obs').value;
+    var col3 = document.getElementById('input_gratif_percent').value;
+
 
     var table = document.getElementById("tableGratifica");
 
