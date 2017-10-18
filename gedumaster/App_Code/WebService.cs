@@ -997,16 +997,17 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string FuncionariosNewGratifica(string param1, string param2, string param3)
+    public string FuncionariosNewGratifica(string param1, string param2, string param3, string param4)
     {
         string url;
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_gratificacoes  (ID_func, Gratificacao , obs ) " +
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_gratificacoes  (ID_func, Gratificacao , obs, Percentual ) " +
            "VALUES (" +
            param1 + "," +
            "'" + param2 + "'," +
-           "'" + param3 + "'" +
+           "'" + param3 + "'," +
+           param4 + 
            ")"
            );
 

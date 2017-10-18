@@ -438,11 +438,12 @@ function GratificacaoIncluir() {
     var v1 = document.getElementById('IDHidden').value;
     var v2 = document.getElementById('input_GRATIF').value;
     var v3 = document.getElementById('input_gratif_obs').value;
+    var v4 = document.getElementById('input_gratif_percent').value;
 
     $.ajax({
         type: "POST",
         url: "WebService.asmx/FuncionariosNewGratifica",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '"}',
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {

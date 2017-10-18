@@ -90,12 +90,6 @@
                         </div>
                     </div>
 
-                    <br />
-
-                    <a href="#" onclick="PDF_Teste();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
-
-                    <asp:Button ID="btnReport" runat="server" Text="Generate Report" OnClick="GeneratePDF" />
-
                 </div>
             </div>
         </div>

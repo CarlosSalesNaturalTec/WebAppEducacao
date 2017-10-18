@@ -1232,6 +1232,7 @@
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Gratificação</th>
+                                            <th>Percentual(%)</th>
                                             <th>Observações</th>
                                         </tr>
                                     </thead>

@@ -324,7 +324,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 
     private void Gratificacoes(string ID)
     {
-        string stringSelect = "select ID_Gratifica , Gratificacao , Obs " +
+        string stringSelect = "select ID_Gratifica , Gratificacao , Obs, Percentual " +
             " from Tbl_Funcionarios_gratificacoes  " +
             " where ID_func = " + ID;
         OperacaoBanco operacaoUsers = new OperacaoBanco();
@@ -344,6 +344,9 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
