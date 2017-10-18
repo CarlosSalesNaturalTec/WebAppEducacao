@@ -458,22 +458,25 @@ function GratificacaoIncluir() {
 function GratificacaoInsertLinha() {
 
     var col1 = document.getElementById('input_GRATIF').value;
-    var col2 = document.getElementById('input_gratif_obs').value;
-    var col3 = document.getElementById('input_gratif_percent').value;
-
+    var col2 = document.getElementById('input_gratif_percent').value;
+    var col3 = document.getElementById('input_gratif_obs').value;
 
     var table = document.getElementById("tableGratifica");
 
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
 
     cell1.innerHTML = col1;
     cell2.innerHTML = col2;
+    cell3.innerHTML = col3;
 
     //apaga formulario
     document.getElementById('input_GRATIF').value = "";
     document.getElementById('input_gratif_obs').value = "";
+    document.getElementById('input_gratif_percent').value = "";
+
     document.getElementById("btCog1").style.display = "none";
 
 }

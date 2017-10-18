@@ -1201,8 +1201,8 @@
 
                                 </select>
                             </div>
-                            <label for="input_gratif_percent" class="col-md-1 control-label">Percentual</label>
-                            <div class="col-md-1">
+                            <label for="input_gratif_percent" class="col-md-2 control-label">Percentual</label>
+                            <div class="col-md-2">
                                 <input type="number" class="w3-input w3-border" id="input_gratif_percent">
                             </div>
                         </div>

@@ -112,6 +112,7 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
         string Coluna1, Coluna2, Coluna3, Coluna4, Coluna5;
+        int total_registros = 0;
 
         while (dados.Read())
         {
@@ -126,9 +127,24 @@ public partial class Funcionarios_Relatorios_PDF : System.Web.UI.Page
             cell = new PdfPCell(new Phrase(Coluna3, fontTabela)); table.AddCell(cell);
             cell = new PdfPCell(new Phrase(Coluna4, fontTabela)); table.AddCell(cell);
             if (colunas == 5 ) { cell = new PdfPCell(new Phrase(Coluna5, fontTabela)); table.AddCell(cell); }
-
+            total_registros++;
         }
         ConexaoBancoSQL.fecharConexao();
+
+        string totalreg = "Total de Registros:" + total_registros;
+        string linhabranco = "---";
+        cell = new PdfPCell(new Phrase(linhabranco, fontTabelaHeader)); table.AddCell(cell);
+        cell = new PdfPCell(new Phrase(linhabranco, fontTabelaHeader)); table.AddCell(cell);
+        cell = new PdfPCell(new Phrase(linhabranco, fontTabelaHeader)); table.AddCell(cell);
+        if (colunas == 5)
+        {
+            cell = new PdfPCell(new Phrase(linhabranco, fontTabelaHeader)); table.AddCell(cell);
+            cell = new PdfPCell(new Phrase(totalreg, fontTabelaHeader)); table.AddCell(cell);
+        }
+        else
+        {
+            cell = new PdfPCell(new Phrase(totalreg, fontTabelaHeader)); table.AddCell(cell);
+        }
     }
 
     public string NomeMunicipio(string IDAux)
