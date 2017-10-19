@@ -45,7 +45,7 @@
              <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-file"></i>&nbsp;Relatórios</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Funcionarios_Relatorios.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários por Secretaria</a>
+                    <a href="Funcionarios_Relatorios.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Instituições</a>
                 </div>
             </div>

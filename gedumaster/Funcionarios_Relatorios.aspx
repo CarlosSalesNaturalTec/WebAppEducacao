@@ -28,7 +28,7 @@
         <div id="Bloco1" class="w3-col s12 m12 l12 w3-padding">
             <div class="panel panel-success">
                 <div class="panel-heading text-center">
-                    <h4 class="panel-title w3-small">RELATÓRIO DE FUNCIONÁRIOS POR SECRETARIA</h4>
+                    <h4 class="panel-title w3-small">RELATÓRIO DE FUNCIONÁRIOS</h4>
                 </div>
 
                 <div class="panel-body">
@@ -90,6 +90,65 @@
                         </div>
                     </div>
 
+                    <br />
+
+                    <div class="form-group">
+                        <label for="input_civil" class="col-md-1 control-label">Estado Civil</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="input_civil">
+                                <option value="Todas">Todas</option>
+                                <option value="Solteiro(a)">Solteiro(a)</option>
+                                <option value="Casado(a)">Casado(a)</option>
+                                <option value="Divorciado(a)">Divorciado(a)</option>
+                                <option value="Viúvo(a)">Viúvo(a)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#" onclick="Rel_Civil();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="input_vinculo" class="col-md-1 control-label">Vínculo</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="input_vinculo">
+                                <option value="Todas">Todas</option>
+                                <option value="Cargo Comissionado">Cargo Comissionado</option>
+                                <option value="Contratado">Contratado</option>
+                                <option value="Estatutário">Estatutário</option>
+                                <option value="Estagiário">Estagiário</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#" onclick="Rel_Vinculo();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <label for="input_tiposangue" class="col-md-2 control-label">Tipo Sanguíneo</label>
+                        <div class="col-md-5">
+                            <select class="form-control" id="input_tiposangue">
+                                <option value="Todas">Todas</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="#" onclick="Rel_TipoSang();" class="btn btn-block btn-default"><i class="fa fa-print"></i></a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -115,11 +174,23 @@
             window.open(v_url, '_blank');
         }
 
-        function PDF_Teste() {
-            var v_url = "PDF_Teste.aspx";
+        function Rel_Civil() {
+            var v1 = document.getElementById('input_civil').value;
+            var v_url = "Funcionarios_Relatorios_PDF_4.aspx?p1=" + v1;
             window.open(v_url, '_blank');
         }
 
+        function Rel_TipoSang() {
+            var v1 = document.getElementById('input_tiposangue').value;
+            var v_url = "Funcionarios_Relatorios_PDF_5.aspx?p1=" + v1;
+            window.open(v_url, '_blank');
+        }
+
+        function Rel_Vinculo() {
+            var v1 = document.getElementById('input_vinculo').value;
+            var v_url = "Funcionarios_Relatorios_PDF_6.aspx?p1=" + v1;
+            window.open(v_url, '_blank');
+        }
 
     </script>
 
