@@ -928,18 +928,17 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string FuncionariosNewDigitaliza(string param1, string param2, string param3, string param4, string param5)
+    public string FuncionariosNewDigitaliza(string param1, string param2, string param3, string param4)
     {
         string url;
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Digitalizacoes (ID_func  , TipoDoc  , Obs , Digitaliza, Percentual ) " +
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Funcionarios_Digitalizacoes (ID_func  , TipoDoc  , Obs , Digitaliza) " +
            "VALUES (" +
            param1 + "," +
            "'" + param2 + "'," +
            "'" + param3 + "'," +
-           "'" + param4 + "'," +
-           param5 + 
+           "'" + param4 + "'" +
            ")");
 
         ConexaoBancoSQL.fecharConexao();
