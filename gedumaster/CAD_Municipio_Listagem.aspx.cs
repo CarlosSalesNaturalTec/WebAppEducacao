@@ -29,11 +29,10 @@ public partial class CAD_Municipio_Listagem : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
-            "<th>NOME</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>UF</th>" +
             "<th>GESTOR</th>" +
             "<th>TELEFONE</th>" +
-            "<th>DETALHES</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -66,11 +65,10 @@ public partial class CAD_Municipio_Listagem : System.Web.UI.Page
 
             // <!--*******Customização*******-->
             string stringcomaspas = "<tr>" +
-                "<td>" + Coluna1 + "</td>" +
+                "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
-                "<td>" + bt1 + bt2 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);
