@@ -480,7 +480,7 @@ public class WebService : System.Web.Services.WebService
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
         string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
-        string param60, string param61, string param62, string param63, string param64, string param65)
+        string param60, string param61, string param62, string param63, string param64, string param65, string param66)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Funcionarios (" +
@@ -536,6 +536,7 @@ public class WebService : System.Web.Services.WebService
             "SindicatoNome," +
             "lotado," +
             "Matricula," +
+            "Admissao," +
 
             "Banco," +
             "Agencia," +
@@ -628,8 +629,9 @@ public class WebService : System.Web.Services.WebService
             "'" + param61 + "'," +
             "'" + param62 + "'," +
             "'" + param63 + "'," +
-            param64 + "," +
-            "'" + param65 + "'," +
+            "'" + param64 + "'," +
+            param65 + "," +
+            "'" + param66 + "'," +
             "dateadd(hh,-3,getdate())" +
             ")";
 
@@ -651,11 +653,31 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string FuncionariosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
+        // apaga Dependentes
         OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from Tbl_Funcionarios where ID_func =" + param1);
+        Boolean deletar = operacao3.Delete("delete from Tbl_Funcionarios_Dependentes where ID_func =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        // apaga Carga Horaria
+        OperacaoBanco operacao4 = new OperacaoBanco();
+        deletar = operacao4.Delete("delete from Tbl_Funcionarios_CargaHor where ID_func =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        // apaga Beneficios
+        OperacaoBanco operacao5 = new OperacaoBanco();
+        deletar = operacao5.Delete("delete from Tbl_Funcionarios_Beneficios where ID_func =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        // apaga Digitalizações
+        OperacaoBanco operacao6 = new OperacaoBanco();
+        deletar = operacao6.Delete("delete from Tbl_Funcionarios_Digitalizacoes where ID_func =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        // apaga Funcionario
+        OperacaoBanco operacao_func = new OperacaoBanco();
+        deletar = operacao_func.Delete("delete from Tbl_Funcionarios where ID_func =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletar == true)
@@ -677,12 +699,12 @@ public class WebService : System.Web.Services.WebService
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
         string param50, string param51, string param52, string param53, string param54, string param55, string param56, string param57, string param58, string param59,
-        string param60, string param61, string param62, string param63, string param64, string param65)
+        string param60, string param61, string param62, string param63, string param64, string param65, string param66)
     {
 
-        // param0 a param63 = campos
-        // param64 = foto
-        // param65 = id func
+        // param0 a param64 = campos
+        // param65 = foto
+        // param66 = id func
 
         string url;
 
@@ -740,28 +762,29 @@ public class WebService : System.Web.Services.WebService
             "SindicatoNome= '" + param45 + "', " +
             "lotado = '" + param46 + "', " +
             "Matricula = '" + param47 + "', " +
+            "Admissao= '" + param48 + "', " +
 
-            "Banco= '" + param48 + "', " +
-            "Agencia= '" + param49 + "', " +
-            "ContaTipo= '" + param50 + "', " +
-            "ContaNumero= '" + param51 + "', " +
-            "ContaOperacao= '" + param52 + "', " +
+            "Banco= '" + param49 + "', " +
+            "Agencia= '" + param50 + "', " +
+            "ContaTipo= '" + param51 + "', " +
+            "ContaNumero= '" + param52 + "', " +
+            "ContaOperacao= '" + param53 + "', " +
 
-            "Alergias= '" + param53 + "', " +
-            "AlergiasMed= '" + param54 + "', " +
-            "AcidenteAvisar= '" + param55 + "', " +
-            "CartaoSUS = '" + param56 + "', " +
+            "Alergias= '" + param54 + "', " +
+            "AlergiasMed= '" + param55 + "', " +
+            "AcidenteAvisar= '" + param56 + "', " +
+            "CartaoSUS = '" + param57 + "', " +
 
-            "FardaCamisa= '" + param57 + "', " +
-            "FardaCamiseta= '" + param58 + "', " +
-            "FardaCalca= '" + param59 + "', " +
-            "FardaSapato= '" + param60 + "', " +
-            "FardaBota= '" + param61 + "', " +
-            "FardaObs= '" + param62 + "', " +
-            "Cracha	= '" + param63 + "', " +
+            "FardaCamisa= '" + param58 + "', " +
+            "FardaCamiseta= '" + param59 + "', " +
+            "FardaCalca= '" + param60 + "', " +
+            "FardaSapato= '" + param61 + "', " +
+            "FardaBota= '" + param62 + "', " +
+            "FardaObs= '" + param63 + "', " +
+            "Cracha	= '" + param64 + "', " +
 
-            "FotoDataURI= '" + param64 + "' " +
-            "where ID_func = " + param65);
+            "FotoDataURI= '" + param65 + "' " +
+            "where ID_func = " + param66);
 
         ConexaoBancoSQL.fecharConexao();
 

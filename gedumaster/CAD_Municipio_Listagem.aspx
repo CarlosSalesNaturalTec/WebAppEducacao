@@ -7,12 +7,23 @@
 <head runat="server">
     
     <title>Listagem de Municípios</title>         
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Styles: W3, BootsStrap, Font-Awesome -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Paginação -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
 
     <style> 
         body {
@@ -25,10 +36,10 @@
     <!-- Header  -->
     <p></p>
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-green" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Municípios Cadastrados:   <!--*******Customização*******-->
+        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Municípios Cadastrados:   
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> 
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Município</button>  <!--*******Customização*******-->
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Município</button>  
     </div>
     <br />
 
@@ -63,9 +74,11 @@
         </div>
     </div>
 
+    <!-- Script Paginação  -->
+    <script type="text/javascript" src="Scripts/codePaginacao.js"></script>
 
     <!-- Scripts Diversos -->
-    <script type="text/javascript" src="Scripts/codeMunicipio_Listagem.js"></script>   <!--*******Customização*******-->
+    <script type="text/javascript" src="Scripts/codeMunicipio_Listagem.js"></script>   
 
 </body>
 </html>

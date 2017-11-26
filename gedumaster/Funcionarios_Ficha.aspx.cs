@@ -87,6 +87,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "SindicatoNome," +
             "lotado," +
             "Matricula," +
+            "format(Admissao, 'yyyy-MM-dd') as d1," +
 
             "Banco," +
             "Agencia," +
@@ -117,19 +118,19 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 64; i++)
+            for (int i = 0; i < 65; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[64]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[65]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[64]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[65]) + "\";";
             str.Append(ScriptDados);
 
             //id do municipio
-            Literal_IDInst.Text = Convert.ToString(rcrdset[65]);
+            Literal_IDInst.Text = Convert.ToString(rcrdset[66]);
 
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
