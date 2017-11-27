@@ -754,6 +754,92 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+    [WebMethod]
+    public string ProdutosSalvar(string param0, string param1, string param2, string param3, string param4, string param5)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Produtos (Descricao, marca, unidade, estoque_min, ID_Inst, tipo ) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            param3 + "," +            
+            param4 + "," +
+            "'" + param5 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Produtos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string ProdutosAlterar(string param0, string param1, string param2, string param3, string param4)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Produtos set " +
+            "descricao= '" + param0 + "'," +
+            "marca= '" + param1 + "'," +
+            "unidade= '" + param2 + "'," +
+            "estoque_min = " + param3 + 
+            " where ID_Produto = " + param4);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Produtos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
+    [WebMethod]
+    public string ProdutosExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Produtos where ID_produto =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Produtos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
+
 }
 
 public class ConexaoBancoSQL
@@ -862,3 +948,5 @@ public class OperacaoBanco
     }
 
 }
+
+

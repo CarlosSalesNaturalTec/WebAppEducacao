@@ -1,5 +1,5 @@
 ﻿function NovoRegistro() {
-    window.location.href = "Salas_Novo.aspx";  // <!--*******Customização*******-->
+    window.location.href = "Produtos_Novo.aspx";  // <!--*******Customização*******-->
 }
 
 function ExcluirRegistro() {
@@ -9,7 +9,7 @@ function ExcluirRegistro() {
     // <!--*******Customização*******-->
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/SalasExcluir",
+        url: "WebService.asmx/ProdutosExcluir",
         data: '{param1: "' + idRegistro + '" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -32,7 +32,4 @@ function Excluir(IDExc) {
 function Excluir_cancel() {
     document.getElementById('DivModal').style.display = 'none';
 }
-
-
-
 

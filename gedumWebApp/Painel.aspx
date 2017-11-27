@@ -94,8 +94,8 @@
 
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Alimentos</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Produtos</a>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">                
+                    <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Produtos</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Fornecedores</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Estoque Alimentos</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Receitas</a>
