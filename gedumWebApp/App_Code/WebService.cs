@@ -837,7 +837,109 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+    [WebMethod]
+    public string FornecedorAlimentosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9, string param10, string param11,
+        string param12, string param13, string param14, string param15)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Fornecedor_Alimento (Descricao, cpf_cnpj, cep, rua, numero, complemento, bairro,"+
+                           "cidade, uf, telefone1, telefone2, email, home_page, obs,ID_Inst, tipo ) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            "'" + param9 + "'," +
+            "'" + param10 + "'," +
+            "'" + param11 + "'," +
+            "'" + param12 + "'," +
+            "'" + param13 + "'," +
+            param14 + "," +
+            "'" + param15 + "'" +
+            ")";
 
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "FornecedorAlimentos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string FornecedorAlimentosAlterar(string param0, string param1, string param2, string param3, string param4, string param6,
+        string param7, string param8, string param9, string param10, string param11, string param12, string param13, string param14)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Fornecedor_Alimento set " +
+            "descricao= '" + param0 + "'," +
+            "cpf_cnpj= '" + param1 + "'," +
+            "cep= '" + param2 + "'," +
+            "rua= '" + param3 + "'," +
+            "numero= '" + param4 + "'," +
+            "complemento= '" + param5 + "'," +
+            "bairro= '" + param6 + "'," +
+            "cidade= '" + param7 + "'," +
+            "uf= '" + param8 + "'," +
+            "telefone1= '" + param9 + "'," +
+            "telefone2= '" + param10 + "'," +
+            "email= '" + param11 + "'," +
+            "home_page= '" + param12 + "'," +
+            "obs= '" + param13 + "'" +
+            " where ID_FornecedorAlimento = " + param14);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "FornecedorAlimentos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string FornecedorAlimentosExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Fornecedor_Alimento where ID_produto =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Produtos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
 
 
 }
