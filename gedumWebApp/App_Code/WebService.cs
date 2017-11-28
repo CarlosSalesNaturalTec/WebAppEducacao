@@ -880,8 +880,8 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string FornecedorAlimentosAlterar(string param0, string param1, string param2, string param3, string param4, string param5,
-        string param6, string param7, string param8, string param9, string param10, string param11, string param12, string param13, string param14)
+    public string FornecedorAlimentosAlterar(string param0, string param1, string param2, string param3, string param4, string param6,
+        string param7, string param8, string param9, string param10, string param11, string param12, string param13, string param14)
     {
 
         string url;
@@ -917,7 +917,6 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
-
 
     [WebMethod]
     public string FornecedorAlimentosExcluir(string param1)
@@ -992,6 +991,103 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+
+
+    [WebMethod]
+    public string Patrimonio_Salvar(string param0, string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9, string param10, string param11, string param12)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Patrimonios (Descricao , Tombo , Tipo_Bem , Situacao , Valor, Incorp_Tipo , Incorp_Data ," +
+                           "NF_Numero , NF_Data , Fornecedor , Sala , Deprec_Anual , Observacoes ) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            param4 + "," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            "'" + param9 + "'," +
+            "'" + param10 + "'," +
+            param11 + "," +
+            "'" + param12 + "'" +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Patrimonio_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string Patrimonio_Alterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6,
+       string param7, string param8, string param9, string param10, string param11, string param12, string param13)
+    {
+
+        string url;
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Patrimonios set " +
+            "descricao= '" + param0 + "'," +
+            "Tombo = '" + param1 + "'," +
+            "Tipo_Bem= '" + param2 + "'," +
+            "Situacao= '" + param3 + "'," +
+            "Valor= " + param4 + "," +
+            "Incorp_Tipo= '" + param5 + "'," +
+            "Incorp_Data= '" + param6 + "'," +
+            "NF_Numero= '" + param7 + "'," +
+            "NF_Data= '" + param8 + "'," +
+            "Fornecedor= '" + param9 + "'," +
+            "Sala= '" + param10 + "'," +
+            "Deprec_Anual= " + param11 + "," +
+            "Observacoes= '" + param12 + "'" +
+            " where ID_FornecedorAlimento = " + param13);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Patrimonio_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string Patrimonio_Excluir(string param1)
+    {
+        string url;
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Patrimonios where ID_Patrimonio =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Patrimonio_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
 
 
 }
