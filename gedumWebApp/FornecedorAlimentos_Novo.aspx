@@ -48,7 +48,7 @@
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Fornecedor Alimento</h3>
             <hr />
 
-            <div class="w3-threequarter">
+            <div class="w3-rest">
                 <form class="form-horizontal">
                     <fieldset>
 
@@ -59,30 +59,85 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="input_marca" class="col-md-2 control-label">Marca</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_marca">
+
+                            <label for="input_cpfcnpj" class="col-md-2 control-label">CPF/CNPJ</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_cpfcnpj">
+                            </div>
+
+                            <label for="input_cep" class="col-md-2 control-label">CEP</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_cep">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_und" class="col-md-2 control-label">Unidade Medida</label>
+                            <label for="input_rua" class="col-md-2 control-label">Rua</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_rua">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_numero" class="col-md-2 control-label">Numero</label>
                             <div class="col-md-4">
-                                <select class="form-control" id="input_und">
-                                    <option value="UNIDADE">UNIDADE</option> 
-                                    <option value="CAIXA">CAIXA</option>
-                                    <option value="PACOTE">PACOTE</option>
-                                    <option value="LITRO">LITRO</option>
-                                    <option value="GARRAFA">GARRAFA</option>
-                                    <option value="KG">KG</option>
-                                </select>
+                                <input type="text" class="form-control" id="input_numero">
                             </div>
 
-                            <label for="input_estoquemin" class="col-md-2 control-label">Estoque Mínimo</label>
+                            <label for="input_complemento" class="col-md-2 control-label">Complemento</label>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" id="input_estoquemin">
+                                <input type="text" class="form-control" id="input_complemento">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_bairro" class="col-md-2 control-label">Bairro</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_bairro">
+                            </div>
+
+                            <label for="input_cidade" class="col-md-2 control-label">Cidade</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_cidade">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_uf" class="col-md-2 control-label">Estado</label>
+                            <div class="col-md-1">
+                                <input type="text" class="form-control" id="input_uf">
+                            </div>
+
+                            <label for="input_fone1" class="col-md-2 control-label">Telefone 1</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_fone1">
+                            </div>
+
+                            <label for="input_fone2" class="col-md-2 control-label">Telefone 2</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_fone2">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_email" class="col-md-2 control-label">Email</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_email">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_homepage" class="col-md-2 control-label">Home Page</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_homepage">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_obs" class="col-md-2 control-label">Observacao</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_obs">
                             </div>
                         </div>
 
@@ -118,7 +173,7 @@
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeProdutos_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/codeFornecedorAlimentos_Novo.js"></script>
 
 </body>
 </html>

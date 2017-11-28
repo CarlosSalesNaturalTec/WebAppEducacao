@@ -843,7 +843,7 @@ public class WebService : System.Web.Services.WebService
         string param12, string param13, string param14, string param15)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Fornecedor_Alimento (Descricao, cpf_cnpj, cep, rua, numero, complemento, bairro,"+
+        string strInsert = "insert INTO Tbl_Fornecedor_Alimentos (Descricao, cpf_cnpj, cep, rua, numero, complemento, bairro,"+
                            "cidade, uf, telefone1, telefone2, email, home_page, obs,ID_Inst, tipo ) " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -880,14 +880,14 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string FornecedorAlimentosAlterar(string param0, string param1, string param2, string param3, string param4, string param6,
-        string param7, string param8, string param9, string param10, string param11, string param12, string param13, string param14)
+    public string FornecedorAlimentosAlterar(string param0, string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8, string param9, string param10, string param11, string param12, string param13, string param14)
     {
 
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Update("update Tbl_Fornecedor_Alimento set " +
+        bool inserir = operacao.Update("update Tbl_Fornecedor_Alimentos set " +
             "descricao= '" + param0 + "'," +
             "cpf_cnpj= '" + param1 + "'," +
             "cep= '" + param2 + "'," +
@@ -926,12 +926,12 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from Tbl_Fornecedor_Alimento where ID_produto =" + param1);
+        Boolean deletar = operacao3.Delete("delete from Tbl_Fornecedor_Alimentos where ID_fornecedoralimento =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletar == true)
         {
-            url = "Produtos_Listagem.aspx";
+            url = "FornecedorAlimentos_Listagem.aspx";
         }
         else
         {

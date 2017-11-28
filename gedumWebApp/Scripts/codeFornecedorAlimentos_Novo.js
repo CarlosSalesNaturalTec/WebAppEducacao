@@ -17,8 +17,14 @@ function SalvarRegistro() {
     }
 
     // id
-    var vID = document.getElementById("IDFornecedorAlimentoHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "'";
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "',";
+
+    strTipo = "ALIMENTOS";
+
+    // Tipo de Produto: Alimento
+    i++;
+    strLine = strLine + "param" + i + ":'" + strTipo + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -55,7 +61,7 @@ function AlterarRegistro() {
     }
 
     // id
-    var vID = document.getElementById("IDInstHidden").value;
+    var vID = document.getElementById("IDFornecedorAlimentoHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
@@ -79,7 +85,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "FonrecedorAlimentos_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "FornecedorAlimentos_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
 }
 

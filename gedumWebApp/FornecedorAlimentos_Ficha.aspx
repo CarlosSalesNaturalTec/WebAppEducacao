@@ -48,7 +48,7 @@
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Fornecedor Alimentos</h3>
             <hr />
 
-            <div class="w3-threequarter">
+            <div class="w3-rest">
                 <form class="form-horizontal">
                     <fieldset>
 
@@ -67,7 +67,7 @@
                             </div>
 
                             <label for="input_cep" class="col-md-2 control-label">CEP</label>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_cep">
                             </div>
                         </div>
@@ -81,42 +81,46 @@
 
                         <div class="form-group">
                             <label for="input_numero" class="col-md-2 control-label">Numero</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_numero">
                             </div>
 
                             <label for="input_complemento" class="col-md-2 control-label">Complemento</label>
-                            <div class="col-md-9">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" id="input_complemento">
                             </div>
+                        </div>
 
+                        <div class="form-group">
                             <label for="input_bairro" class="col-md-2 control-label">Bairro</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_bairro">
                             </div>
 
                             <label for="input_cidade" class="col-md-2 control-label">Cidade</label>
-                            <div class="col-md-9">
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" id="input_cidade">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_uf" class="col-md-2 control-label">Estado</label>
-                            <div class="col-md-9">
+                            <div class="col-md-1">
                                 <input type="text" class="form-control" id="input_uf">
                             </div>
 
                             <label for="input_fone1" class="col-md-2 control-label">Telefone 1</label>
-                            <div class="col-md-9">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_fone1">
                             </div>
 
                             <label for="input_fone2" class="col-md-2 control-label">Telefone 2</label>
-                            <div class="col-md-9">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_fone2">
                             </div>
+                        </div>
 
+                        <div class="form-group">
                             <label for="input_email" class="col-md-2 control-label">Email</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_email">
@@ -128,7 +132,9 @@
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_homepage">
                             </div>
+                        </div>
 
+                        <div class="form-group">
                             <label for="input_obs" class="col-md-2 control-label">Observacao</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_obs">
@@ -163,7 +169,7 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDInstHidden" type="hidden" />
+    <input id="IDFornecedorAlimentoHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
