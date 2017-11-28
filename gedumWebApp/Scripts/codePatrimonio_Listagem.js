@@ -1,5 +1,5 @@
 ﻿function NovoRegistro() {
-    window.location.href = "Salas_Novo.aspx";  // <!--*******Customização*******-->
+    window.location.href = "Patrimonio_Novo.aspx";  // <!--*******Customização*******-->
 }
 
 function ExcluirRegistro() {

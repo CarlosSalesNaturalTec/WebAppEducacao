@@ -996,11 +996,11 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string Patrimonio_Salvar(string param0, string param1, string param2, string param3, string param4, string param5,
-        string param6, string param7, string param8, string param9, string param10, string param11, string param12)
+        string param6, string param7, string param8, string param9, string param10, string param11, string param12, string param13)
     {
         string url;
         string strInsert = "insert INTO Tbl_Patrimonios (Descricao , Tombo , Tipo_Bem , Situacao , Valor, Incorp_Tipo , Incorp_Data ," +
-                           "NF_Numero , NF_Data , Fornecedor , Sala , Deprec_Anual , Observacoes ) " +
+                           "NF_Numero , NF_Data , Fornecedor , Sala , Deprec_Anual , Observacoes, ID_Inst ) " +
             "VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
@@ -1014,7 +1014,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param9 + "'," +
             "'" + param10 + "'," +
             param11 + "," +
-            "'" + param12 + "'" +
+            "'" + param12 + "'," +
+            param13 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
