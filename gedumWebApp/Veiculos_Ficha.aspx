@@ -45,10 +45,10 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Nova Sala</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Veículo</h3>
             <hr />
 
-            <div class="w3-threequarter">
+            <div class="w3-rest">
                 <form class="form-horizontal">
                     <fieldset>
 
@@ -57,13 +57,12 @@
                             <div class="col-md-3">
                                 <input type="text" class="form-control" id="input_modelo">
                             </div>
-                        </div>
 
-                        <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_nome">
                             </div>
+
                         </div>
 
                         <div class="form-group">
@@ -80,12 +79,12 @@
 
                         <div class="form-group">
                             <label for="input_kminicial" class="col-md-2 control-label">Km Inicial</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_kminicial">
                             </div>
 
                             <label for="input_combustivel" class="col-md-2 control-label">Combustível</label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_combustivel">
                             </div>
                         </div>
@@ -95,7 +94,9 @@
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_proprietario">
                             </div>
+                        </div>
 
+                        <div class="form-group">
                             <label for="input_obs" class="col-md-2 control-label">Observação</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_obs">
