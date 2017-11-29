@@ -1121,19 +1121,21 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string VeiculosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
-           string param6, string param7)
+           string param6, string param7, string param8, string param9)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Veiculos (id_modelo, nome, placa, cor, km_inicial, proprietario, obs, ID_Inst ) " +
-            "VALUES (" 
-            + param0 + "," +
-            "'" + param1 + "'," +
-            "'" + param2 + "'," +
-            "'" + param3 + "'," +
-            param4 + "," +
-            "'" + param5 + "'," +
-            "'" + param6 + "'," +
-            param7 +
+        string strInsert = "insert INTO Tbl_Veiculos (modelo, ID_Inst, ID_modelo) " +
+            //, nome, placa, cor, km_inicial, combustivel, proprietario, obs, ID_Inst ) " +
+            "VALUES (" + 
+            "'" + param0 + "'," +
+//            "'" + param1 + "'," +
+//            "'" + param2 + "'," +
+//            "'" + param3 + "'," +
+//            "'" + param4 + "'," +
+//            "'" + param5 + "'," +
+//            "'" + param6 + "'," +
+ //           "'" + param7 + "'," +
+            param8 + param9 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
