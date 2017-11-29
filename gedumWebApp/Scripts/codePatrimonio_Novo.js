@@ -96,6 +96,7 @@ function UIAguardar() {
         x[i].style.display = "block";
     }
 }
+
 //Menu
 function openLink(evt, animName) {
     var i, x, tablinks;

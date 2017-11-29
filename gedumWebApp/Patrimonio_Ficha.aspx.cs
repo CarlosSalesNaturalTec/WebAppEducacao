@@ -30,9 +30,9 @@ public partial class Patrimonio_Ficha : System.Web.UI.Page
             "Situacao ," +
             "Valor, " +
             "Incorp_Tipo, " +
-            "Incorp_Data, " +
+            "format(Incorp_Data,'yyyy-MM-dd') as d1, " +
             "NF_Numero, " +
-            "NF_Data, " +
+            "format(NF_Data,'yyyy-MM-dd') as d2, " +
             "Fornecedor, " +
             "Sala, " +
             "Deprec_Anual, " +
@@ -53,7 +53,6 @@ public partial class Patrimonio_Ficha : System.Web.UI.Page
             //ID do registro
             ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
-
         }
         ConexaoBancoSQL.fecharConexao();
 
@@ -61,8 +60,6 @@ public partial class Patrimonio_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();
-
     }
-
 
 }

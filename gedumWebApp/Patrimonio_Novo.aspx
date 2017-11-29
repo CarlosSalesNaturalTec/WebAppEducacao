@@ -106,7 +106,7 @@
 
                             <label for="input_valor" class="col-md-2 control-label">Valor do Bem</label>
                             <div class="col-md-4">
-                                <input type="number" class="form-control" id="input_valor">
+                                <input type="number" class="form-control" id="input_valor" value="0">
                             </div>
 
                         </div>
@@ -153,7 +153,7 @@
 
                             <label for="input_deprec" class="col-md-2 control-label">Depeciação Anual (%)</label>
                             <div class="col-md-4">
-                                <input type="number" class="form-control" id="input_deprec">
+                                <input type="number" class="form-control" id="input_deprec" value="0">
                             </div>
                         </div>
 

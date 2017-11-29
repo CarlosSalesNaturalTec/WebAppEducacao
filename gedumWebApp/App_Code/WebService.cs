@@ -1067,25 +1067,10 @@ public class WebService : System.Web.Services.WebService
 
         string url;
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Update("update Tbl_Patrimonios set " +
-            "descricao= '" + param0 + "'," +
-            "Tombo = '" + param1 + "'," +
-            "Tipo_Bem= '" + param2 + "'," +
-            "Situacao= '" + param3 + "'," +
-            "Valor= " + param4 + "," +
-            "Incorp_Tipo= '" + param5 + "'," +
-            "Incorp_Data= '" + param6 + "'," +
-            "NF_Numero= '" + param7 + "'," +
-            "NF_Data= '" + param8 + "'," +
-            "Fornecedor= '" + param9 + "'," +
-            "Sala= '" + param10 + "'," +
-            "Deprec_Anual= " + param11 + "," +
-            "Observacoes= '" + param12 + "'" +
-            " where ID_FornecedorAlimento = " + param13);
-
+        bool alterar = operacao.Update("update Tbl_Patrimonios set Tombo='x' where ID_patrimonio>0");
         ConexaoBancoSQL.fecharConexao();
 
-        if (inserir == true)
+        if (alterar == true)
         {
             url = "Patrimonio_Listagem.aspx";
         }
