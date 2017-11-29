@@ -1123,18 +1123,19 @@ public class WebService : System.Web.Services.WebService
            string param6, string param7, string param8, string param9)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Veiculos (modelo, ID_Inst, ID_modelo) " +
-            //, nome, placa, cor, km_inicial, combustivel, proprietario, obs, ID_Inst ) " +
+        string strInsert = "insert INTO Tbl_Veiculos (modelo, nome, placa, cor, km_inicial, combustivel," +  
+            "proprietario, obs, ID_Inst, ID_modelo ) " +
             "VALUES (" + 
             "'" + param0 + "'," +
-//            "'" + param1 + "'," +
-//            "'" + param2 + "'," +
-//            "'" + param3 + "'," +
-//            "'" + param4 + "'," +
-//            "'" + param5 + "'," +
-//            "'" + param6 + "'," +
- //           "'" + param7 + "'," +
-            param8 + param9 +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            param8 + "," +
+            param9 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -1153,19 +1154,23 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string VeiculosAlterar(string param0, string param1, string param2, string param3, string param4, string param5)
+    public string VeiculosAlterar(string param0, string param1, string param2, string param3, 
+        string param4, string param5, string param6, string param7, string param8)
     {
 
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Update("update Tbl_Salas set " +
-            "Nome= '" + param0 + "'," +
-            "sala_adm= '" + param1 + "'," +
-            "dimensao= '" + param2 + "'," +
-            "capacidade_max = '" + param3 + "'," +
-            "obs = '" + param4 + "' " +
-            "where ID_Sala = " + param5);
+        bool inserir = operacao.Update("update Tbl_Veiculos set " +
+            "modelo= '" + param0 + "'," +
+            "nome= '" + param1 + "'," +
+            "placa= '" + param2 + "'," +
+            "cor = '" + param3 + "'," +
+            "km_inicial = '" + param4 + "'," +
+            "combustivel = '" + param5 + "'," +
+            "proprietario = '" + param6 + "'," +
+            "obs = '" + param7 + "' " +
+            "where ID_Veiculo = " + param8);
 
         ConexaoBancoSQL.fecharConexao();
 

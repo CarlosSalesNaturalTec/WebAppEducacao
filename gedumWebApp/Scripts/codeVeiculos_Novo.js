@@ -1,11 +1,11 @@
-﻿document.getElementById("input_nome").focus();
+﻿document.getElementById("input_modelo").focus();
 
 function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
         alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_nome").focus();
+        document.getElementById("input_modelo").focus();
         return;
     }
 
@@ -18,10 +18,11 @@ function SalvarRegistro() {
 
     // id
     var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "'";
+    strLine = strLine + "param" + i + ":'" + vID + "',";
 
     // id_modelo
     var vIDModelo = '0'; //document.getElementById("IDInstHidden").value;
+    i++;
     strLine = strLine + "param" + i + ":'" + vIDModelo + "'";
 
 
