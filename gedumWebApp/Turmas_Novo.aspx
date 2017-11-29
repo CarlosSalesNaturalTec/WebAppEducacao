@@ -36,7 +36,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL********-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -52,7 +52,6 @@
         <!-- GRUPO 1 - Dados Turmas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas - Nova Turma</h3>
             <hr />
 
@@ -78,20 +77,6 @@
                             <label for="input_tipoatd" class="col-md-2 control-label">Tipo Atendimento</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_tipoatd">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_instituicao" class="col-md-2 control-label">Instituição</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_instituicao">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_localizacao" class="col-md-2 control-label">Localização da Sala</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_localizacao">
                             </div>
                         </div>
 
@@ -135,24 +120,9 @@
                         </p>
                     </div>
                 </div>
-                <!-- Botões Controle -->
 
             </div>
-
-            <!-- Camera -->
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-            <!-- Camera -->
-
         </div>
-
     </div>
 
     <!-- auxiliares -->
@@ -161,9 +131,6 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeTurmas_Novo.js"></script>
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
-    <!-- <script type="text/javascript" src="Scripts/codeAlunos_Mapa.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
-
+    
 </body>
 </html>

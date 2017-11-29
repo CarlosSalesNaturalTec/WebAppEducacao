@@ -116,7 +116,6 @@
                     <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
                     <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Disciplinas</a>
                     <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Salas</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Vagas</a>
                     <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Turmas</a>
                     <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Visitas</a>
                 </div>

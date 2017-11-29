@@ -41,7 +41,7 @@ public partial class Visitas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_Visita , DataVisita , nome, Funcionario , Objetivo , Observacoes " +
+        string stringselect = "select ID_Visita , format(DataVisita,'dd/MM/yyyy') as d1 , nome, Funcionario , Objetivo , Observacoes " +
                 "from Tbl_Visitas  " +
                 "where ID_Inst = " + IdInst +
                 "order by ID_Visita desc";
