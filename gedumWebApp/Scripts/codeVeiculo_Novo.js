@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Modelo");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
         document.getElementById("input_nome").focus();
         return;
     }
@@ -25,7 +25,7 @@ function SalvarRegistro() {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/ModelosSalvar",
+        url: "WebService.asmx/VeiculosSalvar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -42,7 +42,7 @@ function AlterarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Modelo");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
         document.getElementById("input_nome").focus();
         return;
     }
@@ -63,7 +63,7 @@ function AlterarRegistro() {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/ModelosAlterar",
+        url: "WebService.asmx/VeiculosAlterar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -79,7 +79,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Modelos_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Veiculos_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
 }
 
