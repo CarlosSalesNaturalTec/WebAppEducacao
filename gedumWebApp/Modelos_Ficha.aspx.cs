@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class Salas_Ficha : System.Web.UI.Page
+public partial class Modelos_Ficha : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
@@ -23,20 +23,15 @@ public partial class Salas_Ficha : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        string stringSelect = "select " +
-            "Nome," +
-            "sala_adm ," +
-            "dimensao ," +
-            "capacidade_max ," +
-            "obs " +
-            "from Tbl_Salas " +
-            "where ID_Sala = " + ID;
+        string stringSelect = "select Nome,obs " +
+            "from Tbl_Modelo " +
+            "where ID_modelo = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 4; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);

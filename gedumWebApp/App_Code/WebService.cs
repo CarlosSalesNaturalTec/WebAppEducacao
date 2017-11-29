@@ -1120,11 +1120,11 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string ModelosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+    public string VeiculosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
            string param6, string param7)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Salas (id_modelo, nome, placa, cor, km_inicial, proprietario, obs, ID_Inst ) " +
+        string strInsert = "insert INTO Tbl_Veiculos (id_modelo, nome, placa, cor, km_inicial, proprietario, obs, ID_Inst ) " +
             "VALUES (" 
             + param0 + "," +
             "'" + param1 + "'," +
@@ -1170,7 +1170,7 @@ public class WebService : System.Web.Services.WebService
 
         if (inserir == true)
         {
-            url = "Salas_Listagem.aspx";
+            url = "Veiculos_Listagem.aspx";
         }
         else
         {
@@ -1181,18 +1181,18 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string SalasExcluir(string param1)
+    public string VeiculosExcluir(string param1)
     {
         // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from Tbl_Salas where ID_sala =" + param1);
+        Boolean deletar = operacao3.Delete("delete from Tbl_Veiculos where ID_veiculo =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletar == true)
         {
-            url = "Salas_Listagem.aspx";
+            url = "Veiculos_Listagem.aspx";
         }
         else
         {

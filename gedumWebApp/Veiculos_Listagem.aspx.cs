@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class Salas_Listagem : System.Web.UI.Page
+public partial class Veiculos_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
@@ -26,9 +26,10 @@ public partial class Salas_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>SALA ADM</th>" +
-            "<th>DIMENSÃO</th>" +
-            "<th>CAPACIDADE MÁXIMA</th>" +
+            "<th>MODELO</th>" +
+            "<th>PLACA</th>" +
+            "<th>COR</th>" +
+            "<th>COR</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -39,10 +40,11 @@ public partial class Salas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_Sala, nome, sala_adm ,dimensao , capacidade_max  " +
-                "from Tbl_Salas " +
-                "where ID_Inst =" + InstID +
-                "order by Nome";
+        string stringselect = "select v.ID_veiculo, v.nome, v.placa, v.cor, m.nome as modelo" +
+                " from Tbl_Veiculos v" +
+                " inner join modelo m on (v.id_modelo = m.id_modelo)" + 
+                " where ID_Inst =" + InstID +
+                " order by Nome";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
