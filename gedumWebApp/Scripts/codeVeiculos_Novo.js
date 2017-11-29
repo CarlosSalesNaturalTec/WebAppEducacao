@@ -20,6 +20,11 @@ function SalvarRegistro() {
     var vID = document.getElementById("IDInstHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
 
+    // id_modelo
+    var vIDModelo = '0'; //document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vIDModelo + "'";
+
+
     //exibir animações - aguarde...
     UIAguardar();
 

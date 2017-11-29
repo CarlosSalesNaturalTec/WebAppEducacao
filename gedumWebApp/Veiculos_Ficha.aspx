@@ -54,15 +54,16 @@
 
                         <div class="form-group">
                             <label for="input_modelo" class="col-md-2 control-label">Modelo</label>
-                            <div class="col-md-3">
+                            <div class="col-md-10">
                                 <input type="text" class="form-control" id="input_modelo">
                             </div>
+                        </div>
 
+                        <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-4">
+                            <div class="col-md-10">
                                 <input type="text" class="form-control" id="input_nome">
                             </div>
-
                         </div>
 
                         <div class="form-group">
@@ -91,14 +92,14 @@
 
                         <div class="form-group">
                             <label for="input_proprietario" class="col-md-2 control-label">Proprietário</label>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <input type="text" class="form-control" id="input_proprietario">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_obs" class="col-md-2 control-label">Observação</label>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <input type="text" class="form-control" id="input_obs">
                             </div>
                         </div>

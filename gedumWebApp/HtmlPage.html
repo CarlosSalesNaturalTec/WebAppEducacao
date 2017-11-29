@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Veiculos_Novo.aspx.cs" Inherits="Veiculos_Novo" %>
+﻿
 
 <!DOCTYPE html>
 
@@ -34,7 +34,7 @@
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
+        <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
         <hr />
 
     </div>
@@ -48,7 +48,7 @@
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Veículo</h3>
             <hr />
 
-            <div class="w3-threequarter">
+            <div class="w3-rest">
                 <form class="form-horizontal">
                     <fieldset>
 
@@ -113,9 +113,10 @@
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair
+                            </button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
                             </button>
 
@@ -140,4 +141,3 @@
 
 </body>
 </html>
-
