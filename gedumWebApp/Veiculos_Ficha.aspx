@@ -55,52 +55,52 @@
                         <div class="form-group">
                             <label for="input_modelo" class="col-md-2 control-label">Modelo</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_modelo">
+                                <input type="text" class="form-control" id="input_modelo"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_nome">
+                                <input type="text" class="form-control" id="input_nome"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_placa" class="col-md-2 control-label">Placa</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_placa">
+                                <input type="text" class="form-control" id="input_placa"/>
                             </div>
 
                             <label for="input_cor" class="col-md-2 control-label">Cor</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_cor">
+                                <input type="text" class="form-control" id="input_cor"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_kminicial" class="col-md-2 control-label">Km Inicial</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_kminicial">
+                                <input type="text" class="form-control" id="input_kminicial" value="0"/>
                             </div>
 
                             <label for="input_combustivel" class="col-md-2 control-label">Combustível</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_combustivel">
+                                <input type="text" class="form-control" id="input_combustivel"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_proprietario" class="col-md-2 control-label">Proprietário</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_proprietario">
+                                <input type="text" class="form-control" id="input_proprietario"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_obs" class="col-md-2 control-label">Observação</label>
                             <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_obs">
+                                <input type="text" class="form-control" id="input_obs"/>
                             </div>
                         </div>
 

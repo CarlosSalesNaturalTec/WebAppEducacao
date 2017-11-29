@@ -39,10 +39,10 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select v.ID_veiculo, v.nome, v.placa, v.cor, m.nome as modelo " +
+        string stringselect = "select v.ID_veiculo, v.modelo, v.nome, v.placa, v.cor " +
                 " from Tbl_Veiculos v" +
-                " left join tbl_modelo m on (v.id_modelo = m.id_modelo)" + 
-                " where v.ID_Inst =" + InstID +
+                // " left join tbl_modelo m on (v.id_modelo = m.id_modelo)" + 
+                " where ID_Inst =" + InstID +
                 " order by v.Nome";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -54,8 +54,8 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
 
             string Coluna1 = Convert.ToString(dados[1]);
             string Coluna2 = Convert.ToString(dados[2]);
-            // string Coluna3 = Convert.ToString(dados[3]);
-            // string Coluna4 = Convert.ToString(dados[4]);
+            string Coluna3 = Convert.ToString(dados[3]);
+            string Coluna4 = Convert.ToString(dados[4]);
             
             // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Veiculos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
@@ -64,8 +64,8 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
-               // "<td>" + Coluna3 + "</td>" +
-                // "<td>" + Coluna4 + "</td>" +
+                "<td>" + Coluna3 + "</td>" +
+                "<td>" + Coluna4 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);
