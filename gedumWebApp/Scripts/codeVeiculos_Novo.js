@@ -1,11 +1,11 @@
-﻿document.getElementById("input_nome").focus();
+﻿document.getElementById("input_modelo").focus();
 
 function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
         alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_nome").focus();
+        document.getElementById("input_modelo").focus();
         return;
     }
 

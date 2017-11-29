@@ -24,15 +24,15 @@ public partial class Veiculos_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "id_modelo, Nome, placa, cor, km_inicial, proprietario, obs, combustivel " +
-            "from Tbl_Modelo " +
-            "where ID_Modelo = " + ID;
+            "modelo, Nome, placa, cor, km_inicial, combustivel, proprietario, obs " +
+            "from Tbl_Veiculos " +
+            "where ID_Veiculo = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 8; i++)
+            for (int i = 0; i <= 7; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
