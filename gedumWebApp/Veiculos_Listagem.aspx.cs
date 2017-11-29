@@ -41,7 +41,7 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
         // <!--*******Customização*******-->
         string stringselect = "select v.ID_veiculo, v.nome, v.placa, v.cor, m.nome as modelo " +
                 " from Tbl_Veiculos v" +
-                " inner join tbl_modelo m on (v.id_modelo = m.id_modelo)" + 
+                " left join tbl_modelo m on (v.id_modelo = m.id_modelo)" + 
                 " where v.ID_Inst =" + InstID +
                 " order by v.Nome";
 

@@ -1120,7 +1120,8 @@ public class WebService : System.Web.Services.WebService
 //            "'" + param5 + "'," +
 //            "'" + param6 + "'," +
  //           "'" + param7 + "'," +
-            param8 + param9 +
+            param8 + "," +
+            param9 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
