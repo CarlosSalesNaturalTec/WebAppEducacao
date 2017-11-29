@@ -63,7 +63,7 @@ function AlterarRegistro() {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/SalasAlterar",
+        url: "WebService.asmx/Patrimonio_Alterar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
