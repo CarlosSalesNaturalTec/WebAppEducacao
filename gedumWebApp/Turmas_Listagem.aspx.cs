@@ -28,8 +28,8 @@ public partial class Turmas_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>TIPO ATENDIMENTO</th>" +
-            "<th>INSTITUIÇÃO</th>" +
-            "<th>LOZALIZAÇÃO</th>" +
+            "<th>TURNO</th>" +
+            "<th>CURSO</th>" +
             "<th>SALA</th>" +
             "</tr>" +
             "</thead>" +
@@ -41,7 +41,7 @@ public partial class Turmas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_turm, nome, turno, tipo_atendimento, id_inst, localizacao_sala, id_sala, turma_multiplicada, id_curso, obs, vagas " +
+        string stringselect = "select ID_Turma , nome, tipo_atendimento , turno, curso, sala " +
                 "from tbl_Turmas " +
                 "order by Nome"; 
 
@@ -57,14 +57,9 @@ public partial class Turmas_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
             string Coluna5 = Convert.ToString(dados[5]);
-            string Coluna6 = Convert.ToString(dados[6]);
-            string Coluna7 = Convert.ToString(dados[7]);
-            string Coluna8 = Convert.ToString(dados[8]);
-            string Coluna9 = Convert.ToString(dados[9]);
-            string Coluna10 = Convert.ToString(dados[10]);
 
             // <!--*******Customização*******-->
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Funcionarios_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Turmas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
@@ -73,11 +68,6 @@ public partial class Turmas_Listagem : System.Web.UI.Page
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
                 "<td>" + Coluna5 + "</td>" +
-                "<td>" + Coluna6 + "</td>" +
-                "<td>" + Coluna7 + "</td>" +
-                "<td>" + Coluna8 + "</td>" +
-                "<td>" + Coluna9 + "</td>" +
-                "<td>" + Coluna10 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

@@ -61,7 +61,7 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Alunos</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Ficha do Aluno</a>
+                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ficha do Aluno</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Boletins</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Frequência</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Ocorrências</a>
@@ -91,7 +91,7 @@
 
             <!-- Cadastros -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Cadastros</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Cadastros</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Fornecedores</a>   
                     <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Patrimônio</a>

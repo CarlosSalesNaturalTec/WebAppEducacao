@@ -26,7 +26,7 @@
 </head>
 <body>
 
-   <br />
+    <br />
 
     <!--  LINHA 01 -->
     <div class="panel panel-success">
@@ -70,11 +70,11 @@
                         <div class="w3-dropdown-hover">
                             <button class="w3-btn">CADASTROS</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FORNECEDORES</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BENS</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VEÍCULOS</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VIAGENS</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VISITAS</a>
+                                <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FORNECEDORES</a>
+                                <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BENS</a>
+                                <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VEÍCULOS</a>
+                                <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VIAGENS</a>
+                                <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VISITAS</a>
                             </div>
                         </div>
                     </p>
@@ -96,7 +96,7 @@
                         <div class="w3-dropdown-hover">
                             <button class="w3-btn">PRODUTOS</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ESTOQUE</a>
+                                <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ESTOQUE</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">RECEITAS</a>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                         <div class="w3-dropdown-hover">
                             <button class="w3-btn">ALUNOS</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
+                                <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FREQUÊNCIA</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">OCORRÊNCIAS</a>
@@ -198,14 +198,16 @@
             <div class="w3-card-4 col-md-3">
                 <br />
                 <div class="w3-container w3-center">
-                    <p><img src="Images/logoaliancasmall1.png" /></p>
+                    <p>
+                        <img src="Images/logoaliancasmall1.png" />
+                    </p>
                 </div>
                 <footer class="w3-container w3-center w3-light-green">
                     <p>
                         <div class="w3-dropdown-hover">
                             <button class="w3-btn">SUPORTE</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EXPORTAÇÃO</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EXPORTAÇÃO INEP</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SUPORTE</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SOBRE</a>
                             </div>

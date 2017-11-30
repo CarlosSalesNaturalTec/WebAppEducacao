@@ -326,20 +326,17 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string TurmasSalvar(string param0, string param1, string param2, string param3, string param4, 
-        string param5, string param6, string param7, string param8, string param9, string param10)
+        string param5, string param6, string param7)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Turmas (" +
             "Nome," +
             "turno," +
             "tipo_atendimento," +
-            "id_inst," +
-            "localizacao_sala," +
-            "id_sala," +
-            "turma_multiplicada," +
-            "id_curso," +
-            "obs," +
-            "vagas " +
+            "sala," +
+            "Multiplicada ," +
+            "curso," +
+            "ID_Inst," +
             ") " +
             "VALUES (" +
             "'" + param0 + "'," +

@@ -22,11 +22,6 @@ function SalvarRegistro() {
     var idInst = document.getElementById('IDInstHidden').value;
     strLine = strLine + "param" + i + ":'" + idInst + "',";
 
-    // foto
-    var foto = document.getElementById('Hidden1').value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + foto + "'";
-
     //exibir animações - aguarde...
     UIAguardar();
 
