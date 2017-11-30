@@ -1,143 +1,223 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
-    <title>Cadastro de Veículos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
+    <!-- Styles: W3, BootsStrap, Font-Awesome -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <style>
         body {
-            background-image: url("images/fundo.jpg");
+            background-image: url("Images/fundo.jpg");
             background-repeat: repeat;
-            height: 100%;
         }
     </style>
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
-    <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
-        <div class="w3-padding w3-center">
-            <img src="Images/brasaobahiacolorsmall.png" />
-        </div>
-        <hr />
-        <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
-        <hr />
 
+    <br />
+
+    <!--  LINHA 01 -->
+    <div class="panel panel-success">
+        <div class="panel-body">
+            <br />
+
+            <!-- INSTITUIÇÃO -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><i class="fa fa-5x fa-university" aria-hidden="true"></i></p>
+                </div>
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">INSTITUIÇÃO</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">CURSOS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">DISCIPLINAS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SALAS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">TURMAS</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
+            </div>
+
+            <!-- coluna divisória -->
+            <div class="col-md-1"></div>
+
+            <!-- CADASTROS -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><i class="fa fa-5x fa-list-alt" aria-hidden="true"></i></p>
+                </div>
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">CADASTROS</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FORNECEDORES</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BENS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VEÍCULOS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VIAGENS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VISITAS</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
+            </div>
+
+            <!-- coluna divisória -->
+            <div class="col-md-1"></div>
+
+            <!-- PRODUTOS -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><i class="fa fa-5x fa-cutlery" aria-hidden="true"></i></p>
+                </div>
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">PRODUTOS</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ESTOQUE</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">RECEITAS</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
+            </div>
+
+        </div>
     </div>
 
-    <div style="margin-left: 180px">
+    <!--  LINHA 02 -->
+    <div class="panel panel-success">
 
-        <!-- GRUPO 1 - Dados Veículos -->
-        <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
+        <div class="panel-body">
+            <br />
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Veículo</h3>
-            <hr />
-
-            <div class="w3-rest">
-                <form class="form-horizontal">
-                    <fieldset>
-
-                        <div class="form-group">
-                            <label for="input_modelo" class="col-md-2 control-label">Modelo</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_modelo">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_nome">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_placa" class="col-md-2 control-label">Placa</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_placa">
-                            </div>
-
-                            <label for="input_cor" class="col-md-2 control-label">Cor</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_cor">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_kminicial" class="col-md-2 control-label">Km Inicial</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_kminicial">
-                            </div>
-
-                            <label for="input_combustivel" class="col-md-2 control-label">Combustível</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_combustivel">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_proprietario" class="col-md-2 control-label">Proprietário</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_proprietario">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_obs" class="col-md-2 control-label">Observação</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_obs">
-                            </div>
-                        </div>
-
-                    </fieldset>
-                </form>
-
-                <!-- Botões Controle -->
-                <div class="form-group">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-9 w3-border w3-padding w3-round">
-                        <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
-                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair
-                            </button>
-
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
-                            </button>
-
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                        </p>
-                    </div>
+            <!-- MATRICULAS -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><i class="fa fa-5x fa-calendar-check-o" aria-hidden="true"></i></p>
                 </div>
-                <!-- Botões Controle -->
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">MATRÍCULAS</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">PRÉ-MATRICULA</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">MATRICULADOS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FORMULÁRIOS</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
+            </div>
 
+            <!-- coluna divisória -->
+            <div class="col-md-1"></div>
+
+            <!-- ALUNOS -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><i class="fa fa-5x fa-address-card-o" aria-hidden="true"></i></p>
+                </div>
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">ALUNOS</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FREQUÊNCIA</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">OCORRÊNCIAS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ATESTADOS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">HISTÓRICO</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
+            </div>
+
+            <!-- coluna divisória -->
+            <div class="col-md-1"></div>
+
+            <!-- BIBLIOTECA -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><i class="fa fa-5x fa-book" aria-hidden="true"></i></p>
+                </div>
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">BIBLIOTECA</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
             </div>
 
         </div>
 
     </div>
 
-    <!-- auxiliares -->
-    <input id="IDInstHidden" type="hidden" />
-    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    <!--  LINHA 03 -->
+    <div class="panel panel-success">
+        <div class="panel-body">
+            <br />
 
-    <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeVeiculos_Novo.js"></script>
+            <!-- SUPORTE -->
+            <div class="w3-card-4 col-md-3">
+                <br />
+                <div class="w3-container w3-center">
+                    <p><img src="Images/logoaliancasmall1.png" /></p>
+                </div>
+                <footer class="w3-container w3-center w3-light-green">
+                    <p>
+                        <div class="w3-dropdown-hover">
+                            <button class="w3-btn">SUPORTE</button>
+                            <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EXPORTAÇÃO</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SUPORTE</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SOBRE</a>
+                            </div>
+                        </div>
+                    </p>
+                </footer>
+                <br />
+            </div>
+
+            <!-- coluna divisória -->
+            <div class="col-md-1"></div>
+
+
+        </div>
+    </div>
 
 </body>
 </html>
