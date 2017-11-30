@@ -346,10 +346,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param4 + "'," +
             "'" + param5 + "'," +
             "'" + param6 + "'," +
-            "'" + param7 + "'," +
-            "'" + param8 + "'," +
-            "'" + param9 + "'," +
-            "'" + param10 + "'" +
+            "'" + param7 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();

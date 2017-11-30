@@ -176,7 +176,7 @@
                         <div class="w3-dropdown-hover">
                             <button class="w3-btn">BIBLIOTECA</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
+                                <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
                                 <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
                             </div>
                         </div>
