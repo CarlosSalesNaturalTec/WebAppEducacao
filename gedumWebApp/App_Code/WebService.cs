@@ -1209,6 +1209,103 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+    [WebMethod]
+    public string ViagensSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+           string param6, string param7, string param8, string param9, string param10, string param11)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Viagens (veiculo, motorista, data_viagem, km_inicial, km_final, hora_saida," +
+            "hora_chegada, destino_viagem, motivo_viagem, id_inst, id_veiculo, id_motorista) " +             
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            param9 + "," +
+            param10 + "," +
+            param11 +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Viagens_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string ViagensAlterar(string param0, string param1, string param2, string param3, string param4, string param5, 
+        string param6, string param7, string param8, string param9)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Viagens set " +
+            "veiculo= '" + param0 + "'," +
+            "motorista= '" + param1 + "'," +
+            "data_viagem= '" + param2 + "'," +
+            "km_inicial = '" + param3 + "'," +
+            "km_final = '" + param4 + "'," +
+            "hora_saida = '" + param5 + "'," +
+            "hora_chegada = '" + param6 + "'," +
+            "destino_viagem = '" + param7 + "'," +
+            "motivo_viagem = '" + param8 + "'" +
+            "where ID_Viagem = " + param9);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Viagens_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string ViagensExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Viagens where ID_viagem =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Viagens_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 
 }
 
