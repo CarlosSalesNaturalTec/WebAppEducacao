@@ -332,11 +332,11 @@ public class WebService : System.Web.Services.WebService
         string strInsert = "INSERT INTO Tbl_Turmas (" +
             "Nome," +
             "turno," +
-            "tipo_atendimento," +
+            "Tipo_atend," +
             "sala," +
             "Multiplicada ," +
             "curso," +
-            "ID_Inst," +
+            "ID_Inst" +
             ") " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -366,7 +366,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string TurmasAlterar(string param0, string param1, string param2, string param3, string param4, 
-        string param5, string param6, string param7, string param8, string param9, string param10)
+        string param5, string param6)
     {
 
         string url;
@@ -375,15 +375,11 @@ public class WebService : System.Web.Services.WebService
         bool inserir = operacao.Insert("update Tbl_Turmas set " +
             "Nome= '" + param0 + "'," +
             "turno= '" + param1 + "'," +
-            "tipo_atendimento= '" + param2 + "'," +
-            "id_inst= '" + param3 + "'," +
-            "localizacao_sala= '" + param4 + "'," +
-            "id_sala= '" + param5 + "'," +
-            "turma_multiplicada= '" + param6 + "'," +
-            "id_curso= '" + param7 + "'," +
-            "obs= '" + param8 + "'," +
-            "vagas= '" + param9 + "' " +
-            "where ID_turm = " + param10);
+            "Tipo_atend = '" + param2 + "'," +
+            "SALA = '" + param3 + "'," +
+            "Multiplicada = '" + param4 + "'," +
+            "CURSO = '" + param5 + "'" +
+            " where ID_turm = " + param6);
 
         ConexaoBancoSQL.fecharConexao();
 

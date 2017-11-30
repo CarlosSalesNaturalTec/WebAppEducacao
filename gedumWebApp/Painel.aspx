@@ -52,7 +52,7 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Biblioteca</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Livros_Listagem.aspx" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
+                    <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
                      <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-share-square-o"></i>&nbsp;Empréstimos</a>
                 </div>
             </div>

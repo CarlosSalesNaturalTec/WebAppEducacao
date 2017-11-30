@@ -41,7 +41,7 @@ public partial class Turmas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_Turma , nome, tipo_atendimento , turno, curso, sala " +
+        string stringselect = "select ID_Turma , nome, Tipo_atend , turno, curso, sala " +
                 "from tbl_Turmas " +
                 "order by Nome"; 
 

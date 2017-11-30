@@ -20,7 +20,7 @@ function SalvarRegistro() {
     
     //id isntituição
     var idInst = document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param" + i + ":'" + idInst + "',";
+    strLine = strLine + "param" + i + ":'" + idInst + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -57,12 +57,8 @@ function AlterarRegistro() {
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
-    // foto
-    var foto = document.getElementById('Hidden1').value;
-    strLine = strLine + "param" + i + ":'" + foto + "',";
 
-    // id aluno
+    // id
     var vID = document.getElementById("IDHidden").value;
     i++;
     strLine = strLine + "param" + i + ":'" + vID + "'";
