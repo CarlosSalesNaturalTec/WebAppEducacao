@@ -44,10 +44,11 @@
                         <div class="w3-dropdown-hover">
                             <button class="w3-btn">INSTITUIÇÃO</button>
                             <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">CURSOS</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">DISCIPLINAS</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SALAS</a>
-                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">TURMAS</a>
+                                <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">CURSOS</a>
+                                <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">DISCIPLINAS</a>
+                                <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SALAS</a>
+                                <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">TURMAS</a>
+                                <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FUNCIONÁRIOS</a>
                             </div>
                         </div>
                     </p>
@@ -213,10 +214,6 @@
                 </footer>
                 <br />
             </div>
-
-            <!-- coluna divisória -->
-            <div class="col-md-1"></div>
-
 
         </div>
     </div>
