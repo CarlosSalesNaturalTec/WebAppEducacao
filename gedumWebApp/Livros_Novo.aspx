@@ -81,7 +81,7 @@
 
                             <label for="input_qtde" class="col-md-2 control-label">Quantidade</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_qtde"/>
+                                <input type="number" class="form-control" id="input_qtde"/>
                             </div>
                         </div>
 

@@ -1384,6 +1384,93 @@ public class WebService : System.Web.Services.WebService
 
 
 
+
+    [WebMethod]
+    public string LivrosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+           string param6)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Livros (nome, editora, materia, doado_por, quantidade, obs, ID_Inst ) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            param6 +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Livros_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string LivrosAlterar(string param0, string param1, string param2, string param3,
+        string param4, string param5, string param6 )
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Livros set " +
+            "nome= '" + param0 + "'," +
+            "editora= '" + param1 + "'," +
+            "materia= '" + param2 + "'," +
+            "doado_por = '" + param3 + "'," +
+            "quantidade = '" + param4 + "'," +
+            "obs = '" + param5 + "' " +
+            "where ID_Livro = " + param6);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Livros_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string LivrosExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Livros where ID_livro =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Livros_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 }
 
 public class ConexaoBancoSQL
