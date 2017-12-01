@@ -326,7 +326,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string TurmasSalvar(string param0, string param1, string param2, string param3, string param4, 
-        string param5, string param6, string param7)
+        string param5, string param6)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Turmas (" +
@@ -345,8 +345,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param3 + "'," +
             "'" + param4 + "'," +
             "'" + param5 + "'," +
-            "'" + param6 + "'," +
-            "'" + param7 + "'" +
+            "'" + param6 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -379,7 +378,7 @@ public class WebService : System.Web.Services.WebService
             "SALA = '" + param3 + "'," +
             "Multiplicada = '" + param4 + "'," +
             "CURSO = '" + param5 + "'" +
-            " where ID_turm = " + param6);
+            " where ID_turma = " + param6);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -402,7 +401,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from Tbl_Turmas where ID_turm =" + param1);
+        Boolean deletar = operacao3.Delete("delete from Tbl_Turmas where ID_turma =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletar == true)

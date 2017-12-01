@@ -60,7 +60,6 @@ function AlterarRegistro() {
 
     // id
     var vID = document.getElementById("IDHidden").value;
-    i++;
     strLine = strLine + "param" + i + ":'" + vID + "'";
     
     //exibir animações - aguarde...
@@ -84,7 +83,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Salas_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Turmas_Listagem.aspx";   
     window.location.href = linkurl;
 }
 
@@ -115,30 +114,4 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
-
-
-
 //Menu
-
-//imagens - foto
-var handleFileSelect = function (evt) {
-    var files = evt.target.files;
-    var file = files[0];
-    if (files && file) {
-        var reader = new FileReader();
-        reader.onload = function (readerEvt) {
-            var binaryString = readerEvt.target.result;
-            var data_uri = "data:image/png;base64," + btoa(binaryString);
-            document.getElementById('results').innerHTML = '<img src="' + data_uri + '"/>';
-            document.getElementById("Hidden1").value = data_uri
-        };
-        reader.readAsBinaryString(file);
-    }
-};
-
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-    document.getElementById('filePicker').addEventListener('change', handleFileSelect, false);
-} else {
-    alert('The File APIs are not fully supported in this browser.');
-}
-//imagens - foto

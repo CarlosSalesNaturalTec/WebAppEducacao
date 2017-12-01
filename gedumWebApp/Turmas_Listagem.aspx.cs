@@ -27,10 +27,10 @@ public partial class Turmas_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>TIPO ATENDIMENTO</th>" +
             "<th>TURNO</th>" +
-            "<th>CURSO</th>" +
+            "<th>TIPO ATENDIMENTO</th>" +
             "<th>SALA</th>" +
+            "<th>CURSO</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -41,7 +41,7 @@ public partial class Turmas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_Turma , nome, Tipo_atend , turno, curso, sala " +
+        string stringselect = "select ID_Turma , nome, turno, Tipo_atend , sala, curso " +
                 "from tbl_Turmas " +
                 "order by Nome"; 
 
