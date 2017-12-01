@@ -98,7 +98,7 @@
                     <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Produtos</a>
                     <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Fornecedores</a>               
                     <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Estoque Alimentos</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Receitas</a>
+                    <a href="Receitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Receitas</a>
                 </div>
             </div>
 
