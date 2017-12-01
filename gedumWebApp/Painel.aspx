@@ -109,12 +109,20 @@
                     <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Disciplinas</a>
                     <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Salas</a>
                     <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Turmas</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Funcionários</a>     
+                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Funcionários</a>     
                 </div>
             </div>
 
             <!-- Home -->
             <a href="home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+
+             <div class="w3-left">
+                <h6 class="w3-small" style="margin-left: 14px"><a href="http://inxell.com.br/" target="_blank">
+                    <img src="Images/logor_inxellsmall.png"/></a>
+                    &nbsp;&nbsp;&nbsp;<i class="fa fa-university w3-small"></i>
+                    &nbsp;<asp:Label ID="lblInst" CssClass="w3-text-green" runat="server"></asp:Label>
+                </h6>
+            </div>
 
         </div>
 
@@ -122,25 +130,9 @@
 
     <!-- page content -->
     <div>
-        <iframe src="home.aspx" width="100%" height="600px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="home.aspx" width="100%" height="880px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
-
-    <!-- Footer -->
-    <div class="w3-bottom">
-        <div class="w3-bar w3-black">
-            <div class="w3-right">
-                <h6 class="w3-small" style="margin-left: 14px"><a href="http://inxell.com.br/" target="_blank">
-                    <img src="Images/logor_inxellsmall.png" class="w3-animate-fading" /></a>
-                    &nbsp;&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
-                    &nbsp;<asp:Label ID="lblUSer" CssClass="w3-text-green" runat="server"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;<i class="fa fa-university w3-small"></i>
-                    &nbsp;<asp:Label ID="lblInst" CssClass="w3-text-green" runat="server"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;
-                </h6>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal LogOff -->
     <div id="DivLogOut" class="w3-modal">

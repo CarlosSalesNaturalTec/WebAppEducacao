@@ -25,7 +25,6 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "ID_Turma , " +
             "Nome," +
             "turno," +
             "Tipo_atend ," +
@@ -39,7 +38,7 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i <= 5; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
