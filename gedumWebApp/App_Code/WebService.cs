@@ -1300,6 +1300,94 @@ public class WebService : System.Web.Services.WebService
 
 
 
+    [WebMethod]
+    public string EmprestimosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
+           string param6, string param7)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Controle_Entregas (aluno, livro, funcionario, quantidade," +
+            "id_inst, id_aluno, id_livro, id_funcionario) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            param4 + "," +
+            param5 + "," +
+            param6 + "," +
+            param7 +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Emprestimos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string EmprestimosAlterar(string param0, string param1, string param2, string param3, string param4,
+        string param5, string param6, string param7)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Controle_Entregas set " +
+            "aluno= '" + param0 + "'," +
+            "livro= '" + param1 + "'," +
+            "funcionario= '" + param2 + "'," +
+            "quantidade = '" + param3 + "'" +
+            "where ID_Controle_Entrega = " + param4);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Emprestimos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string EmprestimosExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Controle_Entregas where ID_controle_entrega =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Emprestimos_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 
 }
 
