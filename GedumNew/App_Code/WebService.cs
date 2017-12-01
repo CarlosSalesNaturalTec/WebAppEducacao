@@ -2,7 +2,7 @@
 using System.Web.Services;
 using System.Data.SqlClient;
 
-[WebService(Namespace = "http://tempuri.org/")]
+[WebService(Namespace = "http://gedum.azurewebsites.net/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 [System.Web.Script.Services.ScriptService]
 public class WebService : System.Web.Services.WebService

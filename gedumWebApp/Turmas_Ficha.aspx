@@ -36,32 +36,13 @@
 
 </head>
 <body>
-
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL********-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
             <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas</button>
-
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
         <hr />
 
     </div>
@@ -71,13 +52,13 @@
         <!-- GRUPO 1 - Dados Turmas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas- Ficha Turmas</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-9">
@@ -96,20 +77,6 @@
                             <label for="input_tipoatd" class="col-md-2 control-label">Tipo Atendimento</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_tipoatd">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_instituicao" class="col-md-2 control-label">Instituição</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_instituicao">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_localizacao" class="col-md-2 control-label">Localização da Sala</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_localizacao">
                             </div>
                         </div>
 
@@ -153,37 +120,17 @@
                         </p>
                     </div>
                 </div>
-                <!-- Botões Controle -->
 
             </div>
-
-            <!-- Camera -->
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-            <!-- Camera -->
-
         </div>
-
-
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" name="IDHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
-    <!-- Scripts diversos  -->
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeTurmas_Novo.js"></script>
-    <!-- <script type="text/javascript" src="Scripts/codeCursos_Mapa.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
-
+    
 </body>
-
 </html>
