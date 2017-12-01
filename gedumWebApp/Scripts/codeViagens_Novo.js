@@ -1,13 +1,11 @@
-﻿document.getElementById("input_nome").focus();
+﻿document.getElementById("input_veiculo").focus();
 
 function SalvarRegistro() {
 
     //validações
-    if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Turma");   //<!--*******Customize AQUI*******-->
-        openLink(event, 'grupo1')
-        $('#bt1').addClass(' w3-blue');
-        document.getElementById("input_nome").focus();
+    if (document.getElementById('input_veiculo').value == "") {
+        alert("Informe Nome da Veículo");   //<!--*******Customize AQUI*******-->
+        document.getElementById("input_veiculo").focus();
         return;
     }
 
@@ -17,17 +15,27 @@ function SalvarRegistro() {
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
-    //id isntituição
-    var idInst = document.getElementById('IDInstHidden').value;
-    strLine = strLine + "param" + i + ":'" + idInst + "'";
+
+    // id
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "',";
+
+    // id_veiculo
+    var vIDVeiculo = '0'; //document.getElementById("IDInstHidden").value;
+    i++;
+    strLine = strLine + "param" + i + ":'" + vIDVeiculo + "',";
+
+    // id_modelo
+    var vIDMotorista = '0'; //document.getElementById("IDInstHidden").value;
+    i++;
+    strLine = strLine + "param" + i + ":'" + vIDMotorista + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/TurmasSalvar",
+        url: "WebService.asmx/ViagensSalvar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -41,13 +49,11 @@ function SalvarRegistro() {
 }
 
 function AlterarRegistro() {
-    
+
     //validações
-    if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Turma");   //<!--*******Customize AQUI*******-->
-        openLink(event, 'grupo1')
-        $('#bt1').addClass(' w3-blue');
-        document.getElementById("input_nome").focus();
+    if (document.getElementById('input_veiculo').value == "") {
+        alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
+        document.getElementById("input_veiculo").focus();
         return;
     }
 
@@ -59,15 +65,26 @@ function AlterarRegistro() {
     }
 
     // id
-    var vID = document.getElementById("IDHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "'";
-    
+    var vID = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param" + i + ":'" + vID + "',";
+
+    // id_veiculo
+    var vIDVeiculo = '0'; //document.getElementById("IDInstHidden").value;
+    i++;
+    strLine = strLine + "param" + i + ":'" + vIDVeiculo + "',";
+
+    // id_modelo
+    var vIDMotorista = '0'; //document.getElementById("IDInstHidden").value;
+    i++;
+    strLine = strLine + "param" + i + ":'" + vIDMotorista + "'";
+
+
     //exibir animações - aguarde...
     UIAguardar();
-    
+
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/TurmasAlterar",
+        url: "WebService.asmx/ViagensAlterar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -83,7 +100,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Turmas_Listagem.aspx";   
+    var linkurl = "Viagens_Listagem.aspx";   //<!--*******Customização*******-->
     window.location.href = linkurl;
 }
 
@@ -114,4 +131,3 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
-//Menu

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class Turmas_Ficha : System.Web.UI.Page
+public partial class Viagens_Ficha : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
@@ -11,7 +11,6 @@ public partial class Turmas_Ficha : System.Web.UI.Page
     {
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
-
     }
 
     private void PreencheCampos(string ID)
@@ -25,32 +24,36 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "Nome," +
-            "turno," +
-            "Tipo_atend ," +
-            "sala," +
-            "Multiplicada ," +
-            "curso " +        
-            "from Tbl_Turmas " +
-            "where ID_Turma = " + ID;
+            "veiculo," +
+            "motorista," +
+            "data_viagem," +
+            "km_inicial," +
+            "km_final," +
+            "hora_saida," +
+            "hora_chegada," +
+            "destino_viagem," +
+            "motivo_viagem " +
+            "from Tbl_Viagens " +
+            "where ID_Viagem = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 8; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
+            //ID do registro
+            ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
         }
         ConexaoBancoSQL.fecharConexao();
 
-        ScriptDados = "</script>";      
+        ScriptDados = "</script>";
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();

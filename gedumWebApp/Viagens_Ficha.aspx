@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Turmas_Ficha.aspx.cs" Inherits="Turmas_Ficha" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Viagens_Ficha.aspx.cs" Inherits="Viagens_Ficha" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!--*******Customização*******-->
-    <title>Cadastro de Turmas</title>
+    <title>Cadastro de Viagens</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -24,35 +24,28 @@
             background-repeat: repeat;
             height: 100%;
         }
-
-        #results {
-            float: right;
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid;
-            background: #ccc;
-        }
     </style>
 
 </head>
 <body>
-    <!--*******MENU LATERAL********-->
+    <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas</button>
+            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
         <hr />
 
     </div>
 
     <div style="margin-left: 180px">
 
-        <!-- GRUPO 1 - Dados Turmas -->
+        <!-- GRUPO 1 - Dados Viagens -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas - Nova Turma</h3>
+            <!--*******Customização*******-->
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Ficha de Viagens</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -60,44 +53,59 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_nome">
+                            <label for="input_veiculo" class="col-md-2 control-label">Veículo</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="input_veiculo"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_turno" class="col-md-2 control-label">Turno</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_turno">
+                            <label for="input_motorista" class="col-md-2 control-label">Motorista</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" id="input_motorista"/>
+                            </div>
+
+                            <label for="input_dataviagem" class="col-md-2 control-label">Data Viagem</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_dataviagem"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_tipoatd" class="col-md-2 control-label">Tipo Atendimento</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_tipoatd">
+                            <label for="input_kminicial" class="col-md-2 control-label">Km Inicial</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_kminicial"/>
+                            </div>
+
+                            <label for="input_kmfinal" class="col-md-2 control-label">Km Final</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_kmfinal"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_idsala" class="col-md-2 control-label">Sala</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_idsala">
+                            <label for="input_horachegada" class="col-md-2 control-label">Hora de Chegada</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_horachegada"/>
+                            </div>
+
+                            <label for="input_horasaida" class="col-md-2 control-label">Hora de Saída</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_horasaida"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_turma_multiplicada" class="col-md-2 control-label">Turma Multiplicada ?</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_turma_multiplicada">
+                            <label for="input_destinoviagem" class="col-md-2 control-label">Destino Viagem</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="input_destinoviagem"/>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_idcurso" class="col-md-2 control-label">Curso</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_idcurso">
+                            <label for="input_motivoviagem" class="col-md-2 control-label">Motivo Viagem</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="input_motivoviagem"/>
                             </div>
                         </div>
 
@@ -120,17 +128,20 @@
                         </p>
                     </div>
                 </div>
+                <!-- Botões Controle -->
 
             </div>
+
         </div>
+
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" type="hidden" />
+    <input id="IDInstHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeTurmas_Novo.js"></script>
-    
+    <script type="text/javascript" src="Scripts/codeViagens_Novo.js"></script>
+
 </body>
 </html>

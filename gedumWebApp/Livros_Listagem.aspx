@@ -1,26 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Disciplinas_Listagem.aspx.cs" Inherits="Disciplinas_Listagem" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Livros_Listagem.aspx.cs" Inherits="Livros_Listagem" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
-    <title>Listagem de Disciplinas</title>       
     
+    <title>Listagem de Livros</title>         <!--*******Customização*******-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-     <!-- Paginação -->
+    <!-- Paginação -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
-    
+
+    <!--*******Customização*******-->
     <style> 
         body {
             background-image: url("images/fundo.jpg"); 
@@ -29,13 +28,12 @@
 
 </head>
 <body>
-
     <p></p>
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-green" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Disciplinas Cadastradas:
+        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Livros Cadastradas:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Nova Disciplina</button>  <!--*******Customização*******-->
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Livro</button>  <!--*******Customização*******-->
     </div>
 
     <br />
@@ -74,7 +72,7 @@
     <!-- Modal Excluir -->
 
     <!-- Scripts Diversos -->
-    <script type="text/javascript" src="Scripts/codeDisciplinas_Listagem.js"></script>   <!--*******Customização*******-->
+    <script type="text/javascript" src="Scripts/codeLivros_Listagem.js"></script>   <!--*******Customização*******-->
 
     <!-- Script Paginação  -->
     <script type="text/javascript" src="Scripts/codePaginacao.js"></script>

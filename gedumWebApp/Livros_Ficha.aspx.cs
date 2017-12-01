@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-public partial class Turmas_Ficha : System.Web.UI.Page
+public partial class Livros_Ficha : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
@@ -11,7 +11,6 @@ public partial class Turmas_Ficha : System.Web.UI.Page
     {
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
-
     }
 
     private void PreencheCampos(string ID)
@@ -25,14 +24,14 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "Nome," +
-            "turno," +
-            "Tipo_atend ," +
-            "sala," +
-            "Multiplicada ," +
-            "curso " +        
-            "from Tbl_Turmas " +
-            "where ID_Turma = " + ID;
+            "nome," +
+            "editora," +
+            "materia," +
+            "doado_por," +
+            "quantidade," +            
+            "obs " +
+            "from Tbl_Livros " +
+            "where ID_Livro = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
@@ -44,13 +43,14 @@ public partial class Turmas_Ficha : System.Web.UI.Page
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
+            //ID do registro
+            ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
         }
         ConexaoBancoSQL.fecharConexao();
 
-        ScriptDados = "</script>";      
+        ScriptDados = "</script>";
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();

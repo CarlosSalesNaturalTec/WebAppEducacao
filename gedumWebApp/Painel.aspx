@@ -36,92 +36,93 @@
         <!-- Menu -->
         <div class="w3-bar w3-black">
 
+            <!-- Sair -->
             <a href="#" class="w3-bar-item w3-btn w3-hover-green w3-right" onclick="sair()">Sair <i class="fa fa-sign-out"></i></a>
 
-            <a href="Suporte.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right">Suporte <i class="fa fa-cog"></i></a>
-
+            <!-- Suporte -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Exportações </button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Suporte</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Exportação INEP</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-share-alt"></i>&nbsp;Exportação INEP</a>
+                    <a href="Suporte.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-cog"></i>&nbsp;Suporte</a>
                 </div>
             </div>
 
+            <!-- Biblioteca -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Livros </button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Biblioteca</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Cadastro</a>
-                     <a href="#" class="w3-bar-item w3-button w3-hover-green">Controle de Entregas</a>
+                    <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
+                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-share-square-o"></i>&nbsp;Empréstimos</a>
+                </div>
+            </div>
+            
+            <!-- Alunos -->
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Alunos</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ficha do Aluno</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Boletins</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Frequência</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Ocorrências</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Atestados</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Histórico Escolar</a>
                 </div>
             </div>
 
+            <!-- Matrículas -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Alunos </button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Matrículas</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green">Ficha do Aluno</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Boletins</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Frequência</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Ocorrências</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Atestados</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green">Histórico Escolar</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-calendar-check-o"></i>&nbsp;Pré-Matrículas</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-calendar-check-o"></i>&nbsp;Matriculados</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-calendar-check-o"></i>&nbsp;Formulários</a>
                 </div>
             </div>
 
+            <!-- Produtos -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Matrículas</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Pré-Matrículas</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Matriculados</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Formulários</a>
-                </div>
-            </div>
-
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;RH</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Funcionários</a>                 
-                </div>
-            </div>
-
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;Transportes</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Modelos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Modelo</a>
-                    <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Veículos</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Viagem</a>
-                </div>
-            </div>
-
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Alimentos</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Produtos</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">                
-                    <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Produtos</a>
-                    <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Fornecedores</a>               
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Estoque Alimentos</a>
-                    <a href="Receitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Receitas</a>
+                    <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Estoque</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Receitas</a>
                 </div>
             </div>
 
+            <!-- Cadastros -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Patrimônio</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Cadastros</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Bens</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green">Fornecedores</a>
+                    <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Fornecedores</a>   
+                    <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Patrimônio</a>
+                    <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Veículos</a>
+                    <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Viagem</a>
+                    <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Visitas</a>
                 </div>
             </div>
 
+            <!-- Instituição -->
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;Instituição</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Cursos</a>
-                    <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Disciplinas</a>
-                    <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Salas</a>
-                    <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Turmas</a>
-                    <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">Visitas</a>
+                    <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Cursos</a>
+                    <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Disciplinas</a>
+                    <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Salas</a>
+                    <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Turmas</a>
+                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-building"></i>&nbsp;Funcionários</a>     
                 </div>
             </div>
 
+            <!-- Home -->
             <a href="home.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-home"></i>&nbsp;Home</a>
+
+             <div class="w3-left">
+                <h6 class="w3-small" style="margin-left: 14px"><a href="http://inxell.com.br/" target="_blank">
+                    <img src="Images/logor_inxellsmall.png"/></a>
+                    &nbsp;&nbsp;&nbsp;<i class="fa fa-university w3-small"></i>
+                    &nbsp;<asp:Label ID="lblInst" CssClass="w3-text-green" runat="server"></asp:Label>
+                </h6>
+            </div>
 
         </div>
 
@@ -129,25 +130,9 @@
 
     <!-- page content -->
     <div>
-        <iframe src="home.aspx" width="100%" height="600px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
+        <iframe src="home.aspx" width="100%" height="880px" frameborder="0" name="iframe">Atualize seu Navegador!</iframe>
     </div>
     <!-- page content -->
-
-    <!-- Footer -->
-    <div class="w3-bottom">
-        <div class="w3-bar w3-black">
-            <div class="w3-right">
-                <h6 class="w3-small" style="margin-left: 14px"><a href="http://inxell.com.br/" target="_blank">
-                    <img src="Images/logor_inxellsmall.png" class="w3-animate-fading" /></a>
-                    &nbsp;&nbsp;&nbsp;<i class="fa fa-user w3-small"></i>
-                    &nbsp;<asp:Label ID="lblUSer" CssClass="w3-text-green" runat="server"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;<i class="fa fa-university w3-small"></i>
-                    &nbsp;<asp:Label ID="lblInst" CssClass="w3-text-green" runat="server"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;
-                </h6>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal LogOff -->
     <div id="DivLogOut" class="w3-modal">
