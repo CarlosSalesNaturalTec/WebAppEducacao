@@ -1470,6 +1470,57 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+    [WebMethod]
+    public string ReceitasSalvar(string param0, string param1, string param2)
+    {
+        string url;
+        string strInsert = "insert INTO Tbl_Receitas (Nome, modo_preparo, ID_Inst ) " +
+            "VALUES (" +
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +        
+            param2 +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Receitas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string ReceitasExcluir(string param1)
+    {
+        // <!--*******Customização*******-->
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Receitas where ID_receita =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Receitas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 
 }
 

@@ -493,33 +493,33 @@
                         <div class="form-group">
                             <label for="input_quant" class="col-md-2 control-label">Quant.Prédios</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_quant">
+                                <input type="number" class="form-control" id="input_quant"/>
                             </div>
                             <label for="input_salasadm" class="col-md-2 control-label">Qtd.Salas Adm.</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_salasadm">
+                                <input type="number" class="form-control" id="input_salasadm"/>
                             </div>
                             <label for="input_salasapoio" class="col-md-1 control-label">Salas Apoio</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_salasapoio">
+                                <input type="number" class="form-control" id="input_salasapoio"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_bmasc" class="col-md-2 control-label">Quant. Banheiros Masc.</label>
                             <div class="col-md-2">
-                               <input type="number" class="form-control" id="input_bmasc">
+                               <input type="number" class="form-control" id="input_bmasc"/>
                             </div>
                             <label for="input_bfem" class="col-md-2 control-label">Quant. Banheiros Fem.</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_bfem">
+                                <input type="number" class="form-control" id="input_bfem"/>
                             </div>
                         </div>
                       
                         <div class="form-group">
                             <label for="input_Diretor" class="col-md-2 control-label">Quant.Salas</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_salas">
+                                <input type="number" class="form-control" id="input_salas"/>
                             </div>
                             <label for="input_areaJogos" class="col-md-2 control-label">Área de jogos</label>
                             <div class="col-md-2">
@@ -608,14 +608,12 @@
                         <div class="col-md-8">
                             <div id="results"></div>
                             <label for="filePicker">Logomarca da Instituição ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                            <input type="file" id="filePicker">
+                            <input type="file" id="filePicker"/>
                         </div>
                         <input id="FotoHidden" name="fotouri" type="hidden" />
 
                     </fieldset>
                 </form>
-
-
 
             </div>
 
@@ -659,7 +657,7 @@
                             <br />
                             <label for="input_userNome" class="col-md-2 control-label">Responsável</label>
                             <div class="col-md-9">
-                                <input type="text" id="input_userNome" class="w3-input w3-border w3-round">
+                                <input type="text" id="input_userNome" class="w3-input w3-border w3-round"/>
                             </div>
                         </div>
 
@@ -667,12 +665,12 @@
 
                             <label for="input_user" class="col-md-2 control-label">Usuário</label>
                             <div class="col-md-4">
-                                <input type="text" id="input_user" class="w3-input w3-border w3-round">
+                                <input type="text" id="input_user" class="w3-input w3-border w3-round"/>
                             </div>
 
                             <label for="input_DEPparent" class="col-md-1 control-label">Senha</label>
                             <div class="col-md-2">
-                                <input type="password" id="input_pwd" class="w3-input w3-border w3-round">
+                                <input type="password" id="input_pwd" class="w3-input w3-border w3-round"/>
                             </div>
 
                             <div class="col-md-2">

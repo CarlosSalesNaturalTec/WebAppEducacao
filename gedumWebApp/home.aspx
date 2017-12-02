@@ -96,7 +96,7 @@
                         <button class="w3-btn">PRODUTOS</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ESTOQUE</a>
-                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">RECEITAS</a>
+                            <a href="Receitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">RECEITAS</a>
                         </div>
                     </div>
                 </p>

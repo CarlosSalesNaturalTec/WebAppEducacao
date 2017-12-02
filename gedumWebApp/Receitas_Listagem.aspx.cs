@@ -26,7 +26,7 @@ public partial class Receitas_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>MODELO</th>" +
+            "<th>MODO PREPARO</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -37,7 +37,7 @@ public partial class Receitas_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_receita, nome " +
+        string stringselect = "select ID_receita, nome, modo_preparo " +
                 " from Tbl_Receitas" +
                 // " left join tbl_modelo m on (v.id_modelo = m.id_modelo)" + 
                 " where ID_Inst =" + InstID +
@@ -50,13 +50,15 @@ public partial class Receitas_Listagem : System.Web.UI.Page
         {
             string Coluna0 = Convert.ToString(dados[0]); //id 
             string Coluna1 = Convert.ToString(dados[1]);
-            
+            string Coluna2 = Convert.ToString(dados[2]);
+
             // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Receitas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
+                "<td>" + Coluna2 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);
