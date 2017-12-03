@@ -1498,6 +1498,33 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
+    public string ReceitasAlterar(string param0, string param1, string param2)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_receitas set " +
+            "Nome= '" + param0 + "'," +
+            "modo_preparo = '" + param1 + "' " +
+            "where ID_Receita = " + param2);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Receitas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
     public string ReceitasExcluir(string param1)
     {
         // <!--*******Customização*******-->
@@ -1514,6 +1541,60 @@ public class WebService : System.Web.Services.WebService
         else
         {
             url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string ReceitasItensSalvar(string param1, string param2, string param3, string param4)
+    {
+        string url;
+        int IdProduto = 0;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirItens = operacaoInst2.Insert("INSERT INTO tbl_receitas_itens (ID_receita , id_produto, quantidade, unidade ) " +
+           "VALUES (" +
+           param1 + "," +
+           IdProduto + "," +
+           //"'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirItens == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR INGREDIENTE";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string ReceitasItensExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDeltens = new OperacaoBanco();
+        Boolean deletarReceitasItens = operacaoDeltens.Delete("delete from tbl_receitas_itens where ID_receita_itens =" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarReceitasItens == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR ITEM";
         }
 
         return url;

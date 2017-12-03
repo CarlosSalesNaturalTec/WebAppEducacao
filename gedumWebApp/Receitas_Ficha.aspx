@@ -78,7 +78,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
                             </button>
 
@@ -98,7 +98,7 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
                 <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente - Nova Receita</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente - Ficha de Ingrediente</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
@@ -128,7 +128,7 @@
 
                             <div class="col-md-2">
                                 <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="IncluirUsuario()">
+                                    onclick="SalvarItemRegistro()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
                         </div>
@@ -138,17 +138,18 @@
                         <div class="form-group">
                             <div class="col-md-1"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
                                             <th>Item</th>
                                             <th>Quantidade</th>
                                         </tr>
                                     </thead>
+                                    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
-                        <!-- GRID Usuarios -->
+                        <!-- GRID Ingredientes -->
 
                     </fieldset>
                 </form>
@@ -168,7 +169,7 @@
                     <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
                         <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
-                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                         <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
                     </button>
 
