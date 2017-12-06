@@ -71,6 +71,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GedumNew", "..\GedumNew\", 
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppPetInLove", "WebAppPetInLove\WebAppPetInLove.csproj", "{8264ADDE-07B8-4F5D-82EF-D46EA9C62E4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{60525D4B-93EB-4FA2-96D5-C9D6C0547CD8}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8264ADDE-07B8-4F5D-82EF-D46EA9C62E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8264ADDE-07B8-4F5D-82EF-D46EA9C62E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8264ADDE-07B8-4F5D-82EF-D46EA9C62E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8264ADDE-07B8-4F5D-82EF-D46EA9C62E4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

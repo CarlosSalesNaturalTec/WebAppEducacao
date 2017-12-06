@@ -97,7 +97,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
-                <!--*******Customização*******-->
+           
                 <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente - Ficha de Ingrediente</h3>
             </div>
 
@@ -108,12 +108,13 @@
                         <br /> <!-- Adicionar uma linha em branco -->
 
                         <div class="form-group">
-
+                            
                             <label for="input_ingrediente" class="col-md-2 control-label">Ingrediente</label>
                             <div class="col-md-9">
-                                <input type="text" id="input_ingrediente" class="w3-input w3-border w3-round"/>
+                                <asp:Literal ID="Literal_Produto" runat="server"></asp:Literal>
                             </div>
-                        </div>
+                        </div>                            
+
 
                         <div class="form-group">
                             <label for="input_qtde" class="col-md-2 control-label">Quantidade</label>
@@ -141,8 +142,10 @@
                                 <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
-                                            <th>Item</th>
-                                            <th>Quantidade</th>
+                                            <th>Código</th>
+                                            <th>Produto</th>
+                                            <th>Qtde</th>
+                                            <th>Und</th>
                                         </tr>
                                     </thead>
                                     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
@@ -182,8 +185,9 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDInstHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeReceitas_Novo.js"></script>

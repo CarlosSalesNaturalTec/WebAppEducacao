@@ -17,7 +17,7 @@ function SalvarRegistro() {
     }
 
     // id
-    var vID = document.getElementById("IDInstHidden").value;
+    var vID = document.getElementById("IDHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
@@ -55,7 +55,7 @@ function AlterarRegistro() {
     }
 
     // id
-    var vID = document.getElementById("IDInstHidden").value;
+    var vID = document.getElementById("IDHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
@@ -82,30 +82,35 @@ function AlterarRegistro() {
 function SalvarItemRegistro() {
 
     //validações
-    if (document.getElementById('input_ingrediente').value == "") {
-        alert("Informe Nome do Ingrediente");   //<!--*******Customização*******-->
-        document.getElementById("input_ingrediente").focus();  //<!--*******Customização*******-->
+    var e = document.getElementById("select_produtos")
+    var e1 = e.options[e.selectedIndex].value
+    var e2 = e.options[e.selectedIndex].text
+
+    if (e1 == "0") {
+        alert("Informe Nome do Ingrediente");  
+        document.getElementById("select_produtos").focus();
         return;
     }
 
-    var v1 = document.getElementById('IDInstHidden').value;
-    var v2 = document.getElementById("input_ingrediente").value;
+    var v1 = document.getElementById('IDHidden').value; // id receita
+    var v2 = e1;    
     var v3 = document.getElementById("input_qtde").value;
     var v4 = document.getElementById("input_und").value;
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/ReceitasItensSalvar",  //<!--*******Customização*******-->
+        url: "WebService.asmx/ReceitasItensSalvar",  
         data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
-            insertLinha();
+            insertLinha(e1,e2); // e1-> id_produto; e2 -> Descricao
         },
         failure: function (response) {
             alert(response.d);
         }
     });
+
 }
 
 
@@ -138,19 +143,25 @@ function ExcluirReceitasItens(r, ReceitaItemID) {
 
 
 
-function insertLinha() {
+function insertLinha(Codigo,Produto) {
 
-    var col1 = document.getElementById('input_ingrediente').value;
-    var col2 = document.getElementById('input_qtde').value;
+    var col1 = Codigo; // document.getElementById('input_ingrediente').value;
+    var col2 = Produto;
+    var col3 = document.getElementById('input_qtde').value;
+    var col4 = document.getElementById('input_und').value;
 
     var table = document.getElementById("MyTable");
 
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
 
     cell1.innerHTML = col1;
     cell2.innerHTML = col2;
+    cell3.innerHTML = col3;
+    cell4.innerHTML = col4;
 
     //apaga formulario
     document.getElementById('input_ingrediente').value = "";
