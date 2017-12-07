@@ -23,7 +23,6 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
@@ -40,7 +39,7 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
+        
         string stringselect = "select ID_func, nome, Funcao, celular1, email " +
                 "from tbl_Funcionarios " +
                 " order by Nome"; 
@@ -57,7 +56,6 @@ public partial class Funcionarios_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
 
-            // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Funcionarios_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
            
             string stringcomaspas = "<tr>" +

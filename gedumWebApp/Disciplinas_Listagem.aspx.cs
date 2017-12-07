@@ -24,7 +24,7 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered\">" +
             "<thead>" +
             "<tr>" +
-            "<th>DISCIPLINA</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DISCIPLINA</th>" +
             "<th>OBS</th>" +
             "</tr>" +
             "</thead>" +

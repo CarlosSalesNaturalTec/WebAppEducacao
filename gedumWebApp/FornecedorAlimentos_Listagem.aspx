@@ -6,7 +6,7 @@
 
 <head runat="server">
     
-    <title>Listagem de Fornededor Alimentos</title>         <!--*******Customização*******-->
+    <title>Listagem de Fornededores</title>         
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
 
-    <!--*******Customização*******-->
     <style> 
         body {
             background-image: url("images/fundo.jpg"); 
@@ -30,10 +29,10 @@
 <body>
     <p></p>
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-green" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Fornecedor Alimentos Cadastrados:
-            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> <!--*******Customização*******-->
+        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Fornecedores Cadastrados:
+            <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> 
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Fornecedor Alimentos</button>  <!--*******Customização*******-->
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Fornecedor</button>  
     </div>
 
     <br />
@@ -72,7 +71,7 @@
     <!-- Modal Excluir -->
 
     <!-- Scripts Diversos -->
-    <script type="text/javascript" src="Scripts/codeFornecedorAlimentos_Listagem.js"></script>   <!--*******Customização*******-->
+    <script type="text/javascript" src="Scripts/codeFornecedorAlimentos_Listagem.js"></script>   
 
     <!-- Script Paginação  -->
     <script type="text/javascript" src="Scripts/codePaginacao.js"></script>

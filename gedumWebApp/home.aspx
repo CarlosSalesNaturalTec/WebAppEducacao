@@ -72,7 +72,7 @@
                             <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FORNECEDORES</a>
                             <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BENS</a>
                             <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VEÍCULOS</a>
-                            <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VIAGENS</a>
+                            <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VEÍCULOS-VIAGENS</a>
                             <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">VISITAS</a>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                         <button class="w3-btn">BIBLIOTECA</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
-                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
+                            <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
                         </div>
                     </div>
                 </p>

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+
     <title>Cadastro de Receitas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,14 +28,14 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL *******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
-            <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente</button>
+        <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingredientes</button>
         <hr />
 
     </div>
@@ -45,7 +45,6 @@
         <!-- GRUPO 1 - Dados Receitas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Nova Receita</h3>
             <hr />
 
@@ -63,7 +62,7 @@
                         <div class="form-group">
                             <label for="input_modo_preparo" class="col-md-2 control-label">Modo de Preparo</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_modo_preparo">
+                                <textarea id="input_modo_preparo" rows="10" class="form-control" ></textarea>
                             </div>
                         </div>
 
@@ -90,15 +89,14 @@
 
             </div>
 
-        </div>   
-        
+        </div>
 
-        <!-- GRUPO 2 Ingredientes --> 
+
+        <!-- GRUPO 2 Ingredientes -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
-                <!--*******Customização*******-->
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente - Nova Instituição</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingredientes</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">

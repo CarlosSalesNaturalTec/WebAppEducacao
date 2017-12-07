@@ -30,10 +30,10 @@
 
     <p></p>
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-green" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Patrimônios Cadastrados:
+        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Bens Cadastrados:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> 
         &nbsp;&nbsp;
-        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Patrimônio</button>  
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Bem</button>  
     </div>
     <br />
 

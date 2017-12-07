@@ -5,7 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-    <!--*******Customização*******-->
     <title>Cadastro de Visitas</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,7 +21,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL *******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <hr />
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
@@ -36,13 +35,11 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
-                <!--*******Customização*******-->
                 <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
                 <form class="form-horizontal">
-                    <!--*******Customização*******-->
                     <fieldset>
                         <br />
                         <div class="form-group">

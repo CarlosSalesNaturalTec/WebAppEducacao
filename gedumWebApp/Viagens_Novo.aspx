@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+    
     <title>Cadastro de Viagens</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL *******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -44,8 +44,7 @@
         <!-- GRUPO 1 - Dados Viagens -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Nova Viagem</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Nova Viagem</h3>
             <hr />
 
             <div class="w3-rest">
@@ -67,32 +66,34 @@
 
                             <label for="input_dataviagem" class="col-md-2 control-label">Data Viagem</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_dataviagem"/>
+                                <input type="date" class="form-control" id="input_dataviagem"/>
                             </div>
                         </div>
 
                         <div class="form-group">
 
+                            <label for="input_horasaida" class="col-md-2 control-label">Hora de Saída</label>
+                            <div class="col-md-2">
+                                <input type="time" class="form-control" id="input_horasaida"/>
+                            </div>
+
                             <label for="input_kminicial" class="col-md-2 control-label">Km Inicial</label>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_kminicial"/>
                             </div>
 
-                            <label for="input_kmfinal" class="col-md-2 control-label">Km Final</label>
-                            <div class="col-md-1">
-                                <input type="text" class="form-control" id="input_kmfinal"/>
-                            </div>
+                        </div>
 
+                        <div class="form-group">
                             <label for="input_horachegada" class="col-md-2 control-label">Hora de Chegada</label>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_horachegada"/>
                             </div>
 
-                            <label for="input_horasaida" class="col-md-2 control-label">Hora de Saída</label>
-                            <div class="col-md-1">
-                                <input type="text" class="form-control" id="input_horasaida"/>
+                            <label for="input_kmfinal" class="col-md-2 control-label">Km Final</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="input_kmfinal"/>
                             </div>
-
                         </div>
 
                         <div class="form-group">

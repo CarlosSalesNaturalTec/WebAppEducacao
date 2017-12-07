@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+   
     <title>Cadastro de Patrimônio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,7 +45,7 @@
         <!-- GRUPO 1 - Dados Salas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Patrimônio</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Novo Bem</h3>
             <hr />
 
             <div class="w3-rest">

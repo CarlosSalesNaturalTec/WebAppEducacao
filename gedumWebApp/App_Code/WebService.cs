@@ -421,7 +421,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string VisitasExcluir(string param1)
     {
-        // <!--*******Customização*******-->
+
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -646,7 +646,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string AlunosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
+        
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -744,6 +744,7 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+
     [WebMethod]
     public string ProdutosSalvar(string param0, string param1, string param2, string param3, string param4, string param5)
     {
@@ -803,11 +804,10 @@ public class WebService : System.Web.Services.WebService
     }
 
 
-
     [WebMethod]
     public string ProdutosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
+
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -825,6 +825,8 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+
 
     [WebMethod]
     public string FornecedorAlimentosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
@@ -910,7 +912,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string FornecedorAlimentosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
+
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -988,7 +990,6 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string ModelosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -1178,7 +1179,6 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string VeiculosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -1198,13 +1198,14 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+
     [WebMethod]
     public string ViagensSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
            string param6, string param7, string param8, string param9, string param10, string param11)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Viagens (veiculo, motorista, data_viagem, km_inicial, km_final, hora_saida," +
-            "hora_chegada, destino_viagem, motivo_viagem, id_inst, id_veiculo, id_motorista) " +             
+        string strInsert = "insert INTO Tbl_Viagens (veiculo, motorista, data_viagem, hora_saida, km_inicial, hora_chegada, km_final," +
+            " destino_viagem, motivo_viagem, id_inst, id_veiculo, id_motorista) " +             
             "VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
@@ -1248,10 +1249,10 @@ public class WebService : System.Web.Services.WebService
             "veiculo= '" + param0 + "'," +
             "motorista= '" + param1 + "'," +
             "data_viagem= '" + param2 + "'," +
-            "km_inicial = '" + param3 + "'," +
-            "km_final = '" + param4 + "'," +
-            "hora_saida = '" + param5 + "'," +
-            "hora_chegada = '" + param6 + "'," +
+            "hora_saida = '" + param3 + "'," +
+            "km_inicial = '" + param4 + "'," +
+            "hora_chegada = '" + param5 + "'," +
+            "km_final = '" + param6 + "'," +
             "destino_viagem = '" + param7 + "'," +
             "motivo_viagem = '" + param8 + "'" +
             "where ID_Viagem = " + param9);

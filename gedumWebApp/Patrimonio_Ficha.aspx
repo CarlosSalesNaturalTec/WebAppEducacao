@@ -44,7 +44,7 @@
         <!-- GRUPO 1 - Dados Salas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Ficha de Patrimônio</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Bem</h3>
             <hr />
 
             <div class="w3-rest">

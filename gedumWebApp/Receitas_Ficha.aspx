@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+
     <title>Cadastro de Receita</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -45,8 +45,7 @@
         <!-- GRUPO 1 - Dados Receitas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Ficha de Receita</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Receita</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -98,14 +97,14 @@
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
            
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente - Ficha de Ingrediente</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingredientes</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
                 <form class="form-horizontal">
                     <fieldset>
 
-                        <br /> <!-- Adicionar uma linha em branco -->
+                        <br /> 
 
                         <div class="form-group">
                             

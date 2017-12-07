@@ -45,7 +45,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Veículo</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Novo Veículo</h3>
             <hr />
 
             <div class="w3-threequarter">
