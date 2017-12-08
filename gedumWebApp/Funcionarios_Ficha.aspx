@@ -4,23 +4,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+   
     <title>Cadastro de Funcionário</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   
+     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <style>
         body {
-            background-image: url("images/fundo.jpg");
+            background-image: url("Images/fundo.jpg");
             background-repeat: repeat;
             height: 100%;
         }
@@ -32,16 +34,17 @@
             border: 1px solid;
             background: #ccc;
         }
+
+        #result_Digitaliza {
+            margin: 5px;
+            padding: 5px;
+        }
     </style>
 
 </head>
 <body>
-
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
-        <div class="w3-padding w3-center">
-            <img src="Images/brasaobahiacolorsmall.png" />
-        </div>
         <hr />
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
@@ -54,6 +57,9 @@
         <button id="bt8" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo8')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários</button>
         <button id="bt9" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo9')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
         <button id="bt10" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo10')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
+        <button id="bt11" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo11')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Digitalizações</button>
+        <button id="bt12" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo12')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Gratificações</button>
+        <button id="bt13" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo13')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Formação</button>
         <hr />
 
     </div>
@@ -62,9 +68,8 @@
 
         <!-- GRUPO 1 - Dados Pessoais -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
-
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais- Ficha Funcionário</h3>
+            
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Dados Pessoais</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -78,9 +83,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_prof" class="col-md-2 control-label">Profissão</label>
+                            <label for="input_sexo" class="col-md-2 control-label">Sexo</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_prof">
+                                <select class="form-control" id="input_sexo">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                </select>
                             </div>
 
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
@@ -116,23 +124,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_escolaridade" class="col-md-2 control-label">Escolaridade</label>
-                            <div class="col-md-4">
-                                <select class="form-control" id="input_escolaridade">
-                                    <option value="Fundamental incompleto">Fundamental incompleto</option>
-                                    <option value="Fundamental completo">Fundamental completo</option>
-                                    <option value="Médio incompleto">Médio incompleto</option>
-                                    <option value="Médio completo">Médio completo</option>
-                                    <option value="Superior incompleto">Superior incompleto</option>
-                                    <option value="Superior completo">Superior completo</option>
-                                    <option value="Pós-graduação incompleto">Pós-graduação incompleto</option>
-                                    <option value="Pós-graduação completo">Pós-graduação completo</option>
-                                    <option value="Mestrado incompleto">Mestrado incompleto</option>
-                                    <option value="Mestrado completo">Mestrado completo</option>
-                                    <option value="Doutorado incompleto">Doutorado incompleto</option>
-                                    <option value="Doutorado completo">Doutorado completo</option>
-                                </select>
-                            </div>
+                            <input type="hidden" class="form-control" id="input_escolaridade" value="XXX">
                             <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
                             <div class="col-md-3">
                                 <select class="form-control" id="input_civil">
@@ -210,8 +202,6 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
-
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
                 </div>
@@ -223,10 +213,6 @@
             <div class="w3-quarter">
                 <div id="results"></div>
                 <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
                 <input id="Hidden1" name="fotouri" type="hidden" />
             </div>
             <!-- Camera -->
@@ -237,8 +223,7 @@
         <!-- GRUPO 2 - Endereço -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Endereço</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -320,8 +305,6 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
-
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
                 </div>
@@ -331,7 +314,6 @@
 
             <div class="w3-quarter">
                 <div class="w3-container">
-                    <iframe name="MapFrame" src="MapaAuxiliar.aspx?lat=0&lng=0" width="100%" height="400" frameborder="0" style="border: 0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -340,8 +322,7 @@
         <!-- GRUPO 3 - Documentação -->
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Documentação</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -430,8 +411,6 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt4()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
-
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
                 </div>
@@ -447,38 +426,13 @@
 
         <!-- GRUPO 4 - Dependentes -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dependentes- Ficha Funcionário</h3>
+
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Dependentes</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
-                        <div class="form-group">
-                            <label for="input_DEPNome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-10">
-                                <input type="text" id="input_DEPNome" class="w3-input w3-border w3-round">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_DEPparent" class="col-md-2 control-label">Parentesco</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_DEPparent" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_DEPNasc" class="col-md-2 control-label">Nascimento</label>
-                            <div class="col-md-3">
-                                <input type="date" id="input_DEPNasc" class="w3-input w3-border w3-round">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="DependenteIncluir()" type="button">
-                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
-                            </div>
-                        </div>
-
-
                         <!-- GRID Dependentes -->
                         <div class="form-group">
                             <div class="col-md-2"></div>
@@ -496,7 +450,6 @@
                             </div>
                         </div>
                         <!-- GRID Dependentes -->
-
                     </fieldset>
                 </form>
 
@@ -513,8 +466,6 @@
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt5()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
-
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
                 </div>
@@ -530,37 +481,12 @@
         <!-- GRUPO 5 - Benefícios-->
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Benefícios- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Benefícios</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
-                        <div class="form-group">
-                            <label for="input_BEnefNome" class="col-md-2 control-label">Benefício</label>
-                            <div class="col-md-10">
-                                <input type="text" id="input_BEnefNome" class="w3-input w3-border w3-round">
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_BenefSituac" class="col-md-2 control-label">Situação</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_BenefSituac" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_BenefInicio" class="col-md-2 control-label">Inicio</label>
-                            <div class="col-md-3">
-                                <input type="date" id="input_BenefInicio" class="w3-input w3-border w3-round">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="BeneficioIncluir()" type="button">
-                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
-                            </div>
-                        </div>
-
                         <!-- GRID Beneficios -->
                         <div class="form-group">
                             <div class="col-md-2"></div>
@@ -596,7 +522,6 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
                         </p>
                     </div>
                 </div>
@@ -611,8 +536,8 @@
 
         <!-- GRUPO 6 - Situação -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Situação- Ficha Funcionário</h3>
+            
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Situação</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -620,18 +545,26 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_situac" class="col-md-2 control-label">Situação</label>
+                            <label for="input_vinculo" class="col-md-2 control-label">Vínculo</label>
                             <div class="col-md-3">
-                                <select class="form-control" id="input_situac">
-                                    <option value="Funcionário Público">Funcionário Público</option>
-                                    <option value="REDA">REDA</option>
-                                    <option value="Cargo de Comissionado">Cargo de Comissionado</option>
+                                <select class="form-control" id="input_vinculo">
+                                    <option value="Cargo Comissionado">Cargo Comissionado</option>
+                                    <option value="Contratado">Contratado</option>
+                                    <option value="Estatutário">Estatutário</option>
+                                    <option value="Estagiário">Estagiário</option>
                                     <option value="Outros">Outros</option>
                                 </select>
                             </div>
-                            <label for="input_qual" class="col-md-2 control-label">Outros, qual</label>
+                            <label for="input_qual" class="col-md-2 control-label">Situação</label>
                             <div class="col-md-5">
-                                <input type="text" class="form-control" id="input_qual">
+                                <select class="form-control" id="input_situac">
+                                    <option value="Em atividade">Em atividade</option>
+                                    <option value="Aposentado">Aposentado</option>
+                                    <option value="Exonerado">Exonerado</option>
+                                    <option value="Transferido a outra Secretaria">Transferido a outra Secretaria</option>
+                                    <option value="Afastado">Afastado</option>
+                                    <option value="INSS">INSS</option>
+                                </select>
                             </div>
                         </div>
 
@@ -649,9 +582,9 @@
                         <div class="form-group">
                             <label for="input_bruto" class="col-md-2 control-label">Salário Bruto</label>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" id="input_bruto">
+                                <input type="number" class="form-control" id="input_bruto" value="0">
                             </div>
-                            <label for="input_SalInvest" class="col-md-2 control-label">Salário Investimento</label>
+                            <label for="input_SalInvest" class="col-md-3 control-label">Salário Investimento</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_SalInvest">
                                     <option value="Federal">Federal</option>
@@ -675,6 +608,36 @@
                                 <input type="text" class="form-control" id="input_Sindqual">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="input_lotado" class="col-md-2 control-label">Lotado Em</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_lotado">
+                                    <option value="Secretaria Municipal de Turismo">Secretaria Municipal de Turismo</option>
+                                    <option value="Secretaria Municipal de Saúde">Secretaria Municipal de Saúde</option>
+                                    <option value="Secretaria Municipal de Obras">Secretaria Municipal de Obras</option>
+                                    <option value="Secretaria Municipal de Meio Ambiente">Secretaria Municipal de Meio Ambiente</option>
+                                    <option value="Secretaria Municipal de Educação">Secretaria Municipal de Educação</option>
+                                    <option value="Secretaria Municipal de Finanças">Secretaria Municipal de Finanças</option>
+                                    <option value="Secretaria Municipal de Assistência Social">Secretaria Municipal de Assistência Social</option>
+                                    <option value="Secretaria Municipal de Agricultura">Secretaria Municipal de Agricultura</option>
+                                    <option value="Secretaria Municipal de Administração">Secretaria Municipal de Administração</option>
+                                    <option value="Gabinete do Prefeito">Gabinete do Prefeito</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matricula" class="col-md-2 control-label">Matrícula</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_matricula">
+                            </div>
+                            <label for="input_admissao" class="col-md-2 control-label">Admissão</label>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="input_admissao">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -692,8 +655,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt7()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                        </p>
+                             </p>
                     </div>
                 </div>
                 <!-- Botões Controle -->
@@ -708,46 +670,12 @@
         <!-- GRUPO 7 - Carga Horária-->
         <div id="grupo7" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Carga Horária- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Carga Horária</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
-                        <div class="form-group">
-                            <label for="input_DiaSem" class="col-md-2 control-label">Dia Semana</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_DiaSem" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_Turno" class="col-md-2 control-label">Turno</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Turno" class="w3-input w3-border w3-round">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_Entrada" class="col-md-2 control-label">Entrada</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Entrada" class="w3-input w3-border w3-round">
-                            </div>
-                            <label for="input_Saida" class="col-md-2 control-label">Saida</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Saida" class="w3-input w3-border w3-round">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_Descanso" class="col-md-2 control-label">Descanso (hs)</label>
-                            <div class="col-md-3">
-                                <input type="text" id="input_Descanso" class="w3-input w3-border w3-round">
-                            </div>
-                            <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="CargaHIncluir()" type="button">
-                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
-                            </div>
-                        </div>
-
                         <!-- GRID Carga Horária- -->
                         <div class="form-group">
                             <div class="col-md-2"></div>
@@ -755,11 +683,8 @@
                                 <table id="TableCargaH" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
-                                            <th>Dia Semana</th>
-                                            <th>Turno</th>
-                                            <th>Entrada</th>
-                                            <th>Saida</th>
-                                            <th>Descanso (hs)</th>
+                                            <th>Instituição</th>
+                                            <th>Carga Horária</th>
                                         </tr>
                                     </thead>
                                     <asp:Literal ID="Literal5" runat="server"></asp:Literal>
@@ -776,6 +701,7 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
@@ -785,8 +711,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt8()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                        </p>
+                           </p>
                     </div>
                 </div>
                 <!-- Botões Controle -->
@@ -801,7 +726,7 @@
         <!-- GRUPO 8 - Dados Bancários -->
         <div id="grupo8" class="w3-container grupo w3-animate-left" style="display: none">
             
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Bancários- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Dados Bancários</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -857,8 +782,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt9()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                        </p>
+                           </p>
                     </div>
                 </div>
                 <!-- Botões Controle -->
@@ -873,8 +797,7 @@
         <!-- GRUPO 9 - Dados de Saúde -->
         <div id="grupo9" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Dados de Saúde</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -900,6 +823,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_SUS" class="col-md-3 control-label">Cartão SUS</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_SUS">
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -917,8 +847,7 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt10()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                        </p>
+                            </p>
                     </div>
                 </div>
                 <!-- Botões Controle -->
@@ -933,8 +862,7 @@
         <!-- GRUPO 10 - Fardamento -->
         <div id="grupo10" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento- Ficha Funcionário</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Fardamento</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -974,6 +902,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="input_cracha" class="col-md-2 control-label">Emitir Crachá</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_cracha">
+                                    <option value="Não">Não</option>
+                                    <option value="Sim">Sim</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </fieldset>
                 </form>
 
@@ -988,8 +926,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar9()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
-                        </p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt11()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            </p>
                     </div>
                 </div>
                 <!-- Botões Controle -->
@@ -999,18 +939,223 @@
             <div class="w3-quarter">
             </div>
         </div>
+
+
+        <!-- GRUPO 11 - Digitalizações -->
+        <div id="grupo11" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Digitalizações</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- GRID Digitalizações -->
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="tableDigitaliz" class="w3-table-all">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>-</th>
+                                            <th>Documento</th>
+                                            <th>Observações</th>
+                                        </tr>
+                                    </thead>
+                                    <asp:Literal ID="Literal_Digita" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar10()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt12()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                         </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+
+
+        <!-- GRUPO 12 - Gratificações -->
+        <div id="grupo12" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Gratificações</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- GRID Gratificações -->
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="tableGratifica" class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>Gratificação</th>
+                                            <th>Percentual(%)</th>
+                                            <th>Observações</th>
+                                        </tr>
+                                    </thead>
+                                    <asp:Literal ID="Literal_Gratifica" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- GRID Beneficios-->
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar11()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt13()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                          </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+
+
+        <!-- GRUPO 13 - Formações-->
+        <div id="grupo13" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Funcionário - Formações</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- GRID Formações -->
+                        <div class="form-group">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="tableFormacao" class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>Tipo</th>
+                                            <th>Ano Conclusão</th>
+                                        </tr>
+                                    </thead>
+                                    <asp:Literal ID="Literal_formacoes" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- GRID Formações-->
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar12()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+
+
+        <!-- Modal Digitalização -->
+        <div id="div_Digitaliza" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-top">
+
+                <header class="w3-container w3-blue w3-center">
+                    <span onclick="document.getElementById('div_Digitaliza').style.display='none'"
+                        class="w3-button w3-display-topright">&times;</span>
+                    <h4>Digitalização</h4>
+                </header>
+
+                <form class="w3-container">
+                    <div class="w3-section">
+                        <div id="result_Digitaliza"></div>
+                    </div>
+                </form>
+
+                <div class="w3-container w3-center">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="DigitalizacaoIncluir()">
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
+                      <i id="btCog" style="display: none" class="fa fa-cog fa-2x fa-spin fa-fw w3-right"></i>
+                    </button>
+                    &nbsp;&nbsp;
+
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                        onclick="document.getElementById('div_Digitaliza').style.display='none'">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Cancelar</button>
+                    <p>&nbsp;</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal Vizualizar Digitalização -->
+        <div id="div_Digitaliza1" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-top">
+
+                <form class="w3-container">
+                    <div class="w3-section">
+                        <div id="result_Digitaliza1"></div>
+                    </div>
+                </form>
+
+                <div class="w3-container w3-center">
+                    <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                        onclick="document.getElementById('div_Digitaliza1').style.display='none'">
+                        <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Fechar</button>
+                    <p>&nbsp;</p>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" name="IDHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
+    <asp:Literal ID="Literal_IDInst" runat="server"></asp:Literal>
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
-    <!-- Scripts diversos  -->
-    <script type="text/javascript" src="Scripts/webcam.js"></script>
+    <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeFuncionarios_Novo.js"></script>
-    <script type="text/javascript" src="Scripts/codeFuncionarios_Mapa.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
-
+    <script type="text/javascript" src="Scripts/webcam.js"></script>
+ 
 </body>
-
 </html>

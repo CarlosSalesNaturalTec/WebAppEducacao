@@ -3,18 +3,25 @@ using System.Text;
 
 public partial class Funcionarios_Ficha : System.Web.UI.Page
 {
-
     StringBuilder str = new StringBuilder();
-    string idAux;
+    string idAux,idMunic;
+    
 
     protected void Page_Load(object sender, EventArgs e)
     {
         idAux = Request.QueryString["v1"];
-        PreencheCampos(idAux);
 
+        PreencheCampos(idAux);
         DependentesLista(idAux);
         BeneficiosLista(idAux);
         CargaHLista(idAux);
+        Digitalizacoes(idAux);
+        Gratificacoes(idAux);
+        Formacoes(idAux);
+
+        //lista de instituições
+        //string idauxmunic = Literal_Instituicoes.Text;
+        //Instituicoes(idauxmunic);
 
     }
 
@@ -30,7 +37,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
 
         string stringSelect = "select " +
             "Nome," +
-            "Profissao," +
+            "Sexo," +
             "Nascimento," +
             "Pai," +
             "Mae," +
@@ -42,6 +49,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
+
             "Endereco," +
             "Latitude," +
             "Longitude," +
@@ -54,6 +62,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "Celular2," +
             "TelFixo," +
             "email," +
+
             "PIS," +
             "CPF," +
             "RG," +
@@ -67,29 +76,41 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             "Secao," +
             "CNH," +
             "Passaporte," +
+
+            "Vinculo," +
             "Situacao," +
-            "SituacaoOutros," +
             "Funcao," +
             "TabelaSal," +
-            "SalarioBruto, " +
-            "SalarioInvest, " +
+            "SalarioBruto," +
+            "SalarioInvest," +
             "Sindicalizado," +
             "SindicatoNome," +
+            "lotado," +
+            "Matricula," +
+            "format(Admissao, 'yyyy-MM-dd') as d1," +
+
             "Banco," +
             "Agencia," +
             "ContaTipo," +
             "ContaNumero," +
             "ContaOperacao," +
+
             "Alergias," +
             "AlergiasMed," +
             "AcidenteAvisar," +
+            "CartaoSUS," +
+
             "FardaCamisa," +
             "FardaCamiseta," +
             "FardaCalca," +
             "FardaSapato," +
             "FardaBota," +
             "FardaObs," +
-            "FotoDataURI " +
+            "Cracha," +
+
+            "FotoDataURI, " +
+            "ID_Munic  " +
+
             "from Tbl_Funcionarios " +
             "where ID_func  = " + ID;
 
@@ -97,16 +118,20 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 59; i++)
+            for (int i = 0; i < 65; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[60]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[65]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[60]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[65]) + "\";";
             str.Append(ScriptDados);
+
+            //id do municipio
+            Literal_IDInst.Text = Convert.ToString(rcrdset[66]);
+
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
@@ -217,7 +242,7 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
     private void CargaHLista(string ID)
     {
 
-        string stringSelect = "select ID_CargaH, DiaSemana, Turno, Entrada, Saida, Descanso " +
+        string stringSelect = "select ID_CargaH, Instituicao , Carga  " +
             " from Tbl_Funcionarios_CargaHor " +
             " where ID_func = " + ID;
         OperacaoBanco operacaoUsers = new OperacaoBanco();
@@ -242,15 +267,6 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
             str.Append(ScriptDados);
 
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[4]) + "</td>";
-            str.Append(ScriptDados);
-
-            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[5]) + "</td>";
-            str.Append(ScriptDados);
-
             ScriptDados = "</tr>";
             str.Append(ScriptDados);
         }
@@ -259,4 +275,148 @@ public partial class Funcionarios_Ficha : System.Web.UI.Page
         Literal5.Text = str.ToString();
 
     }
+
+    private void Digitalizacoes(string ID)
+    {
+        string stringSelect = "select ID_Digitaliza, TipoDoc, Obs " +
+            " from Tbl_Funcionarios_Digitalizacoes " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' onclick='DigitalizacaoVizualizar(" +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-info' aria-hidden='true'></i></a>&nbsp;";
+
+            string bt2 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' onclick='DigitalizacaoImprimir(" +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-print' aria-hidden='true'></i></a>&nbsp;";
+
+            string bt3 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='DigitalizacaoExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + bt2 + bt3 + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_Digita.Text = str.ToString();
+
+    }
+
+    private void Gratificacoes(string ID)
+    {
+        string stringSelect = "select ID_Gratifica , Gratificacao , Obs, Percentual " +
+            " from Tbl_Funcionarios_gratificacoes  " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='GratificacaoExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[3]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_Gratifica.Text = str.ToString();
+
+    }
+
+    private void Formacoes(string ID)
+    {
+        string stringSelect = "select ID_formacao  , Tipo  , Conclusao  " +
+            " from Tbl_Funcionarios_formacoes " +
+            " where ID_func = " + ID;
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='FormacaoExcluir(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_formacoes.Text = str.ToString();
+
+    }
+
+    private void Instituicoes(string idaux)
+    {
+        str.Clear();
+        string Coluna0, Coluna1;
+        string stringselect = "select ID_inst , nome " +
+                "from Tbl_Instituicao  " +
+                " order by Nome";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
+        while (dados.Read())
+        {
+            Coluna0 = Convert.ToString(dados[0]); //id
+            Coluna1 = Convert.ToString(dados[1]);
+            str.Append("<option value=\"" + Coluna0 + "\">" + Coluna1 + "</option>");
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        //Literal_Instituicoes.Text = str.ToString();
+    }
+
 }
