@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Turma");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome da Turma");   
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
@@ -44,7 +44,7 @@ function AlterarRegistro() {
     
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome da Turma");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome da Turma");   
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();

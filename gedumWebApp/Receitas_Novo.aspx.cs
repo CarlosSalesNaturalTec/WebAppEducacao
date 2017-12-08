@@ -8,7 +8,7 @@ public partial class Receitas_Novo : System.Web.UI.Page
         string InstID = Session["InstID"].ToString();
 
         string ScriptAux = "<script type=\"text/javascript\">" +
-                        "document.getElementById('IDInstHidden').value = \"" + InstID + "\";" +
+                        "document.getElementById('IDHidden').value = \"" + InstID + "\";" +
                         "</script>";
         Literal1.Text = ScriptAux;
     }

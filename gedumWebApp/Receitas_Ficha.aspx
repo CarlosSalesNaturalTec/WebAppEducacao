@@ -62,7 +62,7 @@
                         <div class="form-group">
                             <label for="input_modo_preparo" class="col-md-2 control-label">Modo de Preparo</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_modo_preparo">
+                                <textarea id="input_modo_preparo" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
 

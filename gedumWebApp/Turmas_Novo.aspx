@@ -83,7 +83,9 @@
                         <div class="form-group">
                             <label for="input_idsala" class="col-md-2 control-label">Sala</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_idsala">
+                                <select class="form-control" id="input_idsala">
+                                    <asp:Literal ID="Literal_Combo" runat="server"></asp:Literal>
+                                </select>
                             </div>
                         </div>
 

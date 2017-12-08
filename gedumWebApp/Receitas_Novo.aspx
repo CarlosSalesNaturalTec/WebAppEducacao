@@ -62,7 +62,7 @@
                         <div class="form-group">
                             <label for="input_modo_preparo" class="col-md-2 control-label">Modo de Preparo</label>
                             <div class="col-md-9">
-                                <textarea id="input_modo_preparo" rows="10" class="form-control" ></textarea>
+                                <textarea id="input_modo_preparo" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
 
@@ -96,6 +96,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
+
                 <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingredientes</h3>
             </div>
 
@@ -103,29 +104,33 @@
                 <form class="form-horizontal">
                     <fieldset>
 
+                        <br />
+
                         <div class="form-group">
 
                             <label for="input_ingrediente" class="col-md-2 control-label">Ingrediente</label>
-                            <div class="col-md-4">
-                                <input type="text" id="input_ingrediente" class="w3-input w3-border w3-round">
+                            <div class="col-md-9">
+                                <asp:Literal ID="Literal_Produto" runat="server"></asp:Literal>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="input_qtde" class="col-md-2 control-label">Quantidade</label>
+                            <div class="col-md-2">
+                                <input type="number" id="input_qtde" class="w3-input w3-border w3-round" />
                             </div>
 
-                            <label for="input_qtde" class="col-md-1 control-label">Quantidade</label>
-                            <div class="col-md-2">
-                                <input type="number" id="input_qtde" class="w3-input w3-border w3-round">
-                            </div>
-
-                            <label for="input_und" class="col-md-1 control-label">Unidade</label>
-                            <div class="col-md-2">
-                                <input type="number" id="input_und" class="w3-input w3-border w3-round">
+                            <label for="input_und" class="col-md-2 control-label">Unidade</label>
+                            <div class="col-md-3">
+                                <input type="text" id="input_und" class="w3-input w3-border w3-round" />
                             </div>
 
                             <div class="col-md-2">
-                                <button class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
-                                    onclick="alert('Necessário Salvar Receita primeiro!')">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="SalvarItemRegistro()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
-
                         </div>
 
 
@@ -133,17 +138,20 @@
                         <div class="form-group">
                             <div class="col-md-1"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
-                                <table class="w3-table-all w3-hoverable">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
-                                            <th>Item</th>
-                                            <th>Quantidade</th>
+                                            <th>Código</th>
+                                            <th>Produto</th>
+                                            <th>Qtde</th>
+                                            <th>Und</th>
                                         </tr>
                                     </thead>
+                                    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>
-                        <!-- GRID Usuarios -->
+                        <!-- GRID Ingredientes -->
 
                     </fieldset>
                 </form>
@@ -177,7 +185,7 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDInstHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
