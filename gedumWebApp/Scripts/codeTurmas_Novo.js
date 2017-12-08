@@ -17,8 +17,26 @@ function SalvarRegistro() {
     for (i = 0; i < x.length; i++) {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
-    
+
+    //Combo Curso
+    var combo1 = document.getElementById("input_curso")
+    var combo2 = combo1.options[combo1.selectedIndex].value;    //ID
+    strLine = strLine + "param" + i + ":'" + combo2 + "',";
+    i++;
+    var combo3 = combo1.options[combo1.selectedIndex].text;     //Nome
+    strLine = strLine + "param" + i + ":'" + combo3 + "',";
+
+    //Combo Salas
+    i++;
+    var combo1 = document.getElementById("input_sala")
+    var combo2 = combo1.options[combo1.selectedIndex].value;    //ID
+    strLine = strLine + "param" + i + ":'" + combo2 + "',";
+    i++;
+    var combo3 = combo1.options[combo1.selectedIndex].text;     //Nome
+    strLine = strLine + "param" + i + ":'" + combo3 + "',";
+
     //id isntituição
+    i++;
     var idInst = document.getElementById('IDInstHidden').value;
     strLine = strLine + "param" + i + ":'" + idInst + "'";
 
@@ -58,7 +76,25 @@ function AlterarRegistro() {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
 
-    // id
+    //Combo Curso
+    var combo1 = document.getElementById("input_curso")
+    var combo2 = combo1.options[combo1.selectedIndex].value;    //ID
+    strLine = strLine + "param" + i + ":'" + combo2 + "',";
+    i++;
+    var combo3 = combo1.options[combo1.selectedIndex].text;     //Nome
+    strLine = strLine + "param" + i + ":'" + combo3 + "',";
+
+    //Combo 
+    i++;
+    var combo1 = document.getElementById("input_sala")
+    var combo2 = combo1.options[combo1.selectedIndex].value;    //ID
+    strLine = strLine + "param" + i + ":'" + combo2 + "',";
+    i++;
+    var combo3 = combo1.options[combo1.selectedIndex].text;     //Nome
+    strLine = strLine + "param" + i + ":'" + combo3 + "',";
+
+    //id instituição
+    i++;
     var vID = document.getElementById("IDHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
     

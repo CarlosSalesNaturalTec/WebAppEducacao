@@ -203,7 +203,6 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string SalasExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -326,26 +325,29 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string TurmasSalvar(string param0, string param1, string param2, string param3, string param4, 
-        string param5, string param6)
+        string param5, string param6, string param7, string param8)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Turmas (" +
             "Nome," +
             "turno," +
             "Tipo_atend," +
-            "sala," +
             "Multiplicada ," +
+            "ID_curso," +
             "curso," +
+            "ID_Sala," +
+            "Sala," +
             "ID_Inst" +
-            ") " +
-            "VALUES (" +
+            ") VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
             "'" + param3 + "'," +
             "'" + param4 + "'," +
             "'" + param5 + "'," +
-            "'" + param6 + "'" +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -365,7 +367,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string TurmasAlterar(string param0, string param1, string param2, string param3, string param4, 
-        string param5, string param6)
+        string param5, string param6, string param7, string param8)
     {
 
         string url;
@@ -375,10 +377,12 @@ public class WebService : System.Web.Services.WebService
             "Nome= '" + param0 + "'," +
             "turno= '" + param1 + "'," +
             "Tipo_atend = '" + param2 + "'," +
-            "SALA = '" + param3 + "'," +
-            "Multiplicada = '" + param4 + "'," +
-            "CURSO = '" + param5 + "'" +
-            " where ID_turma = " + param6);
+            "Multiplicada = '" + param3 + "'," +
+            "ID_curso = '" + param4 + "'," +
+            "CURSO = '" + param5 + "'," +
+            "ID_Sala = '" + param6 + "'," +
+            "Sala = '" + param7 + "'" +
+            " where ID_turma = " + param8);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -397,7 +401,6 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string TurmasExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();

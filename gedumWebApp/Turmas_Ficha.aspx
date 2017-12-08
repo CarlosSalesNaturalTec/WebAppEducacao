@@ -6,13 +6,13 @@
 <head runat="server">
     
     <title>Cadastro de Turmas</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
@@ -36,6 +36,7 @@
 
 </head>
 <body>
+
     <!--*******MENU LATERAL********-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
@@ -55,59 +56,69 @@
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
             <hr />
 
-            <div class="w3-threequarter">
+            <div class="w3-rest">
                 <form class="form-horizontal">
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_nome">
+                            <label for="input_nome" class="col-md-3 control-label">Nome</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="input_nome" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_turno" class="col-md-2 control-label">Turno</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_turno">
+                            <label for="input_turno" class="col-md-3 control-label">Turno</label>
+                            <div class="col-md-8">
+                                <select class="form-control" id="input_turno">
+                                    <option value="0">Selecione um turno</option>
+                                    <option value="Matutino">Matutino</option>
+                                    <option value="Vespertino">Vespertino</option>
+                                    <option value="Noturno">Noturno</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_tipoatd" class="col-md-2 control-label">Tipo Atendimento</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_tipoatd">
+                            <label for="input_tipoatd" class="col-md-3 control-label">Tipo Atendimento</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="input_tipoatd" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_idsala" class="col-md-2 control-label">Sala</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_idsala">
+                            <label for="input_turma_multiplicada" class="col-md-3 control-label">Turma Multiplicada ?</label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="input_turma_multiplicada" />
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_turma_multiplicada" class="col-md-2 control-label">Turma Multiplicada ?</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_turma_multiplicada">
+                            <label for="input_curso" class="col-md-3 control-label">Curso</label>
+                            <div class="col-md-8">
+                                 <select class="w3-select w3-border" id="input_curso">
+                                    <asp:Literal ID="Literal_Cursos" runat="server"></asp:Literal>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_idcurso" class="col-md-2 control-label">Curso</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_idcurso">
+                            <label for="input_sala" class="col-md-3 control-label">Sala</label>
+                            <div class="col-md-8">
+                                <select class="w3-select w3-border" id="input_sala">
+                                    <asp:Literal ID="Literal_Salas" runat="server"></asp:Literal>
+                                </select>
                             </div>
                         </div>
+
 
                     </fieldset>
                 </form>
 
                 <!-- Botões Controle -->
                 <div class="form-group">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-9 w3-border w3-padding w3-round">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-8 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
@@ -123,6 +134,7 @@
 
             </div>
         </div>
+        
     </div>
 
     <!-- auxiliares -->
