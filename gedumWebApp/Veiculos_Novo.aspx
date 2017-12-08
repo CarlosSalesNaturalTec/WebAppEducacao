@@ -4,15 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+    
     <title>Cadastro de Veículos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL *******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -44,7 +44,6 @@
         <!-- GRUPO 1 - Dados Veículos -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Novo Veículo</h3>
             <hr />
 
@@ -56,13 +55,6 @@
                             <label for="input_modelo" class="col-md-2 control-label">Modelo</label>
                             <div class="col-md-10">
                                 <input type="text" class="form-control" id="input_modelo">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_nome">
                             </div>
                         </div>
 
@@ -81,12 +73,17 @@
                         <div class="form-group">
                             <label for="input_kminicial" class="col-md-2 control-label">Km Inicial</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_kminicial">
+                                <input type="number" class="form-control" id="input_kminicial">
                             </div>
 
                             <label for="input_combustivel" class="col-md-2 control-label">Combustível</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_combustivel">
+                                <select class="form-control" id="input_combustivel">
+                                    <option value="Gasolina">Gasolina</option>
+                                    <option value="Álcool">Álcool</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Gás Natural">Gás Natural</option>
+                                </select>
                             </div>
                         </div>
 

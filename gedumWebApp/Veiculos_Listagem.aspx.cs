@@ -21,14 +21,13 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>MODELO</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODELO</th>" +
             "<th>PLACA</th>" +
-            "<th>COR</th>" +            
+            "<th>COR</th>" +
+            "<th>COMBUSTÍVEL</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -38,12 +37,10 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
-        string stringselect = "select v.ID_veiculo, v.modelo, v.nome, v.placa, v.cor " +
-                " from Tbl_Veiculos v" +
-                // " left join tbl_modelo m on (v.id_modelo = m.id_modelo)" + 
+        string stringselect = "select ID_veiculo, modelo, placa, cor, combustivel " +
+                " from Tbl_Veiculos " +
                 " where ID_Inst =" + InstID +
-                " order by v.Nome";
+                " order by placa";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -55,9 +52,8 @@ public partial class Veiculos_Listagem : System.Web.UI.Page
             string Coluna1 = Convert.ToString(dados[1]);
             string Coluna2 = Convert.ToString(dados[2]);
             string Coluna3 = Convert.ToString(dados[3]);
-            string Coluna4 = Convert.ToString(dados[4]);
-            
-            // <!--*******Customização*******-->
+            string Coluna4 = Convert.ToString(dados[3]);
+
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Veiculos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 

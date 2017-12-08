@@ -2,13 +2,6 @@
 
 function SalvarRegistro() {
 
-    //validações
-    if (document.getElementById('input_veiculo').value == "") {
-        alert("Informe Nome da Veículo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_veiculo").focus();
-        return;
-    }
-
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
     x = document.getElementsByClassName("form-control");
@@ -16,19 +9,18 @@ function SalvarRegistro() {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
 
-    // id
+    //Combo veÍCULO
+    var combo1 = document.getElementById("input_veiculo")
+    var combo2 = combo1.options[combo1.selectedIndex].value;    //ID
+    strLine = strLine + "param" + i + ":'" + combo2 + "',";
+    i++;
+    var combo3 = combo1.options[combo1.selectedIndex].text;     //Placa
+    strLine = strLine + "param" + i + ":'" + combo3 + "',";
+
+    // id instituição
+    i++;
     var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "',";
-
-    // id_veiculo
-    var vIDVeiculo = '0'; //document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDVeiculo + "',";
-
-    // id_modelo
-    var vIDMotorista = '0'; //document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDMotorista + "'";
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -52,7 +44,7 @@ function AlterarRegistro() {
 
     //validações
     if (document.getElementById('input_veiculo').value == "") {
-        alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
+        alert("Informe Veículo");   
         document.getElementById("input_veiculo").focus();
         return;
     }
@@ -64,20 +56,18 @@ function AlterarRegistro() {
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
 
-    // id
+    //Combo veÍCULO
+    var combo1 = document.getElementById("input_veiculo")
+    var combo2 = combo1.options[combo1.selectedIndex].value;    //ID
+    strLine = strLine + "param" + i + ":'" + combo2 + "',";
+    i++;
+    var combo3 = combo1.options[combo1.selectedIndex].text;     //Placa
+    strLine = strLine + "param" + i + ":'" + combo3 + "',";
+
+    // id da viagem
+    i++;
     var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "',";
-
-    // id_veiculo
-    var vIDVeiculo = '0'; //document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDVeiculo + "',";
-
-    // id_modelo
-    var vIDMotorista = '0'; //document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDMotorista + "'";
-
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -100,7 +90,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Viagens_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Viagens_Listagem.aspx";   
     window.location.href = linkurl;
 }
 

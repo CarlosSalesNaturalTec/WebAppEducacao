@@ -6,13 +6,13 @@
 <head runat="server">
     
     <title>Cadastro de Viagens</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
@@ -53,20 +53,23 @@
 
                         <div class="form-group">
                             <label for="input_veiculo" class="col-md-2 control-label">Veículo</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_veiculo"/>
+                            <div class="col-md-4">
+                                <select class="w3-select w3-border w3-round" id="input_veiculo">
+                                    <asp:Literal ID="Literal_veiculo" runat="server"></asp:Literal>
+                                </select>
                             </div>
+
+                             <label for="input_dataviagem" class="col-md-2 control-label">Data Viagem</label>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="input_dataviagem"/>
+                            </div>
+
                         </div>
 
                         <div class="form-group">
                             <label for="input_motorista" class="col-md-2 control-label">Motorista</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" id="input_motorista"/>
-                            </div>
-
-                            <label for="input_dataviagem" class="col-md-2 control-label">Data Viagem</label>
-                            <div class="col-md-2">
-                                <input type="date" class="form-control" id="input_dataviagem"/>
                             </div>
                         </div>
 
@@ -87,7 +90,7 @@
                         <div class="form-group">
                             <label for="input_horachegada" class="col-md-2 control-label">Hora de Chegada</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_horachegada"/>
+                                <input type="time" class="form-control" id="input_horachegada"/>
                             </div>
 
                             <label for="input_kmfinal" class="col-md-2 control-label">Km Final</label>

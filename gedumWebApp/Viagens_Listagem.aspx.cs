@@ -21,7 +21,6 @@ public partial class Viagens_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
@@ -38,7 +37,7 @@ public partial class Viagens_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         // <!--*******Customização*******-->
-        string stringselect = "select ID_viagem, veiculo, motorista, data_viagem " +
+        string stringselect = "select ID_viagem, veiculo, motorista, format(data_viagem,'dd/MM/yyyy') as d1 " +
                 "from Tbl_Viagens " +
                 "where ID_Inst =" + InstID +
                 "order by data_viagem";

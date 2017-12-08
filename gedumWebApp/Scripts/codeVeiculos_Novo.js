@@ -3,9 +3,9 @@
 function SalvarRegistro() {
 
     //validações
-    if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_modelo").focus();
+    if (document.getElementById('input_placa').value == "") {
+        alert("Informe Placa do Veículo");   
+        document.getElementById("input_placa").focus();
         return;
     }
 
@@ -18,13 +18,7 @@ function SalvarRegistro() {
 
     // id
     var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "',";
-
-    // id_modelo
-    var vIDModelo = '0'; //document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDModelo + "'";
-
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -47,8 +41,8 @@ function SalvarRegistro() {
 function AlterarRegistro() {
 
     //validações
-    if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Veículo");   //<!--*******Customize AQUI*******-->
+    if (document.getElementById('input_placa').value == "") {
+        alert("Informe Placa do Veículo");   
         document.getElementById("input_nome").focus();
         return;
     }

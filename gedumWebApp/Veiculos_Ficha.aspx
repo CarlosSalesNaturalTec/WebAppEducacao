@@ -59,13 +59,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_nome" class="col-md-2 control-label">Nome</label>
-                            <div class="col-md-10">
-                                <input type="text" class="form-control" id="input_nome"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label for="input_placa" class="col-md-2 control-label">Placa</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_placa"/>
@@ -85,7 +78,12 @@
 
                             <label for="input_combustivel" class="col-md-2 control-label">Combustível</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_combustivel"/>
+                                <select class="form-control" id="input_combustivel">
+                                    <option value="Gasolina">Gasolina</option>
+                                    <option value="Álcool">Álcool</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Gás Natural">Gás Natural</option>
+                                </select>
                             </div>
                         </div>
 

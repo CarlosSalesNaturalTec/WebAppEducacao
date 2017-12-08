@@ -1113,11 +1113,11 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string VeiculosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
-           string param6, string param7, string param8, string param9)
+           string param6, string param7)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Veiculos (modelo, nome, placa, cor, km_inicial, combustivel," +  
-            "proprietario, obs, ID_Inst, ID_modelo ) " +
+        string strInsert = "insert INTO Tbl_Veiculos (modelo, placa, cor, km_inicial, combustivel," +  
+            "proprietario, obs, ID_Inst, id_modelo ) " +
             "VALUES (" + 
             "'" + param0 + "'," +
             "'" + param1 + "'," +
@@ -1127,8 +1127,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param5 + "'," +
             "'" + param6 + "'," +
             "'" + param7 + "'," +
-            param8 + "," +
-            param9 +
+            "'" + 0 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -1148,7 +1147,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string VeiculosAlterar(string param0, string param1, string param2, string param3, 
-        string param4, string param5, string param6, string param7, string param8)
+        string param4, string param5, string param6, string param7)
     {
 
         string url;
@@ -1156,14 +1155,13 @@ public class WebService : System.Web.Services.WebService
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update("update Tbl_Veiculos set " +
             "modelo= '" + param0 + "'," +
-            "nome= '" + param1 + "'," +
-            "placa= '" + param2 + "'," +
-            "cor = '" + param3 + "'," +
-            "km_inicial = '" + param4 + "'," +
-            "combustivel = '" + param5 + "'," +
-            "proprietario = '" + param6 + "'," +
-            "obs = '" + param7 + "' " +
-            "where ID_Veiculo = " + param8);
+            "placa= '" + param1 + "'," +
+            "cor = '" + param2 + "'," +
+            "km_inicial = '" + param3 + "'," +
+            "combustivel = '" + param4 + "'," +
+            "proprietario = '" + param5 + "'," +
+            "obs = '" + param6 + "' " +
+            "where ID_Veiculo = " + param7);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -1204,12 +1202,13 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string ViagensSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
-           string param6, string param7, string param8, string param9, string param10, string param11)
+           string param6, string param7, string param8, string param9, string param10)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Viagens (veiculo, motorista, data_viagem, hora_saida, km_inicial, hora_chegada, km_final," +
-            " destino_viagem, motivo_viagem, id_inst, id_veiculo, id_motorista) " +             
-            "VALUES (" +
+        string strInsert = "insert INTO Tbl_Viagens (data_viagem, motorista, hora_saida, " +
+            "km_inicial, hora_chegada, km_final, " +
+            "destino_viagem, motivo_viagem, id_veiculo, veiculo, id_inst, id_motorista " +
+            ") VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -1219,9 +1218,9 @@ public class WebService : System.Web.Services.WebService
             "'" + param6 + "'," +
             "'" + param7 + "'," +
             "'" + param8 + "'," +
-            param9 + "," +
-            param10 + "," +
-            param11 +
+            "'" + param9 + "'," +
+            "'" + param10 + "'," +
+            "'" + 0 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -1242,23 +1241,24 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string ViagensAlterar(string param0, string param1, string param2, string param3, string param4, string param5, 
-        string param6, string param7, string param8, string param9)
+        string param6, string param7, string param8, string param9, string param10)
     {
 
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update("update Tbl_Viagens set " +
-            "veiculo= '" + param0 + "'," +
+            "data_viagem= '" + param0 + "'," +
             "motorista= '" + param1 + "'," +
-            "data_viagem= '" + param2 + "'," +
-            "hora_saida = '" + param3 + "'," +
-            "km_inicial = '" + param4 + "'," +
-            "hora_chegada = '" + param5 + "'," +
-            "km_final = '" + param6 + "'," +
-            "destino_viagem = '" + param7 + "'," +
-            "motivo_viagem = '" + param8 + "'" +
-            "where ID_Viagem = " + param9);
+            "hora_saida = '" + param2 + "'," +
+            "km_inicial = '" + param3 + "'," +
+            "hora_chegada = '" + param4 + "'," +
+            "km_final = '" + param5 + "'," +
+            "destino_viagem = '" + param6 + "'," +
+            "motivo_viagem = '" + param7 + "'," +
+            "id_veiculo = '" + param8 + "'," +
+            "veiculo = '" + param9 + "'" +
+            "where ID_Viagem = " + param10);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -1278,7 +1278,6 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string ViagensExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();

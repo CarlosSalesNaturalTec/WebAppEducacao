@@ -23,8 +23,7 @@ public partial class Veiculos_Ficha : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        string stringSelect = "select " +
-            "modelo, Nome, placa, cor, km_inicial, combustivel, proprietario, obs " +
+        string stringSelect = "select modelo, placa, cor, km_inicial, combustivel, proprietario, obs " +
             "from Tbl_Veiculos " +
             "where ID_Veiculo = " + ID;
 
@@ -32,7 +31,7 @@ public partial class Veiculos_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 7; i++)
+            for (int i = 0; i <= 6; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
