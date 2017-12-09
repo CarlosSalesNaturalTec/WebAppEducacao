@@ -47,15 +47,6 @@
                     <a href="Suporte.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-cog"></i>&nbsp;Suporte</a>
                 </div>
             </div>
-
-            <!-- Biblioteca -->
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Biblioteca</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
-                     <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-share-square-o"></i>&nbsp;Empréstimos</a>
-                </div>
-            </div>
             
             <!-- Alunos -->
             <div class="w3-dropdown-hover w3-right">
@@ -80,21 +71,31 @@
                 </div>
             </div>
 
-            <!-- Produtos -->
+            <!-- Biblioteca -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Produtos</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Biblioteca</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
+                     <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-share-square-o"></i>&nbsp;Empréstimos</a>
+                </div>
+            </div>
+
+             <!-- Estoque -->
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Estoque</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">                
-                    <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Cadastro de Produtos</a>
+                    <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Produtos</a>
                     <a href="Receitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Receitas</a>
                 </div>
             </div>
 
+
             <!-- Cadastros -->
             <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Cadastros</button>
+                <button class="w3-btn w3-hover-green"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Operacional</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Funcionários</a>     
                     <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Fornecedores</a>   
-                    <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Patrimônio</a>
                     <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Veículos</a>
                     <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Veículos - Controle de Viagens</a>
                     <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Controle de Visitas</a>
@@ -109,7 +110,7 @@
                     <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Disciplinas</a>
                     <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Salas</a>
                     <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Turmas</a>
-                    <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Funcionários</a>     
+                    <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Patrimônio</a>
                 </div>
             </div>
 

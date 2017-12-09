@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Produto");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Produto");   
         document.getElementById("input_nome").focus();
         return;
     }
@@ -19,12 +19,6 @@ function SalvarRegistro() {
     // id
     var vID = document.getElementById("IDInstHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "',";
-
-    strTipo = "ALIMENTOS";
-
-    // Tipo de Produto: Alimento
-    i++; 
-    strLine = strLine + "param" + i + ":'" + strTipo + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -48,7 +42,7 @@ function AlterarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Produto");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Produto");   
         document.getElementById("input_nome").focus();
         return;
     }

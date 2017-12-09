@@ -43,13 +43,13 @@
             <footer class="w3-container w3-center w3-light-green">
                 <p>
                     <div class="w3-dropdown-hover">
-                        <button class="w3-btn">INSTITUIÇÃO</button>
+                        <button class="w3-btn w3-round">INSTITUIÇÃO</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="Cursos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Cursos</a>
                             <a href="Disciplinas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Disciplinas</a>
                             <a href="Salas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Salas</a>
                             <a href="Turmas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Turmas</a>
-                            <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Funcionários</a>
+                            <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-university"></i>&nbsp;Patrimônio</a>
                         </div>
                     </div>
                 </p>
@@ -69,10 +69,10 @@
             <footer class="w3-container w3-center w3-light-green">
                 <p>
                     <div class="w3-dropdown-hover">
-                        <button class="w3-btn">CADASTROS</button>
+                        <button class="w3-btn w3-round">OPERACIONAL</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="Funcionarios_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Funcionários</a>
                             <a href="FornecedorAlimentos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Fornecedores</a>
-                            <a href="Patrimonio_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Bens</a>
                             <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Veículos</a>
                             <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Viagens</a>
                             <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Visitas</a>
@@ -86,7 +86,7 @@
         <!-- coluna divisória -->
         <div class="col-md-1"></div>
 
-        <!-- PRODUTOS -->
+        <!-- ALIMENTOS -->
         <div class="w3-card-4 col-md-3">
             <br />
             <div class="w3-container w3-center">
@@ -95,10 +95,10 @@
             <footer class="w3-container w3-center w3-light-green">
                 <p>
                     <div class="w3-dropdown-hover">
-                        <button class="w3-btn">PRODUTOS</button>
+                        <button class="w3-btn w3-round">ESTOQUE</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ESTOQUE</a>
-                            <a href="Receitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">RECEITAS</a>
+                            <a href="Produtos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Produtos</a>
+                            <a href="Receitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-cutlery"></i>&nbsp;Receitas</a>
                         </div>
                     </div>
                 </p>
@@ -113,6 +113,29 @@
 
         <br />
 
+        <!-- BIBLIOTECA -->
+        <div class="w3-card-4 col-md-3">
+            <br />
+            <div class="w3-container w3-center">
+                <p><i class="fa fa-5x fa-book" aria-hidden="true"></i></p>
+            </div>
+            <footer class="w3-container w3-center w3-light-green">
+                <p>
+                    <div class="w3-dropdown-hover">
+                        <button class="w3-btn w3-round">BIBLIOTECA</button>
+                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                            <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
+                            <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
+                        </div>
+                    </div>
+                </p>
+            </footer>
+            <br />
+        </div>
+
+        <!-- coluna divisória -->
+        <div class="col-md-1"></div>
+
         <!-- MATRICULAS -->
         <div class="w3-card-4 col-md-3">
             <br />
@@ -122,7 +145,7 @@
             <footer class="w3-container w3-center w3-light-green">
                 <p>
                     <div class="w3-dropdown-hover">
-                        <button class="w3-btn">MATRÍCULAS</button>
+                        <button class="w3-btn w3-round">MATRÍCULAS</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">PRÉ-MATRICULA</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">MATRICULADOS</a>
@@ -134,10 +157,10 @@
             <br />
         </div>
 
-        <!-- coluna divisória -->
+         <!-- coluna divisória -->
         <div class="col-md-1"></div>
 
-        <!-- ALUNOS -->
+         <!-- ALUNOS -->
         <div class="w3-card-4 col-md-3">
             <br />
             <div class="w3-container w3-center">
@@ -146,7 +169,7 @@
             <footer class="w3-container w3-center w3-light-green">
                 <p>
                     <div class="w3-dropdown-hover">
-                        <button class="w3-btn">ALUNOS</button>
+                        <button class="w3-btn w3-round">ALUNOS</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
@@ -160,30 +183,6 @@
             </footer>
             <br />
         </div>
-
-        <!-- coluna divisória -->
-        <div class="col-md-1"></div>
-
-        <!-- BIBLIOTECA -->
-        <div class="w3-card-4 col-md-3">
-            <br />
-            <div class="w3-container w3-center">
-                <p><i class="fa fa-5x fa-book" aria-hidden="true"></i></p>
-            </div>
-            <footer class="w3-container w3-center w3-light-green">
-                <p>
-                    <div class="w3-dropdown-hover">
-                        <button class="w3-btn">BIBLIOTECA</button>
-                        <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
-                            <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
-                        </div>
-                    </div>
-                </p>
-            </footer>
-            <br />
-        </div>
-
 
     </div>
 
@@ -201,7 +200,7 @@
             <footer class="w3-container w3-center w3-light-green">
                 <p>
                     <div class="w3-dropdown-hover">
-                        <button class="w3-btn">SUPORTE</button>
+                        <button class="w3-btn w3-round">SUPORTE</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EXPORTAÇÕES</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SUPORTE</a>

@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Curso");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Curso");   
         document.getElementById("input_nome").focus();
         return;
     }
@@ -42,7 +42,7 @@ function AlterarRegistro() {
     
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Curso");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Curso");   
         document.getElementById("input_nome").focus();
         return;
     }
@@ -79,7 +79,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Cursos_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Cursos_Listagem.aspx";   
     window.location.href = linkurl;
 }
 

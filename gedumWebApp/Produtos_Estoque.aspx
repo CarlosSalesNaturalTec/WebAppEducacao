@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Produtos_Estoque.aspx.cs" Inherits="Produtos_Estoque" %>
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -27,42 +29,43 @@
 </head>
 <body>
 
-    <!-- PRoduto -->
-    <div id="grupo1" class="w3-container">
+    <!-- detalhes do Produto -->
+    <div class="w3-container">
+        <form class="form-horizontal">
+            <fieldset>
 
-        <!-- nome do Produto -->
-        <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;<asp:Literal ID="Literal_Produto" runat="server"></asp:Literal></h3>
-        
-        <!-- detalhes do Produto -->
-        <div class="w3-container">
-            <form class="form-horizontal">
-                <fieldset>
-                    <div class="form-group">
-
-                        <label for="input_tipo" class="col-md-1 control-label">Tipo</label>
-                        <div class="col-md-3">
-                            <input type="text" class="form-control" id="input_tipo" disabled>
+                <!-- nome do Produto -->
+                <div class="form-group">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                    <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;<asp:Literal ID="Literal_Produto" runat="server"></asp:Literal></h3>
                         </div>
+                </div>
 
-                        <label for="input_und1" class="col-md-1 control-label">Unidade</label>
-                        <div class="col-md-1">
-                            <input type="text" class="form-control" id="input_und1" disabled>
-                        </div>
-
-                        <label for="input_estoqueAtual" class="col-md-1 control-label">Estoque Atual</label>
-                        <div class="col-md-1">
-                            <input type="number" class="w3-input w3-border w3-roud" id="input_estoqueAtual" disabled>
-                        </div>
-                        <div class="col-md-1">
-                            <button class="w3-btn w3-block w3-round w3-border w3-light-blue w3-hover-blue" onclick="cancelar()">Voltar</button>
-                        </div>
-
+                <div class="form-group">
+                    <label for="input_tipo" class="col-md-1 control-label">Tipo</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="input_tipo" disabled>
                     </div>
 
-                </fieldset>
-            </form>
-        </div>
+                    <label for="input_und1" class="col-md-1 control-label">Unidade</label>
+                    <div class="col-md-1">
+                        <input type="text" class="form-control" id="input_und1" disabled>
+                    </div>
+
+                    <label for="input_estoqueAtual" class="col-md-1 control-label">Estoque Atual</label>
+                    <div class="col-md-1">
+                        <input type="number" class="w3-input w3-border w3-roud" id="input_estoqueAtual" disabled>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green" onclick="cancelar()">Voltar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
     </div>
+
 
     <hr />
 
@@ -91,18 +94,17 @@
                     <label for="select_fornec" class="col-md-1 control-label">ENTRADA</label>
                     <div class="col-md-4">
                         <select id="select_fornec" class="w3-select w3-round w3-border">
-                            <option value="0">Selecione um Fornecedor</option>
+                            <asp:Literal ID="Literal_Fornec" runat="server"></asp:Literal>
                         </select>
                     </div>
                     <div class="col-md-1">
-                        <button class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="">Entrada</button>
+                        <button type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" 
+                            onclick="Estoque_Entrada()">Entrada</button>
                     </div>
 
-                    <label for="select_func" class="col-md-1 control-label">SAÍDA</label>
+                    <label for="input_func" class="col-md-1 control-label">SAÍDA</label>
                     <div class="col-md-4">
-                        <select id="select_func" class="w3-select w3-round w3-border">
-                            <option value="0">Selecione um Funcionário</option>
-                        </select>
+                        <input type="text" class="form-control" id="input_func" placeholder="Informe o Responsável pela Saida">
                     </div>
                     <div class="col-md-1">
                         <button class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="">Saida</button>
@@ -133,7 +135,7 @@
                                     <th>Saida</th>
                                 </tr>
                             </thead>
-                            <asp:Literal ID="Literal3" runat="server"></asp:Literal>
+                            <asp:Literal ID="Literal_historico" runat="server"></asp:Literal>
                         </table>
                     </div>
                 </div>

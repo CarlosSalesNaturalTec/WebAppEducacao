@@ -22,10 +22,9 @@ public partial class Visitas_Ficha : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
         string stringSelect = "select " +
             "Nome," +
-            "DataVisita," +
+            "format(DataVisita,'yyyy-MM-dd') as d1," +
             "Horario," +
             "Funcionario," +
             "Objetivo," +
@@ -37,11 +36,15 @@ public partial class Visitas_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 6; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. Ex: neste formulario tenho 2 campos 
+            for (int i = 0; i <= 4; i++) 
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
+
+            // remove quebra de linha em campo TextArea
+            ScriptDados = "document.getElementById('input_obs').value = \"" + Convert.ToString(rcrdset[5]).Replace("\n", "   ")  + "\";";
+            str.Append(ScriptDados);
 
             ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);

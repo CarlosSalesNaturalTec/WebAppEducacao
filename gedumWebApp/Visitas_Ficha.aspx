@@ -101,13 +101,11 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
             <br />
             <div class="col-md-9 w3-border w3-round w3-light-gray">
-                <!--*******Customização*******-->
                 <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Detalhes</h3>
             </div>
 
             <div class="w3-threequarter w3-border w3-light-gray" style="margin-top: 20px">
                 <form class="form-horizontal">
-                    <!--*******Customização*******-->
                     <fieldset>
                         <br />
                         <div class="form-group">
@@ -120,7 +118,7 @@
                         <div class="form-group">
                             <label for="input_obs" class="col-md-2 control-label">Observações</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_obs">
+                                <textarea class="form-control" id="input_obs" rows="10"></textarea>
                             </div>
                         </div>
                     </fieldset>

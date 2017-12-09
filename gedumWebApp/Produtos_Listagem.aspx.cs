@@ -21,14 +21,15 @@ public partial class Produtos_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
+        
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIÇÃO</th>" +
-            "<th>MARCA</th>" +
-            "<th>UNIDADE MEDIDA</th>" +
-            "<th>ESTOQUE MÍNIMO</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
+            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIÇÃO</th>" +
+            "<th>TIPO</th>" +
+            "<th>EST.MIN.</th>" +
+            "<th>UNIDADE</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -38,11 +39,9 @@ public partial class Produtos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
-        string stringselect = "select ID_Produto, descricao, marca, unidade , estoque_min " +
+        string stringselect = "select ID_Produto, descricao, tipo, estoque_min, unidade " +
                 "from Tbl_Produtos " +
                 "where ID_Inst =" + InstID +
-                " and tipo = 'ALIMENTOS'" + 
                 " order by Descricao";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -56,13 +55,13 @@ public partial class Produtos_Listagem : System.Web.UI.Page
             string Coluna2 = Convert.ToString(dados[2]);
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
-            
-            // <!--*******Customização*******-->
+
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Produtos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
-            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+            string bt2 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green w3-tinny' href='Produtos_Estoque.aspx?v1=" + Coluna0 + "'>Estoque</a>";
+            string bt3 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
-                "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
+                "<td>" + bt1 + bt2 + bt3 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +

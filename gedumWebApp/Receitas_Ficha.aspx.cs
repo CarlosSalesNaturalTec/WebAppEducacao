@@ -18,7 +18,6 @@ public partial class Receitas_Ficha : System.Web.UI.Page
         listaReceitasItens(idAux);
         PreencheProdutos(idProdutoAux);
 
-
     }
 
     private void PreencheCampos(string ID)
@@ -67,7 +66,6 @@ public partial class Receitas_Ficha : System.Web.UI.Page
         string stringSelect = "select ri.ID_receita_itens, ri.id_produto, p.descricao, ri.quantidade, ri.unidade "+
                               "from tbl_receitas_itens ri "+
                               "inner join tbl_produtos p on(ri.id_produto = p.id_produto) "+
-            //select ID_receita_itens, id_produto, quantidade from tbl_receitas_itens" +
             " where ri.ID_receita = " + ID +
             " order by ri.id_produto";
         OperacaoBanco operacaoUsers = new OperacaoBanco();
@@ -107,11 +105,10 @@ public partial class Receitas_Ficha : System.Web.UI.Page
 
     }
 
-
     private void PreencheProdutos(string ID)
     {
 
-        string stringSelect = @"select ID_produto, descricao from Tbl_Produtos order by Descricao";
+        string stringSelect = @"select ID_produto, descricao from Tbl_Produtos WHERE tipo='alimentos' order by Descricao";
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
 
@@ -120,7 +117,7 @@ public partial class Receitas_Ficha : System.Web.UI.Page
         string scrNome = "<select class=\"form-control\" id=\"select_produtos\">";
         str.Append(scrNome);
 
-        scrNome = "<option value=\"0\">Selecione um Cliente</option>";
+        scrNome = "<option value=\"0\">Selecione um Produto</option>";
         str.Append(scrNome);
 
         while (rcrdset.Read())

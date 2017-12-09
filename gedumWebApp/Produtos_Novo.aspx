@@ -60,28 +60,21 @@
 
 
                         <div class="form-group">
-                            <label for="input_marca" class="col-md-2 control-label">Marca</label>
+                            <label for="input_tipo" class="col-md-2 control-label">Tipo</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_marca">
+                                <input type="text" class="form-control" id="input_tipo" placeholder="Ex: Alimentos">
+                            </div>
+
+                            <label for="input_und" class="col-md-2 control-label">Unidade</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_und">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="input_und" class="col-md-2 control-label">Unidade Medida</label>
-                            <div class="col-md-4">
-                                <select class="form-control" id="input_und">
-                                    <option value="UNIDADE">UNIDADE</option> 
-                                    <option value="CAIXA">CAIXA</option>
-                                    <option value="PACOTE">PACOTE</option>
-                                    <option value="LITRO">LITRO</option>
-                                    <option value="GARRAFA">GARRAFA</option>
-                                    <option value="KG">KG</option>
-                                </select>
-                            </div>
-
-                            <label for="input_estoquemin" class="col-md-2 control-label">Estoque Mínimo</label>
-                            <div class="col-md-3">
-                                <input type="number" class="form-control" id="input_estoquemin">
+                            <label for="input_minimo" class="col-md-2 control-label">Estoque Mínimo</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_minimo">
                             </div>
                         </div>
 

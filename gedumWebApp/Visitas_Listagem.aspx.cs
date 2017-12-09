@@ -22,7 +22,7 @@ public partial class Visitas_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
+        
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +

@@ -25,8 +25,8 @@ public partial class Produtos_Ficha : System.Web.UI.Page
 
         string stringSelect = "select " +
             "Descricao," +
-            "marca," +
-            "unidade," +
+            "tipo," +
+            "unidade, " +
             "estoque_min " +
             "from Tbl_Produtos " +
             "where ID_Produto = " + ID;

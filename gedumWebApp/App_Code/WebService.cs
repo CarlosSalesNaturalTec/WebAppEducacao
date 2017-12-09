@@ -749,17 +749,16 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string ProdutosSalvar(string param0, string param1, string param2, string param3, string param4, string param5)
+    public string ProdutosSalvar(string param0, string param1, string param2, string param3, string param4)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Produtos (Descricao, marca, unidade, estoque_min, ID_Inst, tipo ) " +
+        string strInsert = "insert INTO Tbl_Produtos (Descricao, tipo, unidade, Estoque_min, ID_Inst  ) " +
             "VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
-            param3 + "," +            
-            param4 + "," +
-            "'" + param5 + "'" +
+            "'" + param3 + "'," +
+            "'" + param4 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -787,9 +786,9 @@ public class WebService : System.Web.Services.WebService
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update("update Tbl_Produtos set " +
             "descricao= '" + param0 + "'," +
-            "marca= '" + param1 + "'," +
+            "tipo= '" + param1 + "'," +
             "unidade= '" + param2 + "'," +
-            "estoque_min = " + param3 + 
+            "estoque_min= '" + param3 + "'" +
             " where ID_Produto = " + param4);
 
         ConexaoBancoSQL.fecharConexao();
@@ -1549,7 +1548,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
     [WebMethod]
     public string ReceitasItensSalvar(string param1, string param2, string param3, string param4)
     {
@@ -1581,7 +1579,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
     [WebMethod]
     public string ReceitasItensExcluir(string param1)
     {
@@ -1593,7 +1590,7 @@ public class WebService : System.Web.Services.WebService
 
         if (deletarReceitasItens == true)
         {
-            url = "OK";  // <!--*******Customização*******-->
+            url = "OK";  
         }
         else
         {
@@ -1603,6 +1600,40 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+
+
+    [WebMethod]
+    public string Estoque_Entrada(string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirItens = operacaoInst2.Insert("INSERT INTO Tbl_Produtos_Movimento " +
+            "(ID_Produto , ID_Fornecedor, Forn_Resp, DataOperacao , Documento, Quant_Entrada ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "'," +
+           "'" + param6 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirItens == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR";
+        }
+
+        return url;
+    }
 
 
 

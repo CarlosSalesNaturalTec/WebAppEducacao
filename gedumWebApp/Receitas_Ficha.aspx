@@ -35,7 +35,7 @@
         </div>
         <hr />
             <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
-            <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingrediente</button>
+            <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ingredientes</button>
         <hr />
 
     </div>
@@ -187,7 +187,6 @@
     <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     
-
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeReceitas_Novo.js"></script>
 
