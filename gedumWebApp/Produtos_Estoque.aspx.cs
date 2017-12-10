@@ -11,14 +11,16 @@ public partial class Produtos_Estoque : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         idAux = Request.QueryString["v1"];              // ID do produto
-        idInstAux = Session["InstID"].ToString();     // Id da Instituição
-
+        idInstAux = Session["InstID"].ToString();       // Id da Instituição
+         
         PreencheCampos(idAux);
 
         // preenche combo Fornecedores
         string stringselect = "select ID_fornecedoralimento, descricao from tbl_Fornecedor_Alimentos where id_inst = " + idInstAux + " order by descricao";
         Preenche_Combo(stringselect, "Selecione um Fornecedor");
         Literal_Fornec.Text = strCombo.ToString();
+
+        Monta_Grid();
 
     }
 
@@ -80,5 +82,44 @@ public partial class Produtos_Estoque : System.Web.UI.Page
                 Convert.ToString(dados[1]) + "</option>");
         }
         ConexaoBancoSQL.fecharConexao();
+    }
+
+    private void Monta_Grid() {
+
+        string stringselect = "select ID_Operacao , format(DataOperacao,'dd/MM/yyyy') as d1 , Documento , Forn_Resp ,Quant_Entrada , Quant_Saida  " +
+                "from Tbl_Produtos_Movimento  " +
+                "where ID_Produto =" + idAux +
+                " order by DataOperacao desc";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
+
+        str.Clear();
+        while (dados.Read())
+        {
+            string Coluna0 = Convert.ToString(dados[0]);
+            string Coluna1 = Convert.ToString(dados[1]);
+            string Coluna2 = Convert.ToString(dados[2]);
+            string Coluna3 = Convert.ToString(dados[3]);
+            string Coluna4 = Convert.ToString(dados[4]);
+            string Coluna5 = Convert.ToString(dados[5]);
+
+            string bt1 = "<a id='bt_excluirEstoque' class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Estoque_Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+            string stringcomaspas = "<tr>" +
+                "<td>" + bt1 + Coluna1 + "</td>" +
+                "<td>" + Coluna2 + "</td>" +
+                "<td>" + Coluna3 + "</td>" +
+                "<td>" + Coluna4 + "</td>" +
+                "<td>" + Coluna5 + "</td>" +
+                "</tr>";
+
+            str.Append(stringcomaspas);
+            
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_historico.Text = str.ToString();
+
     }
 }

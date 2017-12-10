@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Paginação -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
 
     <style>
         body {
@@ -66,7 +66,6 @@
         </form>
     </div>
 
-
     <hr />
 
     <!-- Lançar Movimento Entrada / Saida -->
@@ -98,7 +97,7 @@
                         </select>
                     </div>
                     <div class="col-md-1">
-                        <button type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" 
+                        <button id="BTEstoque_Entrada" type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" 
                             onclick="Estoque_Entrada()">Entrada</button>
                     </div>
 
@@ -107,7 +106,8 @@
                         <input type="text" class="form-control" id="input_func" placeholder="Informe o Responsável pela Saida">
                     </div>
                     <div class="col-md-1">
-                        <button class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="">Saida</button>
+                        <button type="button" id="bt_saida" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" 
+                            onclick="Estoque_Saida()">Saida</button>
                     </div>
 
                 </div>
@@ -118,6 +118,8 @@
         </form>
     </div>
 
+    <hr />
+
     <!-- GRID Histórico Entradas e Saidas -->
     <div class="w3-container">
         <form class="form-horizontal">
@@ -125,17 +127,19 @@
                 <div class="form-group">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
-                        <table id="MyTable" class="w3-table-all w3-hoverable">
+                        <table id="tabela" class="w3-table-all w3-hoverable">
                             <thead>
                                 <tr class="w3-grey">
-                                    <th>Data</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data</th>
                                     <th>Documento</th>
                                     <th>Fornecedor/Responsável</th>
                                     <th>Entrada</th>
                                     <th>Saida</th>
                                 </tr>
                             </thead>
-                            <asp:Literal ID="Literal_historico" runat="server"></asp:Literal>
+                            <tbody>
+                                <asp:Literal ID="Literal_historico" runat="server"></asp:Literal>
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -149,6 +153,9 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeProdutos_Estoque.js"></script>
+
+    <!-- Script Paginação  -->
+    <script type="text/javascript" src="Scripts/codePaginacao.js"></script>
 
 </body>
 </html>

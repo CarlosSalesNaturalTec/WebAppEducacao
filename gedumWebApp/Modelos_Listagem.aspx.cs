@@ -36,7 +36,6 @@ public partial class Modelos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
         string stringselect = "select ID_Modelo, nome, obs " +
                 "from Tbl_Modelo " +
                 "where ID_Inst =" + InstID +

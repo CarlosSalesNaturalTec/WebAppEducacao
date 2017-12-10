@@ -1625,17 +1625,68 @@ public class WebService : System.Web.Services.WebService
 
         if (inserirItens == true)
         {
-            url = "OK";
+            url = "Jesus is the Lord";
         }
         else
         {
-            url = "NÃO FOI POSSIVEL INCLUIR";
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string Estoque_Saida(string param1, string param2, string param3, string param4, string param5)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirItens = operacaoInst2.Insert("INSERT INTO Tbl_Produtos_Movimento " +
+            "(ID_Produto , Forn_Resp, DataOperacao , Documento, Quant_Saida ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "'," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "'" +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirItens == true)
+        {
+            url = "Jesus is the Lord";
+        }
+        else
+        {
+            url = "Sorry.aspx";
         }
 
         return url;
     }
 
 
+    [WebMethod]
+    public string Estoque_Excluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDeltens = new OperacaoBanco();
+        Boolean deletarReceitasItens = operacaoDeltens.Delete("delete from Tbl_Produtos_Movimento where ID_Operacao =" + param1);  
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarReceitasItens == true)
+        {
+            url = "Jesus is the Lord";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
 
 }
 
