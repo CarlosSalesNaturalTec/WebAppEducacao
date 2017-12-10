@@ -1298,21 +1298,21 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string EmprestimosSalvar(string param0, string param1, string param2, string param3, string param4, string param5,
-           string param6, string param7)
+    public string EmprestimosSalvar(string param1, string param2, string param3, string param4, string param5,
+        string param6, string param7, string param8)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Controle_Entregas (aluno, livro, funcionario, quantidade," +
-            "id_inst, id_aluno, id_livro, id_funcionario) " +
+        string strInsert = "insert INTO tbl_Controle_Entregas (ID_aluno, aluno, id_livro, livro, ID_funcionario, funcionario, " +
+            "dataOperacao, ID_inst ) " +
             "VALUES (" +
-            "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
             "'" + param3 + "'," +
-            param4 + "," +
-            param5 + "," +
-            param6 + "," +
-            param7 +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -1332,19 +1332,23 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string EmprestimosAlterar(string param0, string param1, string param2, string param3, string param4,
-        string param5, string param6, string param7)
+    public string EmprestimosAlterar(string param1, string param2, string param3, string param4,
+        string param5, string param6, string param7, string param8, string param9)
     {
 
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update("update Tbl_Controle_Entregas set " +
-            "aluno= '" + param0 + "'," +
-            "livro= '" + param1 + "'," +
-            "funcionario= '" + param2 + "'," +
-            "quantidade = '" + param3 + "'" +
-            "where ID_Controle_Entrega = " + param4);
+            "Id_aluno= '" + param1 + "'," +
+            "Aluno= '" + param2 + "'," +
+            "ID_livro = '" + param3 + "'," +
+            "livro = '" + param4 + "'," +
+            "ID_funcionario = '" + param5 + "'," +
+            "funcionario = '" + param6 + "'," +
+            "dataOperacao = '" + param7 + "'," +
+            "DataDevolucao = '" + param8 + "' " +
+            "where ID_Controle_Entrega = " + param9);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -1364,7 +1368,6 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string EmprestimosExcluir(string param1)
     {
-        // <!--*******Customização*******-->
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();

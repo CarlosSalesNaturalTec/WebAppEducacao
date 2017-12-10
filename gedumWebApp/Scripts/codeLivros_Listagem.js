@@ -1,12 +1,15 @@
 ﻿function NovoRegistro() {
-    window.location.href = "Livros_Novo.aspx";  // <!--*******Customização*******-->
+
+    $("body").css("cursor", "progress");
+    document.getElementById("bt_novo").disabled = true;
+
+    window.location.href = "Livros_Novo.aspx";
 }
 
 function ExcluirRegistro() {
 
     var idRegistro = document.getElementById('HiddenID').value;
 
-    // <!--*******Customização*******-->
     $.ajax({
         type: "POST",
         url: "WebService.asmx/LivrosExcluir",
@@ -32,7 +35,3 @@ function Excluir(IDExc) {
 function Excluir_cancel() {
     document.getElementById('DivModal').style.display = 'none';
 }
-
-
-
-

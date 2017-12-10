@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+    
     <title>Cadastro de Empréstimos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -41,11 +41,10 @@
 
     <div style="margin-left: 180px">
 
-        <!-- GRUPO 1 - Dados Empréstimos -->
+        <!-- GRUPO 1 - Dados Empréstimo -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Novo Empréstimo</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Novo Empréstimo</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -55,26 +54,32 @@
                         <div class="form-group">
                             <label for="input_aluno" class="col-md-2 control-label">Aluno</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_aluno"/>
+                                <select id="input_aluno" class="form-control" >
+                                    <asp:Literal ID="Literal_Aluno" runat="server"></asp:Literal>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_livro" class="col-md-2 control-label">Livro</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_livro"/>
+                                <select id="input_livro" class="form-control" >
+                                    <asp:Literal ID="Literal_Livro" runat="server"></asp:Literal>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_funcionario" class="col-md-2 control-label">Funcionário</label>
-                            <div class="col-md-5">
+                            <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_funcionario"/>
                             </div>
+                        </div>
 
-                            <label for="input_qtde" class="col-md-2 control-label">Quantidade</label>
-                            <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_qtde"/>
+                        <div class="form-group">
+                            <label for="input_data" class="col-md-2 control-label">Data</label>
+                            <div class="col-md-3">
+                                <input type="date" class="form-control" id="input_data"/>
                             </div>
                         </div>
 
@@ -114,4 +119,3 @@
 
 </body>
 </html>
-

@@ -33,32 +33,26 @@
     <div class="w3-container">
         <form class="form-horizontal">
             <fieldset>
-
                 <!-- nome do Produto -->
                 <div class="form-group">
                     <div class="col-md-1"></div>
-                    <div class="col-md-10">
-                    <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;<asp:Literal ID="Literal_Produto" runat="server"></asp:Literal></h3>
-                        </div>
+                    <div class="col-md-5">
+                        <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;<asp:Literal ID="Literal_Produto" runat="server"></asp:Literal></h3>
+                    </div>
                 </div>
 
+                <!-- Estoque Atual -->
                 <div class="form-group">
-                    <label for="input_tipo" class="col-md-1 control-label">Tipo</label>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" id="input_tipo" disabled>
+                    <label for="input_estoqueAtual" class="col-md-1 control-label">Estoque Atual</label>
+                    <div class="col-md-1">
+                        <asp:Literal ID="Literal_Estoque" runat="server"></asp:Literal>
                     </div>
-
-                    <label for="input_und1" class="col-md-1 control-label">Unidade</label>
                     <div class="col-md-1">
                         <input type="text" class="form-control" id="input_und1" disabled>
                     </div>
-
-                    <label for="input_estoqueAtual" class="col-md-1 control-label">Estoque Atual</label>
-                    <div class="col-md-1">
-                        <input type="number" class="w3-input w3-border w3-roud" id="input_estoqueAtual" disabled>
-                    </div>
-                    <div class="col-md-1">
-                        <button type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green" onclick="cancelar()">Voltar</button>
+                     <label for="input_tipo" class="col-md-4 control-label">Tipo</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="input_tipo" disabled>
                     </div>
                 </div>
 
@@ -87,6 +81,10 @@
                     <div class="col-md-2">
                         <input type="text" class="form-control" id="input_doc">
                     </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-1">
+                        <button type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green" onclick="cancelar()">Voltar</button>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -97,8 +95,9 @@
                         </select>
                     </div>
                     <div class="col-md-1">
-                        <button id="BTEstoque_Entrada" type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" 
-                            onclick="Estoque_Entrada()">Entrada</button>
+                        <button id="BTEstoque_Entrada" type="button" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                            onclick="Estoque_Entrada()">
+                            Entrada</button>
                     </div>
 
                     <label for="input_func" class="col-md-1 control-label">SAÍDA</label>
@@ -106,8 +105,9 @@
                         <input type="text" class="form-control" id="input_func" placeholder="Informe o Responsável pela Saida">
                     </div>
                     <div class="col-md-1">
-                        <button type="button" id="bt_saida" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles" 
-                            onclick="Estoque_Saida()">Saida</button>
+                        <button type="button" id="bt_saida" class="w3-btn w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                            onclick="Estoque_Saida()">
+                            Saida</button>
                     </div>
 
                 </div>
@@ -147,6 +147,32 @@
         </form>
     </div>
 
+     <!-- Modal Excluir -->
+    <div id="DivModal" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-left" style="max-width: 400px">
+
+            <form class="w3-container">
+                <div class="w3-section w3-center">
+                    <header class="w3-container w3-green w3-center">
+                        <h4><strong>Atenção</strong></h4>
+                    </header>
+                    <br />
+                    <i class="fa fa-3x fa-exclamation-triangle" aria-hidden="true"></i>
+                    <br />
+                    <h3><strong>Confirma Exclusão?</strong> </h3>
+                    <br />
+                    <p>
+                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-green" onclick="Excluir_cancel()">Não</button>&nbsp;&nbsp;&nbsp;
+                        <button type="button" class="w3-button w3-round w3-border w3-light-green w3-hover-red" onclick="Estoque_Excluir()">Sim</button>
+                    </p>
+                    <br />
+                </div>
+            </form>
+            <input type="hidden" id="HiddenID" />
+        </div>
+    </div>
+    <!-- Modal Excluir -->
+
     <!-- auxiliares -->
     <input id="IDProdutoHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
@@ -154,8 +180,8 @@
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeProdutos_Estoque.js"></script>
 
-    <!-- Script Paginação  -->
-    <script type="text/javascript" src="Scripts/codePaginacao.js"></script>
+    <!-- Script Paginação 
+    <script type="text/javascript" src="Scripts/codePaginacao.js"></script> -->
 
 </body>
 </html>

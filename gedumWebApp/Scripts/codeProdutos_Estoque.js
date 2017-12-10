@@ -1,4 +1,8 @@
 ﻿function cancelar() {
+
+    $("body").css("cursor", "progress");
+    document.getElementById("bt_saida").disabled = true;
+
     var linkurl = "Produtos_Listagem.aspx";
     window.location.href = linkurl;
 }
@@ -17,7 +21,6 @@ function Estoque_Entrada() {
         return;
     }
 
-    
     var v1 = document.getElementById("IDProdutoHidden").value;   // id do produto
 
     var e = document.getElementById("select_fornec")
@@ -120,4 +123,13 @@ function Estoque_Excluir(idAux) {
         }
     });
 
+}
+
+function Excluir(IDExc) {
+    document.getElementById('HiddenID').value = IDExc;
+    document.getElementById('DivModal').style.display = "block";
+}
+
+function Excluir_cancel() {
+    document.getElementById('DivModal').style.display = 'none';
 }

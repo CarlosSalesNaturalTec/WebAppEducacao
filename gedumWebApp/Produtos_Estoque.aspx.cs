@@ -22,6 +22,8 @@ public partial class Produtos_Estoque : System.Web.UI.Page
 
         Monta_Grid();
 
+        calcula_Estoque();
+
     }
 
     private void PreencheCampos(string ID)
@@ -35,8 +37,8 @@ public partial class Produtos_Estoque : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "tipo, " +            
             "unidade, " +
+            "tipo, " +
             "Descricao " +
             "from Tbl_Produtos " +
             "where ID_Produto = " + ID;
@@ -86,7 +88,7 @@ public partial class Produtos_Estoque : System.Web.UI.Page
 
     private void Monta_Grid() {
 
-        string stringselect = "select ID_Operacao , format(DataOperacao,'dd/MM/yyyy') as d1 , Documento , Forn_Resp ,Quant_Entrada , Quant_Saida  " +
+        string stringselect = "select ID_Operacao, format(DataOperacao,'dd/MM/yyyy') as d1 , Documento , Forn_Resp ,Quant_Entrada , Quant_Saida  " +
                 "from Tbl_Produtos_Movimento  " +
                 "where ID_Produto =" + idAux +
                 " order by DataOperacao desc";
@@ -104,7 +106,7 @@ public partial class Produtos_Estoque : System.Web.UI.Page
             string Coluna4 = Convert.ToString(dados[4]);
             string Coluna5 = Convert.ToString(dados[5]);
 
-            string bt1 = "<a id='bt_excluirEstoque' class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Estoque_Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+            string bt1 = "<a id='bt_excluirEstoque' class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + Coluna1 + "</td>" +
@@ -121,5 +123,33 @@ public partial class Produtos_Estoque : System.Web.UI.Page
 
         Literal_historico.Text = str.ToString();
 
+    }
+
+    private void calcula_Estoque()
+    {
+        OperacaoBanco operacao = new OperacaoBanco();
+        string strCalc = "select sum(Quant_Entrada) as q1, sum(Quant_Saida) as q2 " +
+                "from Tbl_Produtos_Movimento " +
+                "where ID_Produto = " + idAux;
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strCalc);
+        decimal v1=0, v2=0, v3 = 0;
+
+        while (dados.Read())
+        {
+            try
+            {
+                v1 = 0 + Convert.ToDecimal(dados[0]);    // Entradas
+                v2 = 0 + Convert.ToDecimal(dados[1]);    // Saidas
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
+        }
+        ConexaoBancoSQL.fecharConexao();
+        v3 = v1 - v2;
+
+        Literal_Estoque.Text = "<input class='w3-input w3-border w3-roud' id='input_estoqueAtual' value='" + v3 + "' disabled>";
     }
 }

@@ -2,38 +2,35 @@
 
 function SalvarRegistro() {
 
-    //validações
-    if (document.getElementById('input_aluno').value == "") {
-        alert("Informe Nome do Empréstimo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_veiculo").focus();
+    var e = document.getElementById("input_aluno")
+    var v1 = e.options[e.selectedIndex].value           // ID do Aluno
+    var v2 = e.options[e.selectedIndex].text            // Nome do Aluno
+    if (v1 == "0") {
+        alert("Informe Nome do Aluno");
+        document.getElementById("input_aluno").focus();
         return;
     }
 
-    //pega o valor de cada campo e constroi string com todos
-    var i, x, strLine = "";
-    x = document.getElementsByClassName("form-control");
-    for (i = 0; i < x.length; i++) {
-        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    var e = document.getElementById("input_livro")
+    var v3 = e.options[e.selectedIndex].value           // ID do Livro
+    var v4 = e.options[e.selectedIndex].text            // Nome do Livro
+    if (v3 == "0") {
+        alert("Informe Nome do Livro");
+        document.getElementById("input_livro").focus();
+        return;
     }
 
-    // id
-    var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "',";
+    var v5 = "0";                                                   //ID Funcionario
+    var v6 = document.getElementById("input_funcionario").value;    // Nome Funcionario
+    if (v6 == "") {
+        alert("Informe Nome do Funcionário");
+        document.getElementById("input_funcionario").focus();
+        return;
+    }
 
-    // id_aluno
-    var vIDAluno = '0'; // document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDAluno + "',";
+    var v7 = document.getElementById("input_data").value;
 
-    // id_livro
-    var vIDLivro = '0'; // document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDLivro + "',";
-
-    // id_funcionario
-    var vIDFuncionario = '0'; // document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDFuncionario + "'";
+    var v8 = document.getElementById("IDInstHidden").value;     //ID Indtituição
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -41,7 +38,8 @@ function SalvarRegistro() {
     $.ajax({
         type: "POST",
         url: "WebService.asmx/EmprestimosSalvar",
-        data: '{' + strLine + '}',
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
+            '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -55,38 +53,36 @@ function SalvarRegistro() {
 
 function AlterarRegistro() {
 
-    //validações
-    if (document.getElementById('input_aluno').value == "") {
-        alert("Informe Nome do Aluno");   //<!--*******Customize AQUI*******-->
+    var e = document.getElementById("input_aluno")
+    var v1 = e.options[e.selectedIndex].value           // ID do Aluno
+    var v2 = e.options[e.selectedIndex].text            // Nome do Aluno
+    if (v1 == "0") {
+        alert("Informe Nome do Aluno");
         document.getElementById("input_aluno").focus();
         return;
     }
 
-    //pega o valor de cada campo e constroi string com todos
-    var i, x, strLine = "";
-    x = document.getElementsByClassName("form-control");
-    for (i = 0; i < x.length; i++) {
-        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    var e = document.getElementById("input_livro")
+    var v3 = e.options[e.selectedIndex].value           // ID do Livro
+    var v4 = e.options[e.selectedIndex].text            // Nome do Livro
+    if (v3 == "0") {
+        alert("Informe Nome do Livro");
+        document.getElementById("input_livro").focus();
+        return;
     }
 
-    // id
-    var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "',";
+    var v5 = "0";                                                   //ID Funcionario
+    var v6 = document.getElementById("input_funcionario").value;    // Nome Funcionario
+    if (v6 == "") {
+        alert("Informe Nome do Funcionário");
+        document.getElementById("input_funcionario").focus();
+        return;
+    }
 
-    // id_aluno
-    var vIDAluno = '0'; // document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDAluno + "',";
+    var v7 = document.getElementById("input_data").value;           // Data do emprestimo
+    var v8 = document.getElementById("input_data_dev").value;       // Data Devolucao
 
-    // id_livro
-    var vIDLivro = '0'; // document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDLivro + "',";
-
-    // id_funcionario
-    var vIDFuncionario = '0'; // document.getElementById("IDInstHidden").value;
-    i++;
-    strLine = strLine + "param" + i + ":'" + vIDFuncionario + "'";
+    var v9 = document.getElementById("IDAuxHidden").value;      // ID Emprestimo
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -94,7 +90,8 @@ function AlterarRegistro() {
     $.ajax({
         type: "POST",
         url: "WebService.asmx/EmprestimosAlterar",
-        data: '{' + strLine + '}',
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 +
+             '", param6: "' + v6 + '", param7: "' + v7 + '", param8: "' + v8 + '", param9: "' + v9 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -109,7 +106,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Emprestimos_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Emprestimos_Listagem.aspx";   
     window.location.href = linkurl;
 }
 

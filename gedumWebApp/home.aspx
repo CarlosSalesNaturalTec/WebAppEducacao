@@ -124,8 +124,8 @@
                     <div class="w3-dropdown-hover">
                         <button class="w3-btn w3-round">BIBLIOTECA</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">LIVROS</a>
-                            <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EMPRÉSTIMOS</a>
+                            <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
+                            <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-book"></i>&nbsp;Empréstimos</a>
                         </div>
                     </div>
                 </p>

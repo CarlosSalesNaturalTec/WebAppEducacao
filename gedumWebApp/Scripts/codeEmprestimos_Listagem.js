@@ -1,12 +1,15 @@
 ﻿function NovoRegistro() {
-    window.location.href = "Emprestimos_Novo.aspx";  // <!--*******Customização*******-->
+
+    $("body").css("cursor", "progress");
+    document.getElementById("BT_NOVO").disabled = true;
+
+    window.location.href = "Emprestimos_Novo.aspx";
 }
 
 function ExcluirRegistro() {
 
     var idRegistro = document.getElementById('HiddenID').value;
 
-    // <!--*******Customização*******-->
     $.ajax({
         type: "POST",
         url: "WebService.asmx/EmprestimosExcluir",

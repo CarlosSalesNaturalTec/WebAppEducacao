@@ -9,7 +9,7 @@ public partial class Emprestimos_Listagem : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        InstID = Session["InstID"].ToString();
+        InstID = Session["InstID"].ToString();  // ID da Instituição
 
         montaCabecalho();
         dadosCorpo();
@@ -21,12 +21,13 @@ public partial class Emprestimos_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALUNO</th>" +
             "<th>LIVRO</th>" +
+            "<th>DATA</th>" +
+            "<th>DEVOLUÇÃO</th>" +
             "<th>FUNCIONARIO</th>" +
             "</tr>" +
             "</thead>" +
@@ -37,8 +38,9 @@ public partial class Emprestimos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
-        string stringselect = "select ID_controle_entrega, aluno, livro, funcionario " +
+
+        string stringselect = "select ID_controle_entrega, aluno, livro, " +
+                "format(dataoperacao,'dd/MM/yyyy') as d1, format(datadevolucao,'dd/MM/yyyy') as d2, funcionario " +
                 "from Tbl_controle_entregas " +
                 "where ID_Inst =" + InstID +
                 "order by aluno";
@@ -53,15 +55,18 @@ public partial class Emprestimos_Listagem : System.Web.UI.Page
             string Coluna1 = Convert.ToString(dados[1]);
             string Coluna2 = Convert.ToString(dados[2]);
             string Coluna3 = Convert.ToString(dados[3]);
-            
-            // <!--*******Customização*******-->
+            string Coluna4 = Convert.ToString(dados[4]);
+            string Coluna5 = Convert.ToString(dados[5]);
+
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Emprestimos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
-                "<td>" + Coluna3 + "</td>" +            
+                "<td>" + Coluna3 + "</td>" +
+                "<td>" + Coluna4 + "</td>" +
+                "<td>" + Coluna5 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);
