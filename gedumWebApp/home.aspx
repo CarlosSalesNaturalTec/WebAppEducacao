@@ -172,7 +172,7 @@
                         <button class="w3-btn w3-round">ALUNOS</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
-                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
+                            <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FREQUÊNCIA</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">OCORRÊNCIAS</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ATESTADOS</a>
