@@ -83,8 +83,8 @@
 
                         <div class="form-group">
                             <label for="input_desc_ocorrencia" class="col-md-2 control-label">Ocorrência</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_desc_ocorrencia"/>
+                            <div class="col-md-9">                                
+                                <textarea id="input_desc_ocorrencia" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
 
