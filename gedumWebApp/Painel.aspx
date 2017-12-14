@@ -44,6 +44,7 @@
                 <button class="w3-btn w3-hover-green"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;Suporte</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-share-alt"></i>&nbsp;Exportação INEP</a>
+                    <a href="Parametro.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-cog"></i>&nbsp;Parâmetros</a>
                     <a href="Suporte.aspx" target="iframe" class="w3-bar-item w3-btn w3-hover-green w3-right"><i class="fa fa-cog"></i>&nbsp;Suporte</a>
                 </div>
             </div>

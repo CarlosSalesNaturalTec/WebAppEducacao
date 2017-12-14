@@ -1813,15 +1813,16 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string AtestadosSalvar(string param1, string param2, string param3, string param4)
+    public string AtestadosSalvar(string param1, string param2, string param3, string param4, string param5)
     {
         string url;
-        string strInsert = "insert INTO tbl_Atestados (ID_aluno, data_atestado, observacoes, id_inst ) " +
+        string strInsert = "insert INTO tbl_Atestados (ID_aluno, data_atestado, tipo_atestado, observacoes, id_inst ) " +
             "VALUES (" +
             param1 + "," +
             "'" + param2 + "'," +
             "'" + param3 + "'," +
-            param4 +
+            "'" + param4 + "'," +
+            param5 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -1842,7 +1843,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string AtestadosAlterar(string param1, string param2, string param3, string param4)
+    public string AtestadosAlterar(string param1, string param2, string param3, string param4, string param5)
     {
 
         string url;
@@ -1851,8 +1852,9 @@ public class WebService : System.Web.Services.WebService
         bool inserir = operacao.Update("update Tbl_Atestados set " +
             "Id_aluno= " + param1 + "," +
             "data_atestado= '" + param2 + "'," +
-            "observacoes= '" + param3 + "'" +        
-            "where ID_Atestado = " + param4);
+            "tipo_atestado= '" + param3 + "'," +
+            "observacoes= '" + param4 + "'" +        
+            "where ID_Atestado = " + param5);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -1889,6 +1891,34 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+
+
+    [WebMethod]
+    public string ParametroAlterar(string param1)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Parametros set " +
+            "ano_letivo = " + param1);
+            // "where ID_Atestado = " + param5);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "home.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
 
 
 }

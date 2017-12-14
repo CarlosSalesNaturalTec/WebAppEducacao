@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Atestados_Ficha.aspx.cs" Inherits="Atestados_Ficha" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Parametro.aspx.cs" Inherits="Parametro" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     
-    <title>Controle de Atestados</title>
+    <title>Tela de Parâmetro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL*******-->
+    <!--*******MENU LATERAL - Customização*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -41,10 +41,10 @@
 
     <div style="margin-left: 180px">
 
-        <!-- GRUPO 1 - Dados Atestados -->
+        <!-- GRUPO 1 - Dados Parâmetros -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
-
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Empréstimo</h3>
+                        
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Parâmetro</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -52,30 +52,26 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_aluno" class="col-md-2 control-label">Aluno</label>
-                            <div class="col-md-9">
-                                <select id="input_aluno" class="form-control" >
-                                    <asp:Literal ID="Literal_Aluno" runat="server"></asp:Literal>
+                            <label for="input_ano_letivo" class="col-md-2 control-label">Ana Letivo</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_ano_letivo">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matricula" class="col-md-2 control-label">Matricula</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_matricula">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_permite_pre" class="col-md-2 control-label">Permite Pré Matrícula</label>
+                            <div class="col-md-4">
+                                <select class="form-control" id="input_permite_pre">
+                                    <option value="NÃO">NÃO</option> 
+                                    <option value="SIM">SIM</option>                              
                                 </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_dataAtestado" class="col-md-2 control-label">Data Atestado</label>
-                            <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_dataAtestado"/>
-                            </div>
-
-                            <label for="input_tipoAtestado" class="col-md-2 control-label">Tipo Atestado</label>
-                            <div class="col-md-3">
-                                <input type="text" class="form-control" id="input_tipoAtestado"/>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="input_obs" class="col-md-2 control-label">Observações</label>
-                            <div class="col-md-9">                                
-                                <textarea id="input_obs" rows="10" class="form-control"></textarea>
                             </div>
                         </div>
 
@@ -107,11 +103,11 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDAuxHidden" type="hidden" />
+    <input id="IDInstHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeAtestados_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/codeParametro.js"></script>
 
 </body>
 </html>

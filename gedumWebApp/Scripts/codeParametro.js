@@ -1,28 +1,29 @@
-﻿document.getElementById("input_aluno").focus();
+﻿document.getElementById("input_param").focus();
 
 function SalvarRegistro() {
 
-    var cobAluno = document.getElementById("input_aluno")
-    var v1 = cobAluno.options[cobAluno.selectedIndex].value     // ID do Aluno
-    // var v2 = e.options[e.selectedIndex].text            // Nome do Aluno
-    if (v1 == "0") {
-        alert("Informe Nome do Aluno");
-        document.getElementById("input_aluno").focus();
+    //validações
+    if (document.getElementById('input_param').value == "") {
+        alert("Informe Ano Letivo");   //<!--*******Customize AQUI*******-->
+        document.getElementById("input_param").focus();
         return;
     }
 
-    var v2 = document.getElementById("input_dataAtestado").value;
-    var v3 = document.getElementById("input_tipoAtestado").value;
-    var v4 = document.getElementById("input_obs").value;
-    var v5 = document.getElementById("IDInstHidden").value;     //ID Indtituição
+    // id
+    var v1 = document.getElementById("input_ana_letivo").value;
+    strLine = strLine + "param1" + ":'" + vID + "',";
+
+    var v2 = document.getElementById("input_matricula").value;
+    strLine = strLine + "param1" + ":'" + v2 + "'";
+
 
     //exibir animações - aguarde...
     UIAguardar();
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/AtestadosSalvar",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 + '"}',
+        url: "WebService.asmx/ParametroSalvar",
+        data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -36,27 +37,25 @@ function SalvarRegistro() {
 
 function AlterarRegistro() {
 
-    var cobAluno = document.getElementById("input_aluno")
-    var v1 = cobAluno.options[cobAluno.selectedIndex].value     // ID do Aluno
-    // var v2 = e.options[e.selectedIndex].text            // Nome do Aluno
-    if (v1 == "0") {
-        alert("Informe Nome do Aluno");
-        document.getElementById("input_aluno").focus();
+    //validações
+    if (document.getElementById('input_param').value == "") {
+        alert("Informe Ano Letivo");   //<!--*******Customize AQUI*******-->
+        document.getElementById("input_param").focus();
         return;
     }
 
-    var v2 = document.getElementById("input_dataAtestado").value;
-    var v3 = document.getElementById("input_tipoAtestado").value;
-    var v4 = document.getElementById("input_obs").value;    
-    var v5 = document.getElementById("IDAuxHidden").value;      // ID Atestados
+    var strLine = "";
+    // ano_letivo
+    var vID = document.getElementById("input_param").value;
+    strLine = strLine + "param1" + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/AtestadosAlterar",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "' + v3 + '", param4: "' + v4 + '", param5: "' + v5 + '"}',
+        url: "WebService.asmx/ParametroAlterar",
+        data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -71,7 +70,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Atestados_Listagem.aspx";   
+    var linkurl = "home.aspx";   
     window.location.href = linkurl;
 }
 

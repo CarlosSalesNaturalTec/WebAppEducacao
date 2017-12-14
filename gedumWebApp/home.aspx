@@ -203,6 +203,7 @@
                         <button class="w3-btn w3-round">SUPORTE</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">EXPORTAÇÕES</a>
+                            <a href="Parametro.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">PARÂMETROS</a>                       
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SUPORTE</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">SOBRE</a>
                         </div>

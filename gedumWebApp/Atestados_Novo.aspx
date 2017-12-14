@@ -65,6 +65,11 @@
                             <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_dataAtestado"/>
                             </div>
+
+                            <label for="input_tipoAtestado" class="col-md-2 control-label">Tipo Atestado</label>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="input_tipoAtestado"/>
+                            </div>
                         </div>
 
                         <div class="form-group">

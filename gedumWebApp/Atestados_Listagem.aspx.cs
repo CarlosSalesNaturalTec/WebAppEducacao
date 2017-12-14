@@ -36,7 +36,7 @@ public partial class Atestados_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {        
-        string stringselect = "select a.ID_Atestado, al.nome, a.data_atestado, a.observacoes  " +
+        string stringselect = "select a.ID_Atestado, al.nome, format(a.data_atestado,'yyyy-MM-dd') as data_atestado, a.observacoes  " +
                 "from Tbl_Atestados a " +
                 "inner join tbl_alunos al on (a.id_aluno = al.id_aluno) " + 
                 "where a.ID_inst =" + InstID +

@@ -36,6 +36,7 @@ public partial class Atestados_Ficha : System.Web.UI.Page
         string stringSelect = "select " +
             "ID_aluno," +
             "format(data_atestado,'yyyy-MM-dd') as d1," +
+            "tipo_atestado," + 
             "observacoes " +
             "from Tbl_Atestados " +
             "where ID_atestado = " + ID;
@@ -44,7 +45,7 @@ public partial class Atestados_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 2; i++)
+            for (int i = 0; i <= 3; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
