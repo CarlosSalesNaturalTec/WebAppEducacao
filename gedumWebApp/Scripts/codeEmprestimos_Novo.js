@@ -79,9 +79,8 @@ function AlterarRegistro() {
         return;
     }
 
-    var v7 = document.getElementById("input_data").value;           // Data do emprestimo
-    var v8 = document.getElementById("input_data_dev").value;       // Data Devolucao
-
+    var v7 = document.getElementById("input_data").value;
+    var v8 = document.getElementById("IDInstHidden").value;     //ID Indtituição
     var v9 = document.getElementById("IDAuxHidden").value;      // ID Emprestimo
 
     //exibir animações - aguarde...

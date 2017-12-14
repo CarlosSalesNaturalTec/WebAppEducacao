@@ -174,7 +174,7 @@
                             <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
                             <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FREQUÊNCIA</a>
-                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">OCORRÊNCIAS</a>
+                            <a href="Ocorrencias_Listagem" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">OCORRÊNCIAS</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ATESTADOS</a>
                             <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">HISTÓRICO</a>
                         </div>

@@ -24,8 +24,7 @@ public partial class Boletins : System.Web.UI.Page
         Preenche_Combo(stringselect2, "Selecione uma Disciplina");
         Literal_disciplina.Text = strCombo.ToString();
 
-        // Monta_Grid();
-
+        Monta_Grid();
 
     }
 
@@ -91,10 +90,12 @@ public partial class Boletins : System.Web.UI.Page
 
     private void Monta_Grid() {
 
-        string stringselect = "select ID_Operacao, format(DataOperacao,'dd/MM/yyyy') as d1 , Documento , Forn_Resp ,Quant_Entrada , Quant_Saida  " +
-                "from Tbl_Produtos_Movimento  " +
-                "where ID_Produto =" + idAux +
-                " order by DataOperacao desc";
+        // var v1 = v.options[v.selectedIndex].value   // ID do Aluno
+
+        string stringselect = "select ID_Aluno, ID_Disciplina, unidade, tipo_avaliacao, ano_letivo, format(data_avaliacao,'dd/MM/yyyy') as d1 , nota " +
+                "from Tbl_Boletins  " +
+                "where ID_Aluno =" + idAux +
+                " order by DataAvaliacao desc";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

@@ -72,7 +72,7 @@
 
                     <label for="input_TipoAvaliacao" class="col-md-2 control-label">Tipo Avaliação</label>
                     <div class="col-md-3">
-                        <select class="form-control" id="input_TipoAvalicao">
+                        <select class="form-control" id="input_TipoAvaliacao">
                             <option value="PROVA">PROVA</option>
                             <option value="TESTE">TESTE</option>
                             <option value="TRABALHO">TRABALHO</option>
@@ -85,12 +85,17 @@
                 <div class="form-group">
                     <label for="input_dataavaliacao" class="col-md-1 control-label">Data Avaliação</label>
                     <div class="col-md-2">
-                        <input type="date" class="form-control" id="input_data">
+                        <input type="date" class="form-control" id="input_dataavaliacao"/>
                     </div>
 
                     <label for="input_anoletivo" class="col-md-3 control-label">Ano Letivo</label>
                     <div class="col-md-1">
-                        <input type="number" class="form-control" id="input_analetivo" >
+                        <input type="number" class="form-control" id="input_anoletivo"/>
+                    </div>
+
+                    <label for="input_nota" class="col-md-1 control-label">Nota</label>
+                    <div class="col-md-1">
+                        <input type="number" class="form-control" id="input_nota"/>
                     </div>
 
                     <div class="col-md-2">
@@ -161,6 +166,7 @@
         </div>
     </div>
     <!-- Modal Excluir -->
+
     <!-- auxiliares -->
     <input id="IDProdutoHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>

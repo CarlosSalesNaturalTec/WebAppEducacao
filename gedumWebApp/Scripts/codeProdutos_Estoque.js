@@ -9,7 +9,7 @@
 
 function Estoque_Entrada() {
 
-    //validações
+    //validações    
     if (document.getElementById('input_quant').value == "") {
         alert("Informe Quantidade");
         document.getElementById("input_quant").focus();

@@ -1691,6 +1691,127 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+
+    [WebMethod]
+    public string Inseri_Boletim(string param1, string param2, string param3, string param4, string param5, string param6, string param7)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirItens = operacaoInst2.Insert("INSERT INTO Tbl_Boletins " +
+            "(ID_Aluno, ID_Disciplina, Unidade, tipo_avaliacao, data_avaliacao, ano_letivo, nota ) " +
+           "VALUES (" +
+           param1 + "," +
+           param2 + "," +
+           "'" + param3 + "'," +
+           "'" + param4 + "'," +
+           "'" + param5 + "'," +
+           param6 + "," + 
+           param7 +
+           ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirItens == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    
+    [WebMethod]
+    public string OcorrenciasSalvar(string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+        string strInsert = "insert INTO tbl_Ocorrencias (ID_func, ID_aluno, data_ocorrencia, tipo_ocorrencia, descricao_ocorrencia, ID_inst ) " +
+            "VALUES (" +
+            param1 + "," +
+            param2 + "," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            param6 +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Ocorrencias_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string OcorrenciasAlterar(string param1, string param2, string param3, string param4,
+        string param5, string param6)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Ocorrencias set " +
+            "Id_func= " + param1 + "," +
+            "Id_aluno= " + param2 + "," +
+            "data_ocorrencia= '" + param3 + "'," +
+            "tipo_ocorrencia = '" + param4 + "'," +
+            "descricao_ocorrencia = '" + param5 + "' " +
+            "where ID_Ocorrencia = " + param6);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Ocorrencias_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string OcorrenciasExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Ocorrencias where ID_ocorrencia =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Ocorrencias_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 }
 
 public class ConexaoBancoSQL

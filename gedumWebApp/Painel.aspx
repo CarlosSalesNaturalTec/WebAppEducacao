@@ -55,7 +55,7 @@
                     <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ficha do Aluno</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Boletins</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Frequência</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Ocorrências</a>
+                    <a href="Ocorrencias_Listagem.aspx" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Ocorrências</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Atestados</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-file-text-o"></i>&nbsp;Histórico Escolar</a>
                 </div>

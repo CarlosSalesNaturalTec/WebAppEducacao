@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Emprestimos_Listagem.aspx.cs" Inherits="Emprestimos_Listagem" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Ocorrencias_Listagem.aspx.cs" Inherits="Ocorrencias_Listagem" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 
 <head runat="server">
     
-    <title>Listagem de Empréstimos</title>         
+    <title>Listagem de Ocorrências</title>        
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
 
-    <style> 
+        <style> 
         body {
             background-image: url("images/fundo.jpg"); 
         }
@@ -29,10 +29,10 @@
 <body>
     <p></p>
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-green" style="margin-left: 2%; margin-right: 2%">
-        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Empréstimos Cadastradas:
+        <small><i class="fa fa-calendar-check-o fa-2x"></i>&nbsp;&nbsp;Total de Cursos Cadastrados:
             <asp:Literal ID="lblTotalRegistros" runat="server"></asp:Literal></small> 
         &nbsp;&nbsp;
-        <button id="BT_NOVO" class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Novo Empréstimo</button>  
+        <button class="w3-btn w3-round w3-border w3-green w3-right" onclick="NovoRegistro()"><i class="fa fa-plus"></i>&nbsp;Nova Ocorrência</button>  
     </div>
 
     <br />
@@ -71,7 +71,7 @@
     <!-- Modal Excluir -->
 
     <!-- Scripts Diversos -->
-    <script type="text/javascript" src="Scripts/codeEmprestimos_Listagem.js"></script>   
+    <script type="text/javascript" src="Scripts/codeOcorrencias_Listagem.js"></script>   
 
     <!-- Script Paginação  -->
     <script type="text/javascript" src="Scripts/codePaginacao.js"></script>
