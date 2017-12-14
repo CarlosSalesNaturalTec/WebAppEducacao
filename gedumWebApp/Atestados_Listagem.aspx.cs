@@ -39,8 +39,8 @@ public partial class Atestados_Listagem : System.Web.UI.Page
         string stringselect = "select a.ID_Atestado, al.nome, a.data_atestado, a.observacoes  " +
                 "from Tbl_Atestados a " +
                 "inner join tbl_alunos al on (a.id_aluno = al.id_aluno) " + 
-                "where ID_Atestado =" + InstID +
-                "order by ID_Atestado";
+                "where a.ID_inst =" + InstID +
+                " order by id_atestado";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);

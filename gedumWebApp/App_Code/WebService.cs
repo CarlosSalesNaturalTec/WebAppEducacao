@@ -1812,6 +1812,85 @@ public class WebService : System.Web.Services.WebService
 
 
 
+    [WebMethod]
+    public string AtestadosSalvar(string param1, string param2, string param3, string param4)
+    {
+        string url;
+        string strInsert = "insert INTO tbl_Atestados (ID_aluno, data_atestado, observacoes, id_inst ) " +
+            "VALUES (" +
+            param1 + "," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            param4 +
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Atestados_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
+    [WebMethod]
+    public string AtestadosAlterar(string param1, string param2, string param3, string param4)
+    {
+
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Update("update Tbl_Atestados set " +
+            "Id_aluno= " + param1 + "," +
+            "data_atestado= '" + param2 + "'," +
+            "observacoes= '" + param3 + "'" +        
+            "where ID_Atestado = " + param4);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "Atestados_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string AtestadosExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Atestados where ID_atestado =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Atestados_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
 }
 
 public class ConexaoBancoSQL
