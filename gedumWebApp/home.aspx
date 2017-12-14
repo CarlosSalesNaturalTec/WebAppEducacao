@@ -86,7 +86,7 @@
         <!-- coluna divisória -->
         <div class="col-md-1"></div>
 
-        <!-- ALIMENTOS -->
+        <!-- ESTOQUE -->
         <div class="w3-card-4 col-md-3">
             <br />
             <div class="w3-container w3-center">
@@ -171,12 +171,12 @@
                     <div class="w3-dropdown-hover">
                         <button class="w3-btn w3-round">ALUNOS</button>
                         <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                            <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FICHA</a>
-                            <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">BOLETINS</a>
-                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">FREQUÊNCIA</a>
-                            <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">OCORRÊNCIAS</a>
-                            <a href="Atestados_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">ATESTADOS</a>
-                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green">HISTÓRICO</a>
+                            <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-address-card-o"></i>&nbsp;Ficha</a>
+                            <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-address-card-o"></i>&nbsp;Boletins</a>
+                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-address-card-o"></i>&nbsp;Frequência</a>
+                            <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-address-card-o"></i>&nbsp;Ocorrências</a>
+                            <a href="Atestados_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-address-card-o"></i>&nbsp;Atestados</a>
+                            <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-address-card-o"></i>&nbsp;Histórico</a>
                         </div>
                     </div>
                 </p>

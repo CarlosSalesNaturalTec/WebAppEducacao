@@ -9,9 +9,7 @@ public partial class Ocorrencias_Listagem : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
-        InstID = Session["InstID"].ToString();
+        InstID = Session["InstID"].ToString();  // id iNSTITUIÇÃO
 
         montaCabecalho();
         dadosCorpo();
