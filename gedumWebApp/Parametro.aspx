@@ -6,10 +6,10 @@
 <head runat="server">
     
     <title>Tela de Parâmetro</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -54,14 +54,14 @@
                         <div class="form-group">
                             <label for="input_ano_letivo" class="col-md-2 control-label">Ana Letivo</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_ano_letivo">
+                                <input type="number" class="form-control" id="input_ano_letivo"/>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="input_matricula" class="col-md-2 control-label">Matricula</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input_matricula">
+                                <input type="number" class="form-control" id="input_matricula"/>
                             </div>
                         </div>
 
@@ -69,8 +69,8 @@
                             <label for="input_permite_pre" class="col-md-2 control-label">Permite Pré Matrícula</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_permite_pre">
-                                    <option value="NÃO">NÃO</option> 
-                                    <option value="SIM">SIM</option>                              
+                                    <option value="0">NÃO</option> 
+                                    <option value="1">SIM</option>                              
                                 </select>
                             </div>
                         </div>

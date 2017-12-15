@@ -38,16 +38,24 @@ function SalvarRegistro() {
 function AlterarRegistro() {
 
     //validações
-    if (document.getElementById('input_param').value == "") {
-        alert("Informe Ano Letivo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_param").focus();
+    if (document.getElementById('input_ano_letivo').value == "") {
+        alert("Informe Ano Letivo");   
+        document.getElementById("input_ana_letivo").focus();
         return;
     }
 
     var strLine = "";
     // ano_letivo
-    var vID = document.getElementById("input_param").value;
-    strLine = strLine + "param1" + ":'" + vID + "'";
+    var v1 = document.getElementById("input_ano_letivo").value;
+    strLine = strLine + "param1" + ":'" + v1 + "',";
+
+    // matrícula
+    var v2 = document.getElementById("input_matricula").value;
+    strLine = strLine + "param2" + ":'" + v2 + "',";
+
+    // Pré - Matrícula
+    var v3 = document.getElementById("input_permite_pre").value;
+    strLine = strLine + "param3" + ":'" + v3 + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
