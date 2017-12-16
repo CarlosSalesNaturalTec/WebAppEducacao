@@ -1,39 +1,4 @@
-﻿document.getElementById("input_param").focus();
-
-function SalvarRegistro() {
-
-    //validações
-    if (document.getElementById('input_param').value == "") {
-        alert("Informe Ano Letivo");   //<!--*******Customize AQUI*******-->
-        document.getElementById("input_param").focus();
-        return;
-    }
-
-    // id
-    var v1 = document.getElementById("input_ana_letivo").value;
-    strLine = strLine + "param1" + ":'" + vID + "',";
-
-    var v2 = document.getElementById("input_matricula").value;
-    strLine = strLine + "param1" + ":'" + v2 + "'";
-
-
-    //exibir animações - aguarde...
-    UIAguardar();
-
-    $.ajax({
-        type: "POST",
-        url: "WebService.asmx/ParametroSalvar",
-        data: '{' + strLine + '}',
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-            window.location.href = response.d;
-        },
-        failure: function (response) {
-            alert(response.d);
-        }
-    });
-}
+﻿document.getElementById("input_ano_letivo").focus();
 
 function AlterarRegistro() {
 
@@ -55,7 +20,11 @@ function AlterarRegistro() {
 
     // Pré - Matrícula
     var v3 = document.getElementById("input_permite_pre").value;
-    strLine = strLine + "param3" + ":'" + v3 + "'";
+    strLine = strLine + "param3" + ":'" + v3 + "',";
+
+    // id iNSTITUIÇÃO
+    var v4 = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param4" + ":'" + v4 + "'";
 
     //exibir animações - aguarde...
     UIAguardar();

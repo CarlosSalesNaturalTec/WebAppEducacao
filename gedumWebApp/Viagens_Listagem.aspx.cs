@@ -36,7 +36,6 @@ public partial class Viagens_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
         string stringselect = "select ID_viagem, veiculo, motorista, format(data_viagem,'dd/MM/yyyy') as d1 " +
                 "from Tbl_Viagens " +
                 "where ID_Inst =" + InstID +

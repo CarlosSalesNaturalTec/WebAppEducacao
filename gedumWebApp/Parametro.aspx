@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     
-    <title>Tela de Parâmetro</title>
+    <title>Cadastro de Parâmetros</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
@@ -28,7 +28,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -44,7 +44,7 @@
         <!-- GRUPO 1 - Dados Parâmetros -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
                         
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais - Parâmetro</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Parâmetros do Sistema</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -67,10 +67,10 @@
 
                         <div class="form-group">
                             <label for="input_permite_pre" class="col-md-2 control-label">Permite Pré Matrícula</label>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <select class="form-control" id="input_permite_pre">
-                                    <option value="0">NÃO</option> 
-                                    <option value="1">SIM</option>                              
+                                   <option value="NÃO">NÃO</option> 
+                                   <option value="SIM">SIM</option>                          
                                 </select>
                             </div>
                         </div>

@@ -5,12 +5,11 @@ public partial class Parametro : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
-    string idAux;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        idAux = Request.QueryString["v1"];
-        PreencheCampos(idAux);
+        string IDAux = Session["InstID"].ToString();
+        PreencheCampos(IDAux);
     }
 
     private void PreencheCampos(string ID)
@@ -23,7 +22,7 @@ public partial class Parametro : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        string stringSelect = "select  ano_letivo, matricula, permite_pre_mat  from Tbl_Parametros  "; //  where ID_Sala = " + ID;
+        string stringSelect = "select ano_letivo, matricula, permite_pre_mat  from Tbl_Parametros where id_inst = " + ID;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
@@ -35,9 +34,9 @@ public partial class Parametro : System.Web.UI.Page
                 str.Append(ScriptDados);
             }
 
-            //ID do registro
-            //ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
-            //str.Append(ScriptDados);
+            //ID insituição
+            ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
+            str.Append(ScriptDados);
 
         }
         ConexaoBancoSQL.fecharConexao();
@@ -49,5 +48,6 @@ public partial class Parametro : System.Web.UI.Page
 
     }
 
+    
 
 }

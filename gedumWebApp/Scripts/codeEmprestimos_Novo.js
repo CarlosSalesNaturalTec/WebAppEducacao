@@ -71,7 +71,7 @@ function AlterarRegistro() {
         return;
     }
 
-    var v5 = "0";                                                   //ID Funcionario
+    var v5 = "0";                                                   //ID Funcionario - atualmente com valor fixo 0
     var v6 = document.getElementById("input_funcionario").value;    // Nome Funcionario
     if (v6 == "") {
         alert("Informe Nome do Funcionário");
@@ -80,7 +80,7 @@ function AlterarRegistro() {
     }
 
     var v7 = document.getElementById("input_data").value;
-    var v8 = document.getElementById("IDInstHidden").value;     //ID Indtituição
+    var v8 = document.getElementById("input_data_dev").value;     // Data da devolução
     var v9 = document.getElementById("IDAuxHidden").value;      // ID Emprestimo
 
     //exibir animações - aguarde...

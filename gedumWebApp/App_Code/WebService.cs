@@ -1895,7 +1895,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string ParametroAlterar(string param1, string param2, string param3)
+    public string ParametroAlterar(string param1, string param2, string param3, string param4)
     {
 
         string url;
@@ -1904,9 +1904,9 @@ public class WebService : System.Web.Services.WebService
         bool inserir = operacao.Update("update Tbl_Parametros set " +
             "ano_letivo = " + param1 + "," + 
             "matricula = " + param2 + "," +
-            "permite_pre_mat = " + param3
+            "permite_pre_mat = '" + param3  + "' " +
+            "where ID_inst = " + param4 
             );
-            // "where ID_Atestado = " + param5);
 
         ConexaoBancoSQL.fecharConexao();
 

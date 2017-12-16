@@ -10,10 +10,9 @@ public partial class Boletins : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        idAux = Request.QueryString["v1"];              // ID do produto
         idInstAux = Session["InstID"].ToString();       // Id da Instituição
          
-        // PreencheCampos(idAux);
+        PreencheCampos(idAux);
 
         // preenche combo Alunos
         string stringselect = "select ID_aluno, nome from tbl_Alunos where id_inst = " + idInstAux + " order by nome";
@@ -24,8 +23,6 @@ public partial class Boletins : System.Web.UI.Page
         Preenche_Combo(stringselect2, "Selecione uma Disciplina");
         Literal_disciplina.Text = strCombo.ToString();
 
-        Monta_Grid();
-
     }
 
     private void PreencheCampos(string ID)
@@ -35,35 +32,15 @@ public partial class Boletins : System.Web.UI.Page
 
         ScriptDados = "<script type=\"text/javascript\">";
         str.Append(ScriptDados);
-        ScriptDados = "var x = document.getElementsByClassName('form-control');";
+
+        //ID Da Instituição
+        ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
         str.Append(ScriptDados);
-
-        string stringSelect = "select " +
-            "unidade, " +
-            "tipo, " +
-            "Descricao " +
-            "from Tbl_Produtos " +
-            "where ID_Produto = " + ID;
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
-        while (rcrdset.Read())
-        {
-            for (int i = 0; i <= 1; i++)
-            {
-                ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
-                str.Append(ScriptDados);
-            }
-
-            //Nome do Produto
-            // Literal_Aluno.Text = Convert.ToString(rcrdset[2]);
-
-            //ID do registro
-            ScriptDados = "document.getElementById('IDProdutoHidden').value = \"" + ID + "\";";
-            str.Append(ScriptDados);
-
-        }
-        ConexaoBancoSQL.fecharConexao();
+        
+        //Data Atual
+        string dataAtual = DateTime.Now.ToString("yyyy-MM-dd");
+        ScriptDados = "document.getElementById('input_dataavaliacao').value = \"" + dataAtual + "\";";
+        str.Append(ScriptDados);
 
         ScriptDados = "</script>";
         str.Append(ScriptDados);
@@ -87,47 +64,5 @@ public partial class Boletins : System.Web.UI.Page
         }
         ConexaoBancoSQL.fecharConexao();
     }
-
-    private void Monta_Grid() {
-
-        // var v1 = v.options[v.selectedIndex].value   // ID do Aluno
-
-        string stringselect = "select ID_Aluno, ID_Disciplina, unidade, tipo_avaliacao, ano_letivo, format(data_avaliacao,'dd/MM/yyyy') as d1 , nota " +
-                "from Tbl_Boletins  " +
-                "where ID_Aluno =" + idAux +
-                " order by DataAvaliacao desc";
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
-
-        str.Clear();
-        while (dados.Read())
-        {
-            string Coluna0 = Convert.ToString(dados[0]);
-            string Coluna1 = Convert.ToString(dados[1]);
-            string Coluna2 = Convert.ToString(dados[2]);
-            string Coluna3 = Convert.ToString(dados[3]);
-            string Coluna4 = Convert.ToString(dados[4]);
-            string Coluna5 = Convert.ToString(dados[5]);
-
-            string bt1 = "<a id='bt_excluirEstoque' class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
-
-            string stringcomaspas = "<tr>" +
-                "<td>" + bt1 + Coluna1 + "</td>" +
-                "<td>" + Coluna2 + "</td>" +
-                "<td>" + Coluna3 + "</td>" +
-                "<td>" + Coluna4 + "</td>" +
-                "<td>" + Coluna5 + "</td>" +
-                "</tr>";
-
-            str.Append(stringcomaspas);
-            
-        }
-        ConexaoBancoSQL.fecharConexao();
-
-        Literal_historico.Text = str.ToString();
-
-    }
-
 
 }

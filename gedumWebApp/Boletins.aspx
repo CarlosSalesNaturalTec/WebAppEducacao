@@ -36,6 +36,11 @@
 
                 <br />
 
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Boletim do Aluno</h3>
+
+                
+                <br />
+
                 <!-- nome do Aluno -->
                 <div class="form-group">
 
@@ -88,12 +93,7 @@
                         <input type="date" class="form-control" id="input_dataavaliacao"/>
                     </div>
 
-                    <label for="input_anoletivo" class="col-md-3 control-label">Ano Letivo</label>
-                    <div class="col-md-1">
-                        <input type="number" class="form-control" id="input_anoletivo"/>
-                    </div>
-
-                    <label for="input_nota" class="col-md-1 control-label">Nota</label>
+                    <label for="input_nota" class="col-md-3 control-label">Nota</label>
                     <div class="col-md-1">
                         <input type="number" class="form-control" id="input_nota"/>
                     </div>
@@ -127,8 +127,8 @@
                                     <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disciplina</th>
                                     <th>Tipo Avalição</th>
                                     <th>Unidade</th>
+                                    <th>Data</th>
                                     <th>Nota</th>
-                                    <th>Ano</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -168,14 +168,12 @@
     <!-- Modal Excluir -->
 
     <!-- auxiliares -->
-    <input id="IDProdutoHidden" type="hidden" />
+    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeBoletins.js"></script>
 
-    <!-- Script Paginação
-    <script type="text/javascript" src="Scripts/codePaginacao.js"></script> -->
 
 </body>
 </html>
