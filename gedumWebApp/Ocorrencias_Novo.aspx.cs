@@ -24,9 +24,12 @@ public partial class Ocorrencias_Novo : System.Web.UI.Page
         Preenche_Combo(stringselectF, "Selecione um Funcionário");
         Literal_Funcionario.Text = strCombo.ToString();
 
+        //Data Atual
+        string dataAtual = DateTime.Now.ToString("yyyy-MM-dd");
 
         string ScriptAux = "<script type=\"text/javascript\">" +
                         "document.getElementById('IDInstHidden').value = \"" + InstID + "\";" +
+                        "document.getElementById('input_data_ocorrencia').value = \"" + dataAtual + "\";" +
                         "</script>";
         Literal1.Text = ScriptAux;
     }

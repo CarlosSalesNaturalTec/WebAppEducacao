@@ -40,7 +40,7 @@ public partial class Ocorrencias_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
 
-  string stringselect = "select o.ID_ocorrencia, o.descricao_ocorrencia, o.data_ocorrencia, o.tipo_ocorrencia, " +
+  string stringselect = "select o.ID_ocorrencia, o.descricao_ocorrencia, FORMAT(o.data_ocorrencia,'dd/MM/yyyy') as d1, o.tipo_ocorrencia, " +
                 "a.nome as aluno, f.nome as funcionario " + 
                 "from tbl_Ocorrencias o " +
                 "inner join tbl_alunos a on (o.id_aluno = a.id_aluno) " + 

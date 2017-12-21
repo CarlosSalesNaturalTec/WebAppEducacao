@@ -18,7 +18,7 @@ function SalvarRegistro() {
 
     // id
     var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "',";
+    strLine = strLine + "param" + i + ":'" + vID + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
