@@ -1,15 +1,18 @@
 ﻿function NovoRegistro() {
-    window.location.href = "Modelos_Novo.aspx";  // <!--*******Customização*******-->
+
+    $("body").css("cursor", "progress");
+    document.getElementById("btNovo").disabled = true;
+
+    window.location.href = "Matriculas_Solicita_Novo.aspx";  
 }
 
 function ExcluirRegistro() {
 
     var idRegistro = document.getElementById('HiddenID').value;
 
-    // <!--*******Customização*******-->
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/ModelosExcluir",
+        url: "WebService.asmx/Matriculas_Solicita_Excluir",
         data: '{param1: "' + idRegistro + '" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -32,7 +35,3 @@ function Excluir(IDExc) {
 function Excluir_cancel() {
     document.getElementById('DivModal').style.display = 'none';
 }
-
-
-
-

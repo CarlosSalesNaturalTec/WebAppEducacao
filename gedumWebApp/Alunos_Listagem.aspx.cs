@@ -23,7 +23,6 @@ public partial class Alunos_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
@@ -40,7 +39,6 @@ public partial class Alunos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
         string stringselect = "select ID_aluno, nome, celular1, Responsavel, ResponsavelTel  " +
                 "from tbl_Alunos " +
                 "where ID_Inst = " +IDInst +
@@ -58,7 +56,6 @@ public partial class Alunos_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
 
-            // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Alunos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 

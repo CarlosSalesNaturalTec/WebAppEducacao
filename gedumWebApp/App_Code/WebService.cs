@@ -1924,6 +1924,29 @@ public class WebService : System.Web.Services.WebService
 
 
 
+    [WebMethod]
+    public string Matriculas_Solicita_Excluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from tbl_matriculas_solicitacoes where ID_Solicita =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Matriculas_Solicita_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 }
 
 public class ConexaoBancoSQL
