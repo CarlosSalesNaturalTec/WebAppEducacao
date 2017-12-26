@@ -200,7 +200,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao4 = new OperacaoBanco();
-        // <!--*******Customização*******-->
+        
         bool alterar = operacao4.Update("update Tbl_Instituicao set " +
             "Nome = '" + param0 + "'," +
             "Razao = '" + param1 + "'," +
@@ -258,13 +258,13 @@ public class WebService : System.Web.Services.WebService
             "CampoFutebol = '" + param50 + "'," +
             "QuadraEsportes = '" + param51 + "'," +
             "Logomarca = '" + param52 + "' " +
-            "where ID_inst =" + param53);  // <!--*******Customização - ultimo parametro *******-->
+            "where ID_inst =" + param53);  
 
         ConexaoBancoSQL.fecharConexao();
 
         if (alterar == true)
         {
-            url = "CAD_Instituicao_Listagem.aspx";   // <!--*******Customização*******-->
+            url = "CAD_Instituicao_Listagem.aspx";   
         }
         else
         {
@@ -313,12 +313,12 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_usuarios where ID_user =" + param1);   // <!--*******Customização*******-->
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_usuarios where ID_user =" + param1);   
         ConexaoBancoSQL.fecharConexao();
 
         if (deletarUser == true)
         {
-            url = "OK";  // <!--*******Customização*******-->
+            url = "OK";  
         }
         else
         {
@@ -334,12 +334,12 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from Tbl_Municipios where ID_Munic =" + param1);   // <!--*******Customização*******-->
+        Boolean deletar = operacao3.Delete("delete from Tbl_Municipios where ID_Munic =" + param1);   
         ConexaoBancoSQL.fecharConexao();
 
         if (deletar == true)
         {
-            url = "CAD_Municipio_Listagem.aspx";  // <!--*******Customização*******-->
+            url = "CAD_Municipio_Listagem.aspx";  
         }
         else
         {
@@ -356,7 +356,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        // <!--*******Customização*******-->
+        
         bool inserir = operacao.Insert("INSERT INTO Tbl_Municipios (Nome, UF, Gestor, TElefone, email, Endereco, " +
             "Latitude, Longitude, Logomarca ) " +
             "VALUES (" +
@@ -374,7 +374,7 @@ public class WebService : System.Web.Services.WebService
 
         if (inserir == true)
         {
-            url = "CAD_Municipio_Listagem.aspx";    // <!--*******Customização*******-->
+            url = "CAD_Municipio_Listagem.aspx";   
         }
         else
         {
@@ -391,7 +391,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao4 = new OperacaoBanco();
-        // <!--*******Customização*******-->
+   
         bool alterar = operacao4.Update("update Tbl_Municipios set " +
             "Nome = '" + param0 + "'," +
             "uf = '" + param1 + "'," +
@@ -402,13 +402,13 @@ public class WebService : System.Web.Services.WebService
             "Latitude = '" + param6 + "'," +
             "Longitude = '" + param7 + "'," +
             "Logomarca = '" + param8 + "' " +
-            "where ID_Munic =" + param9);  // <!--*******Customização - ultimo parametro *******-->
+            "where ID_Munic =" + param9);  
 
         ConexaoBancoSQL.fecharConexao();
 
         if (alterar == true)
         {
-            url = "CAD_Municipio_Listagem.aspx";   // <!--*******Customização*******-->
+            url = "CAD_Municipio_Listagem.aspx";   
         }
         else
         {

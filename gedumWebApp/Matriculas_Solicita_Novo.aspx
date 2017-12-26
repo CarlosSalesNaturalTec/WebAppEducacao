@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Alunos_Novo.aspx.cs" Inherits="Alunos_Novo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Matriculas_Solicita_Novo.aspx.cs" Inherits="Matriculas_Solicita_Novo" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
-    <title>Cadastro de Alunos</title>
+    <title>Solicitação de Matrícula</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -36,7 +35,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL *******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -57,13 +56,22 @@
         <!-- GRUPO 1 - Dados Pessoais -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitação de Matrícula - Dados Pessoais</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
+
+                        <div class="form-group">
+                            <label for="input_curso" class="col-md-2 control-label">Curso</label>
+                            <div class="col-md-9">
+                                <select class="w3-select w3-border" id="input_curso">
+                                    <asp:Literal ID="Literal_Cursos" runat="server"></asp:Literal>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-9">
@@ -76,7 +84,7 @@
                             <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_nasc">
                             </div>
-                            <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
+                            <label for="input_civil" class="col-md-3 control-label">Estado Civil</label>
                             <div class="col-md-3">
                                 <select class="form-control" id="input_civil">
                                     <option value="Solteiro(a)">Solteiro(a)</option>
@@ -136,6 +144,7 @@
                             <label for="input_Etnia" class="col-md-2 control-label">Etnia</label>
                             <div class="col-md-4">
                                 <select class="form-control" id="input_Etnia">
+                                    <option value="Não Informada">Não Informada</option>
                                     <option value="Branco">Branco</option>
                                     <option value="Negro">Negro</option>
                                     <option value="Pardo">Pardo</option>
@@ -149,6 +158,7 @@
                             <label for="input_tiposangue" class="col-md-2 control-label">Tipo Sanguínio</label>
                             <div class="col-md-3">
                                 <select class="form-control" id="input_tiposangue">
+                                    <option value="Não Informado">Não Informado</option>
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
                                     <option value="A+">A+</option>
@@ -200,7 +210,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -234,8 +244,7 @@
         <!-- GRUPO 2 - Endereço -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -321,7 +330,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -343,8 +352,7 @@
         <!-- GRUPO 3 - Documentação -->
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -442,7 +450,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -462,8 +470,7 @@
         <!-- GRUPO 4 - Dados de Saúde -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -514,7 +521,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -533,8 +540,7 @@
         <!-- GRUPO 5 - Fardamento -->
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -589,7 +595,7 @@
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -608,13 +614,15 @@
 
     <!-- auxiliares -->
     <input id="IDInstHidden" type="hidden" />
+    <input id="AnoLetivoHidden" type="hidden" />
+
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeAlunos_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/codeMatriculas_Solicita_Novo.js"></script>
     <script type="text/javascript" src="Scripts/webcam.js"></script>
-    <script type="text/javascript" src="Scripts/codeAlunos_Mapa.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
+    <script type="text/javascript" src="Scripts/codeMatriculas_Solicita_Mapa.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
 
 </body>
 </html>

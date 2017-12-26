@@ -3,7 +3,7 @@
     $("body").css("cursor", "progress");
     document.getElementById("btNovo").disabled = true;
 
-    window.location.href = "Matriculas_Solicita_Novo.aspx";  
+    window.location.href = "Matriculas_Solicita_Novo.aspx";
 }
 
 function ExcluirRegistro() {
@@ -12,7 +12,7 @@ function ExcluirRegistro() {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/Matriculas_Solicita_Excluir",
+        url: "WebService.asmx/Matriculas_Excluir",
         data: '{param1: "' + idRegistro + '" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",

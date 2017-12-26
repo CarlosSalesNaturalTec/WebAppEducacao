@@ -6,12 +6,15 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
     string IDInst;
+    int Ano_Letivo_Aux = 0;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
         //ID da Instituição
         IDInst = Session["InstID"].ToString();
+
+        Ano_Letivo_Aux = Verifica_Ano_Letivo(IDInst);
 
         montaCabecalho();
         dadosCorpo();
@@ -27,9 +30,9 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>CELULAR</th>" +
-            "<th>RESPONSÁVEL</th>" +
-            "<th>TEL. RESPONSÁVEL</th>" +
+            "<th>DATA SOLICITAÇÃO</th>" +
+            "<th>STATUS</th>" +
+            "<th>DATA CONFIRMAÇÃO</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -39,9 +42,10 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select ID_Solicita, nome, celular1, Responsavel, ResponsavelTel  " +
-                "from tbl_matriculas_solicitacoes  " +
-                "where ID_Inst = " + IDInst +
+        string stringselect = "select ID_Solicita, nome, format(Data_Solicita,'dd/MM/yyyy') as d1 , Status_Solicita, format(Data_Confirma,'dd/MM/yyyy') as d2  " +
+                "from tbl_matriculas_solicitacoes" +
+                " where ID_Inst = " + IDInst +
+                " and Ano_letivo = " + Ano_Letivo_Aux  +
                 " order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -79,5 +83,23 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
     {
         string footer = "</tbody></table>";
         str.Append(footer);
+    }
+
+    private int Verifica_Ano_Letivo(string ID)
+    {
+        string stringselect = "select ano_letivo from Tbl_Parametros where id_inst = " + ID;
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
+
+        int Ano_Aux = 0;
+
+        while (dados.Read())
+        {
+            Ano_Aux = Convert.ToInt16(dados[0]); 
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        return Ano_Aux;
+
     }
 }
