@@ -20,7 +20,7 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
+        
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered\">" +
             "<thead>" +
             "<tr>" +
@@ -35,7 +35,7 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        // <!--*******Customização*******-->
+       
         string stringselect = "select ID_Disc,nome, obs " +
                 "from Tbl_Disciplinas " +
                 "where ID_Inst = " + idAux + 
@@ -50,7 +50,6 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
             string Coluna1 = Convert.ToString(dados[1]);  
             string Coluna2 = Convert.ToString(dados[2]);             
 
-            // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Disciplinas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 

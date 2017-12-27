@@ -116,6 +116,69 @@ function AlterarRegistro() {
     });
 }
 
+function Confirma_matricula() {
+
+    //verifica se já possui numero de matricula
+    var matAux = document.getElementById('input_matricula').value;
+    if (matAux != "0") {
+        alert("Matrícula já está Confirmada");
+        return;
+    }
+
+    var r = confirm("Confirma Matrícula?");
+    if (r == false) {
+        return;
+    }
+
+    //ID da instituição
+    var idaux = document.getElementById('ID_Inst_Hidden').value;
+
+    //exibir animações - aguarde...
+    UIAguardar();
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/Matriculas_Parametros",
+        data: '{param1: "' + idaux + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+
+            //número de matricula
+            document.getElementById('input_matricula').value = response.d;
+
+            // data atual - confirmação de matricula
+            var data = new Date();
+            var dia = data.getDate();           // 1-31
+            var mes = data.getMonth() + 1 ;     // 0-11 (zero=janeiro)
+            var ano = data.getFullYear();       // 4 dígitos
+            var str_data = ano + "-" + mes + "-" + dia;
+            document.getElementById('input_Data_conf').value = str_data;
+
+            // Status da matricula
+            document.getElementById('input_status').value = "Matrícula Confirmada";
+
+            // UI
+            UIHabilitar();
+
+            alert("OK. Número de Matrícula Obtido. SALVE para Confirmar.");
+
+            document.getElementById('btMat_Param').disabled = true;
+            document.getElementById('bt_sair').disabled = true;
+            document.getElementById('input_matricula').disabled = false;
+            document.getElementById('input_matricula').focus();
+
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+
+
+}
+
 
 function cancelar() {
     var linkurl = "Matriculas_Solicita_Listagem.aspx";
@@ -136,6 +199,19 @@ function UIAguardar() {
     }
 }
 
+function UIHabilitar() {
+    var i, x;
+
+    x = document.getElementsByClassName("btcontroles");
+    for (i = 0; i < x.length; i++) {
+        x[i].disabled = false;
+    }
+
+    x = document.getElementsByClassName("aguarde");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+}
 
 //Menu
 function openLink(evt, animName) {

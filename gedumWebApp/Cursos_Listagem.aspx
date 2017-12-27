@@ -6,7 +6,7 @@
 
 <head runat="server">
     
-    <title>Listagem de Cursos</title>         <!--*******Customização*******-->
+    <title>Listagem de Cursos</title>         
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" />
 
-    <!--*******Customização*******-->
     <style> 
         body {
             background-image: url("images/fundo.jpg"); 
@@ -38,12 +37,11 @@
 
     <br />
 
-
+    <!-- Planilha  -->
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray w3-small" style="margin-left: 2%; margin-right: 2%">
-        <!-- Planilha  -->
         <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-        <!-- Planilha  -->
     </div>
+    <!-- Planilha  -->
 
     <!-- Modal Excluir -->
     <div id="DivModal" class="w3-modal">

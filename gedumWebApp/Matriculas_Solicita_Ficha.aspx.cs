@@ -6,6 +6,7 @@ public partial class Matriculas_Solicita_Ficha : System.Web.UI.Page
 
     StringBuilder str = new StringBuilder();
     StringBuilder strCombo = new StringBuilder();
+    string IDInst;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -13,7 +14,7 @@ public partial class Matriculas_Solicita_Ficha : System.Web.UI.Page
         string idAux = Request.QueryString["v1"];   
 
         // id da instituição
-        string IDInst = Session["InstID"].ToString();
+        IDInst = Session["InstID"].ToString();
 
         // preenche combo Cursos
         string stringselect = "select ID_curs,nome from tbL_cursos where id_inst = " + IDInst + " order by Nome";
@@ -86,6 +87,7 @@ public partial class Matriculas_Solicita_Ficha : System.Web.UI.Page
             "FardaObs," +
             "format(Data_Confirma,'yyyy-MM-dd') as d2, " +
             "Matricula, " +
+            "Status_Solicita, " +
             "ID_Curso," +
             "FotoDataURI " +
             "from tbl_matriculas_solicitacoes " +
@@ -95,24 +97,28 @@ public partial class Matriculas_Solicita_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 52; i++)
+            for (int i = 0; i <= 52; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
             // ID do curso
-            ScriptDados = "document.getElementById('input_curso').value = \"" + Convert.ToString(rcrdset[52]) + "\";";
+            ScriptDados = "document.getElementById('input_curso').value = \"" + Convert.ToString(rcrdset[53]) + "\";";
             str.Append(ScriptDados);
 
             //Foto
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[53]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[54]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[53]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[54]) + "\";";
             str.Append(ScriptDados);
 
             // ID da Solicitação de Matricula
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
+            str.Append(ScriptDados);
+
+            // ID da Instituição
+            ScriptDados = "document.getElementById('ID_Inst_Hidden').value = \"" + IDInst + "\";";
             str.Append(ScriptDados);
 
             //Lat Lng  Mapa
@@ -125,6 +131,9 @@ public partial class Matriculas_Solicita_Ficha : System.Web.UI.Page
 
             ScriptDados = "window.open(urlMapa, 'MapFrame');";
             str.Append(ScriptDados);
+
+            // Nome do SOlicitante
+            Literal_nome.Text = Convert.ToString(rcrdset[0]);
 
         }
         ConexaoBancoSQL.fecharConexao();

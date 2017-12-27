@@ -618,7 +618,7 @@
         <!-- GRUPO 6 - Confirmação -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;CONFIRMAÇÃO DE MATRÍCULA</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Confirmação de Matrícula : <asp:Literal ID="Literal_nome" runat="server"></asp:Literal> </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -626,15 +626,18 @@
                     <fieldset>
 
                         <div class="form-group">
+
                             <label for="input_Data_conf" class="col-md-2 control-label">Data Confirmação</label>
                             <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_Data_conf">
+                                <input type="date" class="form-control" id="input_Data_conf" disabled>
                             </div>
 
                             <label for="input_matricula" class="col-md-2 control-label">Número Matrícula</label>
                             <div class="col-md-3">
-                                <input type="date" class="form-control" id="input_matricula">
+                                <input type="text" class="form-control" id="input_matricula" disabled>
                             </div>
+
+                            <input type="hidden" class="form-control" id="input_status">
 
                         </div>
 
@@ -646,11 +649,15 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                            <button id="bt_sair" class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;CONFIRMAR&nbsp;
+                            <button id="btMat_Param" class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="Confirma_matricula();">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;OBTER MATRÍCULA&nbsp;
+                            </button>
+
+                            <button id ="btSalvar2" class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -669,6 +676,7 @@
 
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />
+    <input id="ID_Inst_Hidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->

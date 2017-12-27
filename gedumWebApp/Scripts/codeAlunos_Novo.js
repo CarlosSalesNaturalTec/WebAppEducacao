@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Aluno");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Aluno");  
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
@@ -49,7 +49,7 @@ function AlterarRegistro() {
     
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Aluno");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Aluno");   
         openLink(event, 'grupo1')
         $('#bt1').addClass(' w3-blue');
         document.getElementById("input_nome").focus();
@@ -93,7 +93,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Alunos_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Alunos_Listagem.aspx";   
     window.location.href = linkurl;
 }
 

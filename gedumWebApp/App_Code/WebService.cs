@@ -1909,7 +1909,8 @@ public class WebService : System.Web.Services.WebService
             "ID_Curso," +
             "Ano_Letivo," +
             "Status_Solicita, " +
-            "Data_Solicita" +
+            "Data_Solicita," +
+            "Matricula" +
             ") " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -1967,7 +1968,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param52 + "'," +
             "'" + param53 + "'," +
             "'Em Aberto'," +
-            "getdate()" +
+            "getdate()," +
+            "0" +
             ")";
         #endregion  
 
@@ -1992,7 +1994,7 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53, string param54)
+        string param50, string param51, string param52, string param53, string param54, string param55)
     {
         string url;
         string strInsert = "update tbl_matriculas_solicitacoes set " +
@@ -2048,9 +2050,10 @@ public class WebService : System.Web.Services.WebService
             "FardaObs= '" + param49 + "'," +
             "Data_Confirma= '" + param50 + "'," +
             "Matricula= '" + param51 + "'," +
-            "FotoDataURI= '" + param52 + "', " +
-            "ID_Curso = '" + param53 + "' " +
-            "WHERE ID_Solicita = " + param54;
+            "Status_Solicita = '" + param52 + "'," +
+            "FotoDataURI= '" + param53 + "', " +
+            "ID_Curso = '" + param54 + "' " +
+            "WHERE ID_Solicita = " + param55;
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update(strInsert);
@@ -2088,6 +2091,40 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+    [WebMethod]
+    public string Matriculas_Parametros(string param1)
+    {
+        string mat_aux="";
+        string retorno;
+
+
+        //verifica numero de matricula disponível
+        string stringSelect = "select matricula from Tbl_Parametros where id_inst = " + param1;
+        OperacaoBanco operacao = new OperacaoBanco();
+        SqlDataReader dados = operacao.Select(stringSelect);
+        while (dados.Read())
+        {
+            mat_aux = Convert.ToString(dados[0]) ;
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        //atualiza numero de matricula em tabela de parametros
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean alterar = operacao3.Update("update tbl_parametros set matricula = matricula + 1 where ID_Inst=" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (alterar == true)
+        {
+            retorno = mat_aux;
+        }
+        else
+        {
+            retorno = "Não foi possível atualizar o Parâmetro : Número sequencial de Matrícula";
+        }
+
+        return retorno;
+    }
 
 
 }

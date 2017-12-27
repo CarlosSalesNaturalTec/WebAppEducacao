@@ -31,8 +31,9 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>DATA SOLICITAÇÃO</th>" +
-            "<th>STATUS</th>" +
             "<th>DATA CONFIRMAÇÃO</th>" +
+            "<th>STATUS</th>" +
+            "<th>Nº MATRÍCULA</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -42,7 +43,8 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select ID_Solicita, nome, format(Data_Solicita,'dd/MM/yyyy') as d1 , Status_Solicita, format(Data_Confirma,'dd/MM/yyyy') as d2  " +
+        string stringselect = "select ID_Solicita, nome, format(Data_Solicita,'dd/MM/yyyy') as d1 , format(Data_Confirma,'dd/MM/yyyy') as d2,  " +
+                "Status_Solicita, Matricula  " +
                 "from tbl_matriculas_solicitacoes" +
                 " where ID_Inst = " + IDInst +
                 " and Ano_letivo = " + Ano_Letivo_Aux  +
@@ -59,6 +61,7 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
             string Coluna2 = Convert.ToString(dados[2]);
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
+            string Coluna5 = Convert.ToString(dados[5]);
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Matriculas_Solicita_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
@@ -68,6 +71,7 @@ public partial class Matriculas_Solicita_Listagem : System.Web.UI.Page
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
+                "<td>" + Coluna5 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

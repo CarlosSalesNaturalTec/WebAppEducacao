@@ -85,7 +85,7 @@
                         <div class="form-group">
 
                             <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacional</label>
-                            <div class="col-md-5">
+                            <div class="col-md-9">
                                 <select class="form-control" id="input_modalidade">
                                     <option value="ENSINO FUNDAMENTAL II">ENSINO FUNDAMENTAL II</option>
                                     <option value="ENSINO FUNDAMENTAL I">ENSINO FUNDAMENTAL I</option>
