@@ -35,6 +35,7 @@
         </div>
         <hr />
             <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
+        
         <hr />
 
     </div>

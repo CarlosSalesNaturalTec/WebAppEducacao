@@ -58,6 +58,18 @@ function SalvarRegistro() {
     });
 }
 
+
+function classeBt2() {
+    openLink(event, 'grupo2')
+    $('#bt2').addClass(' w3-blue');
+}
+
+
+function btvoltar1() {
+    openLink(event, 'grupo1')
+    $('#bt1').addClass(' w3-blue');
+}
+
 function AlterarRegistro() {
     
     //validações

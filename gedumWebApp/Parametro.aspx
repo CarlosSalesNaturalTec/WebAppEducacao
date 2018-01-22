@@ -52,7 +52,7 @@
                     <fieldset>
 
                         <div class="form-group">
-                            <label for="input_ano_letivo" class="col-md-2 control-label">Ana Letivo</label>
+                            <label for="input_ano_letivo" class="col-md-2 control-label">Ano Letivo</label>
                             <div class="col-md-2">
                                 <input type="number" class="form-control" id="input_ano_letivo"/>
                             </div>

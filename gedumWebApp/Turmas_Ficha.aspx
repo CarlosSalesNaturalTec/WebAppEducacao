@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    
+
     <title>Cadastro de Turmas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -43,7 +43,9 @@
             <img src="Images/brasaobahiacolorsmall.png" />
         </div>
         <hr />
-            <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas</button>
+        <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas</button>
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Alunos</button>
+
         <hr />
 
     </div>
@@ -96,7 +98,7 @@
                         <div class="form-group">
                             <label for="input_curso" class="col-md-3 control-label">Curso</label>
                             <div class="col-md-8">
-                                 <select class="w3-select w3-border" id="input_curso">
+                                <select class="w3-select w3-border" id="input_curso">
                                     <asp:Literal ID="Literal_Cursos" runat="server"></asp:Literal>
                                 </select>
                             </div>
@@ -123,6 +125,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
                             </button>
@@ -134,8 +140,54 @@
 
             </div>
         </div>
-        
-    </div>
+
+        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
+            <hr />
+            <form>
+                <fieldset>
+
+                    <div class="form-group">
+                        <label for="input_alu" class="col-md-2 control-label">Alunos na Turma</label>
+                        <div class="col-md-5">
+                            <select class="form-control" id="input_alu">
+                                <asp:Literal Text="literal_aluno" runat="server" />
+                            </select>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+            </form>
+            
+            <br/>
+            <br />
+
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-8 w3-border w3-padding w3-round">
+                    <p>
+                        <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                            <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                        <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
+                            <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+
+                       
+                        <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
 
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />
@@ -143,6 +195,6 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeTurmas_Novo.js"></script>
-    
+
 </body>
 </html>

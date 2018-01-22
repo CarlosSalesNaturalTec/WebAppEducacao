@@ -2091,6 +2091,58 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+    [WebMethod]
+    public string ExcluirDisc(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Disciplinas where ID_Disc =" + param1);   // <!--*******Customização*******-->
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+
+
+
+    [WebMethod]
+    public string IncluiDisc(string param1, string param2)
+    {
+        string url;
+        
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Disciplinas (ID_Disc, Nome ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 +  ")"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR A DISCIPLINA";
+        }
+
+        return url;
+    }
+
+
+
 
     [WebMethod]
     public string Matriculas_Parametros(string param1)

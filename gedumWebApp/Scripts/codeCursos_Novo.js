@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Curso");   
+        alert("Informe Nome do Curso");
         document.getElementById("input_nome").focus();
         return;
     }
@@ -39,10 +39,10 @@ function SalvarRegistro() {
 }
 
 function AlterarRegistro() {
-    
+
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Curso");   
+        alert("Informe Nome do Curso");
         document.getElementById("input_nome").focus();
         return;
     }
@@ -57,10 +57,10 @@ function AlterarRegistro() {
     // id
     var vID = document.getElementById("IDInstHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
-    
+
     //exibir animações - aguarde...
     UIAguardar();
-    
+
     $.ajax({
         type: "POST",
         url: "WebService.asmx/CursosAlterar",
@@ -79,7 +79,7 @@ function AlterarRegistro() {
 
 
 function cancelar() {
-    var linkurl = "Cursos_Listagem.aspx";   
+    var linkurl = "Cursos_Listagem.aspx";
     window.location.href = linkurl;
 }
 
@@ -110,3 +110,88 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
+
+function classeBt2() {
+    openLink(event, 'grupo2')
+    $('#bt2').addClass(' w3-blue');
+}
+
+
+function btvoltar1() {
+    openLink(event, 'grupo1')
+    $('#bt1').addClass(' w3-blue');
+}
+
+
+
+
+function IncluirDisciplina() {
+    if (document.getElementById('input_disc').value == " ") {
+        alert("Informe Nome do Responsável");
+        document.getElementById("input_disc").focus();
+        return;
+    }
+
+    var v1 = document.getElementById('IDInstHidden').value;
+    var v2 = document.getElementById("input_disc").value;
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/IncluiDisc",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            insertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+    function insertLinha() {
+
+        var col1 = document.getElementById('input_disc').value;
+        
+        var table = document.getElementById("MyTable");
+
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        
+        cell1.innerHTML = col1;
+        
+        //apaga formulario
+        document.getElementById('input_disc').value = "";
+        
+    }
+
+
+    function ExcluirDisc(r, USerID) {
+
+        var conf = confirm("Confirma Exclusão de Usuário?");
+        if (conf == false) {
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "WebService.asmx/DiscExclui",  //<!--*******Customização*******-->
+            data: '{param1: "' + USerID + '"}',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                // excluir linha do Table
+                var i = r.parentNode.parentNode.rowIndex;
+                document.getElementById("MyTable").deleteRow(i);
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+
+
+    }
+
+}
+
