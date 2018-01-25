@@ -121,9 +121,9 @@ public class WebService : System.Web.Services.WebService
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert("update Tbl_Disciplinas set " +
-            "Nome= '" + param0 + "'," +
+            "nome= '" + param0 + "'," +
             "obs= '" + param1 + "' " +
-            "where ID_disc = " + param2);
+            "where ID_Disc = " + param2);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -1848,8 +1848,7 @@ public class WebService : System.Web.Services.WebService
         string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
-        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53)
+        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47)
     {
         string url;
         #region String INSERT
@@ -1898,12 +1897,6 @@ public class WebService : System.Web.Services.WebService
             "AlergiasMed," +
             "AcidenteAvisar," +
             "CartaoSUS," +
-            "FardaCamisa," +
-            "FardaCamiseta," +
-            "FardaCalca," +
-            "FardaSapato," +
-            "FardaBota," +
-            "FardaObs," +
             "ID_Inst," +
             "FotoDataURI," +
             "ID_Curso," +
@@ -1961,12 +1954,6 @@ public class WebService : System.Web.Services.WebService
             "'" + param45 + "'," +
             "'" + param46 + "'," +
             "'" + param47 + "'," +
-            "'" + param48 + "'," +
-            "'" + param49 + "'," +
-            "'" + param50 + "'," +
-            "'" + param51 + "'," +
-            "'" + param52 + "'," +
-            "'" + param53 + "'," +
             "'Em Aberto'," +
             "getdate()," +
             "0" +
@@ -2097,7 +2084,28 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Disciplinas where ID_Disc =" + param1);   // <!--*******Customização*******-->
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_cursos_disciplina where id_cd =" + param1);   
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string ExcluirProf(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_disciplina_professor where id_dp =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletarUser == true)
@@ -2121,10 +2129,10 @@ public class WebService : System.Web.Services.WebService
         string url;
         
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Disciplinas (ID_Disc, Nome ) " +
-           "VALUES (" +
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_cursos_disciplina (id_curso, id_dsciplina ) " +
+           "VALUES (" + 
            "'" + param1 + "'," +
-           "'" + param2 +  ")"
+           "'" + param2 +  "')"
            );
 
         ConexaoBancoSQL.fecharConexao();
@@ -2141,6 +2149,33 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+
+
+    [WebMethod]
+    public string IncluiProf(string param1, string param2)
+    {
+        string url;
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_disciplina_professor (id_disc, id_func ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "')"
+           );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR A DISCIPLINA";
+        }
+
+        return url;
+    }
 
 
 

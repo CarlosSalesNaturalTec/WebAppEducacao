@@ -44,8 +44,7 @@
         </div>
         <hr />
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas</button>
-        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Alunos</button>
-
+        
         <hr />
 
     </div>
@@ -141,7 +140,7 @@
             </div>
         </div>
 
-        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
+<!--        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
             <hr />
@@ -185,9 +184,10 @@
         </div>
         </div>
 
+    -->
 
 
-
+        </div>
 
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />

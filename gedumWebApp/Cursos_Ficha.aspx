@@ -34,8 +34,8 @@
         </div>
         <hr />
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
-        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Disciplinas</button>
-        <hr />
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Disciplinas</button>  
+         <hr />
 
     </div>
 
@@ -169,9 +169,9 @@
         </div>
 
         <!-- GRUPO 2 - Disciplinas  -->
-        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
+      <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Curso</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Disciplinas</h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -195,9 +195,6 @@
 
                         </div>
 
-
-
-
                         <div class="form-group">
                             <div class="col-md-1"></div>
                             <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
@@ -207,7 +204,7 @@
                                             <th>Disciplinas</th>
                                         </tr>
                                     </thead>
-                                    <!-- GRID Usuarios -->
+                                   
                                     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                 </table>
                             </div>
@@ -216,7 +213,7 @@
                     </fieldset>
                 </form>
 
-                <!-- Botões Controle -->
+        
                 <div class="form-group">
                     <div class="col-md-2"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
@@ -235,15 +232,11 @@
                         </p>
                     </div>
                 </div>
-                <!-- Botões Controle -->
-
+        
             </div>
 
         </div>
-
-
-    </div>
-
+        </div>
     <!-- auxiliares -->
     <input id="IDInstHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>

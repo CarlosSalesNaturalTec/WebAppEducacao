@@ -34,7 +34,9 @@
         </div>
         <hr />
             <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Gerais</button>
-        <hr />
+            <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue " onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Professores</button>
+             
+       <hr />
 
     </div>
 
@@ -77,6 +79,9 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt2()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
                             </button>
@@ -90,7 +95,79 @@
             </div>
 
         </div>
+        <!-- GRUPO 2 - Professores -->
+        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Disciplina</h3>
+            <hr />
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+
+                     
+                        <div class="form-group">
+                            <br />
+                            <label for="input_prof" class="col-md-2 control-label">Professores</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_prof">
+                                    <asp:Literal ID="literal_prof" runat="server"></asp:Literal>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="IncluirProfessor()">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                            </div>
+
+                        </div>
+
+
+                        
+                        <div class="form-group">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>NOME(PROFESSOR)</th>
+                                        </tr>
+                                    </thead>
+                                   
+                                    <asp:Literal ID="Literal_table" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-9 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
+        </div>
+        
     </div>
 
     <!-- auxiliares -->

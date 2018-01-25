@@ -12,8 +12,13 @@ public partial class Cursos_Ficha : System.Web.UI.Page
     {
         idAux = Request.QueryString["v1"];
         string idInst =  Session["InstID"].ToString();
+
         PreencheCampos(idAux);
         mostraDisc(idInst);
+        listaDisc(idAux);
+
+        
+        
     }
 
     private void PreencheCampos(string ID)
@@ -62,7 +67,6 @@ public partial class Cursos_Ficha : System.Web.UI.Page
 
     }
 
-
     private void mostraDisc(string id)
     {
 
@@ -89,8 +93,10 @@ public partial class Cursos_Ficha : System.Web.UI.Page
     private void listaDisc(string ID)
     {
 
-        string stringSelect = "select ID_Disc, nome from Tbl_Disciplinas" +
-            " where ID_Inst = " + ID;
+        string stringSelect = "select tbl_cursos_disciplina.id_cd, Tbl_Disciplinas.nome" +
+            " from tbl_cursos_disciplina " +
+            " inner join Tbl_Disciplinas on tbl_cursos_disciplina.id_dsciplina = Tbl_Disciplinas.ID_Disc " +
+            " where tbl_cursos_disciplina.id_curso = " + ID;
           
         OperacaoBanco operacaoUsers = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
@@ -120,6 +126,8 @@ public partial class Cursos_Ficha : System.Web.UI.Page
         Literal2.Text = str.ToString();
 
     }
+
+    
 }
 
 
