@@ -1,8 +1,5 @@
 ﻿function NovoRegistro() {
 
-    $("body").css("cursor", "progress");
-    document.getElementById("btNovo").disabled = true;
-
     window.location.href = "Alunos_Novo.aspx";  
 }
 

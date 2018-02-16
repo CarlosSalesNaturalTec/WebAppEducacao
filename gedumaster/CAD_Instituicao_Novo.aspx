@@ -194,7 +194,7 @@
                             </div>
                             <label for="input_UF" class="col-md-1 control-label">UF</label>
                             <div class="col-md-2">
-                                <input type="text" class="form-control" id="input_UF">
+                                <input type="text" class="form-control" id="input_UF" >
                             </div>
                         </div>
 

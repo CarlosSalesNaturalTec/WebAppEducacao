@@ -106,11 +106,11 @@
                     <fieldset>
 
                      
-                        <div class="form-group">
+                       <div class="form-group">
                             <br />
                             <label for="input_prof" class="col-md-2 control-label">Professores</label>
                             <div class="col-md-7">
-                                <select class="form-control" id="input_prof">
+                                <select id="input_prof" class="w3-input w3-border w3-round">
                                     <asp:Literal ID="literal_prof" runat="server"></asp:Literal>
                                 </select>
                             </div>
@@ -121,8 +121,8 @@
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
 
-                        </div>
-
+                     
+                </div>
 
                         
                         <div class="form-group">
@@ -139,9 +139,10 @@
                                 </table>
                             </div>
                         </div>
-
+                       
                     </fieldset>
                 </form>
+                
 
                 <!-- Botões Controle -->
                 <div class="form-group">

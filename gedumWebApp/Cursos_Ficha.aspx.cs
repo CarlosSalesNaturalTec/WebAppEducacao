@@ -11,14 +11,15 @@ public partial class Cursos_Ficha : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         idAux = Request.QueryString["v1"];
-        string idInst =  Session["InstID"].ToString();
+        string idInst = Session["InstID"].ToString();
 
         PreencheCampos(idAux);
         mostraDisc(idInst);
         listaDisc(idAux);
 
-        
-        
+
+
+
     }
 
     private void PreencheCampos(string ID)
@@ -57,10 +58,17 @@ public partial class Cursos_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
+            //Nome do Curso
+            ScriptDados = "document.getElementById('curso').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('curso1').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
         }
         ConexaoBancoSQL.fecharConexao();
 
-        ScriptDados = "</script>";      
+        ScriptDados = "</script>";
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();
@@ -81,8 +89,8 @@ public partial class Cursos_Ficha : System.Web.UI.Page
 
         while (dados.Read())
         {
-                strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-            
+            strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+
         }
         ConexaoBancoSQL.fecharConexao();
 
@@ -97,7 +105,7 @@ public partial class Cursos_Ficha : System.Web.UI.Page
             " from tbl_cursos_disciplina " +
             " inner join Tbl_Disciplinas on tbl_cursos_disciplina.id_dsciplina = Tbl_Disciplinas.ID_Disc " +
             " where tbl_cursos_disciplina.id_curso = " + ID;
-          
+
         OperacaoBanco operacaoUsers = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
 
@@ -110,14 +118,14 @@ public partial class Cursos_Ficha : System.Web.UI.Page
             string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirDisc(this," +
                 Convert.ToString(rcrdsetUsers[0]) +
                 ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
-            
+
             ScriptDados = "<tr>";
             str.Append(ScriptDados);
 
             ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
             str.Append(ScriptDados);
 
-            
+
             ScriptDados = "</tr>";
             str.Append(ScriptDados);
         }
@@ -127,7 +135,9 @@ public partial class Cursos_Ficha : System.Web.UI.Page
 
     }
 
-    
-}
+   
+    }
+
+
 
 

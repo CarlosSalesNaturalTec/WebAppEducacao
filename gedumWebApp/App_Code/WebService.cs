@@ -117,10 +117,12 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string DisciplinasAlterar(string param0, string param1, string param2)
     {
-        string url;
+       string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
+
         bool inserir = operacao.Insert("update Tbl_Disciplinas set " +
+
             "nome= '" + param0 + "'," +
             "obs= '" + param1 + "' " +
             "where ID_Disc = " + param2);
@@ -136,7 +138,10 @@ public class WebService : System.Web.Services.WebService
             url = "Sorry.aspx";
         }
 
+
         return url;
+
+    
     }
 
 
@@ -227,6 +232,9 @@ public class WebService : System.Web.Services.WebService
     public string CursosSalvar(string param0, string param1, string param2, string param3, string param4, 
         string param5, string param6, string param7, string param8)
     {
+
+        
+
         string url;
         string strInsert = "INSERT INTO Tbl_Cursos (" +
             "Nome," +
@@ -253,6 +261,8 @@ public class WebService : System.Web.Services.WebService
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);
+
+
         ConexaoBancoSQL.fecharConexao();
         if (inserir == true)
         {
@@ -273,15 +283,15 @@ public class WebService : System.Web.Services.WebService
         string url;
         OperacaoBanco operacao = new OperacaoBanco();
         bool alterar = operacao.Update("update Tbl_Cursos set " +
-            "Nome= '" + param0 + "'," +
-            "sigla= '" + param1 + "'," +
-            "equivalencia= '" + param2 + "'," +
+            "Nome = '" + param0 + "'," +
+            "sigla = '" + param1 + "'," +
+            "equivalencia = '" + param2 + "'," +
             "modalidade_educacional= '" + param3 + "'," +
             "faixa_ini = '" + param4 + "'," +
             "faixa_fim = '" + param5 + "'," +
             "curso_anterior= '" + param6 + "', " +
             "obs= '" + param7 + "' " +
-            "where ID_curs = " + param8);
+            "where ID_Curs = " + param8);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -518,14 +528,14 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51)
+        string param50, string param51, string param52)
     {
         string url;
         string strInsert = "INSERT INTO tbl_alunos (" +
             "Nome," +
-            "Nascimento," +
+            "Nascimento," + 
             "EstadoCivil," +
-            "Pai," +
+            "Pai," + 
             "Mae," +
             "Responsavel," +
             "ResponsavelCPF," +
@@ -633,6 +643,7 @@ public class WebService : System.Web.Services.WebService
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);
         ConexaoBancoSQL.fecharConexao();
+
         if (inserir == true)
         {
             url = "Alunos_Listagem.aspx";

@@ -44,7 +44,7 @@
         <!-- GRUPO 1 - Dados Cursos -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Curso</h3>
+            <h3><p id="curso"></p></h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -171,7 +171,7 @@
         <!-- GRUPO 2 - Disciplinas  -->
       <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Disciplinas</h3>
+            <h3><p id="curso1"></p></h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -182,7 +182,7 @@
                             <br />
                             <label for="input_disc" class="col-md-2 control-label">Disciplina</label>
                             <div class="col-md-5">
-                                <select class="form-control" id="input_disc">
+                                <select id="input_disc" class="w3-input w3-border w3-round">
                                     <asp:Literal ID="literal_disc" runat="server"></asp:Literal>
                                 </select>
                             </div>

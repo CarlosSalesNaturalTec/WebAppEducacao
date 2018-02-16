@@ -1,5 +1,7 @@
 ﻿document.getElementById("input_nome").focus();
 
+
+
 function SalvarRegistro() {
 
     //validações
@@ -19,7 +21,7 @@ function SalvarRegistro() {
     }
     
     //id isntituição
-    var idInst = document.getElementById('IDInstHidden').value;
+    var idInst = document.getElementById('IDHidden').value;
     strLine = strLine + "param" + i + ":'" + idInst + "',";
 
     // foto

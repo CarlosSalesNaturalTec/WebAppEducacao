@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <label for="input2" class="col-md-2 control-label">UF</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input2">
+                                <input type="text" class="form-control" id="input2" maxlength="2" style="text-transform:uppercase">
                             </div>
                         </div>
 
