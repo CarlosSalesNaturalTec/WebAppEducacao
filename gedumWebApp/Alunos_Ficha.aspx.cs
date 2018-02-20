@@ -9,10 +9,45 @@ public partial class Alunos_Ficha : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+
+
+        string InstID = Session["InstID"].ToString();
+
+        string ScriptAux = "<script type=\"text/javascript\">" +
+                        "document.getElementById('IDinst').value = \"" + InstID + "\";" +
+                        "</script>";
+
+        Literal1.Text = ScriptAux;
+
+
         idAux = Request.QueryString["v1"];
         PreencheCampos(idAux);
+        mostraCurso(InstID);
 
     }
+
+    private void mostraCurso(string id)
+    {
+        StringBuilder strInst = new StringBuilder();
+        strInst.Clear();
+        strInst.Append("<option value=\"0\"> </option>");
+
+        string strSelect = "select ID_Curs, Nome from Tbl_Cursos where ID_Inst = "  + id;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
+
+        while (dados.Read())
+        {
+            strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        LITERAL_CURSO.Text = strInst.ToString();
+
+    }
+
 
     private void PreencheCampos(string ID)
     {
@@ -39,6 +74,8 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
+            "Curso," +
+            "matricula," +
             "Endereco," +
             "Latitude," +
             "Longitude," +
@@ -79,6 +116,7 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "from Tbl_Alunos " +
             "where ID_aluno  = " + ID;
 
+        string getValor = " ";
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
@@ -96,6 +134,25 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
+            ScriptDados = "document.getElementById('al1').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('al2').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('al3').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('al4').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('al5').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('al6').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+
             ScriptDados = "var latitude = document.getElementById('input_lat').value;";
             str.Append(ScriptDados);
 
@@ -107,6 +164,17 @@ public partial class Alunos_Ficha : System.Web.UI.Page
 
             ScriptDados = "window.open(urlMapa, 'MapFrame');";
             str.Append(ScriptDados);
+
+            getValor = "document.getElementById('input_matri').value = \"" + Convert.ToString(rcrdset[15]) + "\";";
+            str.Append(getValor);
+
+            if(getValor == "0")
+            {
+                getValor = " " ;
+            }
+         
+
+            
 
         }
         ConexaoBancoSQL.fecharConexao();

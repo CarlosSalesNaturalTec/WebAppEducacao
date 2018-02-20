@@ -44,7 +44,8 @@
         </div>
         <hr />
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Turmas</button>
-        
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue " onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Alunos</button>
+
         <hr />
 
     </div>
@@ -140,7 +141,7 @@
             </div>
         </div>
 
-<!--        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
+        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
             <hr />
@@ -148,23 +149,48 @@
                 <fieldset>
 
                     <div class="form-group">
-                        <label for="input_alu" class="col-md-2 control-label">Alunos na Turma</label>
-                        <div class="col-md-5">
-                            <select class="form-control" id="input_alu">
-                                <asp:Literal Text="literal_aluno" runat="server" />
-                            </select>
-                        </div>
+                        <br />
+                         <label for="input_aluno" class="col-md-1 control-label">Alunos</label>
+                            <div class="col-md-6">
+                                <select id="input_aluno" class="w3-input w3-border w3-round">
+                                    <asp:Literal ID="literal_aluno" runat="server"></asp:Literal>
+                                </select>
+                            </div>
+
+                        <div class="col-md-2">
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                    onclick="IncluirAluno()">
+                                    <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
+                            </div>
+
                     </div>
+                    
+                    <br />
+                    <br />
 
-
+                    <div class="form-group">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-8 w3-border w3-padding w3-round w3-light-gray">
+                                <table id="MyTable" class="w3-table-all w3-hoverable">
+                                    <thead>
+                                        <tr class="w3-grey">
+                                            <th>NOME(ALUNO)</th>
+                                        </tr>
+                                    </thead>
+                                   
+                                    <asp:Literal ID="Literal_table" runat="server"></asp:Literal>
+                                </table>
+                            </div>
+                        
+                        </div>
                 </fieldset>
             </form>
-            
-            <br/>
+
+            <br />
             <br />
 
             <div class="form-group">
-                <div class="col-md-3"></div>
+                <div class="col-md-1"></div>
                 <div class="col-md-8 w3-border w3-padding w3-round">
                     <p>
                         <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
@@ -173,8 +199,11 @@
                         <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
                             <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
+                        <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
 
-                       
+
                         <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
 
                     </p>
@@ -182,12 +211,12 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
-    -->
+   
 
 
-        </div>
+        
 
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />

@@ -44,10 +44,11 @@
         <hr />
 
         <button id="bt1" class="w3-bar-item w3-button tablink w3-hover-light-blue w3-blue" onclick="openLink(event, 'grupo1')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais</button>
-        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço</button>
-        <button id="bt3" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>        
-        <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo4')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
-        <button id="bt5" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo5')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
+        <button id="bt2" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo2')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Matricula/Curso</button>
+        <button id="bt3" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo3')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço</button>
+        <button id="bt4" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo4')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação</button>
+        <button id="bt5" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo5')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde</button>
+        <button id="bt6" class="w3-bar-item w3-button tablink w3-hover-light-blue" onclick="openLink(event, 'grupo6')"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento</button>
         <hr />
 
     </div>
@@ -58,8 +59,12 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Novo Aluno</h3>
+
+            <h3>
+                <p id="al1"></p>
+            </h3>
             <hr />
+
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
@@ -70,6 +75,9 @@
                                 <input type="text" class="form-control" id="input_nome">
                             </div>
                         </div>
+
+
+
 
                         <div class="form-group">
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
@@ -86,6 +94,9 @@
                                 </select>
                             </div>
                         </div>
+
+
+
 
                         <div class="form-group">
                             <label for="input_pai" class="col-md-2 control-label">Filiação Pai</label>
@@ -118,7 +129,7 @@
                                 <input type="text" class="form-control" id="input_telresp">
                             </div>
                         </div>
-                        
+
 
                         <div class="form-group">
                             <label for="input_prof" class="col-md-2 control-label">Naturalidade</label>
@@ -211,6 +222,75 @@
 
             </div>
 
+
+        </div>
+
+
+        <!-- GRUPO 2 - Dados Pessoais -->
+        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
+
+            <!--*******Customização*******-->
+
+            <h3>
+                <p id="al2"></p>
+            </h3>
+            <hr />
+
+
+            <div class="w3-threequarter">
+                <form class="form-horizontal">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="input_Curnome" class="col-md-2 control-label">Curso</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_Curnome" disabled>
+                                    <asp:Literal ID="LITERAL_CURSO" runat="server" />
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input_matri" class="col-md-2 control-label">Matricula</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="input_matri" disabled>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </fieldset>
+                </form>
+
+                <!-- Botões Controle -->
+                <div class="form-group">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-9 w3-border w3-padding w3-round">
+                        <p>
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
+                                <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
+
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
+                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                            </button>
+
+                            <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
+                        </p>
+                    </div>
+                </div>
+                <!-- Botões Controle -->
+
+            </div>
+
             <!-- Camera -->
             <div class="w3-quarter">
                 <div id="results"></div>
@@ -231,11 +311,13 @@
         </div>
 
 
-        <!-- GRUPO 2 - Endereço -->
-        <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
+        <!-- GRUPO 3 - Endereço -->
+        <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Aluno</h3>
+            <h3>
+                <p id="al3"></p>
+            </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -275,7 +357,7 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="input_uf" value="BA">
                             </div>
-                            
+
                         </div>
 
                         <div class="form-group">
@@ -314,10 +396,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar1()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar2()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt4()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -340,11 +422,13 @@
         </div>
 
 
-        <!-- GRUPO 3 - Documentação -->
-        <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
+        <!-- GRUPO 4 - Documentação -->
+        <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Aluno</h3>
+            <h3>
+                <p id="al4"></p>
+            </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -417,7 +501,7 @@
                             </div>
                         </div>
 
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="input_CERT" class="col-md-2 control-label">Certidão Nasc.</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_CERT">
@@ -435,10 +519,10 @@
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar2()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt4()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt5()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -459,11 +543,13 @@
         </div>
 
 
-        <!-- GRUPO 4 - Dados de Saúde -->
-        <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
+        <!-- GRUPO 5 - Dados de Saúde -->
+        <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Aluno</h3>
+            <h3>
+                <p id="al5"></p>
+            </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -504,10 +590,14 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar3()">
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt5()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt6()">
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -527,11 +617,13 @@
         </div>
 
 
-        <!-- GRUPO 5 - Fardamento -->
-        <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
+        <!-- GRUPO 6 - Fardamento -->
+        <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
 
             <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Aluno</h3>
+            <h3>
+                <p id="al6"></p>
+            </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -579,7 +671,13 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar4()">
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                                <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>
+
+
+
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="btvoltar5()">
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
@@ -600,15 +698,20 @@
 
     </div>
 
+
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+
+    <input id="IDinst" type="hidden" />
+    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeAlunos_Novo.js"></script>
     <script type="text/javascript" src="Scripts/webcam.js"></script>
     <script type="text/javascript" src="Scripts/codeAlunos_Mapa.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOmedP-f3N7W7CPxaRoCZJ5mTMm6g0Ycc&libraries=places&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
 
 </body>
 </html>

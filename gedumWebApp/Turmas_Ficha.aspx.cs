@@ -25,6 +25,7 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         Literal_Salas.Text = strCombo.ToString();
 
         PreencheCampos(idAux);
+         mostrarAluno();
 
     }
 
@@ -95,6 +96,28 @@ public partial class Turmas_Ficha : System.Web.UI.Page
 
     }
 
-    
+    private void mostrarAluno()
+    {
+        StringBuilder strInst = new StringBuilder();
+        strInst.Clear();
+        strInst.Append("<option value=\"0\"> </option>");
+
+        string strSelect = "select ID_Aluno, Nome from tbl_alunos";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
+
+        while (dados.Read())
+        {
+            strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        literal_aluno.Text = strInst.ToString();
+
+    }
+
+
 
 }
