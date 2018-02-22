@@ -130,7 +130,7 @@ function IncluirProfessor() {
         return;
     }
 
-    var v1 = document.getElementById('IDInstHidden').value; // id_curso
+    var v1 = document.getElementById('IDInstHidden').value; // id_disciplina
     var v2 = document.getElementById("input_prof").value;   // id_professor
 
     $.ajax({

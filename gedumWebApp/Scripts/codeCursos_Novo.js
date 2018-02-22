@@ -81,7 +81,7 @@ function AlterarRegistro() {
 function cancelar() {
     var linkurl = "Cursos_Listagem.aspx";
     window.location.href = linkurl;
-}
+}   
 
 function UIAguardar() {
     var i, x;

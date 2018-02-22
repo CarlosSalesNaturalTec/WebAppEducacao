@@ -163,3 +163,73 @@ function openLink(evt, animName) {
     evt.currentTarget.className += " w3-blue";
 }
 //Menu
+
+function IncluirAluno(){
+    if (document.getElementById('input_aluno').value == " ") {
+        alert("Informe Nome do Professor");
+        document.getElementById("input_aluno").focus();
+        return;
+    }
+
+    var v1 = document.getElementById('IDHidden').value; // id_turma
+    var v2 = document.getElementById("input_aluno").value;  // id_aluno
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/IncluiAluno",
+        data: '{param1: "' + v1 + '", param2: "' + v2 + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            insertLinha();
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+}
+
+function insertLinha() {
+
+
+    var e = document.getElementById("input_aluno");
+    var v5 = e.options[e.selectedIndex].value;
+    var col1 = e.options[e.selectedIndex].text;
+
+    var table = document.getElementById("MyTable");
+
+    var row = table.insertRow(-1);
+    var cell1 = row.insertCell(0);
+
+    cell1.innerHTML = col1;
+
+    //apaga formulario
+    document.getElementById('input_aluno').text = "";
+
+}
+
+function ExcluirAluno(r, USerID) {
+
+    var conf = confirm("Confirma Exclusão do Aluno?");
+    if (conf == false) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/ExcluiAluno",  //<!--*******Customização*******-->
+        data: '{param1: "' + USerID + '"}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            // excluir linha do Table
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("MyTable").deleteRow(i);
+        },
+        failure: function (response) {
+            alert(response.d);
+        }
+    });
+
+
+}

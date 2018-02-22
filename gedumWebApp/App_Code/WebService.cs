@@ -66,6 +66,80 @@ public class WebService : System.Web.Services.WebService
     }
 
 
+    [WebMethod]
+    public string PeriodoSalvar(string param0 , string param1)
+    {
+        string url;
+        string insert = "INSERT INTO tbl_periodo_avaliacao(Descricao , id_inst) " +
+                        "VALUES(" +
+                        "'" + param0 + "'," +
+                        param1 + ")";
+
+        OperacaoBanco op = new OperacaoBanco();
+        bool inserir = op.Insert(insert);
+        ConexaoBancoSQL.fecharConexao();
+        if(inserir == true)
+        {
+            url = "PeriodoAvaliacao_Listagem.aspx";
+        }else
+        {
+            url = "Sorry.aspx";
+
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string PeriodoExclui(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from tbl_periodo_avaliacao where id_periodo =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "PeriodoAvaliacao_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string PeriodoAlterar(string param0 , string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+
+        bool update = operacao.Update("update tbl_periodo_avaliacao set " +
+            "Descricao = '" + param0 + "' " +
+            "where id_inst = " + param1
+            );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (update == true)
+        {
+            url = "PeriodoAvaliacao_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+
+        return url;
+
+
+    }
+
 
     [WebMethod]
     public string DisciplinasSalvar(string param0, string param1, string param2)
@@ -92,6 +166,8 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+
 
     [WebMethod]
     public string DisciplinasExcluir(string param1)
@@ -121,7 +197,7 @@ public class WebService : System.Web.Services.WebService
 
         OperacaoBanco operacao = new OperacaoBanco();
 
-        bool inserir = operacao.Insert("update Tbl_Disciplinas set " +
+        bool inserir = operacao.Update("update Tbl_Disciplinas set " +
 
             "nome= '" + param0 + "'," +
             "obs= '" + param1 + "' " +
@@ -2098,6 +2174,27 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
+    public string ExcluiAluno(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_turmas_alunos where id_ta =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR O ALUNO";
+        }
+
+        return url;
+    }
+    
+    [WebMethod]
     public string ExcluirDisc(string param1)
     {
         string url;
@@ -2139,8 +2236,31 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+    [WebMethod]
+    public string IncluiAluno(string param1, string param2)
+    {
+        string url;
 
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_turmas_alunos (id_turma, id_aluno) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "')"
+           );
 
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL INCLUIR O ALUNO";
+        }
+
+        return url;
+    }
 
     [WebMethod]
     public string IncluiDisc(string param1, string param2)
@@ -2168,9 +2288,7 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
-
-    [WebMethod]
+   [WebMethod]
     public string IncluiProf(string param1, string param2)
     {
         string url;
@@ -2196,9 +2314,7 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
-
-    [WebMethod]
+ [WebMethod]
     public string Matriculas_Parametros(string param1)
     {
         string mat_aux="";

@@ -26,7 +26,7 @@ public partial class Turmas_Ficha : System.Web.UI.Page
 
         PreencheCampos(idAux);
          mostrarAluno();
-
+         listaAluno(idAux);
     }
 
 
@@ -118,6 +118,43 @@ public partial class Turmas_Ficha : System.Web.UI.Page
 
     }
 
+    private void listaAluno(string ID)
+    {
+
+        string stringSelect = "select tbl_turmas_alunos.id_ta, tbl_alunos.Nome" +
+            " from tbl_turmas_alunos " +
+            " inner join tbl_alunos on tbl_turmas_alunos.id_aluno = tbl_alunos.ID_Aluno " +
+            " where tbl_turmas_alunos.id_turma = " + ID;
+
+
+        OperacaoBanco operacaoUsers = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
+
+        str.Clear();
+        string ScriptDados;
+
+        while (rcrdsetUsers.Read())
+        {
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirAluno(this," +
+                Convert.ToString(rcrdsetUsers[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+            ScriptDados = "<tr>";
+            str.Append(ScriptDados);
+
+            ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
+            str.Append(ScriptDados);
+
+
+            ScriptDados = "</tr>";
+            str.Append(ScriptDados);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_table.Text = str.ToString();
+
+    }
 
 
 }
