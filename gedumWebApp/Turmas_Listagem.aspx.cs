@@ -5,12 +5,15 @@ public partial class Turmas_Listagem : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
+        string InstID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
         //caso não esteja logado, gera um erro em tempo de execução e vai para página de login
         string iduser = Session["UserID"].ToString();
+        InstID = Session["InstID"].ToString();
+
 
         montaCabecalho();
         dadosCorpo();
@@ -43,6 +46,7 @@ public partial class Turmas_Listagem : System.Web.UI.Page
 
         string stringselect = "select ID_Turma , nome, turno, Tipo_atend , sala, curso " +
                 "from tbl_Turmas " +
+                "where ID_Inst = " + InstID +
                 "order by Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();

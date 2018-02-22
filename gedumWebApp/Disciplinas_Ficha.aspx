@@ -45,7 +45,7 @@
         <!-- GRUPO 1 - Dados GERAIS -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Disciplina</h3>
+            <h3><p id="d1"></p></h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -98,7 +98,7 @@
         <!-- GRUPO 2 - Professores -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Disciplina</h3>
+            <h3><p id="d2"></p></h3>
             <hr />
 
             <div class="w3-threequarter">

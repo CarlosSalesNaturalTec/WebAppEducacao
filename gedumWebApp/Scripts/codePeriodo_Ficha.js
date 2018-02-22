@@ -5,7 +5,8 @@ function cancelar() {
     window.location.href = url;
 }
 
-function SalvarRegistro() {
+
+function AlterarRegistro() {
     if (document.getElementById('input_periodo') == " ") {
         $('#input_periodo').focus(function () {
             alert("Selecione o Periodo");
@@ -27,7 +28,7 @@ function SalvarRegistro() {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/PeriodoSalvar",
+        url: "WebService.asmx/PeriodoAlterar",
         data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
@@ -39,8 +40,6 @@ function SalvarRegistro() {
         }
     });
 }
-
-
 
 
 function UIAguardar() {
@@ -56,5 +55,3 @@ function UIAguardar() {
         x[i].style.display = "block";
     }
 }
-
-

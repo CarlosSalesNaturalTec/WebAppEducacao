@@ -120,7 +120,7 @@ public class WebService : System.Web.Services.WebService
 
         bool update = operacao.Update("update tbl_periodo_avaliacao set " +
             "Descricao = '" + param0 + "' " +
-            "where id_inst = " + param1
+            "where id_periodo = " + param1
             );
 
         ConexaoBancoSQL.fecharConexao();

@@ -55,7 +55,7 @@
         <!-- GRUPO 1 - Dados Turmas -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
+            <h3><p id="t1"></p></h3>
             <hr />
 
             <div class="w3-rest">
@@ -143,7 +143,7 @@
 
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Turma</h3>
+            <h3><p id="t2" ></p></h3>
             <hr />
             <form>
                 <fieldset>

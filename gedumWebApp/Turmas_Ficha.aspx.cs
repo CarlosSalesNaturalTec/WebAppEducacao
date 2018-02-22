@@ -86,6 +86,13 @@ public partial class Turmas_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
+            ScriptDados = "document.getElementById('t1').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('t2').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+
         }
         ConexaoBancoSQL.fecharConexao();
 

@@ -52,18 +52,12 @@
                 <form class="form-horizontal">
                     <fieldset>
 
-                         <label for="input_periodo" class="col-md-2 control-label">Periodo</label>
-                            <div class="col-md-6">
-                                <select class="form-control" id="input_periodo">
-                                    <option value="1º UNIDADE">1º UNIDADE</option>
-                                    <option value="2º UNIDADE">2º UNIDADE</option>
-                                    <option value="3º UNIDADE">3º UNIDADE</option>
-                                    <option value="4º UNIDADE">4º UNIDADE</option>
-                                    <option value="1º TRIMESTRE">1º TRIMESTRE</option>
-                                    <option value="2º TRIMESTRE">2º TRIMESTRE</option>
-                                    <option value="3a. TRIMESTRE">3º TRIMESTRE</option>
-                                </select>
+                          <div class="form-group">
+                            <label for="input_periodo" class="col-md-2 control-label">Descricão</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="input_periodo">
                             </div>
+                        </div>
                         
 
                     </fieldset>
@@ -98,7 +92,7 @@
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codePeriodo_Novo.js"></script>
+    <script type="text/javascript" src="Scripts/codePeriodo_Ficha.js"></script>
 
 </body>
 </html>

@@ -45,6 +45,14 @@ public partial class Disciplinas_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
+            ScriptDados = "document.getElementById('d1').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+            ScriptDados = "document.getElementById('d2').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
+            str.Append(ScriptDados);
+
+
+
         }
         ConexaoBancoSQL.fecharConexao();
 

@@ -7,9 +7,14 @@ public partial class PeriodoAvalicao_Ficha : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        string idInst = Session["InstID"].ToString();
-        PreencheCampos(idInst);
 
+
+        string iDi = Request.QueryString["v1"];
+
+        PreencheCampos(iDi);
+
+
+        
     }
 
     private void PreencheCampos(string ID)
@@ -22,23 +27,22 @@ public partial class PeriodoAvalicao_Ficha : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        string stringSelect = "select Descricao from tbl_periodo_avaliacao where id_inst = " + ID;
-
+        string stringselect = "select Descricao " +
+                "from tbl_periodo_avaliacao " +
+                "where id_periodo = " + ID;
+                
         OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
+        System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringselect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < 1 ; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            //ID do registro
             ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
-
-           
 
         }
         ConexaoBancoSQL.fecharConexao();
@@ -47,7 +51,7 @@ public partial class PeriodoAvalicao_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();
-
+        
     }
 
 
