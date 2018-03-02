@@ -64,6 +64,34 @@ public class WebService : System.Web.Services.WebService
         return Identificador_msg;
 
     }
+    [WebMethod]
+    public string AvaliacaoSalvar(string param0, string param1, string param2 , string param3 , string param4, string param5)
+    {
+        string url;
+        string insert = "INSERT INTO tbl_avaliacao(Disciplina, turma, tipo, periodo, dataAva, id_inst) " +
+                        "VALUES(" +
+                        "'" + param0 + "'," +
+                        "'" + param1 + "'," +
+                        "'" + param2 + "'," +
+                        "'" + param3 + "'," +
+                        "'" + param4 + "'," +
+                        param5 + ")";
+
+        OperacaoBanco op = new OperacaoBanco();
+        bool inserir = op.Insert(insert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "Avaliacao_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+
+        }
+
+        return url;
+    }
 
 
     [WebMethod]

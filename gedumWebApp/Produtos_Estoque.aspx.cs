@@ -127,10 +127,12 @@ public partial class Produtos_Estoque : System.Web.UI.Page
 
     private void calcula_Estoque()
     {
-        OperacaoBanco operacao = new OperacaoBanco();
         string strCalc = "select sum(Quant_Entrada) as q1, sum(Quant_Saida) as q2 " +
                 "from Tbl_Produtos_Movimento " +
                 "where ID_Produto = " + idAux;
+
+
+        OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(strCalc);
         decimal v1=0, v2=0, v3 = 0;
 
@@ -138,8 +140,8 @@ public partial class Produtos_Estoque : System.Web.UI.Page
         {
             try
             {
-                v1 = 0 + Convert.ToDecimal(dados[0]);    // Entradas
-                v2 = 0 + Convert.ToDecimal(dados[1]);    // Saidas
+                v1 = Convert.ToInt16(dados[0]);    // Entradas
+                v2 = Convert.ToInt16(dados[1]);    // Saidas
             }
             catch (Exception)
             {

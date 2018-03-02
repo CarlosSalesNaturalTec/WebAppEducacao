@@ -13,6 +13,7 @@ public partial class Boletins : System.Web.UI.Page
         idInstAux = Session["InstID"].ToString();       // Id da Instituição
          
         PreencheCampos(idAux);
+        anoLetivo();
 
         // preenche combo Alunos
         string stringselect = "select ID_aluno, nome from tbl_Alunos where id_inst = " + idInstAux + " order by nome";
@@ -63,6 +64,31 @@ public partial class Boletins : System.Web.UI.Page
                 Convert.ToString(dados[1]) + "</option>");
         }
         ConexaoBancoSQL.fecharConexao();
+    }
+
+    private void anoLetivo()
+    {
+
+        StringBuilder str = new StringBuilder();
+
+        str.Clear();
+        str.Append("<option value=\"0\"> </option>");
+
+        string select = "select ID_Inst, ano_letivo from tbl_parametros";
+
+        OperacaoBanco oper = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = oper.Select(select);
+
+        while (dados.Read())
+        {
+            str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+            
+        }
+
+        ConexaoBancoSQL.fecharConexao();
+
+        literal_input_anoletivo.Text = str.ToString();
+
     }
 
 }

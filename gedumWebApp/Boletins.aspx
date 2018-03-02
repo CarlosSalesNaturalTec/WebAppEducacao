@@ -38,7 +38,7 @@
 
                 <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Boletim do Aluno</h3>
 
-                
+
                 <br />
 
                 <!-- nome do Aluno -->
@@ -90,22 +90,36 @@
                 <div class="form-group">
                     <label for="input_dataavaliacao" class="col-md-1 control-label">Data Avaliação</label>
                     <div class="col-md-2">
-                        <input type="date" class="form-control" id="input_dataavaliacao"/>
+                        <input type="date" class="form-control" id="input_dataavaliacao" />
                     </div>
-
-                    <label for="input_nota" class="col-md-3 control-label">Nota</label>
-                    <div class="col-md-1">
-                        <input type="number" class="form-control" id="input_nota"/>
+                </div>
+                <div class="form-group">
+                    <label for="input_nota" class="col-md-1 control-label">Nota</label>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" id="input_nota" />
                     </div>
+                </div>
 
-                    <div class="col-md-2">
-                        <button id="btnAdicionar" type="button" class="w3-btn  w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles"
-                                onclick="Adicionar()">
+                <div class="form-group">
+                    <label for="input_anoletivo" class="col-md-1 control-label">Disciplina</label>
+                    <div class="col-md-3">
+                        <select id="input_anoletivo" class="w3-input w3-border w3-round">
+                            <asp:Literal ID="literal_input_anoletivo" runat="server"></asp:Literal>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-3">
+                        <button id="btnAdicionar"  type="button" class="w3-btn   w3-block w3-round w3-border w3-light-green w3-hover-green btcontroles"
+                            onclick="Adicionar()">
                             Adicionar
                         </button>
                     </div>
 
                 </div>
+
+
 
 
             </fieldset>

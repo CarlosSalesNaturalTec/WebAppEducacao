@@ -111,3 +111,10 @@ function LoginVoltar() {
     document.getElementById('divRetornoSenha').style.display = "none";
     header();
 }
+
+
+
+function entrarSolicitar() {
+    url = "SolicitacoesMatricula_Novo.aspx";
+    window.location.href = url;
+}

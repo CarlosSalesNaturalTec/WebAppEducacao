@@ -1,35 +1,42 @@
-﻿    using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
-public partial class Produtos_Listagem : System.Web.UI.Page
+public partial class Avaliacao_Listagem : System.Web.UI.Page
 {
+
     StringBuilder str = new StringBuilder();
     int TotaldeRegistros = 0;
     string InstID;
 
+
     protected void Page_Load(object sender, EventArgs e)
     {
+
         InstID = Session["InstID"].ToString();
 
         montaCabecalho();
         dadosCorpo();
         montaRodape();
 
-        Literal1.Text = str.ToString();
 
+        Literal1.Text = str.ToString();
     }
 
     private void montaCabecalho()
     {
-        
+
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" +
-            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIÇÃO</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DISCIPLINA</th>" +
             "<th>TIPO</th>" +
-            "<th>EST.MIN.</th>" +
-            "<th>UNIDADE</th>" +
+            "<th>PERIODO</th>" +
+            "<th>DATA</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -39,10 +46,10 @@ public partial class Produtos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select ID_Produto, descricao, tipo, estoque_min, unidade " +
-                "from Tbl_Produtos " +
-                "where ID_Inst =" + InstID +
-                " order by Descricao";
+        string stringselect = "select id_avaliacao, disciplina, tipo , periodo , dataAva " +
+                "from tbl_avaliacao " +
+                "where id_inst =" + InstID +
+                "order by disciplina";
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -56,12 +63,11 @@ public partial class Produtos_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Produtos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
-            string bt2 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green w3-tinny' href='Produtos_Estoque.aspx?v1=" + Coluna0 + "'>Estoque</a>";
-            string bt3 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+            string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Avaliacao_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
+            string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
-                "<td>" + bt1 + bt2 + bt3 + Coluna1 + "</td>" +
+                "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
@@ -81,4 +87,6 @@ public partial class Produtos_Listagem : System.Web.UI.Page
         string footer = "</tbody></table>";
         str.Append(footer);
     }
-}       
+
+
+}

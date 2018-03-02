@@ -112,6 +112,93 @@ public class WebService : System.Web.Services.WebService
 
         return Identificador_msg;
 
+
+    }
+
+
+
+    [WebMethod]
+    public string AlunosSoliSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
+         string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
+         string param20, string param21, string param22, string param23, string param24, string param25)
+    { 
+        string url;
+        string strInsert = "INSERT INTO tbl_solicitacoes_matricula (" +
+
+            "curso," +
+            "instituicao," +
+            "Nome," +
+            "Nascimento," +
+            "EstadoCivil," +
+            "Pai," +
+            "Mae," +
+            "Responsavel," +
+            "ResponsavelCPF," +
+            "ResponsavelTel," +
+            "ResponsavelEmail," +
+            "Naturalidade," +
+            "Nacionalidade," +
+            "Etnia," +
+            "Deficiente," +
+            "DeficienteTipo," +
+            "Endereco," +
+            "Latitude," +
+            "Longitude," +
+            "Numero," +
+            "Bairro," +
+            "CEP," +
+            "Cidade," +
+            "UF," +
+            "TelFixo, " +
+            "FotoDataURI " +
+
+             ") " +
+            "VALUES (" +
+
+            "'" + param0 + "'," +
+            "'" + param1 + "'," +
+            "'" + param2 + "'," +
+            "'" + param3 + "'," +
+            "'" + param4 + "'," +
+            "'" + param5 + "'," +
+            "'" + param6 + "'," +
+            "'" + param7 + "'," +
+            "'" + param8 + "'," +
+            "'" + param9 + "'," +
+            "'" + param10 + "'," +
+            "'" + param11 + "'," +
+            "'" + param12 + "'," +
+            "'" + param13 + "'," +
+            "'" + param14 + "'," +
+            "'" + param15 + "'," +
+            "'" + param16 + "'," +
+            "'" + param17 + "'," +
+            "'" + param18 + "'," +
+            "'" + param19 + "'," +
+            "'" + param20 + "'," +
+            "'" + param21 + "'," +
+            "'" + param22 + "'," +
+            "'" + param23 + "'," +
+            "'" + param24 + "'," +
+            "'" + param25 + "'" +
+         
+         
+            ")";
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool inserir = operacao.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            url = "SolicitacoesObrigado_Novo.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
     }
 
     public class ConexaoBancoSQL
@@ -217,6 +304,114 @@ public class WebService : System.Web.Services.WebService
             {
                 return false;
             }
+        }
+    }
+
+}
+
+
+public class ConexaoBancoSQL
+{
+    private static SqlConnection objConexao = null;
+    private string stringconnection1;
+
+    public void tentarAbrirConexaoRemota()
+    {
+        objConexao = new SqlConnection();
+        objConexao.ConnectionString = stringconnection1;
+        objConexao.Open();
+    }
+
+    public ConexaoBancoSQL()
+    {
+        
+        stringconnection1 = "Server=tcp:servereducacao.database.windows.net,1433;Initial Catalog=dbeducacao;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        try
+        {
+            tentarAbrirConexaoRemota();
+        }
+        catch
+        {
+            Console.WriteLine("Atenção! Não foi possível Conectar ao Servidor de Banco de Dados.");
+        }
+    }
+
+    public static SqlConnection getConexao()
+    {
+        new ConexaoBancoSQL();
+        return objConexao;
+    }
+    public static void fecharConexao()
+    {
+        objConexao.Close();
+    }
+}
+
+public class OperacaoBanco
+{
+    private SqlCommand TemplateMethod(String query)
+    {
+        SqlConnection Conexao = ConexaoBancoSQL.getConexao();
+        SqlCommand Commando = new SqlCommand(query, Conexao);
+        try
+        {
+            Commando.ExecuteNonQuery();
+            return Commando;
+        }
+        catch
+        {
+            return Commando;
+        }
+    }
+
+    public SqlDataReader Select(String query)
+    {
+        SqlDataReader dadosObtidos = TemplateMethod(query).ExecuteReader();
+        return dadosObtidos;
+    }
+
+    public Boolean Insert(String query)
+    {
+        SqlConnection Conexao = ConexaoBancoSQL.getConexao();
+        SqlCommand Commando = new SqlCommand(query, Conexao);
+        try
+        {
+            Commando.ExecuteNonQuery();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public Boolean Update(String query)
+    {
+        SqlConnection Conexao = ConexaoBancoSQL.getConexao();
+        SqlCommand Commando = new SqlCommand(query, Conexao);
+        try
+        {
+            Commando.ExecuteNonQuery();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public Boolean Delete(String query)
+    {
+        SqlConnection Conexao = ConexaoBancoSQL.getConexao();
+        SqlCommand Commando = new SqlCommand(query, Conexao);
+        try
+        {
+            Commando.ExecuteNonQuery();
+            return true;
+        }
+        catch
+        {
+            return false;
         }
     }
 
