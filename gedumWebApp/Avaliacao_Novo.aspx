@@ -44,7 +44,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <div class="w3-threequarter">
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Novo Curso</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Nova Avaliacão</h3>
             </div>
 
             <div class="w3-threequarter">
@@ -77,8 +77,9 @@
                         <div class="form-group">
 
                             <label for="input-tipo" class="col-md-2 control-label">Tipo Ava.</label>
-                            <div class="col-md-9">
+                            <div class="col-md-6">
                                 <select class="form-control" id="input-tipo">
+                                    <option value=""> </option>
                                     <option value="PROVA">PROVA</option>
                                     <option value="TESTE">TESTE</option>
                                     <option value="TRABALHO INDIVIDUAL">TRABALHO INDIVIDUAL</option>
@@ -93,11 +94,9 @@
                         <div class="form-group">
 
                             <label for="input-periodo" class="col-md-2 control-label">Periodo</label>
-                            <div class="col-md-9">
+                            <div class="col-md-5">
                                 <select class="form-control" id="input-periodo">
-                                    <option value="MATUTINO">MATUTINO</option>
-                                    <option value="VESPERTINO">VESPERTINO</option>
-                                    <option value="NOTURNO">NOTURNO</option>
+                                      <asp:Literal ID="Literal_periodo" runat="server"></asp:Literal>
                                 </select>
                             </div>
                         </div>
@@ -105,12 +104,19 @@
                         <div class="form-group">
 
                             <label for="input_dataAv" class="col-md-2 control-label">Data</label>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_dataAv">
                             </div>
                         </div>
                         
-                     
+                     <div class="form-group">
+
+                            <label for="input-nota" class="col-md-2 control-label">Nota Máxima</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input-nota">
+                            </div>
+                        </div>
+                        
                         
                        
             

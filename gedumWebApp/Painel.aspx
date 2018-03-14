@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Painel.aspx.cs" Inherits="Painel" %>
+﻿    <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Painel.aspx.cs" Inherits="Painel" %>
 
 <!DOCTYPE html>
 
@@ -54,7 +54,7 @@
                 <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Alunos</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
                     <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Matriculados</a>
-                    <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Boletins</a>
+                  <!--  <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Boletins</a> -->
                     <a href="Avaliacao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Avaliação</a>
                     <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Frequência</a>
                     <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ocorrências</a>

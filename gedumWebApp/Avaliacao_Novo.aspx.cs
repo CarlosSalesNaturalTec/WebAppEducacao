@@ -22,6 +22,7 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
 
         mostraDisciplina(idInst);
         mostrarTurma(idInst);
+        mostrarPeriodo(idInst);
     }
 
 
@@ -51,6 +52,8 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
     }
 
     private void mostrarTurma(string id)
+
+
     {
         StringBuilder str = new StringBuilder();
 
@@ -72,4 +75,28 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
         Literal_turma.Text = str.ToString();
 
     }
+
+    private void mostrarPeriodo(string id)
+    {
+
+        StringBuilder strP = new StringBuilder();
+        strP.Clear();
+        strP.Append("<option value=\"0\"> </option>");
+
+        string select = "select id_periodo, Descricao from tbl_periodo_avaliacao where id_inst = " + id;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(select);
+
+        while (dados.Read())
+        {
+            strP.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+        }
+
+        ConexaoBancoSQL.fecharConexao();
+
+        Literal_periodo.Text = strP.ToString();
+
+    }
+
 }

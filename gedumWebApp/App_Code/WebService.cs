@@ -64,18 +64,74 @@ public class WebService : System.Web.Services.WebService
         return Identificador_msg;
 
     }
+
     [WebMethod]
-    public string AvaliacaoSalvar(string param0, string param1, string param2 , string param3 , string param4, string param5)
+    public string IncluiAl(string param0, string param1, string param2)
     {
         string url;
-        string insert = "INSERT INTO tbl_avaliacao(Disciplina, turma, tipo, periodo, dataAva, id_inst) " +
+
+        OperacaoBanco oper = new OperacaoBanco();
+
+        string insert = "INSERT INTO tbl_aluno_avaliacao(id_avaliacao, id_aluno, nota) " +
+                        "VALUES(" +
+                        "'" + param0 + "'," +
+                        "'" + param1 + "'," +
+                         "'" +param2 + "')";
+
+        OperacaoBanco op = new OperacaoBanco();
+        bool inserir = op.Insert(insert); 
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "Não foi possivel";
+
+        }
+
+        return url;
+
+
+    }
+
+
+    [WebMethod]
+    public string ExcluirAl(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_aluno_avaliacao where id_aa =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  // <!--*******Customização*******-->
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+
+    [WebMethod]
+    public string AvaliacaoSalvar(string param0, string param1, string param2 , string param3 , string param4, string param5, string param6)
+    {
+        string url;
+        string insert = "INSERT INTO tbl_avaliacao(Disciplina, turma, tipo, periodo, dataAva, nota, id_inst) " +
                         "VALUES(" +
                         "'" + param0 + "'," +
                         "'" + param1 + "'," +
                         "'" + param2 + "'," +
                         "'" + param3 + "'," +
                         "'" + param4 + "'," +
-                        param5 + ")";
+                        "'" + param5 + "'," +
+                        param6 + ")";
 
         OperacaoBanco op = new OperacaoBanco();
         bool inserir = op.Insert(insert);
@@ -88,6 +144,63 @@ public class WebService : System.Web.Services.WebService
         {
             url = "Sorry.aspx";
 
+        }
+
+        return url;
+    }
+
+    
+
+    [WebMethod]
+    public string AvaliacaoAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
+    {
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+
+        bool update = operacao.Update("update tbl_avaliacao set " +
+            "disciplina = '" + param0 + "'," +
+            "turma = '" + param1 + "'," +
+            "tipo = '" + param2 + "'," +
+            "periodo = '" + param3 + "'," +
+            "dataAva = '" + param4 + "'," +
+            "nota = " + param5 +
+            "where id_avaliacao  = " + param6
+            );
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (update == true) 
+        {
+            url = "Avaliacao_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+
+        return url;
+
+
+    }
+
+    [WebMethod]
+    public string AvaExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from tbl_avaliacao where id_avaliacao =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "Avaliacao_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
         }
 
         return url;
