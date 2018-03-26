@@ -180,10 +180,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param22 + "'," +
             "'" + param23 + "'," +
             "'" + param24 + "'," +
-            "'" + param25 + "'" +
-         
-         
-            ")";
+            "'" + param25 + "'" + ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);

@@ -31,7 +31,9 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         mostraTurma(idIns);
         mostrarPeriodo(idIns);
         mostraAlunos(idIns);
+
         PreencheCampos(idAux);
+        listaAl(idAux);
 
 
 
@@ -171,12 +173,12 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
     }
 
-    private void listaDisc(string ID)
+    private void listaAl(string ID)
     {
 
         string stringSelect = "select tbl_aluno_avaliacao.id_aa, tbl_alunos.nome, tbl_aluno_avaliacao.nota" +
             " from tbl_aluno_avaliacao " +
-            " inner join tbl_aluno on tbl_aluno_avaliacao.id_aluno = tbl_alunos.ID_Aluno " +
+            " inner join tbl_alunos on tbl_aluno_avaliacao.id_aluno = tbl_alunos.ID_Aluno " +
             " where tbl_aluno_avaliacao.id_avaliacao = " + ID;
 
         OperacaoBanco operacaoUsers = new OperacaoBanco();
@@ -207,7 +209,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         }
         ConexaoBancoSQL.fecharConexao();
 
-        Literal2.Text = str.ToString();
+        Literal_table.Text = str.ToString();
 
     }
 

@@ -76,7 +76,7 @@ public class WebService : System.Web.Services.WebService
                         "VALUES(" +
                         "'" + param0 + "'," +
                         "'" + param1 + "'," +
-                         "'" +param2 + "')";
+                         param2 + ")";
 
         OperacaoBanco op = new OperacaoBanco();
         bool inserir = op.Insert(insert); 

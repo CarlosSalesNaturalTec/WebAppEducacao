@@ -71,7 +71,7 @@
                             <div class="col-md-7">
                                 <select id="input_curso" class="form-control w3-input w3-border w3-round">
                                     <asp:Literal ID="literal_curso" runat="server"></asp:Literal>
-                                </select>
+                                </select>   
                             </div>
                         </div>
 
@@ -322,9 +322,6 @@
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar
                             </button>
 
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="classeBt3()">
-                                <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar
-                            </button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
                                 <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;

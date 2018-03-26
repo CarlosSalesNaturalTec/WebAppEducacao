@@ -113,12 +113,13 @@ function incluirNota() {
 
     var v1 = document.getElementById('IDInstHidden').value; // id_avaliacao
     var v2 = document.getElementById("input_alunos").value;   // id_aluno
-    var v3 = document.getElementById("input-n").value; // nota_aluno
+    var v3 = document.getElementById("input-n").value; //nota aluno
 
+    
     $.ajax({
         type: "POST",
         url: "WebService.asmx/IncluiAl",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '", param3: "'  + v3 + '"}',
+        data: '{param0: "' + v1 + '", param1: "' + v2 + '", param2: "'  + v3 + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -133,11 +134,11 @@ function incluirNota() {
 function insertLinha() {
 
 
-    var e = document.getElementById("input_disc");
+    var e = document.getElementById("input_alunos");
     var v5 = e.options[e.selectedIndex].value;
     var col1 = e.options[e.selectedIndex].text;
 
-    var col2 = document.getElementById("input-n")
+    var col2 = document.getElementById("input-n").value;
 
     var table = document.getElementById("MyTable");
 
@@ -149,13 +150,13 @@ function insertLinha() {
     cell2.innerHTML = col2;
 
     //apaga formulario
-    document.getElementById('input_disc').text = "";
-    document.getElementById('input-n').text = "";
+    document.getElementById('input_alunos').text = "";
+    document.getElementById('input-n').valor = "";
 
 }
 
 
-function ExcluirDisc(r, USerID) {
+function ExcluirAl(r, USerID) {
 
     var conf = confirm("Confirma Exclusão do Aluno?");
     if (conf == false) {

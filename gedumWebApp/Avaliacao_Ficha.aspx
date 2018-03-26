@@ -196,7 +196,7 @@
                                         </tr>
                                     </thead>
                                    
-                                    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+                                    <asp:Literal ID="Literal_table" runat="server"></asp:Literal>
                                 </table>
                             </div>
                         </div>

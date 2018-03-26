@@ -13,7 +13,10 @@
         }
 
         var idfoto = document.getElementById('Hidden1').value;
-         strLine = strLine + "param" + i + ":'" + idInst + "',";
+         strLine = strLine + "param" + i + ":'" + idfoto + "',";
+
+         strLine = strLine.substr(0, strLine.length - 1);
+
 
          UIAguardar();
 
@@ -39,6 +42,17 @@
 function voltar() {
     var url = "index.html";
     window.location.href = url;
+}
+
+function classeBt2() {
+    openLink(event, 'grupo2')
+    $('#bt2').addClass(' w3-blue');
+}
+
+
+function btvoltar1() {
+    openLink(event, 'grupo1')
+    $('#bt1').addClass(' w3-blue');
 }
 
 

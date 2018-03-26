@@ -64,7 +64,7 @@
                             <label for="input_inst" class="col-md-2 control-label">Instituicão</label>
 
                             <div class="col-md-7">
-                                <select id="input_inst" class="form-control w3-input w3-border w3-round">
+                                <select id="input_inst" class="w3-input w3-border w3-round">
                                     <asp:Literal ID="literal_inst" runat="server"></asp:Literal>
                                 </select>
                             </div>
@@ -81,7 +81,7 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-9 w3-border w3-padding w3-round">
                         <p>
-                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
+                            <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="voltar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair
                             </button>
 

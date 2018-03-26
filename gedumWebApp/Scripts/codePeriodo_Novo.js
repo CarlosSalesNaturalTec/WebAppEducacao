@@ -23,6 +23,8 @@ function SalvarRegistro() {
     var vID = document.getElementById("IDInstHidden").value;
     strLine = strLine + "param" + i + ":'" + vID + "'";
 
+    strLine = strLine.substr(0, strLine.length - 1);
+
     UIAguardar();
 
     $.ajax({
