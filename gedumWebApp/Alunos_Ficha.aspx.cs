@@ -10,7 +10,6 @@ public partial class Alunos_Ficha : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-
         string InstID = Session["InstID"].ToString();
 
         string ScriptAux = "<script type=\"text/javascript\">" +

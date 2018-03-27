@@ -1,40 +1,36 @@
 ﻿function SalvarRegistro() {
+
     if (document.getElementById('input.nome') == "") {
         $('input_nome').focus();
-        alert("Digite o nome do aluno");
+        alert("Digite o nome do Aluno");
     }
 
+    var x, i, strLine;
+    x = document.getElementsByClassName('form-control');
 
-     var x, i, strLine;
-     x = document.getElementsByClassName('form-control');
-        for (i = 0; i < x.length; i++) {
-            strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    for (i = 0; i < x.length; i++) {
+        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
+    }
 
+    // remove ultimo caracter da string
+    strLine = strLine.substr(0, strLine.length - 1);
+
+    UIAguardar();
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/AlunosSoliSalvar",
+        data: '{' + strLine + '}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (response) {
+            var linkurl = response.d;
+            window.location.href = linkurl;
+        },
+        failure: function (response) {
+            alert(response.d);
         }
-
-        var idfoto = document.getElementById('Hidden1').value;
-         strLine = strLine + "param" + i + ":'" + idfoto + "',";
-
-         strLine = strLine.substr(0, strLine.length - 1);
-
-
-         UIAguardar();
-
-
-         $.ajax({
-             type: "POST",
-             url: "WebService.asmx/SalvarRegistro",
-             data: '{' + strLine + '}',
-             contentType: "application/json; charset=utf-8",
-             dataType: "json",
-             success: function (response) {
-                 var linkurl = response.d;
-                 window.location.href = linkurl;
-             },
-             failure: function (response) {
-                 alert(response.d);
-             }
-         });
+    });
 
 }
 
@@ -56,12 +52,15 @@ function btvoltar1() {
 }
 
 
-function avancar(p1) {
+function avancar() {
 
-    
+    var e = document.getElementById("select_inst")
+    var p1 = e.options[e.selectedIndex].value
+    var p2 = e.options[e.selectedIndex].text
 
-    var url = "SolicitacoesMatricula_Novo2.aspx?v1=" + p1;
+    var url = "SolicitacoesMatricula_Novo2.aspx?v1=" + p1 + "&v2=" + p2;
     window.location.href = url;
+
 }
 
 function openLink(evt, animName) {

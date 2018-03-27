@@ -24,22 +24,13 @@
             background-image: url("img/fundo.jpg");
             background-repeat: repeat;
         }
-
-        #results {
-            float: right;
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid;
-            background: #ccc;
-        }
     </style>
-
 
 </head>
 
 <body>
 
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--******* LATERAL*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -57,8 +48,7 @@
         <!-- GRUPO 1 - Dados Pessoais -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Solicitação Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitação de Matrícula - <asp:Label ID="lbl_inst1" runat="server"></asp:Label> </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -68,14 +58,12 @@
                         <div class="form-group">
                             <label for="input_curso" class="col-md-2 control-label">Curso</label>
 
-                            <div class="col-md-7">
+                            <div class="col-md-9">
                                 <select id="input_curso" class="form-control w3-input w3-border w3-round">
                                     <asp:Literal ID="literal_curso" runat="server"></asp:Literal>
                                 </select>   
                             </div>
-                        </div>
-
-                        
+                        </div>                        
 
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
@@ -84,15 +72,13 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group">
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
                             <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_nasc">
                             </div>
                             <label for="input_civil" class="col-md-2 control-label">Estado Civil</label>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <select class="form-control" id="input_civil">
                                     <option value="Solteiro(a)">Solteiro(a)</option>
                                     <option value="Casado(a)">Casado(a)</option>
@@ -138,7 +124,7 @@
 
                         <div class="form-group">
                             <label for="input_email" class="col-md-2 control-label">E-mail Responsavel</label>
-                            <div class="col-md-6">
+                            <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_email">
                             </div>
                         </div>
@@ -224,31 +210,12 @@
 
             </div>
 
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <div class="row">
-                    <label for="btwebcam">WebCam:</label><br>
-                    <input id="btwebcam" type="button" value="Ativar WebCam" onclick="AtivarWebCam()">
-                    <input type="button" value="Capturar imagem WebCam" onclick="take_snapshot()">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-
-
         </div>
-
-
 
         <!-- GRUPO 2- Endereço -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Solicitacão Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitacão de Matrícula - <asp:Label ID="lbl_inst2" runat="server" ></asp:Label></h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -291,20 +258,12 @@
 
                         </div>
 
-
-
-
-
                         <div class="form-group">
                             <label for="input_fixo" class="col-md-2 control-label">Telefone Fixo</label>
                             <div class="col-md-4">
                                 <input type="text" class="form-control" id="input_fixo">
                             </div>
                         </div>
-
-
-
-
 
                     </fieldset>
                 </form>
@@ -342,11 +301,6 @@
             </div>
         </div>
 
-
-
-
-
-
     </div>
 
     <!-- auxiliares -->
@@ -358,7 +312,6 @@
 
     <script type="text/javascript" src="scripts/codeMatriculas_Solicita_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
-
 
 </body>
 

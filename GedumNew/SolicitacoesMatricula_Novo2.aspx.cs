@@ -1,42 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class SolicitacoesMatricula_Novo2 : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        string idAux = Request.QueryString["v1"];
+        string InstNome = Request.QueryString["v2"];
 
+        lbl_inst1.Text = InstNome;
+        lbl_inst2.Text = InstNome;
 
-        mostrarCurso();
-
+        mostrarCurso(idAux);
     }
 
-    private void mostrarCurso() {
+    private void mostrarCurso( string idaux) {
 
         StringBuilder strg = new StringBuilder();
         strg.Clear();
         strg.Append("<option value=\"0\"> </option>");
 
-
-        string strSelect = "select ID_Curs, Nome from Tbl_Cursos";
+        string strSelect = "select ID_Curs, Nome from Tbl_Cursos" +
+            " where ID_inst = " + idaux +
+            " order by Nome";
 
         OperacaoBanco oper = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = oper.Select(strSelect);
 
-
         while (dados.Read())
         {
-
             strg.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-
-
         }
-
 
         ConexaoBancoSQL.fecharConexao();
 

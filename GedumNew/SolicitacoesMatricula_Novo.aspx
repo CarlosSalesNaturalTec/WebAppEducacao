@@ -24,14 +24,6 @@
             background-image: url("img/fundo.jpg");
             background-repeat: repeat;
         }
-
-        #results {
-            float: right;
-            margin: 5px;
-            padding: 5px;
-            border: 1px solid;
-            background: #ccc;
-        }
     </style>
 
 
@@ -50,29 +42,23 @@
 
     <div style="margin-left: 180px">
 
-        <!-- GRUPO 1 - Dados Pessoais -->
+        <!-- Instituição -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados Pessoais - Solicitação Aluno</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitação de Matrícula</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
                         <div class="form-group">
-                            <label for="input_inst" class="col-md-2 control-label">Instituicão</label>
-
+                            <label for="select_inst" class="col-md-2 control-label">Instituicão</label>
                             <div class="col-md-7">
-                                <select id="input_inst" class="w3-input w3-border w3-round">
+                                <select id="select_inst" class="w3-input w3-border w3-round">
                                     <asp:Literal ID="literal_inst" runat="server"></asp:Literal>
                                 </select>
                             </div>
                         </div>
-
-
-
-
                     </fieldset>
                 </form>
 
@@ -97,14 +83,7 @@
 
             </div>
 
-
-
         </div>
-
-
-
-
-
 
     </div>
 
@@ -114,10 +93,6 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="scripts/SolicitacoesMatricula.js"></script>
-
-    <script type="text/javascript" src="scripts/codeMatriculas_Solicita_Mapa.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
-
 
 </body>
 

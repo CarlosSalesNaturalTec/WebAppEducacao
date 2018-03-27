@@ -17,9 +17,6 @@ public partial class Cursos_Ficha : System.Web.UI.Page
         mostraDisc(idInst);
         listaDisc(idAux);
 
-
-
-
     }
 
     private void PreencheCampos(string ID)

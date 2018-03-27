@@ -124,7 +124,6 @@ public class WebService : System.Web.Services.WebService
     { 
         string url;
         string strInsert = "INSERT INTO tbl_solicitacoes_matricula (" +
-
             "curso," +
             "instituicao," +
             "Nome," +
@@ -149,12 +148,9 @@ public class WebService : System.Web.Services.WebService
             "CEP," +
             "Cidade," +
             "UF," +
-            "TelFixo, " +
-            "FotoDataURI " +
-
+            "TelFixo " +
              ") " +
             "VALUES (" +
-
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -179,8 +175,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param21 + "'," +
             "'" + param22 + "'," +
             "'" + param23 + "'," +
-            "'" + param24 + "'," +
-            "'" + param25 + "'" + ")";
+            "'" + param24 + "'" +
+            ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Insert(strInsert);
@@ -196,112 +192,6 @@ public class WebService : System.Web.Services.WebService
         }
 
         return url;
-    }
-
-    public class ConexaoBancoSQL
-    {
-        private static SqlConnection objConexao = null;
-        private string stringconnection1;
-
-        public void tentarAbrirConexaoRemota()
-        {
-            objConexao = new SqlConnection();
-            objConexao.ConnectionString = stringconnection1;
-            objConexao.Open();
-        }
-
-        public ConexaoBancoSQL()
-        {
-            // <!--*******Customização*******-->
-            stringconnection1 = "Server=tcp:servereducacao.database.windows.net,1433;Initial Catalog=dbeducacao;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-            try
-            {
-                tentarAbrirConexaoRemota();
-            }
-            catch
-            {
-                Console.WriteLine("Atenção! Não foi possível Conectar ao Servidor de Banco de Dados.");
-            }
-        }
-
-        public static SqlConnection getConexao()
-        {
-            new ConexaoBancoSQL();
-            return objConexao;
-        }
-        public static void fecharConexao()
-        {
-            objConexao.Close();
-        }
-    }
-
-    public class OperacaoBanco
-    {
-        private SqlCommand TemplateMethod(String query)
-        {
-            SqlConnection Conexao = ConexaoBancoSQL.getConexao();
-            SqlCommand Commando = new SqlCommand(query, Conexao);
-            try
-            {
-                Commando.ExecuteNonQuery();
-                return Commando;
-            }
-            catch
-            {
-                return Commando;
-            }
-        }
-
-        public SqlDataReader Select(String query)
-        {
-            SqlDataReader dadosObtidos = TemplateMethod(query).ExecuteReader();
-            return dadosObtidos;
-        }
-
-        public Boolean Insert(String query)
-        {
-            SqlConnection Conexao = ConexaoBancoSQL.getConexao();
-            SqlCommand Commando = new SqlCommand(query, Conexao);
-            try
-            {
-                Commando.ExecuteNonQuery();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public Boolean Update(String query)
-        {
-            SqlConnection Conexao = ConexaoBancoSQL.getConexao();
-            SqlCommand Commando = new SqlCommand(query, Conexao);
-            try
-            {
-                Commando.ExecuteNonQuery();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public Boolean Delete(String query)
-        {
-            SqlConnection Conexao = ConexaoBancoSQL.getConexao();
-            SqlCommand Commando = new SqlCommand(query, Conexao);
-            try
-            {
-                Commando.ExecuteNonQuery();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
     }
 
 }
