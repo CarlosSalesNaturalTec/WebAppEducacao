@@ -5,7 +5,8 @@
         alert("Digite o nome do Aluno");
     }
 
-    var x, i, strLine;
+    var x, i;
+    var strLine="";
     x = document.getElementsByClassName('form-control');
 
     for (i = 0; i < x.length; i++) {
