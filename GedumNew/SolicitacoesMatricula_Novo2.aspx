@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head runat="server">
-    <title>GEDUM - Painel de Controle</title>
+    <title>GEDUM - Solicitação de Matrícula</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -309,7 +309,6 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="scripts/SolicitacoesMatricula.js"></script>
-
     <script type="text/javascript" src="scripts/codeMatriculas_Solicita_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
 
