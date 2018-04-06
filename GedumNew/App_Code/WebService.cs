@@ -120,12 +120,11 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string AlunosSoliSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
          string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
-         string param20, string param21, string param22, string param23, string param24, string param25)
+         string param20, string param21, string param22, string param23, string param24)
     { 
         string url;
-        string strInsert = "INSERT INTO tbl_solicitacoes_matricula (" +
-            "curso," +
-            "instituicao," +
+        string strInsert = "INSERT INTO tbl_solicitacoes_matricula  (" +
+            "ID_Curso ," +
             "Nome," +
             "Nascimento," +
             "EstadoCivil," +
@@ -148,7 +147,8 @@ public class WebService : System.Web.Services.WebService
             "CEP," +
             "Cidade," +
             "UF," +
-            "TelFixo " +
+            "TelFixo," +
+            "ID_Inst " +
              ") " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -211,7 +211,7 @@ public class ConexaoBancoSQL
 
     public ConexaoBancoSQL()
     {
-        
+
         stringconnection1 = "Server=tcp:servereducacao.database.windows.net,1433;Initial Catalog=dbeducacao;Persist Security Info=False;User ID=admserver;Password=Pwd@2017;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         try
         {

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-    <!--*******Customização*******-->
+
     <title>Cadastro de Instituição</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">

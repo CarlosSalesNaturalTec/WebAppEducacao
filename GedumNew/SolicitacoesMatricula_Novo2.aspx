@@ -304,8 +304,8 @@
     </div>
 
     <!-- auxiliares -->
-    <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="scripts/SolicitacoesMatricula.js"></script>

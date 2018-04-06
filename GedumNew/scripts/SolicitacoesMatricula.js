@@ -13,8 +13,7 @@
         strLine = strLine + "param" + i + ":'" + x[i].value + "',";
     }
 
-    // remove ultimo caracter da string
-    strLine = strLine.substr(0, strLine.length - 1);
+    strLine = strLine + "param" + i + ":'" + document.getElementById("IDHidden").value + "'";
 
     UIAguardar();
 
