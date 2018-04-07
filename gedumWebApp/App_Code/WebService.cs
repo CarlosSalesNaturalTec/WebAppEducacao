@@ -35,9 +35,9 @@ public class WebService : System.Web.Services.WebService
                 int vValida3 = Convert.ToInt16(vValida1) * Convert.ToInt16(vValida2);
                 string vValida4 = vValida3.ToString();
 
-                Identificador_msg = "Login.aspx?p1=" + vValida4 + 
+                Identificador_msg = "Login.aspx?p1=" + vValida4 +
                     "&p2=" + Convert.ToString(Identificador_rcrdset[1]) +
-                    "&p3=" + Convert.ToString(Identificador_rcrdset[2]) + 
+                    "&p3=" + Convert.ToString(Identificador_rcrdset[2]) +
                     "&p4=" + Convert.ToString(Identificador_rcrdset[3]) +
                     "&p5=" + Convert.ToString(Identificador_rcrdset[4]);
 
@@ -79,7 +79,7 @@ public class WebService : System.Web.Services.WebService
                          param2 + ")";
 
         OperacaoBanco op = new OperacaoBanco();
-        bool inserir = op.Insert(insert); 
+        bool inserir = op.Insert(insert);
         ConexaoBancoSQL.fecharConexao();
         if (inserir == true)
         {
@@ -108,7 +108,7 @@ public class WebService : System.Web.Services.WebService
 
         if (deletarUser == true)
         {
-            url = "OK";  // <!--*******Customização*******-->
+            url = "OK";
         }
         else
         {
@@ -120,7 +120,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string AvaliacaoSalvar(string param0, string param1, string param2 , string param3 , string param4, string param5, string param6)
+    public string AvaliacaoSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
     {
         string url;
         string insert = "INSERT INTO tbl_avaliacao(Disciplina, turma, tipo, periodo, dataAva, nota, id_inst) " +
@@ -149,7 +149,7 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-    
+
 
     [WebMethod]
     public string AvaliacaoAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
@@ -170,7 +170,7 @@ public class WebService : System.Web.Services.WebService
 
         ConexaoBancoSQL.fecharConexao();
 
-        if (update == true) 
+        if (update == true)
         {
             url = "Avaliacao_Listagem.aspx";
         }
@@ -208,7 +208,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string PeriodoSalvar(string param0 , string param1)
+    public string PeriodoSalvar(string param0, string param1)
     {
         string url;
         string insert = "INSERT INTO tbl_periodo_avaliacao(Descricao , id_inst) " +
@@ -219,10 +219,11 @@ public class WebService : System.Web.Services.WebService
         OperacaoBanco op = new OperacaoBanco();
         bool inserir = op.Insert(insert);
         ConexaoBancoSQL.fecharConexao();
-        if(inserir == true)
+        if (inserir == true)
         {
             url = "PeriodoAvaliacao_Listagem.aspx";
-        }else
+        }
+        else
         {
             url = "Sorry.aspx";
 
@@ -253,7 +254,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string PeriodoAlterar(string param0 , string param1)
+    public string PeriodoAlterar(string param0, string param1)
     {
         string url;
 
@@ -334,7 +335,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string DisciplinasAlterar(string param0, string param1, string param2)
     {
-       string url;
+        string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
 
@@ -358,7 +359,7 @@ public class WebService : System.Web.Services.WebService
 
         return url;
 
-    
+
     }
 
 
@@ -446,11 +447,11 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string CursosSalvar(string param0, string param1, string param2, string param3, string param4, 
+    public string CursosSalvar(string param0, string param1, string param2, string param3, string param4,
         string param5, string param6, string param7, string param8)
     {
 
-        
+
 
         string url;
         string strInsert = "INSERT INTO Tbl_Cursos (" +
@@ -473,7 +474,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param5 + "'," +
             "'" + param6 + "'," +
             "'" + param7 + "'," +
-            param8 + 
+            param8 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -494,7 +495,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string CursosAlterar(string param0, string param1, string param2, string param3, 
+    public string CursosAlterar(string param0, string param1, string param2, string param3,
         string param4, string param5, string param6, string param7, string param8)
     {
         string url;
@@ -523,7 +524,7 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
-    
+
     [WebMethod]
     public string CursosExcluir(string param1)
     {
@@ -549,7 +550,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string TurmasSalvar(string param0, string param1, string param2, string param3, string param4, 
+    public string TurmasSalvar(string param0, string param1, string param2, string param3, string param4,
         string param5, string param6, string param7, string param8)
     {
         string url;
@@ -591,7 +592,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string TurmasAlterar(string param0, string param1, string param2, string param3, string param4, 
+    public string TurmasAlterar(string param0, string param1, string param2, string param3, string param4,
         string param5, string param6, string param7, string param8)
     {
 
@@ -669,7 +670,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string VisitasSalvar(string param0, string param1, string param2, string param3, string param4,string param5, string param6)
+    public string VisitasSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
     {
         string url;
         string strInsert = "INSERT INTO Tbl_Visitas  (" +
@@ -688,7 +689,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param3 + "'," +
             "'" + param4 + "'," +
             "'" + param5 + "'," +
-            param6 + 
+            param6 +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -749,11 +750,11 @@ public class WebService : System.Web.Services.WebService
     {
         string url;
         string strInsert = "INSERT INTO tbl_alunos (" +
-           
+
             "Nome," +
-            "Nascimento," + 
+            "Nascimento," +
             "EstadoCivil," +
-            "Pai," + 
+            "Pai," +
             "Mae," +
             "Responsavel," +
             "ResponsavelCPF," +
@@ -806,7 +807,7 @@ public class WebService : System.Web.Services.WebService
             "FotoDataURI" +
             ") " +
             "VALUES (" +
-           
+
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -860,7 +861,7 @@ public class WebService : System.Web.Services.WebService
             "'" + param50 + "'," +
             "'" + param51 + "'," +
             param52 + "," +
-            "'" + param53  + "'" +
+            "'" + param53 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -882,7 +883,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string AlunosExcluir(string param1)
     {
-        
+
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -1071,7 +1072,7 @@ public class WebService : System.Web.Services.WebService
         string param12, string param13, string param14, string param15)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Fornecedor_Alimentos (Descricao, cpf_cnpj, cep, rua, numero, complemento, bairro,"+
+        string strInsert = "insert INTO Tbl_Fornecedor_Alimentos (Descricao, cpf_cnpj, cep, rua, numero, complemento, bairro," +
                            "cidade, uf, telefone1, telefone2, email, home_page, obs,ID_Inst, tipo ) " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -1273,9 +1274,9 @@ public class WebService : System.Web.Services.WebService
            string param6, string param7)
     {
         string url;
-        string strInsert = "insert INTO Tbl_Veiculos (modelo, placa, cor, km_inicial, combustivel," +  
+        string strInsert = "insert INTO Tbl_Veiculos (modelo, placa, cor, km_inicial, combustivel," +
             "proprietario, obs, ID_Inst, id_modelo ) " +
-            "VALUES (" + 
+            "VALUES (" +
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -1303,7 +1304,7 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string VeiculosAlterar(string param0, string param1, string param2, string param3, 
+    public string VeiculosAlterar(string param0, string param1, string param2, string param3,
         string param4, string param5, string param6, string param7)
     {
 
@@ -1398,7 +1399,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string ViagensAlterar(string param0, string param1, string param2, string param3, string param4, string param5, 
+    public string ViagensAlterar(string param0, string param1, string param2, string param3, string param4, string param5,
         string param6, string param7, string param8, string param9, string param10)
     {
 
@@ -1582,7 +1583,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod]
     public string LivrosAlterar(string param0, string param1, string param2, string param3,
-        string param4, string param5, string param6 )
+        string param4, string param5, string param6)
     {
 
         string url;
@@ -1642,7 +1643,7 @@ public class WebService : System.Web.Services.WebService
         string strInsert = "insert INTO Tbl_Receitas (Nome, modo_preparo, ID_Inst ) " +
             "VALUES (" +
             "'" + param0 + "'," +
-            "'" + param1 + "'," +        
+            "'" + param1 + "'," +
             param2 +
             ")";
 
@@ -1690,7 +1691,7 @@ public class WebService : System.Web.Services.WebService
     [WebMethod]
     public string ReceitasExcluir(string param1)
     {
-  
+
         string url;
 
         OperacaoBanco operacao3 = new OperacaoBanco();
@@ -1751,7 +1752,7 @@ public class WebService : System.Web.Services.WebService
 
         if (deletarReceitasItens == true)
         {
-            url = "OK";  
+            url = "OK";
         }
         else
         {
@@ -1833,7 +1834,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacaoDeltens = new OperacaoBanco();
-        Boolean deletarReceitasItens = operacaoDeltens.Delete("delete from Tbl_Produtos_Movimento where ID_Operacao =" + param1);  
+        Boolean deletarReceitasItens = operacaoDeltens.Delete("delete from Tbl_Produtos_Movimento where ID_Operacao =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletarReceitasItens == true)
@@ -1864,7 +1865,7 @@ public class WebService : System.Web.Services.WebService
            "'" + param3 + "'," +
            "'" + param4 + "'," +
            "'" + param5 + "'," +
-           param6 + "," + 
+           param6 + "," +
            param7 +
            ")"
            );
@@ -1884,7 +1885,7 @@ public class WebService : System.Web.Services.WebService
     }
 
 
-    
+
     [WebMethod]
     public string OcorrenciasSalvar(string param1, string param2, string param3, string param4, string param5, string param6)
     {
@@ -2007,7 +2008,7 @@ public class WebService : System.Web.Services.WebService
             "Id_aluno= " + param1 + "," +
             "data_atestado= '" + param2 + "'," +
             "tipo_atestado= '" + param3 + "'," +
-            "observacoes= '" + param4 + "'" +        
+            "observacoes= '" + param4 + "'" +
             "where ID_Atestado = " + param5);
 
         ConexaoBancoSQL.fecharConexao();
@@ -2023,7 +2024,7 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
-    
+
     [WebMethod]
     public string AtestadosExcluir(string param1)
     {
@@ -2056,10 +2057,10 @@ public class WebService : System.Web.Services.WebService
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update("update Tbl_Parametros set " +
-            "ano_letivo = " + param1 + "," + 
+            "ano_letivo = " + param1 + "," +
             "matricula = " + param2 + "," +
-            "permite_pre_mat = '" + param3  + "' " +
-            "where ID_inst = " + param4 
+            "permite_pre_mat = '" + param3 + "' " +
+            "where ID_inst = " + param4
             );
 
         ConexaoBancoSQL.fecharConexao();
@@ -2334,14 +2335,14 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
-    
+
     [WebMethod]
     public string ExcluirDisc(string param1)
     {
         string url;
 
         OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_cursos_disciplina where id_cd =" + param1);   
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_cursos_disciplina where id_cd =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
         if (deletarUser == true)
@@ -2407,12 +2408,12 @@ public class WebService : System.Web.Services.WebService
     public string IncluiDisc(string param1, string param2)
     {
         string url;
-        
+
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
         Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_cursos_disciplina (id_curso, id_dsciplina ) " +
-           "VALUES (" + 
+           "VALUES (" +
            "'" + param1 + "'," +
-           "'" + param2 +  "')"
+           "'" + param2 + "')"
            );
 
         ConexaoBancoSQL.fecharConexao();
@@ -2429,7 +2430,7 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-   [WebMethod]
+    [WebMethod]
     public string IncluiProf(string param1, string param2)
     {
         string url;
@@ -2455,10 +2456,10 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
- [WebMethod]
+    [WebMethod]
     public string Matriculas_Parametros(string param1)
     {
-        string mat_aux="";
+        string mat_aux = "";
         string retorno;
 
 
@@ -2468,7 +2469,7 @@ public class WebService : System.Web.Services.WebService
         SqlDataReader dados = operacao.Select(stringSelect);
         while (dados.Read())
         {
-            mat_aux = Convert.ToString(dados[0]) ;
+            mat_aux = Convert.ToString(dados[0]);
         }
         ConexaoBancoSQL.fecharConexao();
 
@@ -2488,6 +2489,30 @@ public class WebService : System.Web.Services.WebService
 
         return retorno;
     }
+
+
+
+    [WebMethod]
+    public string SolicitacoesMatriculasExcluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from tbl_solicitacoes_matricula  where ID_Solicita =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletar == true)
+        {
+            url = "SolicitacoesMatriculas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
 
 
 }

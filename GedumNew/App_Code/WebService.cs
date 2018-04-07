@@ -148,7 +148,8 @@ public class WebService : System.Web.Services.WebService
             "Cidade," +
             "UF," +
             "TelFixo," +
-            "ID_Inst " +
+            "ID_Inst, " +
+            "SolicitacaoData" +
              ") " +
             "VALUES (" +
             "'" + param0 + "'," +
@@ -175,7 +176,8 @@ public class WebService : System.Web.Services.WebService
             "'" + param21 + "'," +
             "'" + param22 + "'," +
             "'" + param23 + "'," +
-            "'" + param24 + "'" +
+            "'" + param24 + "'," +
+            "getdate()" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();

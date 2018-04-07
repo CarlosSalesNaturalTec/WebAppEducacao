@@ -1,15 +1,10 @@
-﻿function NovoRegistro() {
-    window.location.href = "Cursos_Novo.aspx";  
-}
-
-function ExcluirRegistro() {
+﻿function ExcluirRegistro() {
 
     var idRegistro = document.getElementById('HiddenID').value;
 
-    // <!--*******Customização*******-->
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/CursosExcluir",
+        url: "WebService.asmx/SolicitacoesMatriculasExcluir",
         data: '{param1: "' + idRegistro + '" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
