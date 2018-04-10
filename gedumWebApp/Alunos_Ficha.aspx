@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <!--*******Customização*******-->
+    
     <title>Cadastro de Alunos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -36,7 +36,7 @@
 
 </head>
 <body>
-    <!--*******MENU LATERAL - Customização*******-->
+    <!--*******MENU LATERAL *******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
             <img src="Images/brasaobahiacolorsmall.png" />
@@ -58,8 +58,6 @@
         <!-- GRUPO 1 - Dados Pessoais -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <!--*******Customização*******-->
-
             <h3>
                 <p id="al1"></p>
             </h3>
@@ -69,15 +67,13 @@
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
+
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
                             <div class="col-md-9">
                                 <input type="text" class="form-control" id="input_nome">
                             </div>
                         </div>
-
-
-
 
                         <div class="form-group">
                             <label for="input_nasc" class="col-md-2 control-label">Nascimento</label>
@@ -94,9 +90,6 @@
                                 </select>
                             </div>
                         </div>
-
-
-
 
                         <div class="form-group">
                             <label for="input_pai" class="col-md-2 control-label">Filiação Pai</label>

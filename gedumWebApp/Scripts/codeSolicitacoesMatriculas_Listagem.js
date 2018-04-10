@@ -4,7 +4,7 @@
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/SolicitacoesMatriculasExcluir",
+        url: "WebService.asmx/SolicitacoesMatriculas_Excluir",
         data: '{param1: "' + idRegistro + '" }',
         contentType: "application/json; charset=utf-8",
         dataType: "json",

@@ -1,7 +1,5 @@
 ﻿document.getElementById("input_nome").focus();
 
-
-
 function SalvarRegistro() {
 
     //validações

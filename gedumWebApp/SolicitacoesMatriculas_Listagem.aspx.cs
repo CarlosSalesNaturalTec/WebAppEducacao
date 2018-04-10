@@ -28,6 +28,7 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>NASCIMENTO</th>" +
+            "<th>CURSO</th>" +
             "<th>FILIAÇÃO - PAI</th>" +
             "<th>FILIAÇÃO - MÃE</th>" +
             "<th>DATA SOLIC.</th>" +
@@ -40,10 +41,10 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select ID_Solicita, nome, format(Nascimento ,'dd/MM/yyyy') as d1, Pai, Mae, format(SolicitacaoData ,'dd/MM/yyyy') as d2 " +
-                "from tbl_solicitacoes_matricula  " +
-                "where ID_Inst =" + InstID +
-                "order by Nome"; 
+        string stringselect = "select ID_Solicita , tbl_solicitacoes_matricula.Nome, format(Nascimento,'dd/MM/yyyy') as Nasc , " +
+            "Tbl_Cursos.Nome as Curso, Pai, Mae, format(SolicitacaoData,'dd/MM/yyyy') as Solicitacao " +
+            "from tbl_solicitacoes_matricula " +
+            "INNER JOIN Tbl_Cursos ON tbl_solicitacoes_matricula.ID_Curso = Tbl_Cursos.ID_Curs "; 
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -57,6 +58,7 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
             string Coluna5 = Convert.ToString(dados[5]);
+            string Coluna6 = Convert.ToString(dados[6]);
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='SolicitacoesMatriculas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
@@ -67,6 +69,7 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
                 "<td>" + Coluna5 + "</td>" +
+                "<td>" + Coluna6 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

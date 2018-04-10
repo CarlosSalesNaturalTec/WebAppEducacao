@@ -33,7 +33,8 @@
     <!--******* LATERAL*******-->
     <div class="w3-sidebar w3-bar-block w3-green w3-card-2" style="width: 180px">
         <div class="w3-padding w3-center">
-            <a href="index.html"><img src="images/brasaobahiasmall.png" /></a>
+            <a href="index.html">
+                <img src="images/brasaobahiasmall.png" /></a>
         </div>
         <hr />
 
@@ -48,7 +49,9 @@
         <!-- GRUPO 1 - Dados Pessoais -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Solicitação de Matrícula - <asp:Label ID="lbl_inst1" runat="server"></asp:Label> </h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Solicitação de Matrícula -
+                <asp:Label ID="lbl_inst1" runat="server"></asp:Label>
+            </h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -59,9 +62,11 @@
                             <label for="input_curso" class="col-md-2 control-label">Curso</label>
 
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="input_curso">
+                                <select class="form-control" id="input_curso">
+                                    <asp:Literal ID="LITERAL_CURSO" runat="server" />
+                                </select>
                             </div>
-                        </div>                        
+                        </div>
 
                         <div class="form-group">
                             <label for="input_nome" class="col-md-2 control-label">Nome</label>
@@ -213,7 +218,8 @@
         <!-- GRUPO 2- Endereço -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitacão de Matrícula - <asp:Label ID="lbl_inst2" runat="server" ></asp:Label></h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitacão de Matrícula -
+                <asp:Label ID="lbl_inst2" runat="server"></asp:Label></h3>
             <hr />
 
             <div class="w3-threequarter">
@@ -303,9 +309,9 @@
     <!-- auxiliares -->
     <input id="IDAuxHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-    
+
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="scripts/SolicitacoesMatricula.js"></script>
+    <script type="text/javascript" src="Scripts/codeSolicitacaoMatricula_Ficha.js"></script>
     <script type="text/javascript" src="scripts/codeMatriculas_Solicita_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
 

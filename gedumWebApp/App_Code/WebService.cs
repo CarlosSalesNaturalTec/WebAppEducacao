@@ -10,7 +10,6 @@ public class WebService : System.Web.Services.WebService
 
     public WebService()
     {
-
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 
     }
@@ -308,8 +307,6 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
-
-
 
     [WebMethod]
     public string DisciplinasExcluir(string param1)
@@ -2492,8 +2489,9 @@ public class WebService : System.Web.Services.WebService
 
 
 
+
     [WebMethod]
-    public string SolicitacoesMatriculasExcluir(string param1)
+    public string SolicitacoesMatriculas_Excluir(string param1)
     {
         string url;
 
@@ -2513,7 +2511,56 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+    [WebMethod]
+    public string SolicitacoesMatriculas_Alterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
+        string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
+        string param20, string param21, string param22, string param23, string param24)
+    {
 
+        string url;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        bool alterar = operacao.Update("update tbl_solicitacoes_matricula set " +
+            "ID_Curso= " + param0 + "," +
+            "Nome= '" + param1 + "'," +
+            "Nascimento= '" + param2 + "'," +
+            "EstadoCivil= '" + param3 + "'," +
+            "Pai= '" + param4 + "'," +
+            "Mae= '" + param5 + "'," +
+            "Responsavel= '" + param6 + "'," +
+            "ResponsavelCPF= '" + param7 + "'," +
+            "ResponsavelTel= '" + param8 + "'," +
+            "ResponsavelEmail= '" + param9 + "'," +
+            "Naturalidade= '" + param10 + "'," +
+            "Nacionalidade= '" + param11 + "'," +
+            "Etnia= '" + param12 + "'," +
+            "Deficiente= '" + param13 + "'," +
+            "DeficienteTipo= '" + param14 + "'," +
+            "Endereco= '" + param15 + "'," +
+            "Latitude= '" + param16 + "'," +
+            "Longitude= '" + param17 + "'," +
+            "Numero= '" + param18 + "'," +
+            "Bairro= '" + param19 + "'," +
+            "CEP= '" + param20 + "'," +
+            "Cidade= '" + param21 + "'," +
+            "UF= '" + param22 + "'," +
+            "TelFixo= '" + param23 + "' " + 
+            "where ID_Solicita = " + param24);
+
+        ConexaoBancoSQL.fecharConexao();
+
+        if (alterar == true)
+        {
+            url = "SolicitacoesMatriculas_Listagem.aspx";
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+
+    }
 
 }
 
@@ -2548,10 +2595,12 @@ public class ConexaoBancoSQL
         new ConexaoBancoSQL();
         return objConexao;
     }
+
     public static void fecharConexao()
     {
         objConexao.Close();
     }
+
 }
 
 public class OperacaoBanco
