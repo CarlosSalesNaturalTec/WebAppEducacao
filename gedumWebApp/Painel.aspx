@@ -84,10 +84,10 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Alunos</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Frequência</a>
+                    <a href="Alunos_Frequencia.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Frequência</a>
                     <a href="Avaliacao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Avaliações</a>
                     <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Boletins</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Histórico Escolar</a>
+                    <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Histórico Escolar</a>
                     <a href="Atestados_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Atestados</a>
                     <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ocorrências Diversas</a>
                 </div>

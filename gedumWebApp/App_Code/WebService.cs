@@ -2392,9 +2392,56 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
+     
 
+    [WebMethod]
+    public string Lancar_Frequencia_Aula(string param1, string param2, string param3)
+    {
+        //param1 = ID da Turma
+        //param2 = ID da Disciplina
+        //param3 = data da aula
 
+        bool AulaExiste=false;
+        string url="";
 
+        //verifica se já foi gerada Aula em tabela de frequencias_aulas
+        string strSelect = "select ID_Aula from Tbl_Alunos_Frequencia_Aulas " +
+            "where ID_Turma = '" + param1 + "' " +
+            "and ID_Disc = '" + param2 + "' " +
+            "and Data_Aula = '" + param3 + "' " ;
+        OperacaoBanco operacaoSelect = new OperacaoBanco();
+        SqlDataReader rcrdset = operacaoSelect.Select(strSelect);
+        while (rcrdset.Read())
+        {
+            AulaExiste = true;
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        // Insere aula caso não exista
+        if ( !AulaExiste )
+        {
+            OperacaoBanco operacaoInst2 = new OperacaoBanco();
+            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula  ) " +
+               "VALUES (" +
+               "'" + param1 + "'," +
+               "'" + param2 + "'," +
+               "'" + param3 + "')"
+               );
+            ConexaoBancoSQL.fecharConexao();
+
+            if (inserirUser == true)
+            {
+                url = "Aula Cadastrada com Sucesso";
+            }
+            else
+            {
+                url = "Aula Não Cadastrada";
+            }
+
+        }
+
+        return url;
+    }
 }
 
 public class ConexaoBancoSQL
