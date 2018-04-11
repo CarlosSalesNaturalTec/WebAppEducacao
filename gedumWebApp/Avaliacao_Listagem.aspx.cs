@@ -46,7 +46,7 @@ public partial class Avaliacao_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select id_avaliacao, disciplina, tipo , periodo , dataAva " +
+        string stringselect = "select id_avaliacao, disciplina, tipo , periodo , format(dataAva,'dd/MM/yyyy') as d1 " +
                 "from tbl_avaliacao " +
                 "where id_inst =" + InstID +
                 "order by disciplina";

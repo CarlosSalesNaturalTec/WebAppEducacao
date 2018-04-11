@@ -46,8 +46,7 @@ public partial class Ocorrencias_Novo : System.Web.UI.Page
 
         while (dados.Read())
         {
-            strCombo.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" +
-                Convert.ToString(dados[1]) + "</option>");
+            strCombo.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
         }
         ConexaoBancoSQL.fecharConexao();
     }
