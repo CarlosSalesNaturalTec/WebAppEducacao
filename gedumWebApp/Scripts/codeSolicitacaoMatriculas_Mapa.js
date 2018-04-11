@@ -3,11 +3,11 @@
     // Autocomplete
     var input1 = document.getElementById('input_end');
     var places = new google.maps.places.Autocomplete(input1);
-    
+
     //Marcador
     google.maps.event.addListener(places, 'place_changed', function () {
 
-        var place = places.getPlace(); 
+        var place = places.getPlace();
 
         var latitude = place.geometry.location.lat();
         var longitude = place.geometry.location.lng();

@@ -204,7 +204,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -219,16 +219,13 @@
         </div>
 
 
-        <!-- GRUPO 2 - Dados Pessoais -->
+        <!-- GRUPO 2 - Matricula / Curso -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
-
-            <!--*******Customização*******-->
 
             <h3>
                 <p id="al2"></p>
             </h3>
             <hr />
-
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
@@ -237,7 +234,7 @@
                         <div class="form-group">
                             <label for="input_Curnome" class="col-md-2 control-label">Curso</label>
                             <div class="col-md-7">
-                                <select class="form-control" id="input_Curnome" disabled>
+                                <select class="form-control" id="input_Curnome">
                                     <asp:Literal ID="LITERAL_CURSO" runat="server" />
                                 </select>
                             </div>
@@ -246,13 +243,9 @@
                         <div class="form-group">
                             <label for="input_matri" class="col-md-2 control-label">Matricula</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_matri" disabled>
+                                <input type="number" class="form-control" id="input_matri">
                             </div>
                         </div>
-
-
-
-
 
                     </fieldset>
                 </form>
@@ -273,7 +266,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -307,7 +300,6 @@
         <!-- GRUPO 3 - Endereço -->
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3>
                 <p id="al3"></p>
             </h3>
@@ -396,7 +388,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -418,7 +410,6 @@
         <!-- GRUPO 4 - Documentação -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3>
                 <p id="al4"></p>
             </h3>
@@ -519,7 +510,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -539,7 +530,6 @@
         <!-- GRUPO 5 - Dados de Saúde -->
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3>
                 <p id="al5"></p>
             </h3>
@@ -594,7 +584,7 @@
                                 <i class="fa fa-forward" aria-hidden="true"></i>&nbsp;Avançar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -613,7 +603,6 @@
         <!-- GRUPO 6 - Fardamento -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3>
                 <p id="al6"></p>
             </h3>
@@ -674,7 +663,7 @@
                                 <i class="fa fa-backward" aria-hidden="true"></i>&nbsp;Voltar</button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="AlterarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>

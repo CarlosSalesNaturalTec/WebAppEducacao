@@ -18,11 +18,10 @@ public partial class Alunos_Ficha : System.Web.UI.Page
 
         Literal1.Text = ScriptAux;
 
-
         idAux = Request.QueryString["v1"];
-        PreencheCampos(idAux);
         mostraCurso(InstID);
-
+        PreencheCampos(idAux);
+        
     }
 
     private void mostraCurso(string id)
@@ -59,7 +58,7 @@ public partial class Alunos_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-             "Nome," +
+            "Nome," +
             "format(Nascimento,'yyyy-MM-dd') as d1, " +
             "EstadoCivil," +
             "Pai," +
@@ -73,7 +72,7 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
-            "Curso," +
+            "ID_Curso," +
             "matricula," +
             "Endereco," +
             "Latitude," +

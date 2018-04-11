@@ -27,7 +27,8 @@ public partial class Alunos_Listagem : System.Web.UI.Page
             "<thead>" +
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
-            "<th>CELULAR</th>" +
+            "<th>CURSO</th>" +
+            "<th>MATRICULA</th>" +
             "<th>RESPONSÁVEL</th>" +
             "<th>TEL. RESPONSÁVEL</th>" +
             "</tr>" +
@@ -39,10 +40,12 @@ public partial class Alunos_Listagem : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string stringselect = "select ID_aluno, nome, celular1, Responsavel, ResponsavelTel  " +
+        string stringselect = "select tbl_Alunos.ID_aluno, tbl_Alunos.nome, Tbl_Cursos.nome as Curso, " +
+                "tbl_Alunos.matricula, tbl_Alunos.Responsavel, tbl_Alunos.ResponsavelTel  " +
                 "from tbl_Alunos " +
-                "where ID_Inst = " +IDInst +
-                " order by Nome"; 
+                "INNER JOIN Tbl_Cursos ON tbl_Alunos.ID_Curso = Tbl_Cursos.ID_Curs " +
+                "where tbl_Alunos.ID_Inst = " + IDInst +
+                " order by tbl_Alunos.Nome"; 
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -55,6 +58,7 @@ public partial class Alunos_Listagem : System.Web.UI.Page
             string Coluna2 = Convert.ToString(dados[2]);
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
+            string Coluna5 = Convert.ToString(dados[5]);
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Alunos_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
@@ -64,6 +68,7 @@ public partial class Alunos_Listagem : System.Web.UI.Page
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
+                "<td>" + Coluna5 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

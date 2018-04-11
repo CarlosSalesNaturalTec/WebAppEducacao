@@ -6,13 +6,14 @@ public partial class Turmas_Ficha : System.Web.UI.Page
 
     StringBuilder str = new StringBuilder();
     StringBuilder strCombo = new StringBuilder();
-    string idAux, idAux2;
+    string idAux, idAux2, idAux3;
 
     protected void Page_Load(object sender, EventArgs e)
     {
 
         idAux = Request.QueryString["v1"];          // ID da Turma
         idAux2 = Session["InstID"].ToString();      // id DA INSTITUIÇÃO;
+        idAux3 = "0";                               // ID do Curso
 
         // preenche combo Cursos
         string stringselect = "select ID_curs,nome from tbL_cursos where id_inst = " + idAux2 + " order by Nome";
@@ -25,10 +26,9 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         Literal_Salas.Text = strCombo.ToString();
 
         PreencheCampos(idAux);
-         mostrarAluno();
-         listaAluno(idAux);
+        mostrarAluno();
+        listaAluno(idAux);
     }
-
 
     private void Preenche_Combo(string string_select, string label)
     {
@@ -45,7 +45,6 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         }
         ConexaoBancoSQL.fecharConexao();
     }
-
 
     private void PreencheCampos(string ID)
     {
@@ -80,6 +79,8 @@ public partial class Turmas_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('input_curso').value = \"" + Convert.ToString(rcrdset[4]) + "\";";
             str.Append(ScriptDados);
 
+            idAux3 = Convert.ToString(rcrdset[4]);  // ID do Curso
+
             ScriptDados = "document.getElementById('input_sala').value = \"" + Convert.ToString(rcrdset[5]) + "\";";
             str.Append(ScriptDados);
 
@@ -91,7 +92,6 @@ public partial class Turmas_Ficha : System.Web.UI.Page
 
             ScriptDados = "document.getElementById('t2').innerHTML = \"" + Convert.ToString(rcrdset[0]) + "\";";
             str.Append(ScriptDados);
-
 
         }
         ConexaoBancoSQL.fecharConexao();
@@ -109,7 +109,9 @@ public partial class Turmas_Ficha : System.Web.UI.Page
         strInst.Clear();
         strInst.Append("<option value=\"0\"> </option>");
 
-        string strSelect = "select ID_Aluno, Nome from tbl_alunos";
+        string strSelect = "select ID_Aluno, Nome from tbl_alunos " +
+            "where ID_Inst = " + idAux2 +
+            " and ID_Curso = " + idAux3 ;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);

@@ -49,9 +49,9 @@
         <!-- GRUPO 1 - Dados Pessoais -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Solicitação de Matrícula -
-                <asp:Label ID="lbl_inst1" runat="server"></asp:Label>
-            </h3>
+            <h4><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solic. de Matrícula - Dados Pessoais -
+                <asp:Label ID="lbl_Aux" runat="server"></asp:Label>
+            </h4>
             <hr />
 
             <div class="w3-threequarter">
@@ -202,7 +202,7 @@
                             </button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -218,8 +218,9 @@
         <!-- GRUPO 2- Endereço -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solicitacão de Matrícula -
-                <asp:Label ID="lbl_inst2" runat="server"></asp:Label></h3>
+            <h4><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Solic. de Matrícula - Endereço - 
+                <asp:Label ID="lbl_Aux2" runat="server"></asp:Label>
+            </h4>
             <hr />
 
             <div class="w3-threequarter">
@@ -286,7 +287,7 @@
                             </button>
 
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="SalvarRegistro()">
-                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Finalizar&nbsp;
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Salvar&nbsp;
                             </button>
 
                             <i style="display: none" class="aguarde fa-2x fa fa-cog fa-spin fa-fw w3-text-green w3-right"></i>
@@ -312,7 +313,7 @@
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeSolicitacaoMatricula_Ficha.js"></script>
-    <script type="text/javascript" src="scripts/codeMatriculas_Solicita_Mapa.js"></script>
+    <script type="text/javascript" src="scripts/codeSolicitacaoMatriculas_Mapa.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhhdJ8S6LYpsu33sFG26cWSUN3V9Qrorw&libraries=places&callback=initMap" async defer></script>
 
 </body>

@@ -253,7 +253,7 @@
                          <div class="form-group">
                             <label for="input_matri" class="col-md-2 control-label">Matricula</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="input_matri">
+                                <input type="number" class="form-control" id="input_matri">
                             </div>
 
                         </div>

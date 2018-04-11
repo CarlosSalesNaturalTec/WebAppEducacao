@@ -85,17 +85,23 @@ public partial class SolicitacoesMatricula_Novo2 : System.Web.UI.Page
                 str.Append(ScriptDados);
             }
 
+            lbl_Aux.Text = Convert.ToString(rcrdset[1]);
+            lbl_Aux2.Text = Convert.ToString(rcrdset[1]);
+
             //ID do registro
             ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
         }
+
         ConexaoBancoSQL.fecharConexao();
 
         ScriptDados = "</script>";
         str.Append(ScriptDados);
 
         Literal1.Text = str.ToString();
+
+        
 
     }
 

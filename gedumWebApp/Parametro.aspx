@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="input_matricula" class="col-md-2 control-label">Matricula</label>
+                            <label for="input_matricula" class="col-md-2 control-label">Ultima Matricula</label>
                             <div class="col-md-2">
                                 <input type="number" class="form-control" id="input_matricula"/>
                             </div>

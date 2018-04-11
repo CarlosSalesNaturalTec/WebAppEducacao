@@ -747,7 +747,6 @@ public class WebService : System.Web.Services.WebService
     {
         string url;
         string strInsert = "INSERT INTO tbl_alunos (" +
-
             "Nome," +
             "Nascimento," +
             "EstadoCivil," +
@@ -762,7 +761,7 @@ public class WebService : System.Web.Services.WebService
             "TipoSanguinio," +
             "Deficiente," +
             "DeficienteTipo," +
-            "Curso," +
+            "ID_Curso," +
             "matricula," +
             "Endereco," +
             "Latitude," +
@@ -923,7 +922,7 @@ public class WebService : System.Web.Services.WebService
             "TipoSanguinio= '" + param11 + "'," +
             "Deficiente= '" + param12 + "'," +
             "DeficienteTipo= '" + param13 + "'," +
-            "Curso= '" + param14 + "'," +
+            "ID_Curso= '" + param14 + "'," +
             "matricula = '" + param15 + "'," +
             "Endereco= '" + param16 + "'," +
             "Latitude= '" + param17 + "'," +
@@ -2076,242 +2075,6 @@ public class WebService : System.Web.Services.WebService
 
 
 
-
-    [WebMethod]
-    public string Matriculas_Salvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
-        string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
-        string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
-        string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
-        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47)
-    {
-        string url;
-        #region String INSERT
-        string strInsert = "INSERT INTO tbl_matriculas_solicitacoes  (" +
-            "Nome," +
-            "Nascimento," +
-            "EstadoCivil," +
-            "Pai," +
-            "Mae," +
-            "Responsavel," +
-            "ResponsavelCPF," +
-            "ResponsavelTel," +
-            "Naturalidade," +
-            "Nacionalidade," +
-            "Etnia," +
-            "TipoSanguinio," +
-            "Deficiente," +
-            "DeficienteTipo," +
-            "Endereco," +
-            "Latitude," +
-            "Longitude," +
-            "Numero," +
-            "Bairro," +
-            "CEP," +
-            "Cidade," +
-            "UF," +
-            "Celular1," +
-            "Celular2," +
-            "TelFixo," +
-            "email," +
-            "PIS," +
-            "CPF," +
-            "RG," +
-            "RGEmissor," +
-            "RGEmissao," +
-            "CTPS," +
-            "CTPSserie," +
-            "CTPSEmissao," +
-            "Titulo," +
-            "Zona," +
-            "Secao," +
-            "CNH," +
-            "Passaporte," +
-            "CertNasc ," +
-            "Alergias," +
-            "AlergiasMed," +
-            "AcidenteAvisar," +
-            "CartaoSUS," +
-            "ID_Inst," +
-            "FotoDataURI," +
-            "ID_Curso," +
-            "Ano_Letivo," +
-            "Status_Solicita, " +
-            "Data_Solicita," +
-            "Matricula" +
-            ") " +
-            "VALUES (" +
-            "'" + param0 + "'," +
-            "'" + param1 + "'," +
-            "'" + param2 + "'," +
-            "'" + param3 + "'," +
-            "'" + param4 + "'," +
-            "'" + param5 + "'," +
-            "'" + param6 + "'," +
-            "'" + param7 + "'," +
-            "'" + param8 + "'," +
-            "'" + param9 + "'," +
-            "'" + param10 + "'," +
-            "'" + param11 + "'," +
-            "'" + param12 + "'," +
-            "'" + param13 + "'," +
-            "'" + param14 + "'," +
-            "'" + param15 + "'," +
-            "'" + param16 + "'," +
-            "'" + param17 + "'," +
-            "'" + param18 + "'," +
-            "'" + param19 + "'," +
-            "'" + param20 + "'," +
-            "'" + param21 + "'," +
-            "'" + param22 + "'," +
-            "'" + param23 + "'," +
-            "'" + param24 + "'," +
-            "'" + param25 + "'," +
-            "'" + param26 + "'," +
-            "'" + param27 + "'," +
-            "'" + param28 + "'," +
-            "'" + param29 + "'," +
-            "'" + param30 + "'," +
-            "'" + param31 + "'," +
-            "'" + param32 + "'," +
-            "'" + param33 + "'," +
-            "'" + param34 + "'," +
-            "'" + param35 + "'," +
-            "'" + param36 + "'," +
-            "'" + param37 + "'," +
-            "'" + param38 + "'," +
-            "'" + param39 + "'," +
-            "'" + param40 + "'," +
-            "'" + param41 + "'," +
-            "'" + param41 + "'," +
-            "'" + param43 + "'," +
-            "'" + param44 + "'," +
-            "'" + param45 + "'," +
-            "'" + param46 + "'," +
-            "'" + param47 + "'," +
-            "'Em Aberto'," +
-            "getdate()," +
-            "0" +
-            ")";
-        #endregion  
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Insert(strInsert);
-        ConexaoBancoSQL.fecharConexao();
-        if (inserir == true)
-        {
-            url = "Matriculas_Solicita_Listagem.aspx";
-        }
-        else
-        {
-            url = "Sorry.aspx";
-        }
-
-        return url;
-    }
-
-    [WebMethod]
-    public string Matriculas_Alterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7, string param8, string param9,
-        string param10, string param11, string param12, string param13, string param14, string param15, string param16, string param17, string param18, string param19,
-        string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
-        string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
-        string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53, string param54, string param55)
-    {
-        string url;
-        string strInsert = "update tbl_matriculas_solicitacoes set " +
-            "Nome = '" + param0 + "'," +
-            "Nascimento= '" + param1 + "'," +
-            "EstadoCivil= '" + param2 + "'," +
-            "Pai= '" + param3 + "'," +
-            "Mae= '" + param4 + "'," +
-            "Responsavel= '" + param5 + "'," +
-            "ResponsavelCPF= '" + param6 + "'," +
-            "ResponsavelTel= '" + param7 + "'," +
-            "Naturalidade= '" + param8 + "'," +
-            "Nacionalidade= '" + param9 + "'," +
-            "Etnia= '" + param10 + "'," +
-            "TipoSanguinio= '" + param11 + "'," +
-            "Deficiente= '" + param12 + "'," +
-            "DeficienteTipo= '" + param13 + "'," +
-            "Endereco= '" + param14 + "'," +
-            "Latitude= '" + param15 + "'," +
-            "Longitude= '" + param16 + "'," +
-            "Numero= '" + param17 + "'," +
-            "Bairro= '" + param18 + "'," +
-            "CEP= '" + param19 + "'," +
-            "Cidade= '" + param20 + "'," +
-            "UF= '" + param21 + "'," +
-            "Celular1= '" + param22 + "'," +
-            "Celular2= '" + param23 + "'," +
-            "TelFixo= '" + param24 + "'," +
-            "email= '" + param25 + "'," +
-            "PIS= '" + param26 + "'," +
-            "CPF= '" + param27 + "'," +
-            "RG= '" + param28 + "'," +
-            "RGEmissor= '" + param29 + "'," +
-            "RGEmissao= '" + param30 + "'," +
-            "CTPS= '" + param31 + "'," +
-            "CTPSserie= '" + param32 + "'," +
-            "CTPSEmissao= '" + param33 + "'," +
-            "Titulo= '" + param34 + "'," +
-            "Zona= '" + param35 + "'," +
-            "Secao= '" + param36 + "'," +
-            "CNH= '" + param37 + "'," +
-            "Passaporte= '" + param38 + "'," +
-            "CertNasc= '" + param39 + "'," +
-            "Alergias= '" + param40 + "'," +
-            "AlergiasMed= '" + param41 + "'," +
-            "AcidenteAvisar= '" + param42 + "'," +
-            "CartaoSUS= '" + param43 + "'," +
-            "FardaCamisa= '" + param44 + "'," +
-            "FardaCamiseta= '" + param45 + "'," +
-            "FardaCalca= '" + param46 + "'," +
-            "FardaSapato= '" + param47 + "'," +
-            "FardaBota= '" + param48 + "'," +
-            "FardaObs= '" + param49 + "'," +
-            "Data_Confirma= '" + param50 + "'," +
-            "Matricula= '" + param51 + "'," +
-            "Status_Solicita = '" + param52 + "'," +
-            "FotoDataURI= '" + param53 + "', " +
-            "ID_Curso = '" + param54 + "' " +
-            "WHERE ID_Solicita = " + param55;
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        bool inserir = operacao.Update(strInsert);
-        ConexaoBancoSQL.fecharConexao();
-        if (inserir == true)
-        {
-            url = "Matriculas_Solicita_Listagem.aspx";
-        }
-        else
-        {
-            url = "Sorry.aspx";
-        }
-
-        return url;
-    }
-
-    [WebMethod]
-    public string Matriculas_Excluir(string param1)
-    {
-        string url;
-
-        OperacaoBanco operacao3 = new OperacaoBanco();
-        Boolean deletar = operacao3.Delete("delete from tbl_matriculas_solicitacoes where ID_Solicita =" + param1);
-        ConexaoBancoSQL.fecharConexao();
-
-        if (deletar == true)
-        {
-            url = "Matriculas_Solicita_Listagem.aspx";
-        }
-        else
-        {
-            url = "Sorry.aspx";
-        }
-
-        return url;
-    }
-
     [WebMethod]
     public string ExcluiAluno(string param1)
     {
@@ -2561,6 +2324,76 @@ public class WebService : System.Web.Services.WebService
         return url;
 
     }
+
+    [WebMethod]
+    public string SolicitacoesMatriculas_Confirmar(string param1, string param2)
+    {
+        //param1 =ID da solictação de matricula
+        //param2 = ID da INstrituição
+
+        string url;
+
+        //obtem numero de matricula (parametros)
+        string strSelect = "select matricula from tbl_parametros where ID_inst = '" + param2 + "'";
+        string matAux = "0";
+        OperacaoBanco operacaoSelect = new OperacaoBanco();
+        SqlDataReader rcrdset = operacaoSelect.Select(strSelect);
+        while (rcrdset.Read())
+        {
+            matAux = Convert.ToString(rcrdset[0]);
+        }
+        ConexaoBancoSQL.fecharConexao();
+        int MatNova = Convert.ToInt32(matAux) + 1;
+
+        //insere em tabela de alunos
+        string strInsert = "INSERT INTO tbl_alunos (" +
+            "Nome, Nascimento, EstadoCivil, Pai, Mae, Responsavel, ResponsavelCPF, ResponsavelTel, ResponsavelEmail," +
+            "Naturalidade, Nacionalidade, Etnia, Deficiente, DeficienteTipo, Endereco, Latitude, Longitude, " +
+            "Numero, Bairro, CEP, Cidade, uf, TelFixo, ID_Inst, ID_Curso, matricula  " +
+            ") SELECT " +
+            "Nome, Nascimento, EstadoCivil, Pai, Mae, Responsavel, ResponsavelCPF, ResponsavelTel, ResponsavelEmail," +
+            "Naturalidade, Nacionalidade, Etnia, Deficiente, DeficienteTipo, Endereco, Latitude, Longitude, " +
+            "Numero, Bairro, CEP, Cidade, uf, TelFixo, ID_Inst, ID_Curso, '" + MatNova + "' " +
+            "FROM tbl_solicitacoes_matricula  " +
+            "WHERE ID_Solicita = " + param1;
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        bool inserir = operacao3.Insert(strInsert);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserir == true)
+        {
+            // apaga em tabela de solicitações de matriculas
+            OperacaoBanco operacao4 = new OperacaoBanco();
+            Boolean deletar = operacao3.Delete("delete from tbl_solicitacoes_matricula where ID_Solicita =" + param1);
+            ConexaoBancoSQL.fecharConexao();
+
+            if (deletar == true)
+            {
+                //altera parâmetro - numero de matricula sequnecial
+                OperacaoBanco operacao5 = new OperacaoBanco();
+                Boolean alterarMat = operacao5.Update("update tbl_parametros set matricula = '" + MatNova + "' " +
+                    "where ID_inst =" + param2);
+                ConexaoBancoSQL.fecharConexao();
+
+                url = "SolicitacoesMatriculas_Listagem.aspx";
+            }
+            else
+            {
+                url = "Sorry.aspx";
+            }
+
+            return url;
+        }
+        else
+        {
+            url = "Sorry.aspx";
+        }
+
+        return url;
+    }
+
+
+
 
 }
 

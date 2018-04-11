@@ -18,6 +18,9 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
 
         Literal1.Text = str.ToString();
 
+        //ID da instituição - Auxiliar
+        Literal2.Text = "<input id=\"IDInstAux\" type=\"hidden\" value= \"" + InstID + "\" />";
+
     }
 
     private void montaCabecalho()
@@ -26,7 +29,7 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover table-bordered \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>NASCIMENTO</th>" +
             "<th>CURSO</th>" +
             "<th>FILIAÇÃO - PAI</th>" +
@@ -44,7 +47,8 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
         string stringselect = "select ID_Solicita , tbl_solicitacoes_matricula.Nome, format(Nascimento,'dd/MM/yyyy') as Nasc , " +
             "Tbl_Cursos.Nome as Curso, Pai, Mae, format(SolicitacaoData,'dd/MM/yyyy') as Solicitacao " +
             "from tbl_solicitacoes_matricula " +
-            "INNER JOIN Tbl_Cursos ON tbl_solicitacoes_matricula.ID_Curso = Tbl_Cursos.ID_Curs "; 
+            "INNER JOIN Tbl_Cursos ON tbl_solicitacoes_matricula.ID_Curso = Tbl_Cursos.ID_Curs " +
+            "where tbl_solicitacoes_matricula.ID_Inst =" + InstID; 
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
@@ -62,9 +66,10 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='SolicitacoesMatriculas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+            string bt3 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' onclick='Confirmar(" + Coluna0 + ",\"" + Coluna1 +"\")'><i class='fa fa-check-square' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
-                "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
+                "<td>" + bt3 + bt1 + bt2 + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
@@ -86,4 +91,6 @@ public partial class SolicitacoesMatriculas_Listagem : System.Web.UI.Page
         string footer = "</tbody></table>";
         str.Append(footer);
     }
+
+    //
 }

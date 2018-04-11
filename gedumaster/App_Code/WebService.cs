@@ -80,7 +80,7 @@ public class WebService : System.Web.Services.WebService
         string url;
 
         OperacaoBanco operacao = new OperacaoBanco();
-        // <!--*******Customização*******-->
+
         bool inserir = operacao.Insert("INSERT INTO Tbl_Instituicao (Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, Investimento , " +
             "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
@@ -153,7 +153,36 @@ public class WebService : System.Web.Services.WebService
 
         if (inserir == true)
         {
-            url = "CAD_Instituicao_Listagem.aspx";    // <!--*******Customização*******-->
+
+            //obtem ID da instituicao recem cadastrada
+            string strSelect = "select ID_inst from Tbl_Instituicao " +
+                "where nome = '" + param0 + "' order by ID_inst";
+            string idAux = "0";
+            OperacaoBanco operacaoSelect = new OperacaoBanco();
+            SqlDataReader rcrdset = operacaoSelect.Select(strSelect);
+            while (rcrdset.Read())
+            {
+                idAux = Convert.ToString(rcrdset[0]);
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            //insere registro na tabela de parâmetros
+            OperacaoBanco operacaoInsert = new OperacaoBanco();
+            bool inserirParam = operacaoInsert.Insert("INSERT INTO tbl_parametros (ID_Inst, ano_letivo, matricula, permite_pre_mat) " +
+                "VALUES (" +
+                "'" + idAux + "'," +
+                "'2018'," +
+                "'0'," +
+                "'SIM')" );
+            if (inserirParam == true)
+            {
+                url = "CAD_Instituicao_Listagem.aspx";
+            } else
+            {
+                url = "CADSorry.aspx";
+            }
+            ConexaoBancoSQL.fecharConexao();
+
         }
         else
         {

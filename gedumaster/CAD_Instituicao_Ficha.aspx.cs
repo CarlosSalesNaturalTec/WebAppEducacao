@@ -24,7 +24,6 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         ScriptDados = "var x = document.getElementsByClassName('form-control');";
         str.Append(ScriptDados);
 
-        // <!--*******Customização. adicionar todos os campos, separados um em cada linha*******-->
         string stringSelect = "select Nome, Razao, CNPJ, IE, Cat_Adm , MEC_Cadastro, Investimento , " +
             "Endereco, Numero , Complemento , Bairro , CEP ,Cidade ,UF , Telefone , Celular , Fax , Zona, Email," +
             "Diretor , Admissao ," +
@@ -45,7 +44,7 @@ public partial class CAD_Instituicao_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 52; i++)  // <!--*******Customização*******--> Atenção para quantidade de campos. 
+            for (int i = 0; i < 52; i++)  
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);

@@ -49,39 +49,6 @@
                 </div>
             </div>
 
-            <!-- Alunos -->
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Alunos</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="SolicitacoesMatriculas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Solicitações de Matrícula</a>
-                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Alunos Matriculados</a>
-                    <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Boletins</a>
-                    <a href="Avaliacao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Avaliações</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Frequência</a>
-                    <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ocorrências</a>
-                    <a href="Atestados_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Atestados</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Histórico Escolar</a>
-                </div>
-            </div>
-
-            <!-- Matrículas 
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-calendar-check-o" aria-hidden="true"></i>&nbsp;Matrículas</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Matriculas_Solicita_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-calendar-check-o"></i>&nbsp;Solicitações</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-calendar-check-o"></i>&nbsp;Formulários</a>
-                </div>
-            </div>
-            -->
-            <!-- Biblioteca -->
-            <div class="w3-dropdown-hover w3-right">
-                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Biblioteca</button>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
-                    <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Empréstimos</a>
-                </div>
-            </div>
-
             <!-- Estoque -->
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp;Estoque</button>
@@ -101,6 +68,37 @@
                     <a href="Veiculos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Veículos</a>
                     <a href="Viagens_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Veículos - Controle de Viagens</a>
                     <a href="Visitas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-light-green"><i class="fa fa-list-alt"></i>&nbsp;Controle de Visitas</a>
+                </div>
+            </div>
+
+            <!-- Biblioteca -->
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;Biblioteca</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Livros_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Livros</a>
+                    <a href="Emprestimos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-book"></i>&nbsp;Empréstimos</a>
+                </div>
+            </div>
+
+            <!-- Alunos -->
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Alunos</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Boletins</a>
+                    <a href="Avaliacao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Avaliações</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Frequência</a>
+                    <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Ocorrências</a>
+                    <a href="Atestados_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Atestados</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Histórico Escolar</a>
+                </div>
+            </div>
+
+             <!-- Matriculas -->
+            <div class="w3-dropdown-hover w3-right">
+                <button class="w3-btn w3-hover-green"><i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp;Matrículas</button>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="SolicitacoesMatriculas_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Solicitações de Matrícula</a>
+                    <a href="Alunos_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-address-card-o"></i>&nbsp;Alunos Matriculados</a>
                 </div>
             </div>
 
