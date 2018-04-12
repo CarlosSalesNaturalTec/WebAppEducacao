@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Web.Script.Serialization;
+using System.Web.Script.Services;
 using System.Web.Services;
 using System.Data.SqlClient;
 
@@ -2394,12 +2397,14 @@ public class WebService : System.Web.Services.WebService
 
      
 
+
     [WebMethod]
-    public string Lancar_Frequencia_Aula(string param1, string param2, string param3)
+    public string Frequencia_Aula_Lancar(string param1, string param2, string param3, string param4)
     {
         //param1 = ID da Turma
         //param2 = ID da Disciplina
         //param3 = data da aula
+        //param4 = observações
 
         bool AulaExiste=false;
         string url="";
@@ -2421,11 +2426,12 @@ public class WebService : System.Web.Services.WebService
         if ( !AulaExiste )
         {
             OperacaoBanco operacaoInst2 = new OperacaoBanco();
-            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula  ) " +
+            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula,Observ   ) " +
                "VALUES (" +
                "'" + param1 + "'," +
                "'" + param2 + "'," +
-               "'" + param3 + "')"
+               "'" + param3 + "'," +
+               "'" + param4 + "')"
                );
             ConexaoBancoSQL.fecharConexao();
 
@@ -2442,6 +2448,59 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string Frequencia_Aulas_Listar(string param1, string param2)
+    {
+        // TODAS AS AULAS DA TURMA/DISCIPLINA
+        string Resultado = "";
+        int totalRegistros = 0;
+        List<Object> resultado = new List<object>();
+
+        try
+        {
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            SqlDataReader dados1 = operacao1.Select("select ID_Aula, format(Data_Aula,'dd/MM/yyyy') as d1 , Observ  "
+                    + "FROM Tbl_Alunos_Frequencia_Aulas "
+                    + "where ID_Turma ='" + param1 + "' "
+                    + "and ID_Disc = '" + param2 + "'");
+
+            while (dados1.Read())
+            {
+                resultado.Add(new
+                {
+                    ID_Aula = dados1[0].ToString(),
+                    Data_Aula = dados1[1].ToString(),
+                    Observ = dados1[2].ToString()
+                });
+                totalRegistros += 1;
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            if (totalRegistros == 0)
+            {
+                resultado.Add(new
+                {
+                    ID_Aula = "9999",
+                    Data_Aula = "X",
+                    Observ = "X"
+                });
+            }
+
+            //O JavaScriptSerializer vai fazer o web service retornar JSON
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(resultado);
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA";
+        }
+
+        return Resultado;
+    }
+
 }
 
 public class ConexaoBancoSQL
