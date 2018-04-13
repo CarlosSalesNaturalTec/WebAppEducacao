@@ -153,7 +153,7 @@ function openLink(evt, animName) {
     var i, x, tablinks;
     x = document.getElementsByClassName("grupo");
     for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+        x[i].style.display = "none";.
     }
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < x.length; i++) {
@@ -164,20 +164,25 @@ function openLink(evt, animName) {
 }
 //Menu
 
-function IncluirAluno(){
+function IncluirAluno() {
+
     if (document.getElementById('input_aluno').value == " ") {
-        alert("Informe Nome do Professor");
+        alert("Informe Nome do Aluno");
         document.getElementById("input_aluno").focus();
         return;
     }
 
-    var v1 = document.getElementById('IDHidden').value; // id_turma
-    var v2 = document.getElementById("input_aluno").value;  // id_aluno
-
+    //parametros
+    var strLine = "";
+    var v1 = document.getElementById("IDHidden").value;
+    strLine = strLine + "param1" + ":'" + v1 + "',";
+    v1 = document.getElementById("input_aluno").value;
+    strLine = strLine + "param2" + ":'" + v1 + "'";
+    
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/IncluiAluno",
-        data: '{param1: "' + v1 + '", param2: "' + v2 + '"}',
+        url: "WebService.asmx/AlunoEntrarTurma",
+        data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -217,7 +222,7 @@ function ExcluirAluno(r, USerID) {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/ExcluiAluno",  //<!--*******Customização*******-->
+        url: "WebService.asmx/AlunoSairdaTurma", 
         data: '{param1: "' + USerID + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",

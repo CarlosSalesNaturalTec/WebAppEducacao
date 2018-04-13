@@ -130,11 +130,9 @@ public partial class Turmas_Ficha : System.Web.UI.Page
     private void listaAluno(string ID)
     {
 
-        string stringSelect = "select tbl_turmas_alunos.id_ta, tbl_alunos.Nome" +
-            " from tbl_turmas_alunos " +
-            " inner join tbl_alunos on tbl_turmas_alunos.id_aluno = tbl_alunos.ID_Aluno " +
-            " where tbl_turmas_alunos.id_turma = " + ID;
-
+        string stringSelect = "select ID_Aluno, Nome " +
+            " from tbl_alunos " +
+            " where id_turma = " + ID;
 
         OperacaoBanco operacaoUsers = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
@@ -154,7 +152,6 @@ public partial class Turmas_Ficha : System.Web.UI.Page
 
             ScriptDados = "<td>" + bt1 + Convert.ToString(rcrdsetUsers[1]) + "</td>";
             str.Append(ScriptDados);
-
 
             ScriptDados = "</tr>";
             str.Append(ScriptDados);

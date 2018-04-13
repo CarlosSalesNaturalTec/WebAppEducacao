@@ -38,6 +38,7 @@ function verificar_aulas() {
             for (var i = 0; i < itens.length; i++) {
                 adiciona_Linha(itens[i].ID_Aula, itens[i].Data_Aula, itens[i].Observ);
             }
+            formatar_Tabela();
             UI_Aguardar_Concluido();
         },
         failure: function (response) {
@@ -62,7 +63,7 @@ function Limpar_Tabela() {
     var cell1 = row.insertCell(1);
     var cell2 = row.insertCell(2);
 
-    cell0.innerHTML = "<b>Cod.</b>";
+    cell0.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comandos</b>";
     cell1.innerHTML = "<b>Data</b>";
     cell2.innerHTML = "<b>Observações</b>";
 
@@ -70,19 +71,27 @@ function Limpar_Tabela() {
 
 function adiciona_Linha(AulaID, AulaData, AulaObs) {
 
-    var table = document.getElementById("tabela_aulas");
+    var idTurma = document.getElementById("select_Turma").value;
 
+    var table = document.getElementById("tabela_aulas");
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
 
-    cell1.innerHTML = AulaID;
+    var bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Alunos_Frequencia_Presencas.aspx?v1=" + AulaID +
+        "&v2=" + idTurma + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
+    var bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick=''><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+    cell1.innerHTML = bt1 + bt2;
     cell2.innerHTML = AulaData;
     cell3.innerHTML = AulaObs;
 
 }
 
+function formatar_Tabela() {
+    $("#tabela_aulas").addClass("table table-striped table-hover");
+}
 
 
 function Lancar_aulas() {
@@ -124,9 +133,10 @@ function Lancar_aulas_Confirma() {
         dataType: "json",
         success: function (response) {
 
-            //alert(response.d);
-
+            Limpar_Tabela();
+            verificar_aulas();
             UI_Aguardar_Concluido();
+
             document.getElementById("DivModal").style.display = "none";
 
         },
@@ -160,4 +170,31 @@ function UI_Aguardar_Concluido() {
 
     document.getElementById("lancar_Aula").disabled = false;
     document.getElementById("lancar_Aula").style.cursor = "default";
+}
+
+function paginacao() {
+
+    $(document).ready(function () {
+        $('#tabela_aulas').DataTable({
+            "order": [[0, "desc"]],
+            "language": {
+                "emptyTable": "Sem dados",
+                "info": "Exibindo _START_ a _END_ de _TOTAL_ registros",
+                "infoEmpty": "Exibindo 0 a 0 de 0 registros",
+                "infoFiltered": "(Filtrado de _MAX_ registros)",
+                "lengthMenu": "Exibindo _MENU_ registros",
+                "loadingRecords": "Carregando...",
+                "processing": "Processando...",
+                "search": "Pesquisa:",
+                "zeroRecords": "Sem Registros",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Próximo",
+                    "previous": "Anterior"
+                }
+            }
+        });
+    });
+
 }

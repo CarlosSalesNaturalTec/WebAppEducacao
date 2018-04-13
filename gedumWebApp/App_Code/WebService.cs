@@ -2078,26 +2078,7 @@ public class WebService : System.Web.Services.WebService
 
 
 
-    [WebMethod]
-    public string ExcluiAluno(string param1)
-    {
-        string url;
-
-        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_turmas_alunos where id_ta =" + param1);
-        ConexaoBancoSQL.fecharConexao();
-
-        if (deletarUser == true)
-        {
-            url = "OK";  // <!--*******Customização*******-->
-        }
-        else
-        {
-            url = "NÃO FOI POSSIVEL EXCLUIR O ALUNO";
-        }
-
-        return url;
-    }
+  
 
     [WebMethod]
     public string ExcluirDisc(string param1)
@@ -2142,26 +2123,45 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string IncluiAluno(string param1, string param2)
+    public string AlunoEntrarTurma(string param1, string param2)
     {
         string url;
 
         OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO tbl_turmas_alunos (id_turma, id_aluno) " +
-           "VALUES (" +
-           "'" + param1 + "'," +
-           "'" + param2 + "')"
-           );
+        bool alterarTurma = operacaoInst2.Update("update tbl_alunos set " +
+           "ID_Turma = '" + param1 + "' " +
+           "where ID_aluno= '" + param2 + "'");
 
         ConexaoBancoSQL.fecharConexao();
 
-        if (inserirUser == true)
+        if (alterarTurma == true)
         {
             url = "OK";
         }
         else
         {
             url = "NÃO FOI POSSIVEL INCLUIR O ALUNO";
+        }
+
+        return url;
+    }
+
+    [WebMethod]
+    public string AlunoSairdaTurma(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        bool AlunoTurmaSair = operacaoDelUSer.Update("Update tbl_alunos set ID_Turma = 0 where ID_Aluno =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (AlunoTurmaSair == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR O ALUNO";
         }
 
         return url;
@@ -2407,7 +2407,7 @@ public class WebService : System.Web.Services.WebService
         //param4 = observações
 
         bool AulaExiste=false;
-        string url="";
+        string retorno="";
 
         //verifica se já foi gerada Aula em tabela de frequencias_aulas
         string strSelect = "select ID_Aula from Tbl_Alunos_Frequencia_Aulas " +
@@ -2421,7 +2421,7 @@ public class WebService : System.Web.Services.WebService
             AulaExiste = true;
         }
         ConexaoBancoSQL.fecharConexao();
-
+        
         // Insere aula caso não exista
         if ( !AulaExiste )
         {
@@ -2437,16 +2437,16 @@ public class WebService : System.Web.Services.WebService
 
             if (inserirUser == true)
             {
-                url = "Aula Cadastrada com Sucesso";
+                retorno = "Aula Cadastrada com Sucesso";
             }
             else
             {
-                url = "Aula Não Cadastrada";
+                retorno = "Aula Não Cadastrada";
             }
 
         }
 
-        return url;
+        return retorno;
     }
 
     [WebMethod]
