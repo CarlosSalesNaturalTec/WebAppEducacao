@@ -2078,7 +2078,7 @@ public class WebService : System.Web.Services.WebService
 
 
 
-  
+
 
     [WebMethod]
     public string ExcluirDisc(string param1)
@@ -2310,7 +2310,7 @@ public class WebService : System.Web.Services.WebService
             "CEP= '" + param20 + "'," +
             "Cidade= '" + param21 + "'," +
             "UF= '" + param22 + "'," +
-            "TelFixo= '" + param23 + "' " + 
+            "TelFixo= '" + param23 + "' " +
             "where ID_Solicita = " + param24);
 
         ConexaoBancoSQL.fecharConexao();
@@ -2395,7 +2395,7 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-     
+
 
 
     [WebMethod]
@@ -2406,14 +2406,14 @@ public class WebService : System.Web.Services.WebService
         //param3 = data da aula
         //param4 = observações
 
-        bool AulaExiste=false;
-        string retorno="";
+        bool AulaExiste = false;
+        string retorno = "";
 
         //verifica se já foi gerada Aula em tabela de frequencias_aulas
         string strSelect = "select ID_Aula from Tbl_Alunos_Frequencia_Aulas " +
             "where ID_Turma = '" + param1 + "' " +
             "and ID_Disc = '" + param2 + "' " +
-            "and Data_Aula = '" + param3 + "' " ;
+            "and Data_Aula = '" + param3 + "' ";
         OperacaoBanco operacaoSelect = new OperacaoBanco();
         SqlDataReader rcrdset = operacaoSelect.Select(strSelect);
         while (rcrdset.Read())
@@ -2421,9 +2421,9 @@ public class WebService : System.Web.Services.WebService
             AulaExiste = true;
         }
         ConexaoBancoSQL.fecharConexao();
-        
+
         // Insere aula caso não exista
-        if ( !AulaExiste )
+        if (!AulaExiste)
         {
             OperacaoBanco operacaoInst2 = new OperacaoBanco();
             Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula,Observ   ) " +
@@ -2499,6 +2499,57 @@ public class WebService : System.Web.Services.WebService
         }
 
         return Resultado;
+    }
+
+    [WebMethod]
+    public string Frequencia_Aluno_Lancar(string param1, string param2, string param3)
+    {
+        //param1 = ID da Aula
+        //param2 = ID do Aluno
+        //param3 = status: 1-presente  0-ausente
+
+        string retorno = "";
+
+        OperacaoBanco operacaoInst2 = new OperacaoBanco();
+        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Alunos (ID_Aula, ID_Aluno, Presente ) " +
+           "VALUES (" +
+           "'" + param1 + "'," +
+           "'" + param2 + "'," +
+           "'" + param3 + "')"
+           );
+        ConexaoBancoSQL.fecharConexao();
+
+        if (inserirUser == true)
+        {
+            retorno = "Status de frequencia Cadastrada com Sucesso";
+        }
+        else
+        {
+            retorno = "Não Cadastrada";
+        }
+
+        return retorno;
+    }
+
+    [WebMethod]
+    public string Frequencia_Aluno_Lancar_Excluir(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Alunos_Frequencia_Alunos where ID_Freq =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";  
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
     }
 
 }

@@ -6,7 +6,7 @@
 
 <head runat="server">
 
-    <title>Controle de Frequência - Alunos Presentes</title>
+    <title>Controle de Frequência - Alunos</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -28,7 +28,7 @@
 </head>
 <body>
     <div class="col-md-8">
-        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controle de Frequência - Alunos Presentes</h3>
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controle de Frequência - <asp:Literal ID="Literal1" runat="server"></asp:Literal></h3>
     </div>
 
     <!-- Filtro -->
@@ -47,14 +47,14 @@
 
                     <div class="col-md-2">
                         <button id="bt_Presente" type="button" class="w3-btn w3-round w3-border w3-green w3-block"
-                            onclick="">
-                            <i class="fa fa-search"></i>&nbsp;Presente</button>
+                            onclick="IncluirAluno('1')">
+                            <i class="fa fa-plus"></i>&nbsp;Presente</button>
                     </div>
 
                     <div class="col-md-2">
                         <button id="bt_ausente" type="button" class="w3-btn w3-round w3-border w3-green w3-block"
-                            onclick="">
-                            <i class="fa fa-plus"></i>&nbsp;Ausente</button>
+                            onclick="IncluirAluno('0')">
+                            <i class="fa fa-minus"></i>&nbsp;Ausente</button>
                     </div>
 
                 </div>
@@ -67,17 +67,16 @@
 
     <!-- Planilha Alunos Presentes/Ausentes-->
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray w3-small" style="margin-left: 2%; margin-right: 2%">
-        <table id="tabela_alunos" style="width: 100%;" class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Aluno</th>
-                    <th>Presença</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <asp:Literal ID="Literal3" runat="server"></asp:Literal>
     </div>
-    <!-- Planilha  Aulas -->
+
+    <!-- auxiliares -->
+    <input id="IDAuxHidden" type="hidden" />
+    <asp:Literal ID="Literal2" runat="server"></asp:Literal>
+    
+
+    <!-- Scripts Diversos  -->
+    <script type="text/javascript" src="Scripts/codeAlunos_Frequencia.js"></script>
 
 </body>
 </html>

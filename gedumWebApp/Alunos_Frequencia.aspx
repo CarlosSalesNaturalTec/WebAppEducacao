@@ -6,7 +6,7 @@
 
 <head runat="server">
 
-    <title>Controle de Frequência</title>
+    <title>Controle de Frequência - Aulas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
