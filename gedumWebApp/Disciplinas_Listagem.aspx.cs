@@ -26,6 +26,7 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DISCIPLINA</th>" +
             "<th>OBS</th>" +
+            "<th>ID_DISC.</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -48,14 +49,16 @@ public partial class Disciplinas_Listagem : System.Web.UI.Page
         {
             string Coluna0 = Convert.ToString(dados[0]); //id       
             string Coluna1 = Convert.ToString(dados[1]);  
-            string Coluna2 = Convert.ToString(dados[2]);             
+            string Coluna2 = Convert.ToString(dados[2]);
+            string Coluna3 = Convert.ToString(dados[0]);
 
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Disciplinas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
                 "<td>" + bt1 + bt2 + Coluna1 + "</td>" +
-                "<td>" + Coluna2 + "</td>" + 
+                "<td>" + Coluna2 + "</td>" +
+                "<td>" + Coluna3 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

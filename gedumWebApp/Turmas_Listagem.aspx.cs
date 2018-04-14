@@ -25,15 +25,15 @@ public partial class Turmas_Listagem : System.Web.UI.Page
 
     private void montaCabecalho()
     {
-        // <!--*******Customização*******-->
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TURMA</th>" +
+            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TURMA</th>" +
             "<th>TURNO</th>" +
             "<th>TIPO ATENDIMENTO</th>" +
             "<th>SALA</th>" +
             "<th>CURSO</th>" +
+            "<th>ID_TURMA</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -61,8 +61,8 @@ public partial class Turmas_Listagem : System.Web.UI.Page
             string Coluna3 = Convert.ToString(dados[3]);
             string Coluna4 = Convert.ToString(dados[4]);
             string Coluna5 = Convert.ToString(dados[5]);
+            string Coluna6 = Convert.ToString(dados[0]);
 
-            // <!--*******Customização*******-->
             string bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Turmas_Ficha.aspx?v1=" + Coluna0 + "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
             string bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Excluir(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
@@ -72,6 +72,7 @@ public partial class Turmas_Listagem : System.Web.UI.Page
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
                 "<td>" + Coluna5 + "</td>" +
+                "<td>" + Coluna6 + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);

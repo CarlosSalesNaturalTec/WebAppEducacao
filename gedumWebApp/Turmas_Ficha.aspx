@@ -211,18 +211,12 @@
                 </div>
             </div>
         </div>
-    </div>
-
-   
-
-
-        
+    </div>      
 
     <!-- auxiliares -->
     <input id="IDHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     
-
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeTurmas_Novo.js"></script>
 

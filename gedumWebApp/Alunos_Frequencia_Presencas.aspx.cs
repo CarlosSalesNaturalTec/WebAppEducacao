@@ -35,5 +35,4 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         Literal_Aluno.Text = strInst.ToString();
     }
 
-
 }

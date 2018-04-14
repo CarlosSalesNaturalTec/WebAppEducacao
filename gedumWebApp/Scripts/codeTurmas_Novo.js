@@ -129,7 +129,6 @@ function AlterarRegistro() {
     });
 }
 
-
 function cancelar() {
     var linkurl = "Turmas_Listagem.aspx";   
     window.location.href = linkurl;
@@ -148,12 +147,12 @@ function UIAguardar() {
         x[i].style.display = "block";
     }
 }
-//Menu
+
 function openLink(evt, animName) {
     var i, x, tablinks;
     x = document.getElementsByClassName("grupo");
     for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";.
+        x[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < x.length; i++) {
@@ -162,7 +161,6 @@ function openLink(evt, animName) {
     document.getElementById(animName).style.display = "block";
     evt.currentTarget.className += " w3-blue";
 }
-//Menu
 
 function IncluirAluno() {
 
@@ -195,7 +193,6 @@ function IncluirAluno() {
 }
 
 function insertLinha() {
-
 
     var e = document.getElementById("input_aluno");
     var v5 = e.options[e.selectedIndex].value;

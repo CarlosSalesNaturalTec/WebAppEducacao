@@ -28,7 +28,7 @@ public partial class Alunos_Listagem : System.Web.UI.Page
             "<tr>" +
             "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOME</th>" +
             "<th>CURSO</th>" +
-            "<th>MATRICULA</th>" +
+            "<th>ID_TURMA</th>" +
             "<th>RESPONSÁVEL</th>" +
             "<th>TEL. RESPONSÁVEL</th>" +
             "</tr>" +
@@ -41,7 +41,7 @@ public partial class Alunos_Listagem : System.Web.UI.Page
     private void dadosCorpo()
     {
         string stringselect = "select tbl_Alunos.ID_aluno, tbl_Alunos.nome, Tbl_Cursos.nome as Curso, " +
-                "tbl_Alunos.matricula, tbl_Alunos.Responsavel, tbl_Alunos.ResponsavelTel  " +
+                "tbl_Alunos.id_tURMA, tbl_Alunos.Responsavel, tbl_Alunos.ResponsavelTel  " +
                 "from tbl_Alunos " +
                 "INNER JOIN Tbl_Cursos ON tbl_Alunos.ID_Curso = Tbl_Cursos.ID_Curs " +
                 "where tbl_Alunos.ID_Inst = " + IDInst +
