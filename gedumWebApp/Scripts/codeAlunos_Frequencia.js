@@ -204,7 +204,7 @@ function insertLinha(statusPresenca) {
     var col1 = e.options[e.selectedIndex].text;
     var col2 = statusPresenca;
 
-    var table = document.getElementById("tabela_alunos");
+    var table = document.getElementById("tabela");
 
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
@@ -233,7 +233,7 @@ function ExcluirAluno(r, USerID) {
         success: function (response) {
             // excluir linha do Table
             var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("tabela_alunos").deleteRow(i);
+            document.getElementById("tabela").deleteRow(i);
         },
         failure: function (response) {
             alert(response.d);

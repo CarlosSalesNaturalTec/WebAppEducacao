@@ -70,18 +70,31 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = operacao.Select(stringselect);
 
+        string Coluna1 = "", Coluna2="", Coluna2a="";
+
         while (dados.Read())
         {
             string Coluna0 = Convert.ToString(dados[0]); //id 
 
-            string Coluna1 = Convert.ToString(dados[1]);
-            string Coluna2 = Convert.ToString(dados[2]);
+            Coluna1 = Convert.ToString(dados[1]);
+            Coluna2 = Convert.ToString(dados[2]);
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirAluno(" + Coluna0 + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+            if (Coluna2 == "True")
+            {
+                Coluna2a = "Presente";
+            }
+            else
+            {
+                Coluna2a = "Ausente";
+            }
+
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirAluno(this," +
+                Convert.ToString(dados[0]) +
+                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
 
             string stringcomaspas = "<tr>" +
-                "<td>" + Coluna1 + "</td>" +
-                "<td>" + Coluna2 + "</td>" +
+                "<td>" + bt1 + Coluna1 + "</td>" +
+                "<td>" + Coluna2a + "</td>" +
                 "</tr>";
 
             str.Append(stringcomaspas);
