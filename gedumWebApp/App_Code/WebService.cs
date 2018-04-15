@@ -2502,55 +2502,79 @@ public class WebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string Frequencia_Aluno_Lancar(string param1, string param2, string param3)
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string Frequencia_Aulas_Listar_Alunos(string param1)
     {
-        //param1 = ID da Aula
-        //param2 = ID do Aluno
-        //param3 = status: 1-presente  0-ausente
+        // TODAS os alunos da turma
+        string Resultado = "";
+        int totalRegistros = 0;
+        List<Object> resultado = new List<object>();
 
-        string retorno = "";
-
-        OperacaoBanco operacaoInst2 = new OperacaoBanco();
-        Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Alunos (ID_Aula, ID_Aluno, Presente ) " +
-           "VALUES (" +
-           "'" + param1 + "'," +
-           "'" + param2 + "'," +
-           "'" + param3 + "')"
-           );
-        ConexaoBancoSQL.fecharConexao();
-
-        if (inserirUser == true)
+        try
         {
-            retorno = "Status de frequencia Cadastrada com Sucesso";
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            SqlDataReader dados1 = operacao1.Select("select ID_Aluno "
+                    + "FROM Tbl_Alunos "
+                    + "where ID_Turma ='" + param1 + "'");
+
+            while (dados1.Read())
+            {
+                resultado.Add(new
+                {
+                    ID_Aluno = dados1[0].ToString()
+                });
+                totalRegistros += 1;
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            if (totalRegistros == 0)
+            {
+                resultado.Add(new
+                {
+                    ID_Aluno = "9999"
+                });
+            }
+
+            //O JavaScriptSerializer vai fazer o web service retornar JSON
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(resultado);
+
         }
-        else
+        catch (Exception)
         {
-            retorno = "Não Cadastrada";
+            Resultado = "FALHA";
         }
 
-        return retorno;
+        return Resultado;
     }
 
     [WebMethod]
-    public string Frequencia_Aluno_Lancar_Excluir(string param1)
+    public string Frequencia_Aulas_Excluir(string param1)
     {
         string url;
 
-        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from Tbl_Alunos_Frequencia_Alunos where ID_Freq =" + param1);
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        Boolean deletar = operacao3.Delete("delete from Tbl_Alunos_Frequencia_Aulas where ID_Aula =" + param1);
         ConexaoBancoSQL.fecharConexao();
 
-        if (deletarUser == true)
+        if (deletar == true)
         {
-            url = "OK";  
+            //Apagar registros filhos
+            operacao3 = new OperacaoBanco();
+            deletar = operacao3.Delete("delete from Tbl_Alunos_Frequencia_Alunos where ID_Aula =" + param1);
+            ConexaoBancoSQL.fecharConexao();
+
+            url = "SolicitacoesMatriculas_Listagem.aspx";
         }
         else
         {
-            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+            url = "Sorry.aspx";
         }
 
         return url;
     }
+
+   
 
 }
 

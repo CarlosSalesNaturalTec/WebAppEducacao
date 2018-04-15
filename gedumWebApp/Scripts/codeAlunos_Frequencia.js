@@ -62,7 +62,7 @@ function Limpar_Tabela() {
     var cell1 = row.insertCell(1);
     var cell2 = row.insertCell(2);
 
-    cell0.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comandos</b>";
+    cell0.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comandos</b>";
     cell1.innerHTML = "<b>Data</b>";
     cell2.innerHTML = "<b>Observações</b>";
 
@@ -87,13 +87,17 @@ function adiciona_Linha(AulaID, AulaData, AulaObs) {
     var bt2 = "";
 
     if (AulaID != 9999) {
+
         bt1 = "<a class='w3-btn w3-round w3-hover-blue w3-text-green' href='Alunos_Frequencia_Presencas.aspx"+
             "?v1=" + AulaID +
             "&v2=" + idTurma +
             "&v3=" + nomeTurma +
             "&v4=" + nomeDisc +
+            "&v5=" + AulaData +
+            "&v6=" + AulaObs +
             "'><i class='fa fa-id-card-o' aria-hidden='true'></i></a>";
-        bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick=''><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
+        bt2 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='Lancar_aulas_Excluir(this," + AulaID + ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
     }
 
     cell1.innerHTML = bt1 + bt2;
@@ -105,6 +109,7 @@ function adiciona_Linha(AulaID, AulaData, AulaObs) {
 function formatar_Tabela() {
     $("#tabela_aulas").addClass("table table-striped table-hover");
 }
+
 
 
 function Lancar_aulas() {
@@ -161,86 +166,28 @@ function Lancar_aulas_Confirma() {
 
 }
 
+function Lancar_aulas_Excluir(r, USerID) {
 
-
-function IncluirAluno(statusAula) {
-
-    if (document.getElementById('select_Aluno').value == " ") {
-        alert("Selecione o Aluno");
-        document.getElementById("select_Aluno").focus();
-        return;
-    }
-
-    //parametros
-    var strLine = "";
-
-    var v1 = document.getElementById("IDAuxHidden").value;
-    strLine = strLine + "param1" + ":'" + v1 + "',";                // ID da Aula
-
-    v1 = document.getElementById("select_Aluno").value;
-    strLine = strLine + "param2" + ":'" + v1 + "',";                // ID do ALuno
-
-    strLine = strLine + "param3" + ":'" + statusAula + "'";         // 1-Presente ou 0-Ausente
-
-    $.ajax({
-        type: "POST",
-        url: "WebService.asmx/Frequencia_Aluno_Lancar",
-        data: '{' + strLine + '}',
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (response) {
-            insertLinha(statusAula);
-        },
-        failure: function (response) {
-            alert(response.d);
-        }
-    });
-}
-
-function insertLinha(statusPresenca) {
-
-    var e = document.getElementById("select_Aluno");
-    var v5 = e.options[e.selectedIndex].value;
-    var col1 = e.options[e.selectedIndex].text;
-    var col2 = statusPresenca;
-
-    var table = document.getElementById("tabela");
-
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-
-    cell1.innerHTML = col1;
-    cell2.innerHTML = col2;
-
-    document.getElementById('input_aluno').focus();
-
-}
-
-function ExcluirAluno(r, USerID) {
-
-    var conf = confirm("Confirma Exclusão do Status de Presença?");
+    var conf = confirm("Confirma Exclusão do Aula?");
     if (conf == false) {
         return;
     }
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/Frequencia_Aluno_Lancar_Excluir",
+        url: "WebService.asmx/Frequencia_Aulas_Excluir",
         data: '{param1: "' + USerID + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
             // excluir linha do Table
             var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("tabela").deleteRow(i);
+            document.getElementById("tabela_aulas").deleteRow(i);
         },
         failure: function (response) {
             alert(response.d);
         }
     });
-
-
 }
 
 
@@ -292,4 +239,40 @@ function paginacao() {
         });
     });
 
+}
+
+
+
+function IniciarFrequencias() {
+
+    //parametros
+    var strLine = "";
+    var v1 = document.getElementById("IDAuxHidden2").value;
+    strLine = strLine + "param1" + ":'" + v1 + "'";
+
+    // Aguarde
+    UI_Aguardar();
+
+    $.ajax({
+        type: "POST",
+        url: "WebService.asmx/Frequencia_Aulas_Listar_Alunos",
+        data: '{' + strLine + '}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data, status) {
+            var itens = $.parseJSON(data.d);
+            for (var i = 0; i < itens.length; i++) {
+                //adiciona_Linha(itens[i].ID_Aula, itens[i].Data_Aula, itens[i].Observ);
+
+            }
+        },
+        failure: function (response) {
+            alert('Não foi possível carregar itens');
+        }
+    });
+
+}
+
+function IniciarFrequencias_Indiv() {
+    //parei aqui
 }

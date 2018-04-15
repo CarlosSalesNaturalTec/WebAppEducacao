@@ -8,42 +8,22 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        IDAula = Request.QueryString["v1"];  //ID da Aula
-        IDturma = Request.QueryString["v2"];  //ID da Turma
+        IDAula = Request.QueryString["v1"];             //ID da Aula
+        IDturma = Request.QueryString["v2"];            //ID da Turma
 
-        string nomeTurma = Request.QueryString["v3"];  //nome da Turma
-        string nomeDisc = Request.QueryString["v4"];  //nome da disciplina
-        Literal1.Text = nomeTurma + " / " + nomeDisc;
+        string nomeTurma = Request.QueryString["v3"];   //nome da Turma
+        string nomeDisc = Request.QueryString["v4"];    //nome da disciplina
+        string AulaData = Request.QueryString["v5"];    //data da Aula
+        string AulaObs = Request.QueryString["v6"];     //observaçoes
 
-        Listar_Alunos(IDturma);
+        Literal1.Text = nomeTurma + " - " + nomeDisc+ " - " + AulaData + " " + AulaObs;
 
         montaCabecalho();
         dadosCorpo();
         montaRodape();
 
-        PreencheIDAula(IDAula);
+        PreencheCampos(IDAula,IDturma);
 
-    }
-
-    private void Listar_Alunos(string idAux)
-    {
-
-        str.Clear();
-        string strSelect = "select ID_Aluno, Nome " +
-            "from tbl_Alunos " +
-            "where ID_turma = " + idAux;
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
-
-        while (dados.Read())
-        {
-            str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-
-        }
-        ConexaoBancoSQL.fecharConexao();
-
-        Literal_Aluno.Text = str.ToString();
     }
 
     private void montaCabecalho()
@@ -88,12 +68,8 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
                 Coluna2a = "Ausente";
             }
 
-            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='ExcluirAluno(this," +
-                Convert.ToString(dados[0]) +
-                ")'><i class='fa fa-trash-o' aria-hidden='true'></i></a>&nbsp;&nbsp;";
-
             string stringcomaspas = "<tr>" +
-                "<td>" + bt1 + Coluna1 + "</td>" +
+                "<td>" + Coluna1 + "</td>" +
                 "<td>" + Coluna2a + "</td>" +
                 "</tr>";
 
@@ -111,7 +87,7 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         Literal3.Text = str.ToString();
     }
 
-    private void PreencheIDAula(string ID)
+    private void PreencheCampos(string ID, string IDturma)
     {
         string ScriptDados = "";
         str.Clear();
@@ -120,6 +96,8 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         str.Append(ScriptDados);
 
         ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
+        str.Append(ScriptDados);
+        ScriptDados = "document.getElementById('IDAuxHidden2').value = \"" + IDturma + "\";";
         str.Append(ScriptDados);
 
         ScriptDados = "</script>";

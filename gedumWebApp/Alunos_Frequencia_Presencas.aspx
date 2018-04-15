@@ -27,53 +27,37 @@
 
 </head>
 <body>
+    <br />
     <div class="col-md-8">
-        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controle de Frequência - <asp:Literal ID="Literal1" runat="server"></asp:Literal></h3>
+        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Controle de Frequência: <asp:Literal ID="Literal1" runat="server"></asp:Literal></h4>
     </div>
 
-    <!-- Filtro -->
+    <!-- Iniciar -->
     <div class="w3-container">
         <form class="form-horizontal">
             <fieldset>
-
                 <div class="form-group">
-                    <label for="select_Aluno" class="col-md-1 control-label">Aluno</label>
-                    <div class="col-md-6">
-                        <select id="select_Aluno" class="form-control">
-                            <option value="0">Selecione</option>
-                            <asp:Literal ID="Literal_Aluno" runat="server"></asp:Literal>
-                        </select>
-                    </div>
-
                     <div class="col-md-2">
-                        <button id="bt_Presente" type="button" class="w3-btn w3-round w3-border w3-green w3-block"
-                            onclick="IncluirAluno('1')">
-                            <i class="fa fa-plus"></i>&nbsp;Presente</button>
+                        <button id="bt_iniciar" type="button" class="w3-btn w3-round w3-border w3-green w3-block"
+                            onclick="">
+                            <i class="fa fa-plus"></i>&nbsp;Iniciar</button>
                     </div>
-
-                    <div class="col-md-2">
-                        <button id="bt_ausente" type="button" class="w3-btn w3-round w3-border w3-green w3-block"
-                            onclick="IncluirAluno('0')">
-                            <i class="fa fa-minus"></i>&nbsp;Ausente</button>
-                    </div>
-
                 </div>
-
             </fieldset>
         </form>
     </div>
 
     <br />
 
-    <!-- Planilha Alunos Presentes/Ausentes-->
+    <!-- Planilha Presentes/Ausentes-->
     <div class="w3-container w3-border w3-round w3-padding-16 w3-light-gray w3-small" style="margin-left: 2%; margin-right: 2%">
         <asp:Literal ID="Literal3" runat="server"></asp:Literal>
     </div>
 
     <!-- auxiliares -->
     <input id="IDAuxHidden" type="hidden" />
+    <input id="IDAuxHidden2" type="hidden" />
     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
-    
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeAlunos_Frequencia.js"></script>
