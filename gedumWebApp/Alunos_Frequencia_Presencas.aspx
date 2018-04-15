@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <div class="col-md-2">
                         <button id="bt_iniciar" type="button" class="w3-btn w3-round w3-border w3-green w3-block"
-                            onclick="">
+                            onclick="ApagarAnterior()">
                             <i class="fa fa-plus"></i>&nbsp;Iniciar</button>
                     </div>
                 </div>
@@ -54,13 +54,13 @@
         <asp:Literal ID="Literal3" runat="server"></asp:Literal>
     </div>
 
-    <!-- auxiliares -->
+     <!-- auxiliares -->
     <input id="IDAuxHidden" type="hidden" />
     <input id="IDAuxHidden2" type="hidden" />
     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
-    <script type="text/javascript" src="Scripts/codeAlunos_Frequencia.js"></script>
+    <script type="text/javascript" src="Scripts/codeAlunos_Frequencia_Presenca.js"></script>
 
 </body>
 </html>

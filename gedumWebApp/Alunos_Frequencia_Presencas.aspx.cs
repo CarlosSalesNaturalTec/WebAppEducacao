@@ -22,8 +22,7 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         dadosCorpo();
         montaRodape();
 
-        PreencheCampos(IDAula,IDturma);
-
+        PreencheIDs(IDAula,IDturma);
     }
 
     private void montaCabecalho()
@@ -31,7 +30,7 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         string stringcomaspas = "<table id=\"tabela\" class=\"table table-striped table-hover \">" +
             "<thead>" +
             "<tr>" +
-            "<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ALUNO</th>" +
+            "<th>ALUNO</th>" +
             "<th>STATUS</th>" +
             "</tr>" +
             "</thead>" +
@@ -68,8 +67,10 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
                 Coluna2a = "Ausente";
             }
 
+            string bt1 = "<a class='w3-btn w3-round w3-hover-red w3-text-green' onclick='AlterarStatus(\"" + Coluna0 + "\",\"" + Coluna2 + "\")'><i class='fa fa-user' aria-hidden='true'></i></a>&nbsp;&nbsp;";
+
             string stringcomaspas = "<tr>" +
-                "<td>" + Coluna1 + "</td>" +
+                "<td>" + bt1 + Coluna1 + "</td>" +
                 "<td>" + Coluna2a + "</td>" +
                 "</tr>";
 
@@ -87,7 +88,7 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         Literal3.Text = str.ToString();
     }
 
-    private void PreencheCampos(string ID, string IDturma)
+    private void PreencheIDs(string IDaula, string IDturma)
     {
         string ScriptDados = "";
         str.Clear();
@@ -95,7 +96,7 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         ScriptDados = "<script type=\"text/javascript\">";
         str.Append(ScriptDados);
 
-        ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
+        ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + IDaula + "\";";
         str.Append(ScriptDados);
         ScriptDados = "document.getElementById('IDAuxHidden2').value = \"" + IDturma + "\";";
         str.Append(ScriptDados);
@@ -104,7 +105,6 @@ public partial class Alunos_Frequencia_Presencas : System.Web.UI.Page
         str.Append(ScriptDados);
 
         Literal2.Text = str.ToString();
-
     }
 
 }

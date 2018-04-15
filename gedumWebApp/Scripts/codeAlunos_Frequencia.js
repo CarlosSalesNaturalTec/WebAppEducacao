@@ -1,4 +1,5 @@
-﻿
+﻿document.getElementById("select_Turma").focus();
+
 function verificar_aulas() {
 
     //validações
@@ -239,40 +240,4 @@ function paginacao() {
         });
     });
 
-}
-
-
-
-function IniciarFrequencias() {
-
-    //parametros
-    var strLine = "";
-    var v1 = document.getElementById("IDAuxHidden2").value;
-    strLine = strLine + "param1" + ":'" + v1 + "'";
-
-    // Aguarde
-    UI_Aguardar();
-
-    $.ajax({
-        type: "POST",
-        url: "WebService.asmx/Frequencia_Aulas_Listar_Alunos",
-        data: '{' + strLine + '}',
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: function (data, status) {
-            var itens = $.parseJSON(data.d);
-            for (var i = 0; i < itens.length; i++) {
-                //adiciona_Linha(itens[i].ID_Aula, itens[i].Data_Aula, itens[i].Observ);
-
-            }
-        },
-        failure: function (response) {
-            alert('Não foi possível carregar itens');
-        }
-    });
-
-}
-
-function IniciarFrequencias_Indiv() {
-    //parei aqui
 }
