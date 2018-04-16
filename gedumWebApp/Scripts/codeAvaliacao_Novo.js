@@ -1,7 +1,5 @@
 ﻿document.getElementById("input-disciplina").focus();
 
-
-
 function cancelar() {
     var linkurl = "Avaliacao_Listagem.aspx";
     window.location.href = linkurl;
@@ -10,31 +8,44 @@ function cancelar() {
 function SalvarRegistro() {
 
     //validações
-    if (document.getElementById('input-disciplina').value == "") {
-        alert("Informe Nome do Curso");
-        $("input_disciplina").focus();
+    if (document.getElementById('input-disciplina').value == "0") {
+        alert("Informe Nome da Disciplina");
+        $("input-disciplina").focus();
         return;
     }
+    if (document.getElementById('input-turma').value == "0") {
+        alert("Informe Turma");
+        $("input-disciplina").focus();
+        return;
+    }
+    if (document.getElementById('input-periodo').value == "0") {
+        alert("Informe Período");
+        $("input-disciplina").focus();
+        return;
+    }
+    
+    var strLine = "";
+    var v1 = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param0" + ":'" + v1 + "',";
 
-    var e = document.getElementById("input-disciplina");
-    var v1 = e.options[e.selectedIndex].value;
-    var v2 = e.options[e.selectedIndex].text;
+    v1 = document.getElementById("input-disciplina").value;
+    strLine = strLine + "param1" + ":'" + v1 + "',";
 
-    var Z = document.getElementById("input-turma");
-    var v3 = Z.options[Z.selectedIndex].value;
-    var v4 = Z.options[Z.selectedIndex].text;
+    v1 = document.getElementById("input-turma").value;
+    strLine = strLine + "param2" + ":'" + v1 + "',";
 
-    var v5 = document.getElementById('input-tipo').value;
+    v1 = document.getElementById("input-periodo").value;
+    strLine = strLine + "param3" + ":'" + v1 + "',";
 
-    var d = document.getElementById('input-periodo');
-    var v61 = d.options[d.selectedIndex].value;
-    var v6 = d.options[d.selectedIndex].text;
+    var e = document.getElementById("input-tipo");
+    v1 = e.options[e.selectedIndex].text;
+    strLine = strLine + "param4" + ":'" + v1 + "',";
 
-    var v7 = document.getElementById('input_dataAv').value;
+    v1 = document.getElementById("input_dataAv").value;
+    strLine = strLine + "param5" + ":'" + v1 + "',";
 
-    var v8 = document.getElementById('input-nota').value;
-
-    var vID = document.getElementById("IDInstHidden").value;
+    v1 = document.getElementById("input-nota").value;
+    strLine = strLine + "param6" + ":'" + v1 + "'";
     
     //exibir animações - aguarde...
     UIAguardar();
@@ -42,8 +53,7 @@ function SalvarRegistro() {
     $.ajax({
         type: "POST",
         url: "WebService.asmx/AvaliacaoSalvar",
-        data: '{param0: "' + v2 + '", param1: "' + v4 + '", param2: "' + v5 + '", param3: "' + v6 + '", param4: "' + v7 +
-            '", param5: "' + v8 + '", param6: "' + vID + '"}',
+        data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -56,33 +66,46 @@ function SalvarRegistro() {
 }
 
 function AlterarRegistro() {
+   
     //validações
-    if (document.getElementById('input-disciplina').value == "") {
-        alert("Informe Nome do Curso");
-        $("input_disciplina").focus();
+    if (document.getElementById('input-disciplina').value == "0") {
+        alert("Informe Nome da Disciplina");
+        $("input-disciplina").focus();
+        return;
+    }
+    if (document.getElementById('input-turma').value == "0") {
+        alert("Informe Turma");
+        $("input-disciplina").focus();
+        return;
+    }
+    if (document.getElementById('input-periodo').value == "0") {
+        alert("Informe Período");
+        $("input-disciplina").focus();
         return;
     }
 
-    var e = document.getElementById("input-disciplina");
-    var v1 = e.options[e.selectedIndex].value;
-    var v2 = e.options[e.selectedIndex].text;
+    var strLine = "";
+    var v1 = document.getElementById("IDAuxHidden").value;
+    strLine = strLine + "param0" + ":'" + v1 + "',";
 
-    var Z = document.getElementById("input-turma");
-    var v3 = Z.options[Z.selectedIndex].value;
-    var v4 = Z.options[Z.selectedIndex].text;
+    v1 = document.getElementById("input-disciplina").value;
+    strLine = strLine + "param1" + ":'" + v1 + "',";
 
-    var v5 = document.getElementById('input-tipo').value;
+    v1 = document.getElementById("input-turma").value;
+    strLine = strLine + "param2" + ":'" + v1 + "',";
 
-    
-    var d = document.getElementById('input-periodo');
-    var v61 = d.options[d.selectedIndex].value;
-    var v6 = d.options[d.selectedIndex].text;
+    v1 = document.getElementById("input-periodo").value;
+    strLine = strLine + "param3" + ":'" + v1 + "',";
 
-    var v7 = document.getElementById('input_dataAv').value;
+    var e = document.getElementById("input-tipo");
+    v1 = e.options[e.selectedIndex].text;
+    strLine = strLine + "param4" + ":'" + v1 + "',";
 
-    var v8 = document.getElementById('input-nota').value;
+    v1 = document.getElementById("input_dataAv").value;
+    strLine = strLine + "param5" + ":'" + v1 + "',";
 
-    var vID = document.getElementById("IDInstHidden").value;
+    v1 = document.getElementById("input-nota").value;
+    strLine = strLine + "param6" + ":'" + v1 + "'";
 
     //exibir animações - aguarde...
     UIAguardar();
@@ -90,8 +113,7 @@ function AlterarRegistro() {
     $.ajax({
         type: "POST",
         url: "WebService.asmx/AvaliacaoAlterar",
-        data: '{param0: "' + v2 + '", param1: "' + v4 + '", param2: "' + v5 + '", param3: "' + v6 + '", param4: "' + v7 +
-            '", param5: "' + v8 + '", param6: "' + vID + '"}',
+        data: '{' + strLine + '}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
@@ -165,7 +187,7 @@ function ExcluirAl(r, USerID) {
 
     $.ajax({
         type: "POST",
-        url: "WebService.asmx/ExcluirAl",  //<!--*******Customização*******-->
+        url: "WebService.asmx/ExcluirAl",  
         data: '{param1: "' + USerID + '"}',
         contentType: "application/json; charset=utf-8",
         dataType: "json",

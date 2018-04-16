@@ -4,7 +4,7 @@ function SalvarRegistro() {
 
     //validações
     if (document.getElementById('input_nome').value == "") {
-        alert("Informe Nome do Livro");   //<!--*******Customize AQUI*******-->
+        alert("Informe Nome do Livro");  
         document.getElementById("input_nome").focus();
         return;
     }

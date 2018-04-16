@@ -3,8 +3,10 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
-    <title>Cadastro de Cursos</title>
+
+    <title>Cadastro de Avaliações</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -77,7 +79,6 @@
                         </div>
 
                         <div class="form-group">
-
                             <label for="input-tipo" class="col-md-2 control-label">Tipo Ava.</label>
                             <div class="col-md-6">
                                 <select class="form-control" id="input-tipo">
@@ -93,7 +94,6 @@
 
 
                         <div class="form-group">
-
                             <label for="input-periodo" class="col-md-2 control-label">Periodo</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input-periodo">
@@ -103,7 +103,6 @@
                         </div>
 
                         <div class="form-group">
-
                             <label for="input_dataAv" class="col-md-2 control-label">Data</label>
                             <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_dataAv">
@@ -111,15 +110,11 @@
                         </div>
 
                         <div class="form-group">
-
                             <label for="input-nota" class="col-md-2 control-label">Nota Máxima</label>
                             <div class="col-md-2">
                                 <input type="number" class="form-control" id="input-nota">
                             </div>
                         </div>
-
-
-
 
                     </fieldset>
                 </form>
@@ -170,14 +165,11 @@
                                 </select>
                             </div>
 
-
                             <label for="input-n" class="col-md-1 control-label">Nota </label>
                             <div class="col-md-2 ">
                                 <input type="number" id="input-n" class="w3-input w3-border w3-round">
                             </div>
-                          
-
-                            
+                                                
                             <div class="col-md-2">
                                 <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
                                     onclick="incluirNota()">
@@ -232,10 +224,8 @@
 
     </div>
 
-
-
     <!-- auxiliares -->
-    <input id="IDInstHidden" type="hidden" />
+    <input id="IDAuxHidden" type="hidden" />
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->

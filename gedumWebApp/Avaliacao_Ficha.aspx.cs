@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Avaliacao_Ficha : System.Web.UI.Page
 {
-
-
     StringBuilder str = new StringBuilder();
     string idAux;
-
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -20,32 +12,21 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         string idIns = Session["InstID"].ToString();
 
-        string ScriptAux = "<script type=\"text/javascript\">" +
-                        "document.getElementById('IDinst').value = \"" + idIns + "\";" +
-                        "</script>";
-
-        Literal1.Text = ScriptAux;
-
-        
-        mostraDisc(idIns);
-        mostraTurma(idIns);
+        mostraDisciplina(idIns);
+        mostrarTurma(idIns);
         mostrarPeriodo(idIns);
-        mostraAlunos(idIns);
 
         PreencheCampos(idAux);
-        listaAl(idAux);
 
-
+        mostraAlunos(idIns);
+        //listaAl(idAux);
 
     }
 
- 
-    private void mostraDisc(string id)
+    private void mostraDisciplina(string id)
     {
-
-        StringBuilder strInst = new StringBuilder();
-        strInst.Clear();
-        strInst.Append("<option value=\"0\"> </option>");
+        str.Clear();
+        str.Append("<option value=\"0\">Selecione uma Disciplina</option>");
 
         string strSelect = "select ID_Disc, nome from Tbl_Disciplinas where ID_Inst = " + id;
 
@@ -54,20 +35,18 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         while (dados.Read())
         {
-            strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-
+            str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
         }
         ConexaoBancoSQL.fecharConexao();
 
-        Literal_disciplina.Text = strInst.ToString();
-  }
+        Literal_disciplina.Text = str.ToString();
+    }
 
-    private void mostraTurma(string id)
-{
+    private void mostrarTurma(string id)
+    {
 
-        StringBuilder strInst = new StringBuilder();
-        strInst.Clear();
-        strInst.Append("<option value=\"0\"> </option>");
+        str.Clear();
+        str.Append("<option value=\"0\">Selecione uma Turma</option>");
 
         string strSelect = "select ID_Turma, Nome from Tbl_Turmas where ID_Inst = " + id;
 
@@ -76,21 +55,18 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         while (dados.Read())
         {
-            strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-
+            str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
         }
         ConexaoBancoSQL.fecharConexao();
 
-        Literal_turma.Text = strInst.ToString();
+        Literal_turma.Text = str.ToString();
 
     }
 
     private void mostrarPeriodo(string id)
     {
-
-        StringBuilder strP = new StringBuilder();
-        strP.Clear();
-        strP.Append("<option value=\"0\"> </option>");
+        str.Clear();
+        str.Append("<option value=\"0\">Selecione o Período</option>");
 
         string select = "select id_periodo, Descricao from tbl_periodo_avaliacao where id_inst = " + id;
 
@@ -99,35 +75,16 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         while (dados.Read())
         {
-            strP.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+            str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
         }
 
         ConexaoBancoSQL.fecharConexao();
 
-        Literal_periodo.Text = strP.ToString();
+        Literal_periodo.Text = str.ToString();
 
     }
 
-    private void mostraAlunos(string id)
-    {
-        StringBuilder strA = new StringBuilder();
-        strA.Clear();
-        strA.Append("<option value=\"0\"> </option>");
-
-        string select = "select id_aluno, Nome from tbl_alunos where id_inst = " + id;
-
-        OperacaoBanco oper = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = oper.Select(select);
-
-        while (dados.Read())
-        {
-            strA.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-        }
-        ConexaoBancoSQL.fecharConexao();
-
-        literal_alunos.Text = strA.ToString();
-    }
-
+    
     private void PreencheCampos(string ID)
     {
         string ScriptDados = "";
@@ -139,12 +96,12 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "disciplina," +
-            "turma," +
+            "id_disc," +
+            "id_turma," +
             "tipo," +
-            "periodo," +
+            "id_periodo," +
             "format(dataAva,'yyyy-MM-dd') as d1, " +
-            "nota " +
+            "notamax " +
             "from tbl_avaliacao " +
             "where id_avaliacao  = " + ID;
 
@@ -159,9 +116,8 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
             }
 
             //ID do registro
-            ScriptDados = "document.getElementById('IDInstHidden').value = \"" + ID + "\";";
+            ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
-
 
         }
         ConexaoBancoSQL.fecharConexao();
@@ -171,6 +127,26 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         Literal1.Text = str.ToString();
 
+    }
+
+    private void mostraAlunos(string id)
+    {
+        StringBuilder strA = new StringBuilder();
+        strA.Clear();
+        strA.Append("<option value=\"0\">Selecione um Aluno</option>");
+
+        string select = "select id_aluno, Nome from tbl_alunos where id_inst = " + id;
+
+        OperacaoBanco oper = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = oper.Select(select);
+
+        while (dados.Read())
+        {
+            strA.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        literal_alunos.Text = strA.ToString();
     }
 
     private void listaAl(string ID)
@@ -212,9 +188,6 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         Literal_table.Text = str.ToString();
 
     }
-
-
-
 
 }
 

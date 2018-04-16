@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Cadastro de Cursos</title>
+
+    <title>Cadastro de Avaliações</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -44,7 +45,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <div class="w3-threequarter">
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Nova Avaliacão</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Nova Avaliacão</h3>
             </div>
 
             <div class="w3-threequarter">
@@ -77,7 +78,7 @@
                         <div class="form-group">
 
                             <label for="input-tipo" class="col-md-2 control-label">Tipo Ava.</label>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <select class="form-control" id="input-tipo">
                                     <option value=""> </option>
                                     <option value="PROVA">PROVA</option>
@@ -113,7 +114,7 @@
 
                             <label for="input-nota" class="col-md-2 control-label">Nota Máxima</label>
                             <div class="col-md-2">
-                                <input type="number" class="form-control" id="input-nota">
+                                <input type="number" class="form-control" id="input-nota" value="10">
                             </div>
                         </div>
                         
@@ -145,8 +146,6 @@
 
         </div>
     </div>
-
-
 
     <!-- auxiliares -->
     <input id="IDInstHidden" type="hidden" />

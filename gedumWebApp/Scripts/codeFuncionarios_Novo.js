@@ -1,7 +1,7 @@
 ﻿document.getElementById("input_nome").focus();
 
 function cancelar() {
-    var linkurl = "Funcionarios_Listagem.aspx";   //<!--*******Customização*******-->
+    var linkurl = "Funcionarios_Listagem.aspx";   
     window.location.href = linkurl;
 }
 

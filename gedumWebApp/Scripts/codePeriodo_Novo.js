@@ -6,24 +6,20 @@ function cancelar() {
 }
 
 function SalvarRegistro() {
-    if (document.getElementById('input_periodo') == " ") {
+
+    if (document.getElementById('input_periodo') == "") {
         $('#input_periodo').focus(function () {
             alert("Selecione o Periodo");
             return;
-
         });
     }
 
-    var x, i, strLine = "";
-    x = document.getElementsByClassName('form-control');
-    for (i = 0; i < x.length ; i++) {
-        strLine = strLine + "param" + i + ":'" + x[i].value + "',";
-    }
+    var strLine = "";
+    var v1 = document.getElementById("input_periodo").value;
+    strLine = strLine + "param0" + ":'" + v1 + "',";
 
     var vID = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param" + i + ":'" + vID + "'";
-
-    strLine = strLine.substr(0, strLine.length - 1);
+    strLine = strLine + "param1" + ":'" + vID + "'";
 
     UIAguardar();
 
@@ -41,8 +37,6 @@ function SalvarRegistro() {
         }
     });
 }
-
-
 
 
 function UIAguardar() {

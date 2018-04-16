@@ -125,15 +125,15 @@ public class WebService : System.Web.Services.WebService
     public string AvaliacaoSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
     {
         string url;
-        string insert = "INSERT INTO tbl_avaliacao(Disciplina, turma, tipo, periodo, dataAva, nota, id_inst) " +
-                        "VALUES(" +
+        string insert = "INSERT INTO tbl_avaliacao (id_inst, ID_Disc, id_turma, id_periodo, tipo, dataAva, notaMax) " +
+                        "VALUES (" +
                         "'" + param0 + "'," +
                         "'" + param1 + "'," +
                         "'" + param2 + "'," +
                         "'" + param3 + "'," +
                         "'" + param4 + "'," +
                         "'" + param5 + "'," +
-                        param6 + ")";
+                        "'" + param6 + "'" + ")";
 
         OperacaoBanco op = new OperacaoBanco();
         bool inserir = op.Insert(insert);
@@ -151,8 +151,6 @@ public class WebService : System.Web.Services.WebService
         return url;
     }
 
-
-
     [WebMethod]
     public string AvaliacaoAlterar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
     {
@@ -161,14 +159,13 @@ public class WebService : System.Web.Services.WebService
         OperacaoBanco operacao = new OperacaoBanco();
 
         bool update = operacao.Update("update tbl_avaliacao set " +
-            "disciplina = '" + param0 + "'," +
-            "turma = '" + param1 + "'," +
-            "tipo = '" + param2 + "'," +
-            "periodo = '" + param3 + "'," +
-            "dataAva = '" + param4 + "'," +
-            "nota = " + param5 +
-            "where id_avaliacao  = " + param6
-            );
+            "id_Disc = '" + param1 + "'," +
+            "id_turma = '" + param2 + "'," +
+            "id_periodo = '" + param3 + "'," +
+            "tipo = '" + param4 + "'," +
+            "dataAva = '" + param5 + "'," +
+            "notamax = '" + param6 + "' " +
+            "where id_avaliacao  = " + param0);
 
         ConexaoBancoSQL.fecharConexao();
 
@@ -180,11 +177,9 @@ public class WebService : System.Web.Services.WebService
         {
             url = "Sorry.aspx";
         }
-
-
+        
         return url;
-
-
+        
     }
 
     [WebMethod]
@@ -213,10 +208,10 @@ public class WebService : System.Web.Services.WebService
     public string PeriodoSalvar(string param0, string param1)
     {
         string url;
-        string insert = "INSERT INTO tbl_periodo_avaliacao(Descricao , id_inst) " +
-                        "VALUES(" +
+        string insert = "INSERT INTO tbl_periodo_avaliacao (Descricao , id_inst) " +
+                        "VALUES (" +
                         "'" + param0 + "'," +
-                        param1 + ")";
+                        "'" + param1 + "'" + ")";
 
         OperacaoBanco op = new OperacaoBanco();
         bool inserir = op.Insert(insert);
@@ -264,8 +259,7 @@ public class WebService : System.Web.Services.WebService
 
         bool update = operacao.Update("update tbl_periodo_avaliacao set " +
             "Descricao = '" + param0 + "' " +
-            "where id_periodo = " + param1
-            );
+            "where id_periodo = " + param1 );
 
         ConexaoBancoSQL.fecharConexao();
 

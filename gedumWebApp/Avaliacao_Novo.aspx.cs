@@ -1,38 +1,34 @@
 ﻿using System;
 using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class Avaliacao_Novo : System.Web.UI.Page
 {
 
-    
+    StringBuilder str = new StringBuilder();
+
     protected void Page_Load(object sender, EventArgs e)
     {
         string idInst = Session["InstID"].ToString();
 
-        
-        string ScriptAux = "<script type=\"text/javascript\">" +
-                        "document.getElementById('IDInstHidden').value = \"" + idInst + "\";" +
-                        "</script>";
-        Literal1.Text = ScriptAux;
-
+        preenchecampos(idInst);
         mostraDisciplina(idInst);
         mostrarTurma(idInst);
         mostrarPeriodo(idInst);
     }
 
 
+    private void preenchecampos(string idAux)
+    {
+        string ScriptAux = "<script type=\"text/javascript\">" +
+                        "document.getElementById('IDInstHidden').value = \"" + idAux + "\";" +
+                        "</script>";
+        Literal1.Text = ScriptAux;
+    }
+
     private void mostraDisciplina(string id)
     {
-
-        StringBuilder str = new StringBuilder();
-
         str.Clear();
-        str.Append("<option value=\"0\"> </option>");
+        str.Append("<option value=\"0\">Selecione uma Disciplina</option>");
 
         string strSelect = "select ID_Disc, nome from Tbl_Disciplinas where ID_Inst = " + id;
 
@@ -42,23 +38,17 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
         while (dados.Read())
         {
             str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-
         }
         ConexaoBancoSQL.fecharConexao();
 
         Literal_disciplina.Text = str.ToString();
-
-
     }
 
     private void mostrarTurma(string id)
-
-
     {
-        StringBuilder str = new StringBuilder();
-
+        
         str.Clear();
-        str.Append("<option value=\"0\"> </option>");
+        str.Append("<option value=\"0\">Selecione uma Turma</option>");
 
         string strSelect = "select ID_Turma, Nome from Tbl_Turmas where ID_Inst = " + id;
 
@@ -68,7 +58,6 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
         while (dados.Read())
         {
             str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
-
         }
         ConexaoBancoSQL.fecharConexao();
 
@@ -78,10 +67,8 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
 
     private void mostrarPeriodo(string id)
     {
-
-        StringBuilder strP = new StringBuilder();
-        strP.Clear();
-        strP.Append("<option value=\"0\"> </option>");
+        str.Clear();
+        str.Append("<option value=\"0\">Selecione o Período</option>");
 
         string select = "select id_periodo, Descricao from tbl_periodo_avaliacao where id_inst = " + id;
 
@@ -90,12 +77,12 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
 
         while (dados.Read())
         {
-            strP.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+            str.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
         }
 
         ConexaoBancoSQL.fecharConexao();
 
-        Literal_periodo.Text = strP.ToString();
+        Literal_periodo.Text = str.ToString();
 
     }
 
