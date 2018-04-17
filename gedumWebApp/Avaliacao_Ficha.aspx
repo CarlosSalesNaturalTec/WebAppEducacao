@@ -6,7 +6,7 @@
 
 <head runat="server">
 
-    <title>Cadastro de Avaliações</title>
+    <title>Ficha de Avaliação</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -48,7 +48,7 @@
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
             <div class="w3-threequarter">
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Nova Avaliacão</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Avaliacão</h3>
             </div>
 
             <div class="w3-threequarter">
@@ -80,7 +80,7 @@
 
                         <div class="form-group">
                             <label for="input-tipo" class="col-md-2 control-label">Tipo Ava.</label>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
                                 <select class="form-control" id="input-tipo">
                                     <option value="PROVA">PROVA</option>
                                     <option value="TESTE">TESTE</option>
@@ -149,7 +149,7 @@
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
             <div class="w3-threequarter">
-                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp; Nova Avaliacão</h3>
+                <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Avaliacão - Notas Alunos</h3>
             </div>
 
             <div class="w3-threequarter">
@@ -167,11 +167,11 @@
 
                             <label for="input-n" class="col-md-1 control-label">Nota </label>
                             <div class="col-md-2 ">
-                                <input type="number" id="input-n" class="w3-input w3-border w3-round">
+                                <input type="number" id="input-n" class="w3-input w3-border w3-round" value="0">
                             </div>
                                                 
                             <div class="col-md-2">
-                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green"
+                                <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green btcontroles"
                                     onclick="incluirNota()">
                                     <i class="fa fa-plus"></i>&nbsp;Adicionar</button>
                             </div>
@@ -179,7 +179,7 @@
 
                         <div class="form-group">
                             <div class="col-md-2"></div>
-                            <div class="col-md-7 w3-border w3-padding w3-round w3-light-gray">
+                            <div class="col-md-10 w3-border w3-padding w3-round w3-light-gray">
                                 <table id="MyTable" class="w3-table-all w3-hoverable">
                                     <thead>
                                         <tr class="w3-grey">
@@ -187,7 +187,6 @@
                                             <th>Nota</th>
                                         </tr>
                                     </thead>
-                                   
                                     <asp:Literal ID="Literal_table" runat="server"></asp:Literal>
                                 </table>
                             </div>
@@ -199,7 +198,7 @@
                 <!-- Botões Controle -->
                 <div class="form-group">
                     <div class="col-md-2"></div>
-                    <div class="col-md-9 w3-border w3-padding w3-round">
+                    <div class="col-md-10 w3-border w3-padding w3-round">
                         <p>
                             <button class="w3-btn w3-round w3-border w3-light-green w3-hover-green btcontroles" onclick="cancelar()">
                                 <i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Sair</button>

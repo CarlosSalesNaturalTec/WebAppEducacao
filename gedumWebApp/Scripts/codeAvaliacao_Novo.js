@@ -1,10 +1,5 @@
 ﻿document.getElementById("input-disciplina").focus();
 
-function cancelar() {
-    var linkurl = "Avaliacao_Listagem.aspx";
-    window.location.href = linkurl;
-}
-
 function SalvarRegistro() {
 
     //validações
@@ -127,17 +122,19 @@ function AlterarRegistro() {
 
 function incluirNota() {
 
-    if (document.getElementById('input_alunos').value == " ") {
+    //validações
+    if (document.getElementById('input_alunos').value == "0") {
         alert("Informe Nome do Aluno");
         document.getElementById("input_alunos").focus();
         return;
     }
+   
+    var v1 = document.getElementById('IDAuxHidden').value;      // id_avaliacao
+    var v2 = document.getElementById("input_alunos").value;     // id_aluno
+    var v3 = document.getElementById("input-n").value;          // nota aluno
 
-    var v1 = document.getElementById('IDInstHidden').value; // id_avaliacao
-    var v2 = document.getElementById("input_alunos").value;   // id_aluno
-    var v3 = document.getElementById("input-n").value; //nota aluno
+    UIAguardar();
 
-    
     $.ajax({
         type: "POST",
         url: "WebService.asmx/IncluiAl",
@@ -145,16 +142,17 @@ function incluirNota() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (response) {
+            UIAguardar_Concluido();
             insertLinha();
         },
         failure: function (response) {
+            UIAguardar_Concluido();
             alert(response.d);
         }
     });
 }
 
 function insertLinha() {
-
 
     var e = document.getElementById("input_alunos");
     var v5 = e.options[e.selectedIndex].value;
@@ -177,13 +175,14 @@ function insertLinha() {
 
 }
 
-
 function ExcluirAl(r, USerID) {
 
     var conf = confirm("Confirma Exclusão do Aluno?");
     if (conf == false) {
         return;
     }
+
+    UIAguardar();
 
     $.ajax({
         type: "POST",
@@ -195,8 +194,10 @@ function ExcluirAl(r, USerID) {
             // excluir linha do Table
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("MyTable").deleteRow(i);
+            UIAguardar_Concluido();
         },
         failure: function (response) {
+            UIAguardar_Concluido();
             alert(response.d);
         }
     });
@@ -205,10 +206,11 @@ function ExcluirAl(r, USerID) {
 }
 
 
-
-
 function UIAguardar() {
+
     var i, x;
+
+    $("body").css("cursor", "progress");
 
     x = document.getElementsByClassName("btcontroles");
     for (i = 0; i < x.length; i++) {
@@ -221,18 +223,32 @@ function UIAguardar() {
     }
 }
 
+function UIAguardar_Concluido() {
+
+    var i, x;
+
+    $("body").css("cursor", "default");
+
+    x = document.getElementsByClassName("btcontroles");
+    for (i = 0; i < x.length; i++) {
+        x[i].disabled = false;
+    }
+
+    x = document.getElementsByClassName("aguarde");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+}
 
 function classeBt2() {
     openLink(event, 'grupo2')
     $('#bt2').addClass(' w3-blue');
 }
 
-
 function btvoltar1() {
     openLink(event, 'grupo1')
     $('#bt1').addClass(' w3-blue');
 }
-
 
 function openLink(evt, animName) {
     var i, x, tablinks;
@@ -248,3 +264,7 @@ function openLink(evt, animName) {
     evt.currentTarget.className += " w3-blue";
 }
 
+function cancelar() {
+    var linkurl = "Avaliacao_Listagem.aspx";
+    window.location.href = linkurl;
+}

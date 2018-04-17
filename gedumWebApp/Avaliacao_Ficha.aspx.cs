@@ -4,13 +4,13 @@ using System.Text;
 public partial class Avaliacao_Ficha : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
-    string idAux;
+    string idAux, idTurma;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        idAux = Request.QueryString["v1"];
+        idAux = Request.QueryString["v1"];          // ID da avaliação
 
-        string idIns = Session["InstID"].ToString();
+        string idIns = Session["InstID"].ToString();        // ID da Instituição
 
         mostraDisciplina(idIns);
         mostrarTurma(idIns);
@@ -18,8 +18,8 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         PreencheCampos(idAux);
 
-        mostraAlunos(idIns);
-        //listaAl(idAux);
+        mostraAlunos(idTurma);            // dropDown Alunos da Turma
+        listaAl(idAux);                 // tabela com notas dos alunos
 
     }
 
@@ -115,10 +115,12 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
                 str.Append(ScriptDados);
             }
 
-            //ID do registro
+            //ID da Avaliação
             ScriptDados = "document.getElementById('IDAuxHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
 
+            //ID da Turma
+            idTurma = Convert.ToString(rcrdset[1]);
         }
         ConexaoBancoSQL.fecharConexao();
 
@@ -135,7 +137,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         strA.Clear();
         strA.Append("<option value=\"0\">Selecione um Aluno</option>");
 
-        string select = "select id_aluno, Nome from tbl_alunos where id_inst = " + id;
+        string select = "select id_aluno, Nome from tbl_alunos where id_turma = " + id;
 
         OperacaoBanco oper = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader dados = oper.Select(select);
@@ -152,10 +154,10 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
     private void listaAl(string ID)
     {
 
-        string stringSelect = "select tbl_aluno_avaliacao.id_aa, tbl_alunos.nome, tbl_aluno_avaliacao.nota" +
-            " from tbl_aluno_avaliacao " +
-            " inner join tbl_alunos on tbl_aluno_avaliacao.id_aluno = tbl_alunos.ID_Aluno " +
-            " where tbl_aluno_avaliacao.id_avaliacao = " + ID;
+        string stringSelect = "select t1.id_aa, t2.nome, t1.nota " +
+            "from tbl_aluno_avaliacao t1 " +
+            "inner join tbl_alunos t2 on (t1.id_aluno = t2.ID_Aluno ) " +
+            "where t1.id_avaliacao = " + ID;
 
         OperacaoBanco operacaoUsers = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdsetUsers = operacaoUsers.Select(stringSelect);
@@ -178,7 +180,6 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
             ScriptDados = "<td>" + Convert.ToString(rcrdsetUsers[2]) + "</td>";
             str.Append(ScriptDados);
-
 
             ScriptDados = "</tr>";
             str.Append(ScriptDados);

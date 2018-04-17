@@ -67,58 +67,6 @@ public class WebService : System.Web.Services.WebService
 
     }
 
-    [WebMethod]
-    public string IncluiAl(string param0, string param1, string param2)
-    {
-        string url;
-
-        OperacaoBanco oper = new OperacaoBanco();
-
-        string insert = "INSERT INTO tbl_aluno_avaliacao(id_avaliacao, id_aluno, nota) " +
-                        "VALUES(" +
-                        "'" + param0 + "'," +
-                        "'" + param1 + "'," +
-                         param2 + ")";
-
-        OperacaoBanco op = new OperacaoBanco();
-        bool inserir = op.Insert(insert);
-        ConexaoBancoSQL.fecharConexao();
-        if (inserir == true)
-        {
-            url = "OK";
-        }
-        else
-        {
-            url = "Não foi possivel";
-
-        }
-
-        return url;
-
-
-    }
-
-
-    [WebMethod]
-    public string ExcluirAl(string param1)
-    {
-        string url;
-
-        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
-        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_aluno_avaliacao where id_aa =" + param1);
-        ConexaoBancoSQL.fecharConexao();
-
-        if (deletarUser == true)
-        {
-            url = "OK";
-        }
-        else
-        {
-            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
-        }
-
-        return url;
-    }
 
 
     [WebMethod]
@@ -202,6 +150,58 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+    [WebMethod]
+    public string IncluiAl(string param0, string param1, string param2)
+    {
+        string url;
+
+        OperacaoBanco oper = new OperacaoBanco();
+
+        string insert = "INSERT INTO tbl_aluno_avaliacao (id_avaliacao, id_aluno, nota) " +
+                        "VALUES (" +
+                        "'" + param0 + "'," +
+                        "'" + param1 + "'," +
+                        "'" + param2 + "')";
+
+        OperacaoBanco op = new OperacaoBanco();
+        bool inserir = op.Insert(insert);
+        ConexaoBancoSQL.fecharConexao();
+        if (inserir == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "Não foi possivel";
+        }
+
+        return url;
+
+    }
+
+    [WebMethod]
+    public string ExcluirAl(string param1)
+    {
+        string url;
+
+        OperacaoBanco operacaoDelUSer = new OperacaoBanco();
+        Boolean deletarUser = operacaoDelUSer.Delete("delete from tbl_aluno_avaliacao where id_aa =" + param1);
+        ConexaoBancoSQL.fecharConexao();
+
+        if (deletarUser == true)
+        {
+            url = "OK";
+        }
+        else
+        {
+            url = "NÃO FOI POSSIVEL EXCLUIR USUARIO";
+        }
+
+        return url;
+    }
+
+
 
 
     [WebMethod]
