@@ -241,6 +241,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="input_Turma" class="col-md-2 control-label">Turma</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_Turma">
+                                    <asp:Literal ID="literal_turma" runat="server" />
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="input_matri" class="col-md-2 control-label">Matricula</label>
                             <div class="col-md-4">
                                 <input type="number" class="form-control" id="input_matri">

@@ -11,15 +11,16 @@ public partial class Alunos_Ficha : System.Web.UI.Page
     {
 
         string InstID = Session["InstID"].ToString();
+        idAux = Request.QueryString["v1"];
 
         string ScriptAux = "<script type=\"text/javascript\">" +
                         "document.getElementById('IDinst').value = \"" + InstID + "\";" +
                         "</script>";
-
         Literal1.Text = ScriptAux;
 
-        idAux = Request.QueryString["v1"];
         mostraCurso(InstID);
+        mostraTurma(InstID);
+
         PreencheCampos(idAux);
         
     }
@@ -46,6 +47,27 @@ public partial class Alunos_Ficha : System.Web.UI.Page
 
     }
 
+    private void mostraTurma(string id)
+    {
+        StringBuilder strInst = new StringBuilder();
+        strInst.Clear();
+        strInst.Append("<option value=\"0\"></option>");
+
+        string strSelect = "select ID_turma, Nome from Tbl_Turmas where ID_Inst = " + id;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
+
+        while (dados.Read())
+        {
+            strInst.Append("<option value=\"" + Convert.ToString(dados[0]) + "\">" + Convert.ToString(dados[1]) + "</option>");
+
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        literal_turma.Text = strInst.ToString();
+
+    }
 
     private void PreencheCampos(string ID)
     {
@@ -58,7 +80,7 @@ public partial class Alunos_Ficha : System.Web.UI.Page
         str.Append(ScriptDados);
 
         string stringSelect = "select " +
-            "Nome," +
+            "Nome," +           
             "format(Nascimento,'yyyy-MM-dd') as d1, " +
             "EstadoCivil," +
             "Pai," +
@@ -68,16 +90,17 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "ResponsavelTel," +
             "Naturalidade," +
             "Nacionalidade," +
-            "Etnia," +
-            "TipoSanguinio," +
+            "Etnia," +                      //10
+            "TipoSanguinio," +  
             "Deficiente," +
             "DeficienteTipo," +
             "ID_Curso," +
+            "ID_Turma," +
             "matricula," +
             "Endereco," +
             "Latitude," +
             "Longitude," +
-            "Numero," +
+            "Numero," +                 //20
             "Bairro," +
             "CEP," +
             "Cidade," +
@@ -87,7 +110,7 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "TelFixo," +
             "email," +
             "PIS," +
-            "CPF," +
+            "CPF," +                    //30
             "RG," +
             "RGEmissor," +
             "RGEmissao," +
@@ -97,7 +120,7 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "Titulo," +
             "Zona," +
             "Secao," +
-            "CNH," +
+            "CNH," +                    //40
             "Passaporte," +
             "CertNasc ," +
             "Alergias," +
@@ -107,10 +130,10 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             "FardaCamisa," +
             "FardaCamiseta," +
             "FardaCalca," +
-            "FardaSapato," +
+            "FardaSapato," +            //50
             "FardaBota," +
             "FardaObs," +
-            "FotoDataURI " +
+            "FotoDataURI " +            //53
             "from Tbl_Alunos " +
             "where ID_aluno  = " + ID;
 
@@ -119,15 +142,15 @@ public partial class Alunos_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 53; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
             }
 
-            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[50]) + "\"/>'; ";
+            ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[53]) + "\"/>'; ";
             str.Append(ScriptDados);
-            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[50]) + "\";";
+            ScriptDados = "document.getElementById('Hidden1').value = \"" + Convert.ToString(rcrdset[53]) + "\";";
             str.Append(ScriptDados);
             ScriptDados = "document.getElementById('IDHidden').value = \"" + ID + "\";";
             str.Append(ScriptDados);
@@ -163,16 +186,13 @@ public partial class Alunos_Ficha : System.Web.UI.Page
             ScriptDados = "window.open(urlMapa, 'MapFrame');";
             str.Append(ScriptDados);
 
-            getValor = "document.getElementById('input_matri').value = \"" + Convert.ToString(rcrdset[15]) + "\";";
+            getValor = "document.getElementById('input_matri').value = \"" + Convert.ToString(rcrdset[16]) + "\";";
             str.Append(getValor);
 
             if(getValor == "0")
             {
                 getValor = " " ;
-            }
-         
-
-            
+            }           
 
         }
         ConexaoBancoSQL.fecharConexao();

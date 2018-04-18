@@ -740,7 +740,7 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53)
+        string param50, string param51, string param52, string param53, string param54)
     {
         string url;
         string strInsert = "INSERT INTO tbl_alunos (" +
@@ -759,6 +759,7 @@ public class WebService : System.Web.Services.WebService
             "Deficiente," +
             "DeficienteTipo," +
             "ID_Curso," +
+            "ID_Turma," +
             "matricula," +
             "Endereco," +
             "Latitude," +
@@ -800,7 +801,6 @@ public class WebService : System.Web.Services.WebService
             "FotoDataURI" +
             ") " +
             "VALUES (" +
-
             "'" + param0 + "'," +
             "'" + param1 + "'," +
             "'" + param2 + "'," +
@@ -853,8 +853,9 @@ public class WebService : System.Web.Services.WebService
             "'" + param49 + "'," +
             "'" + param50 + "'," +
             "'" + param51 + "'," +
-            param52 + "," +
-            "'" + param53 + "'" +
+            "'" + param52 + "'," +
+            "'" + param53 + "'," +
+            "'" + param54 + "'" +
             ")";
 
         OperacaoBanco operacao = new OperacaoBanco();
@@ -901,7 +902,7 @@ public class WebService : System.Web.Services.WebService
         string param20, string param21, string param22, string param23, string param24, string param25, string param26, string param27, string param28, string param29,
         string param30, string param31, string param32, string param33, string param34, string param35, string param36, string param37, string param38, string param39,
         string param40, string param41, string param42, string param43, string param44, string param45, string param46, string param47, string param48, string param49,
-        string param50, string param51, string param52, string param53)
+        string param50, string param51, string param52, string param53, string param54)
     {
         string url;
         string strInsert = "update tbl_alunos set " +
@@ -920,45 +921,46 @@ public class WebService : System.Web.Services.WebService
             "Deficiente= '" + param12 + "'," +
             "DeficienteTipo= '" + param13 + "'," +
             "ID_Curso= '" + param14 + "'," +
-            "matricula = '" + param15 + "'," +
-            "Endereco= '" + param16 + "'," +
-            "Latitude= '" + param17 + "'," +
-            "Longitude= '" + param18 + "'," +
-            "Numero= '" + param19 + "'," +
-            "Bairro= '" + param20 + "'," +
-            "CEP= '" + param21 + "'," +
-            "Cidade= '" + param22 + "'," +
-            "UF= '" + param23 + "'," +
-            "Celular1= '" + param24 + "'," +
-            "Celular2= '" + param25 + "'," +
-            "TelFixo= '" + param26 + "'," +
-            "email= '" + param27 + "'," +
-            "PIS= '" + param28 + "'," +
-            "CPF= '" + param29 + "'," +
-            "RG= '" + param30 + "'," +
-            "RGEmissor= '" + param31 + "'," +
-            "RGEmissao= '" + param32 + "'," +
-            "CTPS= '" + param33 + "'," +
-            "CTPSserie= '" + param34 + "'," +
-            "CTPSEmissao= '" + param35 + "'," +
-            "Titulo= '" + param36 + "'," +
-            "Zona= '" + param37 + "'," +
-            "Secao= '" + param38 + "'," +
-            "CNH= '" + param39 + "'," +
-            "Passaporte= '" + param40 + "'," +
-            "CertNasc= '" + param41 + "'," +
-            "Alergias= '" + param42 + "'," +
-            "AlergiasMed= '" + param43 + "'," +
-            "AcidenteAvisar= '" + param44 + "'," +
-            "CartaoSUS= '" + param45 + "'," +
-            "FardaCamisa= '" + param46 + "'," +
-            "FardaCamiseta= '" + param47 + "'," +
-            "FardaCalca= '" + param48 + "'," +
-            "FardaSapato= '" + param49 + "'," +
-            "FardaBota= '" + param50 + "'," +
-            "FardaObs= '" + param51 + "'," +
-            "FotoDataURI= '" + param52 + "' " +
-            "WHERE ID_Aluno = " + param53;
+            "ID_Turma= '" + param15 + "'," +
+            "matricula = '" + param16 + "'," +
+            "Endereco= '" + param17 + "'," +
+            "Latitude= '" + param18 + "'," +
+            "Longitude= '" + param19 + "'," +
+            "Numero= '" + param20 + "'," +
+            "Bairro= '" + param21 + "'," +
+            "CEP= '" + param22 + "'," +
+            "Cidade= '" + param23 + "'," +
+            "UF= '" + param24 + "'," +
+            "Celular1= '" + param25 + "'," +
+            "Celular2= '" + param26 + "'," +
+            "TelFixo= '" + param27 + "'," +
+            "email= '" + param28 + "'," +
+            "PIS= '" + param29 + "'," +
+            "CPF= '" + param30 + "'," +
+            "RG= '" + param31 + "'," +
+            "RGEmissor= '" + param32 + "'," +
+            "RGEmissao= '" + param33 + "'," +
+            "CTPS= '" + param34 + "'," +
+            "CTPSserie= '" + param35 + "'," +
+            "CTPSEmissao= '" + param36 + "'," +
+            "Titulo= '" + param37 + "'," +
+            "Zona= '" + param38 + "'," +
+            "Secao= '" + param39 + "'," +
+            "CNH= '" + param40 + "'," +
+            "Passaporte= '" + param41 + "'," +
+            "CertNasc= '" + param42 + "'," +
+            "Alergias= '" + param43 + "'," +
+            "AlergiasMed= '" + param44 + "'," +
+            "AcidenteAvisar= '" + param45 + "'," +
+            "CartaoSUS= '" + param46 + "'," +
+            "FardaCamisa= '" + param47 + "'," +
+            "FardaCamiseta= '" + param48 + "'," +
+            "FardaCalca= '" + param49 + "'," +
+            "FardaSapato= '" + param50 + "'," +
+            "FardaBota= '" + param51 + "'," +
+            "FardaObs= '" + param52 + "'," +
+            "FotoDataURI= '" + param53 + "' " +
+            "WHERE ID_Aluno = " + param54;
 
         OperacaoBanco operacao = new OperacaoBanco();
         bool inserir = operacao.Update(strInsert);

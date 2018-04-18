@@ -233,33 +233,38 @@
         <!-- GRUPO 2 - Curso do Aluno -->
         <div id="grupo2" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Curso Aluno - Novo Aluno</h3>
             <hr />
 
             <div class="w3-threequarter">
                 <form class="form-horizontal">
                     <fieldset>
-                        
-                         <div class="form-group">
+
+                        <div class="form-group">
                             <label for="input_Curnome" class="col-md-2 control-label">Curso</label>
                             <div class="col-md-7">
-                                <select class="form-control" id="input_Curnome" >
+                                <select class="form-control" id="input_Curnome">
                                     <asp:Literal ID="LITERAL_CURSO" runat="server" />
                                 </select>
                             </div>
                         </div>
-                       
-                         <div class="form-group">
+
+                        <div class="form-group">
+                            <label for="input_Turma" class="col-md-2 control-label">Turma</label>
+                            <div class="col-md-7">
+                                <select class="form-control" id="input_Turma">
+                                    <asp:Literal ID="literal_turma" runat="server" />
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label for="input_matri" class="col-md-2 control-label">Matricula</label>
                             <div class="col-md-4">
-                                <input type="number" class="form-control" id="input_matri">
+                                <input type="number" class="form-control" id="input_matri" value="0">
                             </div>
 
                         </div>
-
-                       
-                       
 
                     </fieldset>
                 </form>
@@ -298,7 +303,6 @@
         <!-- GRUPO 3 - Endereço -->
         <div id="grupo3" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Endereço - Novo Aluno</h3>
             <hr />
 
@@ -407,7 +411,6 @@
         <!-- GRUPO 4 - Documentação -->
         <div id="grupo4" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Documentação - Novo Aluno</h3>
             <hr />
 
@@ -526,7 +529,6 @@
         <!-- GRUPO 5 - Dados de Saúde -->
         <div id="grupo5" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Dados de Saúde - Novo Aluno</h3>
             <hr />
 
@@ -598,7 +600,6 @@
         <!-- GRUPO 6 - Fardamento -->
         <div id="grupo6" class="w3-container grupo w3-animate-left" style="display: none">
 
-            <!--*******Customização*******-->
             <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Fardamento - Novo Aluno</h3>
             <hr />
 

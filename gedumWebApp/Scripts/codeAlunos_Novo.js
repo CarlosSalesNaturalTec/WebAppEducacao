@@ -10,6 +10,25 @@ function SalvarRegistro() {
         document.getElementById("input_nome").focus();
         return;
     }
+    var e = document.getElementById("input_Curnome");
+    var v6 = e.options[e.selectedIndex].text;
+    if (v6 == "") {
+        alert("Informe Curso");
+        openLink(event, 'grupo2')
+        $('#bt1').addClass(' w3-blue');
+        document.getElementById("input_Curnome").focus();
+        return;
+    }
+    e = document.getElementById("input_Turma");
+    v6 = e.options[e.selectedIndex].text;
+    if (v6 == "") {
+        alert("Informe Turma");
+        openLink(event, 'grupo2')
+        $('#bt1').addClass(' w3-blue');
+        document.getElementById("input_Turma").focus();
+        return;
+    }
+
 
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
@@ -55,6 +74,25 @@ function AlterarRegistro() {
         document.getElementById("input_nome").focus();
         return;
     }
+    var e = document.getElementById("input_Curnome");
+    var v6 = e.options[e.selectedIndex].text;
+    if (v6 == "") {
+        alert("Informe Curso");
+        openLink(event, 'grupo1')
+        $('#bt1').addClass(' w3-blue');
+        document.getElementById("input_Curnome").focus();
+        return;
+    }
+    e = document.getElementById("input_Turma");
+    v6 = e.options[e.selectedIndex].text;
+    if (v6 == "") {
+        alert("Informe Turma");
+        openLink(event, 'grupo2')
+        $('#bt1').addClass(' w3-blue');
+        document.getElementById("input_Turma").focus();
+        return;
+    }
+
 
     //pega o valor de cada campo e constroi string com todos
     var i, x, strLine = "";
