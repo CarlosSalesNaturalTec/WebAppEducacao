@@ -58,7 +58,6 @@
                 </div>
             </div>
 
-
             <!-- Operacional  -->
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp;Operacional</button>
@@ -84,7 +83,8 @@
             <div class="w3-dropdown-hover w3-right">
                 <button class="w3-btn w3-hover-green"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Alunos</button>
                 <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="Alunos_Frequencia.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Frequência</a>
+                    <a href="Alunos_Frequencia.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Frequência - Lançamentos</a>
+                    <a href="Alunos_Frequencia_Resumo.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Frequência - Ficha</a>
                     <a href="Avaliacao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Avaliações</a>
                     <a href="Boletins.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Boletins</a>
                     <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Histórico Escolar</a>

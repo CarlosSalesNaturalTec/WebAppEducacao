@@ -68,6 +68,7 @@
                             <label for="input_equivalencia" class="col-md-2 control-label">Equivalência</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input_equivalencia">
+                                    <option value="-"></option>
                                     <option value="1a. SÉRIE ORGANIZAÇÃO SERIADA">1a. SÉRIE ORGANIZAÇÃO SERIADA</option>
                                     <option value="2a. SÉRIE ORGANIZAÇÃO SERIADA">2a. SÉRIE ORGANIZAÇÃO SERIADA</option>
                                     <option value="3a. SÉRIE ORGANIZAÇÃO SERIADA">3a. SÉRIE ORGANIZAÇÃO SERIADA</option>
@@ -86,6 +87,7 @@
                             <label for="input_modalidade" class="col-md-2 control-label">Modalidade Educacional</label>
                             <div class="col-md-9">
                                 <select class="form-control" id="input_modalidade">
+                                    <option value="-"></option>
                                     <option value="ENSINO FUNDAMENTAL II">ENSINO FUNDAMENTAL II</option>
                                     <option value="ENSINO FUNDAMENTAL I">ENSINO FUNDAMENTAL I</option>
                                     <option value="EDUCAÇÃO INFANFIL">EDUCAÇÃO INFANFIL</option>
@@ -115,6 +117,7 @@
                             <label for="input_anterior" class="col-md-2 control-label">Curso Anterior</label>
                             <div class="col-md-3">
                                 <select class="form-control" id="input_anterior">
+                                    <option value="-"></option>
                                     <option value="1a. SÉRIE">1a. SÉRIE</option>
                                     <option value="1° ANO">1° ANO</option>
                                     <option value="2a. SÉRIE">2a. SÉRIE</option>

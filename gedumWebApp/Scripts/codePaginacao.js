@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     $('#tabela').DataTable({
-        "order": [[0, "desc"]],
+        "order": [[0, "asc"]],
         "language": {
             "emptyTable": "Sem dados",
             "info": "Exibindo _START_ a _END_ de _TOTAL_ registros",

@@ -215,6 +215,22 @@
 
             </div>
 
+            <!-- Camera -->
+            <div class="w3-quarter">
+                <div id="results"></div>
+                <div id="my_camera"></div>
+                <div class="row">
+                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
+                    <input type="file" id="filePicker">
+                </div>
+                <div class="row">
+                    <label for="btwebcam">WebCam:</label><br>
+                    <input id="btwebcam" type="button" value="Ativar WebCam" onclick="AtivarWebCam()">
+                    <input type="button" value="Capturar imagem WebCam" onclick="take_snapshot()">
+                </div>
+                <input id="Hidden1" name="fotouri" type="hidden" />
+            </div>
+            <!-- Camera -->
 
         </div>
 
@@ -285,23 +301,6 @@
                 <!-- Botões Controle -->
 
             </div>
-
-            <!-- Camera -->
-            <div class="w3-quarter">
-                <div id="results"></div>
-                <div id="my_camera"></div>
-                <div class="row">
-                    <label for="filePicker">Foto ( 200x300pixels - Tam.Máx.:75Kb )</label><br>
-                    <input type="file" id="filePicker">
-                </div>
-                <div class="row">
-                    <label for="btwebcam">WebCam:</label><br>
-                    <input id="btwebcam" type="button" value="Ativar WebCam" onclick="AtivarWebCam()">
-                    <input type="button" value="Capturar imagem WebCam" onclick="take_snapshot()">
-                </div>
-                <input id="Hidden1" name="fotouri" type="hidden" />
-            </div>
-            <!-- Camera -->
 
         </div>
 
