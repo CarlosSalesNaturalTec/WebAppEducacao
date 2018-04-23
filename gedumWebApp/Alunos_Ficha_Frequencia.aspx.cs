@@ -115,8 +115,20 @@ public partial class Alunos_Ficha_Frequencia : System.Web.UI.Page
             Coluna4 = Tfaltas.ToString();
 
             //parei aqui
-            decimal v1 = Tpresencas / Taulas;
-            Coluna5 = v1.ToString();
+            decimal v1 = Convert.ToDecimal(Taulas);
+            decimal v2 = Convert.ToDecimal(Tpresencas);
+            decimal v3;
+
+            if (Taulas > 0)
+            {
+                v3 = (v2 / v1) * 100;
+            }
+            else
+            {
+                v3 = 0;
+            }
+
+            Coluna5 = v3.ToString();
 
             // Monta linha
             string str_linha = "<tr>" +
