@@ -10,7 +10,7 @@ public partial class Cursos_Ficha : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        idAux = Request.QueryString["v1"];
+        idAux = Request.QueryString["v1"];      // ID do curso
         string idInst = Session["InstID"].ToString();
 
         PreencheCampos(idAux);

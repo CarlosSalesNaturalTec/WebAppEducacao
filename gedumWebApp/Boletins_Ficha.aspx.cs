@@ -4,13 +4,15 @@ using System.Text;
 
 public partial class Boletins_Ficha : System.Web.UI.Page
 {
-
     StringBuilder str = new StringBuilder();
     string idAux, idCurso, CursoAux, TurmaAux, IDTurmaAux;
     string periodo1 = "", periodo2 = "", periodo3 = "", periodo4 = "";
+    int quantPeriodos = 0;
     string AnoLetivo = "0";
-
+    List<string> Lista_IdPeriodos = new List<string>(); // IDs dos períodos de Avaliações
     int Taulas = 0, Tpresencas = 0, Tfaltas = 0;
+
+    //ESTÁ MOSTRANDO sempre 4 colunas. alterar para quant dinamica de colunas
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,7 +28,7 @@ public partial class Boletins_Ficha : System.Web.UI.Page
         Verifica_Periodos(InstID);
 
         montaCabecalho();
-        //dadosCorpo();
+        dadosCorpo();
         montaRodape();
     }
 
@@ -46,43 +48,43 @@ public partial class Boletins_Ficha : System.Web.UI.Page
 
     private void Verifica_Periodos(string idAux)
     {
-
-        // LIST/ARRAY auxiliar
-        List<string> Lista_Periodos = new List<string>();
-
-        string stringSelect = "select " +
-            "Descricao " +
+        string stringSelect = "select Descricao, id_periodo " +
             "from tbl_periodo_avaliacao " +
             "where ID_inst = " + idAux;
+        int i = 0;
 
         OperacaoBanco operacao = new OperacaoBanco();
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            Lista_Periodos.Add(Convert.ToString(rcrdset[0]));
-        }
-        ConexaoBancoSQL.fecharConexao();
-
-        for (int i = 0; i < Lista_Periodos.Count; i++)
-        {
             switch (i)
             {
                 case 0:
-                    periodo1 = Lista_Periodos[i];
+                    periodo1 = Convert.ToString(rcrdset[0]);
+                    Lista_IdPeriodos.Add(Convert.ToString(rcrdset[1]));
+                    quantPeriodos++;
                     break;
                 case 1:
-                    periodo2 = Lista_Periodos[i];
+                    periodo2 = Convert.ToString(rcrdset[0]);
+                    Lista_IdPeriodos.Add(Convert.ToString(rcrdset[1]));
+                    quantPeriodos++;
                     break;
                 case 2:
-                    periodo3 = Lista_Periodos[i];
+                    periodo3 = Convert.ToString(rcrdset[0]);
+                    Lista_IdPeriodos.Add(Convert.ToString(rcrdset[1]));
+                    quantPeriodos++;
                     break;
                 case 3:
-                    periodo4 = Lista_Periodos[i];
+                    periodo4 = Convert.ToString(rcrdset[0]);
+                    Lista_IdPeriodos.Add(Convert.ToString(rcrdset[1]));
+                    quantPeriodos++;
                     break;
                 default:
                     break;
             }
+            i++;
         }
+        ConexaoBancoSQL.fecharConexao();
     }
 
     private void PreencheCampos(string ID)
@@ -113,13 +115,13 @@ public partial class Boletins_Ficha : System.Web.UI.Page
             ScriptDados = "document.getElementById('input_mat').value = \"" + Convert.ToString(rcrdset[2]) + "\";";
             str.Append(ScriptDados);
 
-            ScriptDados = "document.getElementById('input_Ano').value = \"" + AnoLetivo + "\";";
-            str.Append(ScriptDados);
-
             ScriptDados = "document.getElementById('results').innerHTML = '<img src=\"" + Convert.ToString(rcrdset[3]) + "\"/>'; ";
             str.Append(ScriptDados);
         }
         ConexaoBancoSQL.fecharConexao();
+
+        ScriptDados = "document.getElementById('input_Ano').value = \"" + AnoLetivo + "\";";
+        str.Append(ScriptDados);
 
         ScriptDados = "document.getElementById('input_Curso').value = \"" + CursoAux + "\";";
         str.Append(ScriptDados);
@@ -154,82 +156,148 @@ public partial class Boletins_Ficha : System.Web.UI.Page
 
     private void dadosCorpo()
     {
-        string Coluna1 = "", Coluna2 = "", Coluna3 = "", Coluna4 = "", Coluna5 = "";
-
-        // LIST/ARRAY auxiliar
-        List<string> Lista_IdsDisc = new List<string>();
-
-        // Disciplinas do Curso
-        string select_aux = "select id_dsciplina " +
-            "from tbl_cursos_disciplina " +
-            "where iD_curso = " + idCurso;
+        //Disciplinas do Curso
+        string strSelect = "select t1.id_dsciplina, t2.nome " +
+            "from tbl_cursos_disciplina t1 " +
+            "inner join Tbl_Disciplinas t2 on (t1.id_dsciplina = t2.id_disc) " +
+            "where t1.ID_curso = " + idCurso;
+        string Coluna0 = "",Coluna1 ="", Coluna2="", Coluna3 = "", Coluna4 = "";
+        string ColunaTemp = "";
         OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = operacao.Select(select_aux);
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
         while (dados.Read())
         {
-            Lista_IdsDisc.Add(Convert.ToString(dados[0]));
-        }
-        ConexaoBancoSQL.fecharConexao();
+            Coluna0 = Convert.ToString(dados[1]);    // nome da disciplina
 
-        // percorre todas as Disciplinas
-        for (int i = 0; i < Lista_IdsDisc.Count; i++)
-        {
-
-            Coluna1 = nomeDisc(Lista_IdsDisc[i]);                                   //Nome da Disciplina
-
-            percorreAulas(IDTurmaAux, Lista_IdsDisc[i]);
-
-            Coluna2 = Taulas.ToString();
-            Coluna3 = Tpresencas.ToString();
-            Coluna4 = Tfaltas.ToString();
-
-            decimal v1 = Convert.ToDecimal(Taulas);
-            decimal v2 = Convert.ToDecimal(Tpresencas);
-            decimal v3;
-
-            if (Taulas > 0)
+            // resultado da disciplina por período
+            for (int i = 0; i < quantPeriodos; i++)
             {
-                v3 = (v2 / v1) * 100;
-            }
-            else
-            {
-                v3 = 0;
+                ColunaTemp = "média: <b>" + MediaPeriodo(Convert.ToString(dados[0]), Lista_IdPeriodos[i]) +
+                            "</b>  freq.: <b>" + FrequenciaPeriodo(Convert.ToString(dados[0]), IDTurmaAux, Lista_IdPeriodos[i]) +
+                            "%</b>";
+                switch (i)
+                {
+                    case 0:
+                        Coluna1 = ColunaTemp;
+                        break;
+                    case 1:
+                        Coluna2 = ColunaTemp;
+                        break;
+                    case 2:
+                        Coluna3 = ColunaTemp;
+                        break;
+                    case 3:
+                        Coluna4 = ColunaTemp;
+                        break;
+                    default:
+                        break;
+                }
             }
 
-            Coluna5 = v3.ToString();
-
-            // Monta linha
-            string str_linha = "<tr>" +
+            string stringcomaspas = "<tr>" +
+                "<td>" + Coluna0 + "</td>" +
                 "<td>" + Coluna1 + "</td>" +
                 "<td>" + Coluna2 + "</td>" +
                 "<td>" + Coluna3 + "</td>" +
                 "<td>" + Coluna4 + "</td>" +
-                "<td>" + Coluna5 + "</td>" +
                 "</tr>";
-            str.Append(str_linha);
 
-        }
-
-    }
-
-    private void percorreAulas(string IDTurmaAux, string IDDiscAux)
-    {
-
-        Taulas = 0; Tpresencas = 0; Tfaltas = 0;
-
-        string select_aux = "select ID_Aula " +
-           "from Tbl_Alunos_Frequencia_Aulas " +
-           "where ID_turma = " + IDTurmaAux +
-           " and ID_Disc = " + IDDiscAux;
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = operacao.Select(select_aux);
-        while (dados.Read())
-        {
-            Taulas++;   //total de aulas
-            Verifica_Presenca(Convert.ToString(dados[0]), idAux);    //verifica presença a partir do ID_Aula e ID_Aluno
+            str.Append(stringcomaspas);
         }
         ConexaoBancoSQL.fecharConexao();
+    }
+
+    private void montaRodape()
+    {
+        string footer = "</tbody></table>";
+        str.Append(footer);
+
+        Literal_Table.Text = str.ToString();
+    }
+
+    private string MediaPeriodo(string idDisc, string idPer)
+    {
+        //avaliacões no periodo
+        string stringSelect = "select id_avaliacao, notaMax  " + 
+            "from tbl_avaliacao " +
+            "where id_Disc=" + idDisc + 
+            " and id_periodo=" + idPer ;
+        decimal v1 = 0, v2 = 0;
+        int quantAvaliacoes = 0;
+
+        //soma resultados individuais = nota obtida / nota maxima
+        OperacaoBanco operacao1 = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdset1 = operacao1.Select(stringSelect);
+        while (rcrdset1.Read())
+        {
+            v1 = v1 + (NotaObtida(Convert.ToString(rcrdset1[0]), idAux) / Convert.ToDecimal(rcrdset1[1]));
+            quantAvaliacoes++;
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        //média = soma resultados individuais / quantidade de avaliações
+        if (quantAvaliacoes>0)
+        {
+            v2 = (v1 / quantAvaliacoes) * 10;
+        }
+
+        return v2.ToString("0.0");
+    }
+
+    private decimal NotaObtida(string idAvaliacao, string idAluno)
+    {
+        decimal retornoNota = 0;
+
+        string stringSelect = "select nota " +
+            "from tbl_aluno_avaliacao " +
+            "where id_avaliacao = " + idAvaliacao +
+            " and id_aluno = " + idAluno;
+
+        OperacaoBanco operacao2 = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdset2 = operacao2.Select(stringSelect);
+        while (rcrdset2.Read())
+        {
+            retornoNota = Convert.ToDecimal(rcrdset2[0]);
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        return retornoNota;
+    }
+
+    private string FrequenciaPeriodo(string idDisc, string idTurma, string idPer)
+    {
+        //aulas da disciplina na turma no periodo
+        string stringSelect = "select id_aula " +
+            "from Tbl_Alunos_Frequencia_Aulas " +
+            "where id_Disc=" + idDisc +
+            " and id_turma=" + idTurma +
+            " and id_periodo=" + idPer;
+
+        //totaliza aulas,presencas e faltas
+        Taulas = 0; Tpresencas = 0; Tfaltas = 0;
+        OperacaoBanco operacao3 = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader rcrdset3 = operacao3.Select(stringSelect);
+        while (rcrdset3.Read())
+        {
+            Taulas++;   //total de aulas
+            Verifica_Presenca(Convert.ToString(rcrdset3[0]), idAux);    //verifica presença a partir do ID_Aula e ID_Aluno
+        }
+        ConexaoBancoSQL.fecharConexao();
+
+        decimal v1 = Convert.ToDecimal(Taulas);
+        decimal v2 = Convert.ToDecimal(Tpresencas);
+        decimal v3;
+
+        if (Taulas > 0)
+        {
+            v3 = (v2 / v1) * 100;
+        }
+        else
+        {
+            v3 = 0;
+        }
+
+        return v3.ToString("00.00");
     }
 
     private void Verifica_Presenca(string IDAulaAux, string IDAlunoAux)
@@ -257,30 +325,4 @@ public partial class Boletins_Ficha : System.Web.UI.Page
         ConexaoBancoSQL.fecharConexao();
 
     }
-
-    private string nomeDisc(string ID_Disc_Aux)
-    {
-        string nomeRetorno = "XXX";
-
-        string strSelect = "select Nome from Tbl_Disciplinas where ID_Disc = " + ID_Disc_Aux;
-        OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
-        while (dados.Read())
-        {
-            nomeRetorno = Convert.ToString(dados[0]);
-        }
-        ConexaoBancoSQL.fecharConexao();
-
-        return nomeRetorno;
-    }
-
-    private void montaRodape()
-    {
-        string footer = "</tbody></table>";
-        str.Append(footer);
-
-        Literal_Table.Text = str.ToString();
-    }
-
-
 }

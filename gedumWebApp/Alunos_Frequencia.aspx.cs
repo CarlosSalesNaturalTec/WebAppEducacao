@@ -103,6 +103,10 @@ public partial class Alunos_Frequencia : System.Web.UI.Page
         }
         ConexaoBancoSQL.fecharConexao();
 
+        // id da instituição
+        ScriptDados = "document.getElementById('IdInstHidden').value = \"" + IDInst + "\";";
+        str.Append(ScriptDados);
+
         ScriptDados = "</script>";
         str.Append(ScriptDados);
 

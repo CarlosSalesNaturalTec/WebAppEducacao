@@ -126,11 +126,11 @@
         </div>
     </div>
     <!-- Modal Excluir -->
-
+    <input id="IdInstHidden" type="hidden" />
     
     <!-- auxiliares -->
     <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-
+    
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeAlunos_Frequencia.js"></script>
 

@@ -8,7 +8,6 @@ function ExcluirRegistro() {
 
     var idRegistro = document.getElementById('HiddenID').value;
 
-    // <!--*******Customização*******-->
     $.ajax({
         type: "POST",
         url: "WebService.asmx/AvaExcluir",

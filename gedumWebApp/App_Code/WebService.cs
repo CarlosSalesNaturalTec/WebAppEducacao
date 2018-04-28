@@ -2397,16 +2397,17 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string Frequencia_Aula_Lancar(string param1, string param2, string param3, string param4, string param5)
+    public string Frequencia_Aula_Lancar(string param1, string param2, string param3, string param4, string param5, string param6)
     {
         //param1 = ID da Turma
         //param2 = ID da Disciplina
         //param3 = data da aula
         //param4 = observações
         //param5 = Período
+        //param6 = ID da Instituição
 
         bool AulaExiste = false;
-        string retorno = "";
+        string retorno = "", Ano="0";
 
         //verifica se já foi gerada Aula em tabela de frequencias_aulas
         string strSelect = "select ID_Aula from Tbl_Alunos_Frequencia_Aulas " +
@@ -2424,14 +2425,28 @@ public class WebService : System.Web.Services.WebService
         // Insere aula caso não exista
         if (!AulaExiste)
         {
+
+            //Verifica Ano Letivo
+            strSelect = "select ano_letivo from tbl_parametros " +
+                "where ID_inst=" + param6 ;
+            OperacaoBanco operacaoAno = new OperacaoBanco();
+            SqlDataReader rcrdsetAno = operacaoAno.Select(strSelect);
+            while (rcrdsetAno.Read())
+            {
+                Ano = Convert.ToString(rcrdsetAno[0]);
+            }
+            ConexaoBancoSQL.fecharConexao();
+
             OperacaoBanco operacaoInst2 = new OperacaoBanco();
-            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula,Observ, id_periodo   ) " +
+            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , " +
+                "Data_Aula,Observ, id_periodo, ano_letivo ) " +
                "VALUES (" +
                "'" + param1 + "'," +
                "'" + param2 + "'," +
                "'" + param3 + "'," +
                "'" + param4 + "'," +
-               "'" + param5 + "'" +
+               "'" + param5 + "'," +
+               "'" + Ano + "'" +
                ")");
             ConexaoBancoSQL.fecharConexao();
 

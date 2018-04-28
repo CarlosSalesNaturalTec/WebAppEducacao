@@ -76,7 +76,7 @@ public partial class Alunos_Ficha_Frequencia : System.Web.UI.Page
             "<th>AULAS</th>" +
             "<th>PRESENÇAS</th>" +
             "<th>FALTAS</th>" +
-            "<th>% FREQUENCIA</th>" +
+            "<th>FREQUENCIA %</th>" +
             "</tr>" +
             "</thead>" +
             "<tbody>";
@@ -114,7 +114,6 @@ public partial class Alunos_Ficha_Frequencia : System.Web.UI.Page
             Coluna3 = Tpresencas.ToString();
             Coluna4 = Tfaltas.ToString();
 
-            //parei aqui
             decimal v1 = Convert.ToDecimal(Taulas);
             decimal v2 = Convert.ToDecimal(Tpresencas);
             decimal v3;
@@ -128,7 +127,7 @@ public partial class Alunos_Ficha_Frequencia : System.Web.UI.Page
                 v3 = 0;
             }
 
-            Coluna5 = v3.ToString();
+            Coluna5 = v3.ToString("00.00");
 
             // Monta linha
             string str_linha = "<tr>" +

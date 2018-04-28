@@ -23,6 +23,11 @@ function SalvarRegistro() {
         $("input_ano").focus();
         return;
     }
+    if (document.getElementById('input-nota').value == "0") {
+        alert("Nota Máxima Inválida");
+        $("input-nota").focus();
+        return;
+    }
     
     var strLine = "";
     var v1 = document.getElementById("IDInstHidden").value;

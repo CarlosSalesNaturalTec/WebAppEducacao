@@ -150,7 +150,10 @@ function Lancar_aulas_Confirma() {
     strLine = strLine + "param4" + ":'" + v1 + "',";
 
     v1 = document.getElementById("input_periodo").value;
-    strLine = strLine + "param5" + ":'" + v1 + "'";
+    strLine = strLine + "param5" + ":'" + v1 + "',";
+
+    v1 = document.getElementById("IdInstHidden").value;
+    strLine = strLine + "param6" + ":'" + v1 + "'";
 
     // Aguarde
     UI_Aguardar();
