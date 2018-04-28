@@ -22,9 +22,14 @@ function AlterarRegistro() {
     var v3 = document.getElementById("input_permite_pre").value;
     strLine = strLine + "param3" + ":'" + v3 + "',";
 
+    // Período Avaliações
+    var v4 = document.getElementById("input_periodo").value;
+    strLine = strLine + "param4" + ":'" + v4 + "',";
+
     // id iNSTITUIÇÃO
-    var v4 = document.getElementById("IDInstHidden").value;
-    strLine = strLine + "param4" + ":'" + v4 + "'";
+    var v5 = document.getElementById("IDInstHidden").value;
+    strLine = strLine + "param5" + ":'" + v5 + "'";
+
 
     //exibir animações - aguarde...
     UIAguardar();

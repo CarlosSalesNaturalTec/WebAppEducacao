@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     
-    <title>Controle de Atestados</title>
+    <title>Ficha de Atestado</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -44,7 +44,7 @@
         <!-- GRUPO 1 - Dados Atestados -->
         <div id="grupo1" class="w3-container grupo w3-animate-left" style="display: block">
 
-            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Empréstimo</h3>
+            <h3><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Ficha de Atestado</h3>
             <hr />
 
             <div class="w3-threequarter">

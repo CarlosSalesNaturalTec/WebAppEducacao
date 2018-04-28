@@ -61,10 +61,8 @@
                             <div class="col-md-5">
                                 <select class="form-control" id="input-disciplina">
                                     <asp:Literal ID="Literal_disciplina" runat="server"></asp:Literal>
-
                                 </select>
                             </div>
-
                         </div>
 
                         <div class="form-group">
@@ -72,10 +70,8 @@
                             <div class="col-md-5">
                                 <select class="form-control" id="input-turma">
                                     <asp:Literal ID="Literal_turma" runat="server"></asp:Literal>
-
                                 </select>
                             </div>
-
                         </div>
 
                         <div class="form-group">
@@ -92,13 +88,16 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <label for="input-periodo" class="col-md-2 control-label">Periodo</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input-periodo">
                                     <asp:Literal ID="Literal_periodo" runat="server"></asp:Literal>
                                 </select>
+                            </div>
+                            <label for="input_ano" class="col-md-2 control-label">Ano Letivo</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_ano" disabled>
                             </div>
                         </div>
 
@@ -169,7 +168,7 @@
                             <div class="col-md-2 ">
                                 <input type="number" id="input-n" class="w3-input w3-border w3-round" value="0">
                             </div>
-                                                
+
                             <div class="col-md-2">
                                 <button type="button" class="w3-btn w3-border w3-round w3-light-green w3-hover-green btcontroles"
                                     onclick="incluirNota()">

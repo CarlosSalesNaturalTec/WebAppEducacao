@@ -36,7 +36,7 @@ function verificar_aulas() {
         success: function (data, status) {
             var itens = $.parseJSON(data.d);
             for (var i = 0; i < itens.length; i++) {
-                adiciona_Linha(itens[i].ID_Aula, itens[i].Data_Aula, itens[i].Observ);
+                adiciona_Linha(itens[i].ID_Aula, itens[i].Data_Aula, itens[i].Observ, itens[i].Periodo);
             }
             formatar_Tabela();
             UI_Aguardar_Concluido();
@@ -62,14 +62,16 @@ function Limpar_Tabela() {
     var cell0 = row.insertCell(0);
     var cell1 = row.insertCell(1);
     var cell2 = row.insertCell(2);
+    var cell3 = row.insertCell(3);
 
     cell0.innerHTML = "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comandos</b>";
     cell1.innerHTML = "<b>Data</b>";
-    cell2.innerHTML = "<b>Observações</b>";
+    cell2.innerHTML = "<b>Periodo</b>";
+    cell3.innerHTML = "<b>Observações</b>";
 
 }
 
-function adiciona_Linha(AulaID, AulaData, AulaObs) {
+function adiciona_Linha(AulaID, AulaData, AulaObs, AulaPeriodo) {
 
     var e = document.getElementById("select_Turma")
     var idTurma = e.options[e.selectedIndex].value
@@ -83,6 +85,7 @@ function adiciona_Linha(AulaID, AulaData, AulaObs) {
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
 
     var bt1 = "";
     var bt2 = "";
@@ -103,7 +106,8 @@ function adiciona_Linha(AulaID, AulaData, AulaObs) {
 
     cell1.innerHTML = bt1 + bt2;
     cell2.innerHTML = AulaData;
-    cell3.innerHTML = AulaObs;
+    cell3.innerHTML = AulaPeriodo;
+    cell4.innerHTML = AulaObs;
 
 }
 
@@ -115,6 +119,7 @@ function formatar_Tabela() {
 
 function Lancar_aulas() {
     document.getElementById('DivModal').style.display = "block";
+    document.getElementById("input_Data").focus();
 }
 
 function Lancar_Cancel() {
@@ -134,12 +139,18 @@ function Lancar_aulas_Confirma() {
     var strLine = "";
     var v1 = document.getElementById("select_Turma").value;
     strLine = strLine + "param1" + ":'" + v1 + "',";
+
     v1 = document.getElementById("select_Disc").value;
     strLine = strLine + "param2" + ":'" + v1 + "',";
+
     v1 = document.getElementById("input_Data").value;
     strLine = strLine + "param3" + ":'" + v1 + "',";
+
     v1 = document.getElementById("input_Obs").value;
-    strLine = strLine + "param4" + ":'" + v1 + "'";
+    strLine = strLine + "param4" + ":'" + v1 + "',";
+
+    v1 = document.getElementById("input_periodo").value;
+    strLine = strLine + "param5" + ":'" + v1 + "'";
 
     // Aguarde
     UI_Aguardar();

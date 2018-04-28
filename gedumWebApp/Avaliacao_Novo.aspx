@@ -58,7 +58,6 @@
                             <div class="col-md-5">
                                 <select class="form-control" id="input-disciplina">
                                     <asp:Literal ID="Literal_disciplina" runat="server"></asp:Literal>
-
                                 </select>
                             </div>
 
@@ -69,18 +68,15 @@
                             <div class="col-md-5">
                                 <select class="form-control" id="input-turma">
                                     <asp:Literal ID="Literal_turma" runat="server"></asp:Literal>
-
                                 </select>
                             </div>
-
                         </div>
 
                         <div class="form-group">
-
                             <label for="input-tipo" class="col-md-2 control-label">Tipo Ava.</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input-tipo">
-                                    <option value=""> </option>
+                                    <option value=""></option>
                                     <option value="PROVA">PROVA</option>
                                     <option value="TESTE">TESTE</option>
                                     <option value="TRABALHO INDIVIDUAL">TRABALHO INDIVIDUAL</option>
@@ -91,36 +87,32 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
-
                             <label for="input-periodo" class="col-md-2 control-label">Periodo</label>
                             <div class="col-md-5">
                                 <select class="form-control" id="input-periodo">
-                                      <asp:Literal ID="Literal_periodo" runat="server"></asp:Literal>
+                                    <asp:Literal ID="Literal_periodo" runat="server"></asp:Literal>
                                 </select>
+                            </div>
+                            <label for="input_ano" class="col-md-2 control-label">Ano Letivo</label>
+                            <div class="col-md-2">
+                                <input type="number" class="form-control" id="input_ano" disabled>
                             </div>
                         </div>
 
                         <div class="form-group">
-
                             <label for="input_dataAv" class="col-md-2 control-label">Data</label>
                             <div class="col-md-3">
                                 <input type="date" class="form-control" id="input_dataAv">
                             </div>
                         </div>
-                        
-                     <div class="form-group">
 
+                        <div class="form-group">
                             <label for="input-nota" class="col-md-2 control-label">Nota Máxima</label>
                             <div class="col-md-2">
                                 <input type="number" class="form-control" id="input-nota" value="10">
                             </div>
                         </div>
-                        
-                        
-                       
-            
                     </fieldset>
                 </form>
 

@@ -80,8 +80,9 @@
         <table id="tabela_aulas" style="width: 100%;" class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Cod.</th>
+                    <th>Comandos</th>
                     <th>Data</th>
+                    <th>Periodo</th>
                     <th>Observações</th>
                 </tr>
             </thead>
@@ -104,7 +105,14 @@
                     <br />
                     <input id="input_Data" type="date" class="form-control" />
                     <br />
-                    <input id="input_Obs" type="text" class="form-control"  placeholder="Observações"  />
+
+                    <label for="input_periodo" class="col-md-2 control-label">Periodo</label>
+                    <select class="form-control" id="input_periodo">
+                        <asp:Literal ID="Literal_periodo" runat="server"></asp:Literal>
+                    </select>
+                    <br />
+
+                    <input id="input_Obs" type="text" class="form-control" placeholder="Observações" />
                     <br />
 
                     <p>
@@ -118,6 +126,10 @@
         </div>
     </div>
     <!-- Modal Excluir -->
+
+    
+    <!-- auxiliares -->
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
 
     <!-- Scripts Diversos  -->
     <script type="text/javascript" src="Scripts/codeAlunos_Frequencia.js"></script>

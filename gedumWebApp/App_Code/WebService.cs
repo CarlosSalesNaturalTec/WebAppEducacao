@@ -70,10 +70,10 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string AvaliacaoSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6)
+    public string AvaliacaoSalvar(string param0, string param1, string param2, string param3, string param4, string param5, string param6, string param7)
     {
         string url;
-        string insert = "INSERT INTO tbl_avaliacao (id_inst, ID_Disc, id_turma, id_periodo, tipo, dataAva, notaMax) " +
+        string insert = "INSERT INTO tbl_avaliacao (id_inst, ID_Disc, id_turma, id_periodo, tipo, dataAva, notaMax, Ano_Letivo) " +
                         "VALUES (" +
                         "'" + param0 + "'," +
                         "'" + param1 + "'," +
@@ -81,7 +81,9 @@ public class WebService : System.Web.Services.WebService
                         "'" + param3 + "'," +
                         "'" + param4 + "'," +
                         "'" + param5 + "'," +
-                        "'" + param6 + "'" + ")";
+                        "'" + param6 + "'," +
+                        "'" + param7 + "'" +
+                        ")";
 
         OperacaoBanco op = new OperacaoBanco();
         bool inserir = op.Insert(insert);
@@ -93,7 +95,6 @@ public class WebService : System.Web.Services.WebService
         else
         {
             url = "Sorry.aspx";
-
         }
 
         return url;
@@ -2045,7 +2046,7 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string ParametroAlterar(string param1, string param2, string param3, string param4)
+    public string ParametroAlterar(string param1, string param2, string param3, string param4, string param5)
     {
 
         string url;
@@ -2054,8 +2055,9 @@ public class WebService : System.Web.Services.WebService
         bool inserir = operacao.Update("update Tbl_Parametros set " +
             "ano_letivo = " + param1 + "," +
             "matricula = " + param2 + "," +
-            "permite_pre_mat = '" + param3 + "' " +
-            "where ID_inst = " + param4
+            "permite_pre_mat = '" + param3 + "', " +
+            "id_periodo = '" + param4 + "' " +
+            "where ID_inst = " + param5
             );
 
         ConexaoBancoSQL.fecharConexao();
@@ -2395,12 +2397,13 @@ public class WebService : System.Web.Services.WebService
 
 
     [WebMethod]
-    public string Frequencia_Aula_Lancar(string param1, string param2, string param3, string param4)
+    public string Frequencia_Aula_Lancar(string param1, string param2, string param3, string param4, string param5)
     {
         //param1 = ID da Turma
         //param2 = ID da Disciplina
         //param3 = data da aula
         //param4 = observações
+        //param5 = Período
 
         bool AulaExiste = false;
         string retorno = "";
@@ -2422,13 +2425,14 @@ public class WebService : System.Web.Services.WebService
         if (!AulaExiste)
         {
             OperacaoBanco operacaoInst2 = new OperacaoBanco();
-            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula,Observ   ) " +
+            Boolean inserirUser = operacaoInst2.Insert("INSERT INTO Tbl_Alunos_Frequencia_Aulas (ID_Turma , ID_Disc , Data_Aula,Observ, id_periodo   ) " +
                "VALUES (" +
                "'" + param1 + "'," +
                "'" + param2 + "'," +
                "'" + param3 + "'," +
-               "'" + param4 + "')"
-               );
+               "'" + param4 + "'," +
+               "'" + param5 + "'" +
+               ")");
             ConexaoBancoSQL.fecharConexao();
 
             if (inserirUser == true)
@@ -2483,10 +2487,13 @@ public class WebService : System.Web.Services.WebService
         try
         {
             OperacaoBanco operacao1 = new OperacaoBanco();
-            SqlDataReader dados1 = operacao1.Select("select ID_Aula, format(Data_Aula,'dd/MM/yyyy') as d1 , Observ  "
-                    + "FROM Tbl_Alunos_Frequencia_Aulas "
-                    + "where ID_Turma ='" + param1 + "' "
-                    + "and ID_Disc = '" + param2 + "'");
+            SqlDataReader dados1 = operacao1.Select("select t1.ID_Aula, format(t1.Data_Aula,'dd/MM/yyyy') as d1 , t1.Observ, t2.Descricao "
+                    + "FROM Tbl_Alunos_Frequencia_Aulas t1 " 
+                    + "inner join tbl_periodo_avaliacao t2 on (t1.id_periodo = t2.id_periodo) "
+                    + "where t1.ID_Turma ='" + param1 + "' "
+                    + "and t1.ID_Disc = '" + param2 + "' "
+                    + "order by t1.Data_Aula desc"
+                    );
 
             while (dados1.Read())
             {
@@ -2494,7 +2501,8 @@ public class WebService : System.Web.Services.WebService
                 {
                     ID_Aula = dados1[0].ToString(),
                     Data_Aula = dados1[1].ToString(),
-                    Observ = dados1[2].ToString()
+                    Observ = dados1[2].ToString(),
+                    Periodo = dados1[3].ToString()
                 });
                 totalRegistros += 1;
             }
@@ -2506,7 +2514,8 @@ public class WebService : System.Web.Services.WebService
                 {
                     ID_Aula = "9999",
                     Data_Aula = "X",
-                    Observ = "X"
+                    Observ = "X",
+                    Periodo = "X"
                 });
             }
 

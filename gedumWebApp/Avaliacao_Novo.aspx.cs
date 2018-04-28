@@ -5,27 +5,45 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
 {
 
     StringBuilder str = new StringBuilder();
+    string AnoLetivo = "0";
 
     protected void Page_Load(object sender, EventArgs e)
     {
         string idInst = Session["InstID"].ToString();
 
+        Verifica_AnoLetivo(idInst);
+
         preenchecampos(idInst);
-        mostraDisciplina(idInst);
-        mostrarTurma(idInst);
-        mostrarPeriodo(idInst);
+
+        DropDown_Disciplina(idInst);
+        DropDown_Turma(idInst);
+        DropDown_Periodo(idInst);
     }
 
+    private void Verifica_AnoLetivo(string idAux)
+    {
+        string strSelect = "select ano_letivo from tbl_parametros where ID_Inst = " + idAux;
+
+        OperacaoBanco operacao = new OperacaoBanco();
+        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
+
+        while (dados.Read())
+        {
+            AnoLetivo = Convert.ToString(dados[0]);
+        }
+        ConexaoBancoSQL.fecharConexao();
+    }
 
     private void preenchecampos(string idAux)
     {
         string ScriptAux = "<script type=\"text/javascript\">" +
                         "document.getElementById('IDInstHidden').value = \"" + idAux + "\";" +
+                        "document.getElementById('input_ano').value = \"" + AnoLetivo + "\";" +
                         "</script>";
         Literal1.Text = ScriptAux;
     }
 
-    private void mostraDisciplina(string id)
+    private void DropDown_Disciplina(string id)
     {
         str.Clear();
         str.Append("<option value=\"0\">Selecione uma Disciplina</option>");
@@ -44,9 +62,9 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
         Literal_disciplina.Text = str.ToString();
     }
 
-    private void mostrarTurma(string id)
+    private void DropDown_Turma(string id)
     {
-        
+
         str.Clear();
         str.Append("<option value=\"0\">Selecione uma Turma</option>");
 
@@ -65,7 +83,7 @@ public partial class Avaliacao_Novo : System.Web.UI.Page
 
     }
 
-    private void mostrarPeriodo(string id)
+    private void DropDown_Periodo(string id)
     {
         str.Clear();
         str.Append("<option value=\"0\">Selecione o Período</option>");

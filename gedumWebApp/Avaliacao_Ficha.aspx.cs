@@ -12,18 +12,18 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
         string idIns = Session["InstID"].ToString();        // ID da Instituição
 
-        mostraDisciplina(idIns);
-        mostrarTurma(idIns);
-        mostrarPeriodo(idIns);
+        DropDown_Disciplina(idIns);
+        DropDown_Turma(idIns);
+        DropDown_Periodo(idIns);
 
         PreencheCampos(idAux);
 
-        mostraAlunos(idTurma);            // dropDown Alunos da Turma
-        listaAl(idAux);                 // tabela com notas dos alunos
+        DropDown_Alunos(idTurma);            // dropDown Alunos da Turma
+        Table_Notas(idAux);                 // tabela com notas dos alunos
 
     }
 
-    private void mostraDisciplina(string id)
+    private void DropDown_Disciplina(string id)
     {
         str.Clear();
         str.Append("<option value=\"0\">Selecione uma Disciplina</option>");
@@ -42,7 +42,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         Literal_disciplina.Text = str.ToString();
     }
 
-    private void mostrarTurma(string id)
+    private void DropDown_Turma(string id)
     {
 
         str.Clear();
@@ -63,7 +63,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
     }
 
-    private void mostrarPeriodo(string id)
+    private void DropDown_Periodo(string id)
     {
         str.Clear();
         str.Append("<option value=\"0\">Selecione o Período</option>");
@@ -83,8 +83,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         Literal_periodo.Text = str.ToString();
 
     }
-
-    
+ 
     private void PreencheCampos(string ID)
     {
         string ScriptDados = "";
@@ -100,6 +99,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
             "id_turma," +
             "tipo," +
             "id_periodo," +
+            "Ano_letivo, " +
             "format(dataAva,'yyyy-MM-dd') as d1, " +
             "notamax " +
             "from tbl_avaliacao " +
@@ -109,7 +109,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         System.Data.SqlClient.SqlDataReader rcrdset = operacao.Select(stringSelect);
         while (rcrdset.Read())
         {
-            for (int i = 0; i <= 5; i++)
+            for (int i = 0; i <= 6; i++)
             {
                 ScriptDados = "x[" + i + "].value = \"" + Convert.ToString(rcrdset[i]) + "\";";
                 str.Append(ScriptDados);
@@ -131,7 +131,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
 
     }
 
-    private void mostraAlunos(string id)
+    private void DropDown_Alunos(string id)
     {
         StringBuilder strA = new StringBuilder();
         strA.Clear();
@@ -151,7 +151,7 @@ public partial class Avaliacao_Ficha : System.Web.UI.Page
         literal_alunos.Text = strA.ToString();
     }
 
-    private void listaAl(string ID)
+    private void Table_Notas(string ID)
     {
 
         string stringSelect = "select t1.id_aa, t2.nome, t1.nota " +

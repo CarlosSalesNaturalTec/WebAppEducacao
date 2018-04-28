@@ -18,6 +18,11 @@ function SalvarRegistro() {
         $("input-disciplina").focus();
         return;
     }
+    if (document.getElementById('input_ano').value == "0") {
+        alert("Ano Letivo Inválido. Verifique Parâmetros");
+        $("input_ano").focus();
+        return;
+    }
     
     var strLine = "";
     var v1 = document.getElementById("IDInstHidden").value;
@@ -40,7 +45,10 @@ function SalvarRegistro() {
     strLine = strLine + "param5" + ":'" + v1 + "',";
 
     v1 = document.getElementById("input-nota").value;
-    strLine = strLine + "param6" + ":'" + v1 + "'";
+    strLine = strLine + "param6" + ":'" + v1 + "',";
+
+    v1 = document.getElementById("input_ano").value;
+    strLine = strLine + "param7" + ":'" + v1 + "'";
     
     //exibir animações - aguarde...
     UIAguardar();
