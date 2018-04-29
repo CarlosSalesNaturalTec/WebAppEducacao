@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Boletins_Ficha.aspx.cs" Inherits="Boletins_Ficha" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Boletins_Ficha_Listagem.aspx.cs" Inherits="Boletins_Ficha_Listagem" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-    <title>Boletim Escolar</title>
+    <title>Boletim Escolar - Listagem de Notas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -38,7 +38,7 @@
 <body>
 
     <div>
-        <h3>&nbsp;&nbsp;&nbsp;<asp:Literal ID="Literal_Titulo" runat="server"></asp:Literal></h3>
+        <h3>&nbsp;&nbsp;&nbsp;Boletim Escolar - Listagem de Notas</h3>
         <hr />
         <div class="w3-container w3-animate-left">
 

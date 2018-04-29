@@ -2720,6 +2720,64 @@ public class WebService : System.Web.Services.WebService
 
         return url;
     }
+
+
+
+    [WebMethod]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string Historico(string param1)
+    {
+        //param1 = ID do ALuno
+
+        string Resultado = "";
+        int totalRegistros = 0;
+        List<Object> resultado = new List<object>();
+
+        string strselect = "select t2.nome as curso, t3.nome as turma, t1.id_turma " +
+            "from tbl_Alunos t1 " +
+            "inner join Tbl_Cursos t2 on (t1.id_curso = t2.id_Curs) " +
+            "inner join Tbl_Turmas t3 on (t1.id_turma = t3.id_turma) " +
+            "where t1.id_aluno=" + param1;
+
+        try
+        {
+            OperacaoBanco operacao1 = new OperacaoBanco();
+            SqlDataReader dados1 = operacao1.Select(strselect);
+            while (dados1.Read())
+            {
+                resultado.Add(new
+                {
+                    NomeCurso = dados1[0].ToString(),
+                    NomeTurma = dados1[1].ToString(),
+                    IDTurma = dados1[2].ToString()
+                });
+                totalRegistros += 1;
+            }
+            ConexaoBancoSQL.fecharConexao();
+
+            if (totalRegistros == 0)
+            {
+                resultado.Add(new
+                {
+                    NomeCurso = "X",
+                    NomeTurma = "X",
+                    IDTurma = "0"
+                });
+            }
+
+            //O JavaScriptSerializer vai fazer o web service retornar JSON
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            return js.Serialize(resultado);
+
+        }
+        catch (Exception)
+        {
+            Resultado = "FALHA";
+        }
+
+        return Resultado;
+    }
+
 }
 
 public class ConexaoBancoSQL

@@ -20,30 +20,25 @@ public partial class Boletins_Ficha : System.Web.UI.Page
         CursoAux = Request.QueryString["v2"];   // Nome do Curso
         TurmaAux = Request.QueryString["v3"];   // Nome da Turma
         IDTurmaAux = Request.QueryString["v4"]; // ID da Turma
+        AnoLetivo = Request.QueryString["v5"];  // Ano Letivo
+        string TituloRel = Request.QueryString["v6"];  // 1 = Boletim Escolar   2=Histórico Escolar
 
         string InstID = Session["InstID"].ToString();   //ID da Instituição
 
-        Verifica_AnoLetivo(InstID);
+        if (TituloRel == "1")
+        {
+            Literal_Titulo.Text = "BOLETIM ESCOLAR";
+        } else
+        {
+            Literal_Titulo.Text = "HISTÓRICO ESCOLAR";
+        }
+
         PreencheCampos(idAux);
         Verifica_Periodos(InstID);
 
         montaCabecalho();
         dadosCorpo();
         montaRodape();
-    }
-
-    private void Verifica_AnoLetivo(string idAux)
-    {
-        string strSelect = "select ano_letivo from tbl_parametros where ID_Inst = " + idAux;
-
-        OperacaoBanco operacao = new OperacaoBanco();
-        System.Data.SqlClient.SqlDataReader dados = operacao.Select(strSelect);
-
-        while (dados.Read())
-        {
-            AnoLetivo = Convert.ToString(dados[0]);
-        }
-        ConexaoBancoSQL.fecharConexao();
     }
 
     private void Verifica_Periodos(string idAux)
@@ -172,8 +167,8 @@ public partial class Boletins_Ficha : System.Web.UI.Page
             // resultado da disciplina por período
             for (int i = 0; i < quantPeriodos; i++)
             {
-                ColunaTemp = "média: <b>" + MediaPeriodo(Convert.ToString(dados[0]), Lista_IdPeriodos[i]) +
-                            "</b>  freq.: <b>" + FrequenciaPeriodo(Convert.ToString(dados[0]), IDTurmaAux, Lista_IdPeriodos[i]) +
+                ColunaTemp = "<small>média: </small><b>" + MediaPeriodo(Convert.ToString(dados[0]), Lista_IdPeriodos[i], AnoLetivo) +
+                            "</b><small> freq.: </small><b>" + FrequenciaPeriodo(Convert.ToString(dados[0]), IDTurmaAux, Lista_IdPeriodos[i], AnoLetivo) +
                             "%</b>";
                 switch (i)
                 {
@@ -215,13 +210,14 @@ public partial class Boletins_Ficha : System.Web.UI.Page
         Literal_Table.Text = str.ToString();
     }
 
-    private string MediaPeriodo(string idDisc, string idPer)
+    private string MediaPeriodo(string idDisc, string idPer, string Anoletivo)
     {
         //avaliacões no periodo
         string stringSelect = "select id_avaliacao, notaMax  " + 
             "from tbl_avaliacao " +
             "where id_Disc=" + idDisc + 
-            " and id_periodo=" + idPer ;
+            " and id_periodo=" + idPer +
+            " and ano_letivo=" + Anoletivo;
         decimal v1 = 0, v2 = 0;
         int quantAvaliacoes = 0;
 
@@ -264,14 +260,15 @@ public partial class Boletins_Ficha : System.Web.UI.Page
         return retornoNota;
     }
 
-    private string FrequenciaPeriodo(string idDisc, string idTurma, string idPer)
+    private string FrequenciaPeriodo(string idDisc, string idTurma, string idPer, string Anoletivo)
     {
         //aulas da disciplina na turma no periodo
         string stringSelect = "select id_aula " +
             "from Tbl_Alunos_Frequencia_Aulas " +
             "where id_Disc=" + idDisc +
             " and id_turma=" + idTurma +
-            " and id_periodo=" + idPer;
+            " and id_periodo=" + idPer +
+            " and ano_letivo=" + Anoletivo;
 
         //totaliza aulas,presencas e faltas
         Taulas = 0; Tpresencas = 0; Tfaltas = 0;

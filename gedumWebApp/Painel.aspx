@@ -87,7 +87,7 @@
                     <a href="Alunos_Frequencia_Resumo.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Frequência - Ficha</a>
                     <a href="Avaliacao_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Avaliações</a>
                     <a href="Boletins_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Boletins</a>
-                    <a href="#" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Histórico Escolar</a>
+                    <a href="Historico_Escolar.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Histórico Escolar</a>
                     <a href="Atestados_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Atestados</a>
                     <a href="Ocorrencias_Listagem.aspx" target="iframe" class="w3-bar-item w3-button w3-hover-green"><i class="fa fa-user"></i>&nbsp;Ocorrências Diversas</a>
                 </div>
